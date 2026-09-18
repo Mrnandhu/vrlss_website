@@ -1,0 +1,306 @@
+.restaurant-demo {
+  min-height: 100vh;
+  background: #f5f1e8;
+  color: #171914;
+  font-family: 'Manrope', sans-serif;
+}
+
+.restaurant-demo button,
+.restaurant-demo input {
+  font: inherit;
+}
+
+.restaurant-demo button {
+  cursor: pointer;
+}
+
+.restaurant-demo-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 28px 6vw;
+
+  color: white;
+}
+
+.restaurant-demo-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.restaurant-demo-logo > span {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255,255,255,.6);
+  border-radius: 50%;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.restaurant-demo-logo strong,
+.restaurant-demo-logo small {
+  display: block;
+}
+
+.restaurant-demo-logo strong {
+  font-size: 13px;
+  letter-spacing: .08em;
+}
+
+.restaurant-demo-logo small {
+  margin-top: 3px;
+  font-size: 8px;
+  letter-spacing: .18em;
+  opacity: .7;
+}
+
+.restaurant-back {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.restaurant-demo-main {
+  overflow: hidden;
+}
+
+.restaurant-demo-hero {
+  min-height: 760px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 150px 10vw 100px;
+
+  color: white;
+
+  background:
+    radial-gradient(circle at 75% 30%, rgba(125,150,100,.45), transparent 30%),
+    linear-gradient(135deg, #182019, #344530 55%, #151b16);
+}
+
+.restaurant-demo-label {
+  display: inline-block;
+
+  margin-bottom: 22px;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .25em;
+
+  opacity: .7;
+}
+
+.restaurant-demo-hero h1 {
+  max-width: 850px;
+
+  margin: 0;
+
+  font-size: clamp(58px, 9vw, 130px);
+  line-height: .88;
+  letter-spacing: -.06em;
+}
+
+.restaurant-demo-hero h1 em,
+.restaurant-demo-menu h2 em,
+.restaurant-demo-reservation h2 em {
+  color: #b7c995;
+  font-family: Georgia, serif;
+  font-weight: 400;
+}
+
+.restaurant-demo-hero p {
+  max-width: 560px;
+
+  margin: 36px 0;
+
+  font-size: 17px;
+  line-height: 1.7;
+
+  color: rgba(255,255,255,.72);
+}
+
+.restaurant-demo-hero button,
+.restaurant-demo-reservation button {
+  width: fit-content;
+
+  padding: 15px 22px;
+
+  border: 0;
+  border-radius: 999px;
+
+  background: #dce8c8;
+  color: #172018;
+
+  font-weight: 800;
+}
+
+.restaurant-demo-menu {
+  padding: 120px 8vw;
+}
+
+.restaurant-demo-menu h2,
+.restaurant-demo-reservation h2 {
+  margin: 0 0 55px;
+
+  font-size: clamp(48px, 6vw, 86px);
+  line-height: .95;
+  letter-spacing: -.05em;
+}
+
+.restaurant-demo-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.restaurant-demo-cards article {
+  min-height: 300px;
+
+  padding: 30px;
+
+  border: 1px solid rgba(23,25,20,.14);
+  border-radius: 24px;
+
+  background:
+    linear-gradient(145deg, #ffffff, #e3eee1);
+
+  box-sizing: border-box;
+}
+
+.restaurant-demo-cards article > span {
+  font-size: 11px;
+  letter-spacing: .15em;
+  opacity: .5;
+}
+
+.restaurant-demo-cards h3 {
+  margin: 100px 0 14px;
+  font-size: 26px;
+}
+
+.restaurant-demo-cards p {
+  margin: 0;
+
+  color: #6f7168;
+  line-height: 1.6;
+}
+
+.restaurant-demo-reservation {
+  padding: 120px 8vw;
+
+  background: #263328;
+  color: white;
+}
+
+.restaurant-demo-reservation p {
+  max-width: 550px;
+  margin: -20px 0 40px;
+
+  color: rgba(255,255,255,.65);
+  line-height: 1.7;
+}
+
+.restaurant-demo-reservation form {
+  max-width: 600px;
+
+  display: grid;
+  gap: 12px;
+}
+
+.restaurant-demo-reservation input {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 17px 18px;
+
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 12px;
+
+  outline: none;
+
+  background: rgba(255,255,255,.08);
+  color: white;
+}
+
+.restaurant-demo-reservation input::placeholder {
+  color: rgba(255,255,255,.5);
+}
+
+.restaurant-demo-footer {
+  padding: 30px 8vw;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  background: #111611;
+  color: white;
+}
+
+.restaurant-demo-footer span {
+  color: rgba(255,255,255,.5);
+  font-size: 12px;
+}
+
+@media (max-width: 760px) {
+  .restaurant-demo-nav {
+    padding: 22px;
+  }
+
+  .restaurant-back {
+    font-size: 11px;
+  }
+
+  .restaurant-demo-hero {
+    min-height: 700px;
+    padding: 130px 24px 70px;
+  }
+
+  .restaurant-demo-hero h1 {
+    font-size: clamp(58px, 17vw, 90px);
+  }
+
+  .restaurant-demo-hero p {
+    font-size: 14px;
+  }
+
+  .restaurant-demo-menu,
+  .restaurant-demo-reservation {
+    padding: 80px 22px;
+  }
+
+  .restaurant-demo-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .restaurant-demo-cards article {
+    min-height: 240px;
+  }
+
+  .restaurant-demo-cards h3 {
+    margin-top: 70px;
+  }
+
+  .restaurant-demo-footer {
+    padding: 25px 22px;
+    flex-direction: column;
+  }
+}
