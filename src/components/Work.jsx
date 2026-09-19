@@ -29,7 +29,7 @@ const projects = [
     tags: ['Web Application', 'Dashboard', 'Retail'],
     icon: LayoutDashboard,
     className: 'work-showroom',
-    demo: '#',
+    demo: '/demos/showroom',
   },
   {
     number: '03',
@@ -115,14 +115,6 @@ function ProjectPreview({ project }) {
 
       {project.className === 'work-showroom' && (
         <div className="showroom-preview">
-          <div className="showroom-sidebar">
-            <div className="showroom-logo" />
-            <div className="showroom-nav active" />
-            <div className="showroom-nav" />
-            <div className="showroom-nav" />
-            <div className="showroom-nav" />
-          </div>
-
           <div className="showroom-main">
             <div className="showroom-header">
               <div className="showroom-title" />

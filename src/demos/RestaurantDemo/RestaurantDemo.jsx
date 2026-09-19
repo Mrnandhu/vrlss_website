@@ -27,6 +27,14 @@ function RestaurantDemo() {
 
   return (
     <div className="restaurant-demo">
+      <a
+        href="/"
+        className="restaurant-home-button"
+        aria-label="Back to VRLS Solutions home"
+      >
+        <span>←</span>
+        <span>Back to Home</span>
+      </a>
       <RestaurantNav />
       <main>
         <RestaurantHero />

@@ -1,3 +1,4 @@
+import ShowroomDemo from './demos/ShowroomDemo/ShowroomDemo'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './components/Services'
@@ -44,6 +45,10 @@ function App() {
 
   if (path === '/demos/restaurant') {
     return <RestaurantDemo />
+  }
+
+  if (path === '/demos/showroom') {
+    return <ShowroomDemo />
   }
 
   return <MainWebsite />

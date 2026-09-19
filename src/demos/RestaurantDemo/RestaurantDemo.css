@@ -2457,3 +2457,53 @@
   }
 }
 
+
+.restaurant-home-button {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 300;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 16px;
+  border: 1px solid rgba(229, 211, 156, .55);
+  border-radius: 999px;
+  background: rgba(229, 211, 156, .96);
+  color: #10241d;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, .20),
+    0 2px 8px rgba(229, 211, 156, .14);
+  backdrop-filter: blur(12px);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  text-decoration: none;
+  transition:
+    transform .2s ease,
+    background .2s ease,
+    box-shadow .2s ease;
+}
+
+.restaurant-home-button span:first-child {
+  font-size: 13px;
+  line-height: 1;
+}
+
+.restaurant-home-button:hover {
+  transform: translateY(-2px);
+  background: #f0dfad;
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, .24),
+    0 3px 12px rgba(229, 211, 156, .20);
+}
+
+@media (max-width: 760px) {
+  .restaurant-home-button {
+    left: 12px;
+    bottom: 12px;
+    padding: 9px 13px;
+    font-size: 8px;
+  }
+}
+
