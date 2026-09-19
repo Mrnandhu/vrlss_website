@@ -40,7 +40,7 @@ const projects = [
     tags: ['Custom Software', 'Billing', 'Inventory'],
     icon: Receipt,
     className: 'work-mart',
-    demo: '#',
+    demo: '/demos/mart-billing',
   },
   {
     number: '04',

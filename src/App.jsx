@@ -1,4 +1,5 @@
 import ShowroomDemo from './demos/ShowroomDemo/ShowroomDemo'
+import MartBillingDemo from './demos/MartBillingDemo/MartBillingDemo'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './components/Services'
@@ -49,6 +50,10 @@ function App() {
 
   if (path === '/demos/showroom') {
     return <ShowroomDemo />
+  }
+
+  if (path === '/demos/mart-billing') {
+    return <MartBillingDemo />
   }
 
   return <MainWebsite />
