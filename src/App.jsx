@@ -10,6 +10,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 import RestaurantDemo from './demos/RestaurantDemo/RestaurantDemo'
+import BookingPage from './demos/RestaurantDemo/components/booking/BookingPage'
 
 import './App.css'
 
@@ -36,6 +37,10 @@ function MainWebsite() {
 
 function App() {
   const path = window.location.pathname
+
+  if (path === '/demos/restaurant/booking') {
+    return <BookingPage />
+  }
 
   if (path === '/demos/restaurant') {
     return <RestaurantDemo />

@@ -1,133 +1,59 @@
+import { useEffect, useState } from 'react'
+import RestaurantNav from './components/RestaurantNav'
+import RestaurantHero from './components/RestaurantHero'
+import Experience from './components/Experience'
+import RestaurantMenu from './components/RestaurantMenu'
+import DishModal from './components/DishModal'
+import Story from './components/Story'
+import Gallery from './components/Gallery'
+import PrivateDining from './components/PrivateDining'
+import Events from './components/Events'
+import Reservation from './components/Reservation'
+import RestaurantFooter from './components/RestaurantFooter'
+import BookingPage from './components/booking/BookingPage'
+
 import './RestaurantDemo.css'
 
 function RestaurantDemo() {
+  const [selectedDish, setSelectedDish] = useState(null)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  if (window.location.pathname === '/demos/restaurant/booking') {
+    return <BookingPage />
+  }
+
   return (
     <div className="restaurant-demo">
-      <header className="restaurant-demo-nav">
-        <div className="restaurant-demo-logo">
-          <span>EL</span>
-          <div>
-            <strong>EMBER & LEAF</strong>
-            <small>RESTAURANT CONCEPT</small>
-          </div>
-        </div>
+      <RestaurantNav />
+      <main>
+        <RestaurantHero />
 
-        <a href="/" className="restaurant-back">
-          ← Back to VRLS
-        </a>
-      </header>
+        <Experience />
 
-      <main className="restaurant-demo-main">
-        <section className="restaurant-demo-hero">
-          <span className="restaurant-demo-label">
-            VRLS DEMO / CONCEPT
-          </span>
+        <RestaurantMenu onSelectDish={setSelectedDish} />
 
-          <h1>
-            Fire,
-            <br />
-            <em>flavour</em> & nature.
-          </h1>
+        <Story />
 
-          <p>
-            A premium restaurant website concept demonstrating
-            responsive design, navigation and interactive experiences.
-          </p>
+        <Gallery />
 
-          <button
-            onClick={() =>
-              document
-                .getElementById('restaurant-demo-menu')
-                ?.scrollIntoView({ behavior: 'smooth' })
-            }
-          >
-            Explore the concept ↓
-          </button>
-        </section>
+        <PrivateDining />
 
-        <section
-          className="restaurant-demo-menu"
-          id="restaurant-demo-menu"
-        >
-          <span className="restaurant-demo-label">
-            THE MENU
-          </span>
+        <Events />
 
-          <h2>From the <em>kitchen.</em></h2>
-
-          <div className="restaurant-demo-cards">
-            <article>
-              <span>01</span>
-              <h3>Seasonal Starter</h3>
-              <p>
-                A concept menu item designed to demonstrate
-                restaurant content presentation.
-              </p>
-            </article>
-
-            <article>
-              <span>02</span>
-              <h3>Signature Main</h3>
-              <p>
-                A concept menu item designed to demonstrate
-                premium food presentation.
-              </p>
-            </article>
-
-            <article>
-              <span>03</span>
-              <h3>House Dessert</h3>
-              <p>
-                A concept menu item designed to demonstrate
-                menu browsing and visual hierarchy.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section className="restaurant-demo-reservation">
-          <span className="restaurant-demo-label">
-            RESERVATIONS
-          </span>
-
-          <h2>
-            Save a seat at the <em>table.</em>
-          </h2>
-
-          <p>
-            Reservation interaction shown as a website concept.
-            No real booking is submitted.
-          </p>
-
-          <form
-            onSubmit={(event) => {
-              event.preventDefault()
-              alert('Demo only — no reservation was submitted.')
-            }}
-          >
-            <input
-              type="text"
-              placeholder="Your name"
-              required
-            />
-
-            <input
-              type="email"
-              placeholder="Email"
-              required
-            />
-
-            <button type="submit">
-              Request Reservation →
-            </button>
-          </form>
-        </section>
+        <Reservation />
       </main>
 
-      <footer className="restaurant-demo-footer">
-        <strong>EMBER & LEAF</strong>
-        <span>VRLS Solutions demo concept</span>
-      </footer>
+      <RestaurantFooter />
+
+      {selectedDish && (
+        <DishModal
+          dish={selectedDish}
+          onClose={() => setSelectedDish(null)}
+        />
+      )}
     </div>
   )
 }

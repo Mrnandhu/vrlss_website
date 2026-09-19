@@ -1,0 +1,257 @@
+import { useState } from 'react'
+import {
+  ArrowLeft,
+  ArrowRight,
+  CalendarDays,
+  Clock3,
+  Users,
+} from 'lucide-react'
+
+const tables = [
+  { id: 'T01', seats: 2, status: 'available' },
+  { id: 'T02', seats: 2, status: 'available' },
+  { id: 'T03', seats: 4, status: 'unavailable' },
+  { id: 'T04', seats: 4, status: 'available' },
+  { id: 'T05', seats: 2, status: 'available' },
+  { id: 'T06', seats: 4, status: 'available' },
+  { id: 'T07', seats: 6, status: 'unavailable' },
+  { id: 'T08', seats: 4, status: 'available' },
+  { id: 'T09', seats: 2, status: 'available' },
+  { id: 'T10', seats: 6, status: 'available' },
+  { id: 'T11', seats: 4, status: 'unavailable' },
+  { id: 'T12', seats: 2, status: 'available' },
+]
+
+const timeSlots = [
+  '18:00',
+  '18:30',
+  '19:00',
+  '19:30',
+  '20:00',
+  '20:30',
+  '21:00',
+]
+
+function TableBooking({ onBack, onComplete }) {
+  const [selectedTable, setSelectedTable] = useState(null)
+  const [date, setDate] = useState('')
+  const [time, setTime] = useState('')
+  const [guests, setGuests] = useState(2)
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+
+  const selected = tables.find((table) => table.id === selectedTable)
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
+    if (!selected || !date || !time || !name.trim() || !email.trim()) {
+      return
+    }
+
+    onComplete({
+      type: 'Seat / Table Booking',
+      table: selected.id,
+      seats: selected.seats,
+      guests,
+      date,
+      time,
+      name: name.trim(),
+      email: email.trim(),
+    })
+  }
+
+  return (
+    <section className="booking-form-section">
+      <button type="button" className="booking-step-back" onClick={onBack}>
+        <ArrowLeft size={16} />
+        Back
+      </button>
+
+      <div className="booking-form-heading">
+        <span className="booking-eyebrow">02 / TABLE RESERVATION</span>
+        <h1>Choose your table.</h1>
+        <p>
+          Select an available table from the restaurant layout.
+        </p>
+      </div>
+
+      <div className="table-booking-layout">
+        <div className="restaurant-floor">
+          <div className="floor-label">ENTRANCE</div>
+
+          <div className="floor-bar">
+            <span>BAR</span>
+            <span>DINING ROOM</span>
+            <span>WINDOW SEATING</span>
+          </div>
+
+          <div className="table-grid">
+            {tables.map((table) => {
+              const isSelected = selectedTable === table.id
+              const unavailable = table.status === 'unavailable'
+
+              return (
+                <button
+                  type="button"
+                  key={table.id}
+                  disabled={unavailable}
+                  className={[
+                    'restaurant-table',
+                    unavailable ? 'is-unavailable' : 'is-available',
+                    isSelected ? 'is-selected' : '',
+                  ]
+                    .filter(Boolean)
+                    .join(' ')}
+                  onClick={() => setSelectedTable(table.id)}
+                >
+                  <strong>{table.id}</strong>
+                  <span>{table.seats} seats</span>
+                </button>
+              )
+            })}
+          </div>
+
+          <div className="table-legend">
+            <span>
+              <i className="legend-dot legend-available" />
+              Available
+            </span>
+
+            <span>
+              <i className="legend-dot legend-selected" />
+              Selected
+            </span>
+
+            <span>
+              <i className="legend-dot legend-unavailable" />
+              Unavailable
+            </span>
+          </div>
+        </div>
+
+        <form className="booking-form" onSubmit={handleSubmit}>
+          <div className="booking-form-card">
+            <div className="selected-table-summary">
+              <span>SELECTED TABLE</span>
+              <strong>{selected ? selected.id : '—'}</strong>
+              <small>
+                {selected
+                  ? `Up to ${selected.seats} guests`
+                  : 'Choose a table above'}
+              </small>
+            </div>
+
+            <div className="booking-field">
+              <label htmlFor="table-guests">
+                <Users size={16} />
+                Guests
+              </label>
+
+              <select
+                id="table-guests"
+                value={guests}
+                onChange={(event) => setGuests(Number(event.target.value))}
+                disabled={!selected}
+              >
+                {Array.from(
+                  { length: selected?.seats || 6 },
+                  (_, index) => index + 1,
+                ).map((value) => (
+                  <option value={value} key={value}>
+                    {value} {value === 1 ? 'guest' : 'guests'}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="booking-field">
+              <label htmlFor="table-date">
+                <CalendarDays size={16} />
+                Date
+              </label>
+
+              <input
+                id="table-date"
+                type="date"
+                value={date}
+                onChange={(event) => setDate(event.target.value)}
+                disabled={!selected}
+                required
+              />
+            </div>
+
+            <div className="booking-field">
+              <label htmlFor="table-time">
+                <Clock3 size={16} />
+                Time
+              </label>
+
+              <select
+                id="table-time"
+                value={time}
+                onChange={(event) => setTime(event.target.value)}
+                disabled={!selected}
+                required
+              >
+                <option value="">Select a time</option>
+                {timeSlots.map((slot) => (
+                  <option value={slot} key={slot}>
+                    {slot}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="booking-field">
+              <label htmlFor="table-name">Your name</label>
+
+              <input
+                id="table-name"
+                type="text"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+                placeholder="Enter your name"
+                disabled={!selected}
+                required
+              />
+            </div>
+
+            <div className="booking-field">
+              <label htmlFor="table-email">Email</label>
+
+              <input
+                id="table-email"
+                type="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                placeholder="you@example.com"
+                disabled={!selected}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="booking-demo-note">
+            <span>DEMO / CONCEPT</span>
+            <p>
+              Table availability is illustrative. This experience does not
+              create a real restaurant reservation.
+            </p>
+          </div>
+
+          <button
+            type="submit"
+            className="booking-primary-button"
+            disabled={!selected}
+          >
+            Review booking
+            <ArrowRight size={17} />
+          </button>
+        </form>
+      </div>
+    </section>
+  )
+}
+
+export default TableBooking

@@ -1,0 +1,2125 @@
+.table-booking {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% 15%, rgba(38, 82, 61, 0.28), transparent 34%),
+    #031c14;
+  color: #f3efe2;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.table-booking button,
+.table-booking input,
+.table-booking select {
+  font: inherit;
+}
+
+.table-booking-header {
+  width: calc(100% - 76px);
+  max-width: 1460px;
+  margin: 0 auto;
+  padding: 18px 0 16px;
+  border-bottom: 1px solid rgba(219, 198, 132, 0.22);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 30px;
+}
+
+.table-back {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  background: transparent;
+  color: rgba(243, 239, 226, 0.78);
+  cursor: pointer;
+}
+
+.table-back:hover {
+  color: #ead697;
+}
+
+.table-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.table-brand-mark {
+  width: 46px;
+  height: 46px;
+  border: 1px solid #b9a66b;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #ead697;
+  font-family: Georgia, serif;
+  font-size: 25px;
+}
+
+.table-brand strong,
+.table-brand small {
+  display: block;
+}
+
+.table-brand strong {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 21px;
+  letter-spacing: 0.03em;
+}
+
+.table-brand small {
+  margin-top: 4px;
+  color: rgba(243, 239, 226, 0.52);
+  font-size: 8px;
+  letter-spacing: 0.24em;
+}
+
+.table-step {
+  justify-self: end;
+  color: #d9c277;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+}
+
+.table-booking-main {
+  width: calc(100% - 76px);
+  max-width: 1460px;
+  margin: 0 auto;
+  padding: 46px 0 70px;
+}
+
+.table-booking-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 28px;
+}
+
+.table-eyebrow,
+.zone-title,
+.selection-card-header span,
+.booking-controls label > span,
+.booking-quick-info > span {
+  color: #d9c277;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.23em;
+}
+
+.table-booking-heading h1 {
+  margin: 12px 0 10px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(52px, 5vw, 82px);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+}
+
+.table-booking-heading p {
+  max-width: 800px;
+  margin: 0;
+  color: rgba(243, 239, 226, 0.68);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.table-legend {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding-bottom: 7px;
+  flex-shrink: 0;
+}
+
+.table-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(243, 239, 226, 0.76);
+  font-size: 12px;
+}
+
+.legend-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.legend-dot.available {
+  background: #35bd83;
+}
+
+.legend-dot.selected {
+  background: #e7ca75;
+}
+
+.legend-dot.unavailable {
+  background: #717572;
+}
+
+.table-booking-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 310px;
+  gap: 30px;
+  align-items: start;
+}
+
+.restaurant-floorplan {
+  min-width: 0;
+  border: 1px solid rgba(217, 194, 119, 0.4);
+  background: rgba(12, 47, 35, 0.68);
+  padding: 18px;
+}
+
+.floorplan-tabs {
+  display: flex;
+  gap: 0;
+  width: fit-content;
+  margin-left: auto;
+  margin-bottom: 18px;
+  border: 1px solid rgba(217, 194, 119, 0.38);
+}
+
+.floorplan-tabs button {
+  min-height: 42px;
+  padding: 0 20px;
+  border: 0;
+  border-right: 1px solid rgba(217, 194, 119, 0.2);
+  background: transparent;
+  color: rgba(243, 239, 226, 0.72);
+  cursor: pointer;
+}
+
+.floorplan-tabs button:last-child {
+  border-right: 0;
+}
+
+.floorplan-tabs button:hover,
+.floorplan-tabs button.active {
+  background: #ead697;
+  color: #082117;
+}
+
+.floorplan {
+  position: relative;
+  min-height: 670px;
+  overflow: hidden;
+  padding: 38px 42px 52px;
+  border: 1px solid rgba(217, 194, 119, 0.22);
+  background:
+    linear-gradient(rgba(207, 188, 120, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(207, 188, 120, 0.055) 1px, transparent 1px),
+    radial-gradient(circle at 50% 45%, rgba(40, 95, 66, 0.2), transparent 55%),
+    #06251a;
+  background-size: 34px 34px, 34px 34px, auto, auto;
+}
+
+.zone-title {
+  position: absolute;
+  top: 17px;
+  left: 22px;
+}
+
+.private-zone {
+  position: relative;
+  height: 170px;
+  border: 1px solid rgba(217, 194, 119, 0.27);
+  background: rgba(3, 27, 20, 0.26);
+}
+
+.private-room-grid {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 38px 16px 15px;
+  gap: 10px;
+}
+
+.private-room {
+  position: relative;
+  min-width: 0;
+  border: 1px solid rgba(53, 189, 131, 0.65);
+  background: rgba(22, 78, 55, 0.58);
+  color: #f3efe2;
+  cursor: pointer;
+  transition: 180ms ease;
+}
+
+.private-room:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: #ead697;
+}
+
+.private-room.is-selected {
+  border-color: #ead697;
+  background: rgba(126, 100, 35, 0.72);
+  box-shadow: inset 0 0 0 1px rgba(234, 214, 151, 0.5);
+}
+
+.private-room.is-unavailable,
+.dining-table.is-unavailable {
+  background: rgba(88, 92, 89, 0.45);
+  border-color: rgba(143, 147, 143, 0.45);
+  color: rgba(243, 239, 226, 0.48);
+  cursor: not-allowed;
+}
+
+.room-label {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: rgba(243, 239, 226, 0.55);
+}
+
+.private-room strong {
+  display: block;
+  margin-top: 16px;
+  font-size: 17px;
+}
+
+.private-room small {
+  font-size: 10px;
+  color: rgba(243, 239, 226, 0.65);
+}
+
+.party-zone {
+  position: absolute;
+  top: 38px;
+  right: 42px;
+  width: 270px;
+  height: 170px;
+  border: 1px solid rgba(217, 194, 119, 0.42);
+  background: rgba(17, 67, 46, 0.45);
+}
+
+.party-hall {
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  width: 180px;
+  height: 82px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(217, 194, 119, 0.7);
+  background: rgba(76, 71, 37, 0.45);
+  color: #f3efe2;
+  cursor: pointer;
+}
+
+.party-hall:hover,
+.party-hall.is-selected {
+  background: rgba(126, 100, 35, 0.72);
+}
+
+.party-hall > span,
+.party-hall > strong,
+.party-hall > small {
+  display: block;
+}
+
+.party-hall > span {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+}
+
+.party-hall > strong {
+  margin-top: 7px;
+  font-size: 15px;
+}
+
+.party-hall > small {
+  color: rgba(243, 239, 226, 0.65);
+}
+
+.main-dining-zone {
+  position: absolute;
+  left: 42px;
+  right: 42px;
+  top: 235px;
+  bottom: 58px;
+  border-top: 1px solid rgba(217, 194, 119, 0.22);
+}
+
+.dining-layout {
+  height: calc(100% - 25px);
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 26px;
+  place-items: center;
+}
+
+.dining-table {
+  position: relative;
+  width: 78px;
+  height: 58px;
+  border: 1px solid rgba(53, 189, 131, 0.75);
+  background: rgba(22, 78, 55, 0.68);
+  color: #f3efe2;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.dining-table:hover:not(:disabled) {
+  transform: scale(1.05);
+  border-color: #ead697;
+}
+
+.dining-table.shape-round {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.dining-table.shape-large {
+  width: 110px;
+  height: 66px;
+}
+
+.dining-table.shape-large-wide {
+  width: 120px;
+  height: 70px;
+}
+
+.dining-table.is-selected {
+  background: rgba(126, 100, 35, 0.8);
+  border-color: #ead697;
+  box-shadow: 0 0 0 1px rgba(234, 214, 151, 0.5);
+}
+
+.dining-table strong {
+  display: block;
+  font-size: 12px;
+}
+
+.dining-table small {
+  display: block;
+  margin-top: 3px;
+  font-size: 8px;
+  color: rgba(243, 239, 226, 0.65);
+}
+
+.selected-check {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #ead697;
+  color: #12271d;
+}
+
+.reception-zone {
+  position: absolute;
+  left: 42px;
+  bottom: 13px;
+  width: 180px;
+  height: 35px;
+  border: 1px solid rgba(217, 194, 119, 0.25);
+  display: grid;
+  place-items: center;
+  color: rgba(243, 239, 226, 0.6);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+}
+
+.lounge-zone {
+  position: absolute;
+  right: 20px;
+  top: 240px;
+  bottom: 62px;
+  width: 100px;
+  border-left: 1px solid rgba(217, 194, 119, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+}
+
+.lounge-zone > span {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  color: rgba(243, 239, 226, 0.65);
+}
+
+.lounge-seat {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #b9a66b;
+  border-radius: 50%;
+}
+
+.entrance-zone {
+  position: absolute;
+  bottom: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 35px;
+  border: 1px solid rgba(217, 194, 119, 0.35);
+  display: grid;
+  place-items: center;
+  color: #d9c277;
+  font-size: 8px;
+  letter-spacing: 0.22em;
+}
+
+.booking-sidebar {
+  border: 1px solid rgba(217, 194, 119, 0.4);
+  background: rgba(8, 35, 26, 0.78);
+}
+
+.selection-card {
+  padding: 20px;
+  border-bottom: 1px solid rgba(217, 194, 119, 0.22);
+}
+
+.selection-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.selection-card-header button {
+  border: 0;
+  background: transparent;
+  color: #d9c277;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.selection-card-header button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.empty-selection {
+  padding: 28px 0 12px;
+  color: rgba(243, 239, 226, 0.5);
+  text-align: center;
+}
+
+.empty-selection p {
+  margin: 10px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.selected-items {
+  margin-top: 14px;
+  display: grid;
+  gap: 7px;
+}
+
+.selected-item {
+  position: relative;
+  min-height: 43px;
+  padding: 0 10px;
+  display: grid;
+  grid-template-columns: 10px auto 1fr auto;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid rgba(217, 194, 119, 0.35);
+  background: rgba(17, 67, 46, 0.5);
+}
+
+.selected-item-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #35bd83;
+}
+
+.selected-item strong {
+  font-size: 12px;
+}
+
+.selected-item > span:not(.selected-item-dot) {
+  color: rgba(243, 239, 226, 0.62);
+  font-size: 11px;
+}
+
+.selected-item button {
+  border: 0;
+  background: transparent;
+  color: rgba(243, 239, 226, 0.62);
+  cursor: pointer;
+}
+
+.capacity-row {
+  margin-top: 18px;
+  padding-top: 17px;
+  border-top: 1px solid rgba(217, 194, 119, 0.18);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.capacity-row span {
+  color: rgba(243, 239, 226, 0.62);
+  font-size: 11px;
+}
+
+.capacity-row strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.booking-controls {
+  padding: 20px;
+  display: grid;
+  gap: 16px;
+}
+
+.booking-controls label {
+  display: block;
+}
+
+.booking-controls label > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 8px;
+}
+
+.control-field {
+  position: relative;
+  min-height: 48px;
+  border: 1px solid rgba(217, 194, 119, 0.3);
+  background: rgba(2, 24, 17, 0.45);
+}
+
+.control-field input,
+.control-field select {
+  width: 100%;
+  height: 48px;
+  padding: 0 13px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #f3efe2;
+}
+
+.control-field input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.7;
+}
+
+.control-field select {
+  appearance: none;
+  padding-right: 38px;
+}
+
+.control-field select option {
+  background: #09271c;
+  color: #f3efe2;
+}
+
+.select-field > svg {
+  position: absolute;
+  right: 13px;
+  top: 16px;
+  pointer-events: none;
+  color: #d9c277;
+}
+
+.field-error {
+  display: block;
+  margin-top: 7px;
+  color: #e2a98e;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.booking-continue {
+  width: 100%;
+  min-height: 52px;
+  margin-top: 4px;
+  border: 0;
+  background: #ead697;
+  color: #12271d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.booking-continue:hover:not(:disabled) {
+  background: #f1dfa3;
+}
+
+.booking-continue:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.booking-quick-info {
+  padding: 20px;
+  border-top: 1px solid rgba(217, 194, 119, 0.22);
+}
+
+.booking-quick-info > span {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.booking-quick-info p {
+  margin: 11px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: rgba(243, 239, 226, 0.6);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.booking-quick-info p svg {
+  flex-shrink: 0;
+  color: #d9c277;
+  margin-top: 1px;
+}
+
+.quick-icon {
+  width: 16px;
+  color: #d9c277;
+  text-align: center;
+}
+
+.table-booking-footer {
+  width: calc(100% - 76px);
+  max-width: 1460px;
+  margin: 0 auto;
+  padding: 22px 0 30px;
+  border-top: 1px solid rgba(217, 194, 119, 0.18);
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+  color: rgba(243, 239, 226, 0.55);
+}
+
+.table-booking-footer strong,
+.table-booking-footer small {
+  display: block;
+}
+
+.table-booking-footer strong {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 18px;
+  letter-spacing: 0.06em;
+}
+
+.table-booking-footer small {
+  margin-top: 4px;
+  font-size: 8px;
+  letter-spacing: 0.24em;
+}
+
+.table-booking-footer > span {
+  font-size: 10px;
+}
+
+@media (max-width: 1150px) {
+  .table-booking-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-sidebar {
+    max-width: none;
+  }
+
+  .booking-controls {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: end;
+  }
+
+  .booking-continue {
+    grid-column: 1 / -1;
+  }
+
+  .booking-quick-info {
+    display: grid;
+    grid-template-columns: auto repeat(3, 1fr);
+    gap: 15px;
+    align-items: center;
+  }
+
+  .booking-quick-info > span {
+    margin: 0;
+  }
+
+  .booking-quick-info p {
+    margin: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .table-booking-header,
+  .table-booking-main,
+  .table-booking-footer {
+    width: calc(100% - 30px);
+  }
+
+  .table-booking-header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .table-brand {
+    grid-row: 1;
+  }
+
+  .table-back {
+    grid-row: 2;
+  }
+
+  .table-step {
+    display: none;
+  }
+
+  .table-booking-heading {
+    display: block;
+  }
+
+  .table-booking-heading h1 {
+    font-size: 54px;
+  }
+
+  .table-legend {
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+
+  .restaurant-floorplan {
+    padding: 10px;
+  }
+
+  .floorplan-tabs {
+    width: 100%;
+    overflow-x: auto;
+    margin: 0 0 10px;
+  }
+
+  .floorplan-tabs button {
+    white-space: nowrap;
+    padding: 0 13px;
+    font-size: 11px;
+  }
+
+  .floorplan {
+    min-height: 620px;
+    padding: 25px 12px 45px;
+    overflow-x: auto;
+  }
+
+  .private-zone {
+    min-width: 650px;
+  }
+
+  .party-zone {
+    right: 12px;
+    width: 220px;
+  }
+
+  .main-dining-zone {
+    left: 12px;
+    right: 12px;
+    min-width: 650px;
+  }
+
+  .dining-layout {
+    gap: 15px;
+  }
+
+  .lounge-zone {
+    display: none;
+  }
+
+  .reception-zone {
+    left: 12px;
+  }
+
+  .booking-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-continue {
+    grid-column: auto;
+  }
+
+  .booking-quick-info {
+    display: block;
+  }
+
+  .booking-quick-info p {
+    margin: 11px 0;
+  }
+
+  .table-booking-footer {
+    display: block;
+  }
+
+  .table-booking-footer > span {
+    display: block;
+    margin-top: 20px;
+  }
+}
+
+/* =========================================================
+   FLOORPLAN REFINEMENT — VRLS RESTAURANT DEMO
+   ========================================================= */
+
+.restaurant-floorplan {
+  padding: 18px;
+  overflow: hidden;
+}
+
+/* ---------------------------------------------------------
+   FLOOR PLAN
+   --------------------------------------------------------- */
+
+.floorplan {
+  min-height: 720px;
+  padding: 0;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  grid-template-rows: 205px minmax(360px, 1fr) 58px;
+
+  gap: 0;
+
+  background:
+    linear-gradient(
+      rgba(207, 188, 120, 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(207, 188, 120, 0.045) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at 48% 52%,
+      rgba(38, 102, 69, 0.2),
+      transparent 52%
+    ),
+    #06251a;
+
+  background-size:
+    34px 34px,
+    34px 34px,
+    auto,
+    auto;
+}
+
+/* ---------------------------------------------------------
+   PRIVATE ROOMS
+   --------------------------------------------------------- */
+
+.private-zone {
+  position: relative;
+
+  grid-column: 1;
+  grid-row: 1;
+
+  width: auto;
+  height: auto;
+
+  margin: 18px 14px 10px 18px;
+
+  border: 1px solid rgba(217, 194, 119, 0.34);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(20, 71, 49, 0.5),
+      rgba(3, 27, 20, 0.35)
+    );
+}
+
+.private-zone .zone-title {
+  top: 13px;
+  left: 18px;
+}
+
+.private-room-grid {
+  height: 100%;
+  padding: 43px 12px 12px;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.private-room {
+  min-width: 0;
+  min-height: 112px;
+
+  border: 1px solid rgba(53, 189, 131, 0.5);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(24, 83, 57, 0.75),
+      rgba(7, 43, 29, 0.8)
+    );
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.private-room:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  border-color: rgba(234, 214, 151, 0.9);
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(234, 214, 151, 0.15);
+}
+
+.private-room.is-selected {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(127, 101, 37, 0.8),
+      rgba(83, 65, 27, 0.75)
+    );
+
+  border-color: #ead697;
+
+  box-shadow:
+    0 0 0 1px rgba(234, 214, 151, 0.35),
+    0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* Small architectural door indication */
+
+.private-room::after {
+  content: '';
+  position: absolute;
+
+  bottom: -1px;
+  left: 50%;
+
+  width: 28px;
+  height: 6px;
+
+  transform: translateX(-50%);
+
+  border-left: 1px solid rgba(217, 194, 119, 0.6);
+  border-right: 1px solid rgba(217, 194, 119, 0.6);
+  background: #06251a;
+}
+
+/* ---------------------------------------------------------
+   MINI PARTY HALL
+   --------------------------------------------------------- */
+
+.party-zone {
+  position: relative;
+
+  grid-column: 2;
+  grid-row: 1;
+
+  top: auto;
+  right: auto;
+
+  width: auto;
+  height: auto;
+
+  margin: 18px 18px 10px 0;
+
+  border: 1px solid rgba(217, 194, 119, 0.48);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(31, 82, 56, 0.7),
+      rgba(7, 39, 27, 0.82)
+    );
+}
+
+.party-zone .zone-title {
+  top: 13px;
+  left: 18px;
+}
+
+.party-hall {
+  left: 50%;
+  top: 55%;
+
+  width: 170px;
+  height: 82px;
+
+  border: 1px solid rgba(234, 214, 151, 0.78);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(94, 76, 31, 0.62),
+      rgba(61, 50, 25, 0.68)
+    );
+
+  box-shadow:
+    inset 0 0 0 1px rgba(234, 214, 151, 0.08);
+}
+
+.party-hall:hover,
+.party-hall.is-selected {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(137, 109, 39, 0.85),
+      rgba(87, 68, 27, 0.85)
+    );
+
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.22),
+    inset 0 0 0 1px rgba(234, 214, 151, 0.35);
+}
+
+/* ---------------------------------------------------------
+   MAIN DINING AREA
+   --------------------------------------------------------- */
+
+.main-dining-zone {
+  position: relative;
+
+  grid-column: 1 / -1;
+  grid-row: 2;
+
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
+
+  margin:
+    0
+    18px
+    0
+    18px;
+
+  border-top:
+    1px solid rgba(217, 194, 119, 0.26);
+
+  border-bottom:
+    1px solid rgba(217, 194, 119, 0.14);
+
+  min-width: 0;
+  min-height: 0;
+}
+
+.main-dining-zone .zone-title {
+  position: absolute;
+
+  top: 14px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  padding: 0 18px;
+
+  background: #06251a;
+
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------
+   DINING TABLE GRID
+   --------------------------------------------------------- */
+
+.dining-layout {
+  height: calc(100% - 34px);
+
+  margin-top: 34px;
+
+  padding:
+    20px
+    105px
+    20px
+    30px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+
+  grid-template-rows:
+    repeat(3, minmax(90px, 1fr));
+
+  column-gap: 28px;
+  row-gap: 20px;
+
+  place-items: center;
+}
+
+/* Every table gets a controlled footprint */
+
+.dining-table {
+  width: 82px;
+  height: 58px;
+
+  position: relative;
+
+  flex-shrink: 0;
+
+  border: 1px solid rgba(53, 189, 131, 0.68);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(25, 91, 61, 0.8),
+      rgba(7, 48, 32, 0.82)
+    );
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.dining-table:hover:not(:disabled) {
+  transform: translateY(-3px) scale(1.04);
+
+  border-color: #ead697;
+
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.2);
+}
+
+.dining-table.shape-round {
+  width: 64px;
+  height: 64px;
+
+  border-radius: 50%;
+}
+
+.dining-table.shape-square {
+  width: 74px;
+  height: 60px;
+}
+
+.dining-table.shape-large {
+  width: 104px;
+  height: 62px;
+}
+
+.dining-table.shape-large-wide {
+  width: 116px;
+  height: 66px;
+}
+
+.dining-table.is-selected {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(139, 111, 39, 0.9),
+      rgba(86, 67, 27, 0.9)
+    );
+
+  border-color: #ead697;
+
+  box-shadow:
+    0 0 0 1px rgba(234, 214, 151, 0.3),
+    0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.dining-table.is-unavailable {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(91, 96, 93, 0.5),
+      rgba(57, 63, 60, 0.52)
+    );
+
+  border-color: rgba(150, 155, 151, 0.4);
+}
+
+/* ---------------------------------------------------------
+   TABLE CHAIRS — SUBTLE VISUAL DETAIL
+   --------------------------------------------------------- */
+
+.dining-table::before,
+.dining-table::after {
+  content: '';
+
+  position: absolute;
+
+  left: 50%;
+
+  width: 26px;
+  height: 5px;
+
+  transform: translateX(-50%);
+
+  border:
+    1px solid rgba(217, 194, 119, 0.35);
+
+  background:
+    rgba(7, 38, 27, 0.85);
+
+  pointer-events: none;
+}
+
+.dining-table::before {
+  top: -8px;
+}
+
+.dining-table::after {
+  bottom: -8px;
+}
+
+/* Round tables should not get huge chair bars */
+
+.dining-table.shape-round::before,
+.dining-table.shape-round::after {
+  width: 16px;
+}
+
+/* ---------------------------------------------------------
+   LOUNGE
+   --------------------------------------------------------- */
+
+.lounge-zone {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 82px;
+
+  border-left:
+    1px solid rgba(217, 194, 119, 0.2);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3, 29, 21, 0.35),
+      rgba(3, 20, 15, 0.62)
+    );
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 32px;
+
+  z-index: 3;
+}
+
+.lounge-zone > span {
+  writing-mode: vertical-rl;
+
+  transform: rotate(180deg);
+
+  font-size: 8px;
+  letter-spacing: 0.25em;
+
+  color: rgba(243, 239, 226, 0.55);
+}
+
+.lounge-seat {
+  width: 25px;
+  height: 25px;
+
+  border: 1px solid #b9a66b;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(185, 166, 107, 0.12),
+      transparent 70%
+    );
+}
+
+/* ---------------------------------------------------------
+   RECEPTION + ENTRANCE
+   --------------------------------------------------------- */
+
+.reception-zone {
+  position: absolute;
+
+  left: 18px;
+  bottom: 12px;
+
+  width: 180px;
+  height: 34px;
+
+  border:
+    1px solid rgba(217, 194, 119, 0.27);
+
+  background: rgba(3, 27, 20, 0.42);
+
+  display: grid;
+  place-items: center;
+
+  font-size: 8px;
+  letter-spacing: 0.22em;
+
+  color: rgba(243, 239, 226, 0.58);
+}
+
+.entrance-zone {
+  position: absolute;
+
+  left: 50%;
+  bottom: 8px;
+
+  width: 150px;
+  height: 32px;
+
+  transform: translateX(-50%);
+
+  border:
+    1px solid rgba(217, 194, 119, 0.35);
+
+  background: #06251a;
+
+  display: grid;
+  place-items: center;
+
+  color: #d9c277;
+
+  font-size: 8px;
+  letter-spacing: 0.23em;
+
+  z-index: 4;
+}
+
+/* ---------------------------------------------------------
+   SELECTED CHECK
+   --------------------------------------------------------- */
+
+.selected-check {
+  width: 20px;
+  height: 20px;
+
+  top: -10px;
+  right: -10px;
+
+  border:
+    1px solid rgba(3, 28, 20, 0.4);
+
+  background: #ead697;
+
+  color: #12271d;
+
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.2);
+
+  z-index: 8;
+}
+
+/* ---------------------------------------------------------
+   SIDEBAR REFINEMENT
+   --------------------------------------------------------- */
+
+.booking-sidebar {
+  position: sticky;
+  top: 20px;
+
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.12);
+}
+
+.selection-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18, 66, 45, 0.46),
+      rgba(4, 28, 20, 0.22)
+    );
+}
+
+.selected-item {
+  border-color: rgba(217, 194, 119, 0.28);
+
+  background:
+    rgba(18, 68, 47, 0.48);
+}
+
+.booking-continue {
+  box-shadow:
+    0 10px 24px rgba(234, 214, 151, 0.08);
+}
+
+/* ---------------------------------------------------------
+   MOBILE FLOOR PLAN
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .floorplan {
+    min-height: 850px;
+
+    display: block;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .private-zone {
+    width: calc(100% - 320px);
+    min-width: 620px;
+
+    height: 190px;
+
+    margin-right: 320px;
+  }
+
+  .party-zone {
+    position: absolute;
+
+    top: 18px;
+    right: 18px;
+
+    width: 280px;
+    height: 190px;
+
+    margin: 0;
+  }
+
+  .main-dining-zone {
+    position: absolute;
+
+    left: 18px;
+    right: 18px;
+
+    top: 225px;
+
+    height: 520px;
+
+    min-width: 850px;
+
+    margin: 0;
+  }
+
+  .dining-layout {
+    padding-right: 100px;
+  }
+
+  .lounge-zone {
+    width: 72px;
+  }
+}
+
+@media (max-width: 600px) {
+  .restaurant-floorplan {
+    padding: 7px;
+  }
+
+  .floorplan-tabs {
+    overflow-x: auto;
+  }
+
+  .floorplan-tabs button {
+    flex-shrink: 0;
+  }
+
+  .floorplan {
+    min-height: 900px;
+  }
+
+  .private-zone {
+    left: 12px;
+    right: 312px;
+
+    width: auto;
+    min-width: 600px;
+  }
+
+  .party-zone {
+    right: 12px;
+    width: 280px;
+  }
+
+  .main-dining-zone {
+    left: 12px;
+    right: 12px;
+
+    top: 225px;
+
+    min-width: 860px;
+  }
+
+  .dining-layout {
+    column-gap: 22px;
+    row-gap: 18px;
+  }
+}
+
+/* =========================================================
+   MOBILE FLOOR PLAN — COMPLETE REFLOW
+   Do NOT squeeze the desktop floor plan.
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  /* -------------------------------------------------------
+     OUTER FLOOR PLAN
+     ------------------------------------------------------- */
+
+  .restaurant-floorplan {
+    width: 100%;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .floorplan {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 0;
+
+    padding: 10px;
+
+    overflow: visible;
+
+    background:
+      linear-gradient(
+        rgba(207, 188, 120, 0.045) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(207, 188, 120, 0.045) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        circle at 50% 40%,
+        rgba(38, 102, 69, 0.2),
+        transparent 60%
+      ),
+      #06251a;
+
+    background-size:
+      28px 28px,
+      28px 28px,
+      auto,
+      auto;
+  }
+
+
+  /* -------------------------------------------------------
+     PRIVATE ROOMS
+     ------------------------------------------------------- */
+
+  .private-zone {
+    position: relative;
+
+    inset: auto;
+
+    width: 100%;
+    height: auto;
+
+    min-width: 0;
+
+    margin: 0;
+
+    padding: 0;
+
+    border:
+      1px solid rgba(217, 194, 119, 0.34);
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(20, 71, 49, 0.5),
+        rgba(3, 27, 20, 0.35)
+      );
+  }
+
+  .private-zone .zone-title {
+    position: static;
+
+    display: block;
+
+    padding:
+      14px
+      14px
+      8px;
+
+    transform: none;
+
+    font-size: 8px;
+    letter-spacing: 0.22em;
+  }
+
+  .private-room-grid {
+    width: 100%;
+    height: auto;
+
+    padding: 8px 10px 12px;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    grid-template-rows: repeat(2, 92px);
+
+    gap: 8px;
+  }
+
+  .private-room {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+
+    height: 92px;
+  }
+
+
+  /* -------------------------------------------------------
+     MINI PARTY HALL
+     ------------------------------------------------------- */
+
+  .party-zone {
+    position: relative;
+
+    inset: auto;
+
+    width: 100%;
+    height: 150px;
+
+    min-width: 0;
+
+    margin: 10px 0 0;
+
+    border:
+      1px solid rgba(217, 194, 119, 0.48);
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(31, 82, 56, 0.7),
+        rgba(7, 39, 27, 0.82)
+      );
+  }
+
+  .party-zone .zone-title {
+    position: static;
+
+    display: block;
+
+    padding:
+      13px
+      14px
+      0;
+
+    transform: none;
+
+    font-size: 8px;
+    letter-spacing: 0.22em;
+  }
+
+  .party-hall {
+    position: absolute;
+
+    left: 50%;
+    top: 58%;
+
+    width: min(190px, 70%);
+    height: 62px;
+
+    transform: translate(-50%, -50%);
+
+    margin: 0;
+  }
+
+
+  /* -------------------------------------------------------
+     MAIN DINING AREA
+     ------------------------------------------------------- */
+
+  .main-dining-zone {
+    position: relative;
+
+    inset: auto;
+
+    width: 100%;
+    height: auto;
+
+    min-width: 0;
+    min-height: 0;
+
+    margin: 10px 0 0;
+
+    padding-bottom: 65px;
+
+    border:
+      1px solid rgba(217, 194, 119, 0.28);
+
+    overflow: visible;
+  }
+
+  .main-dining-zone .zone-title {
+    position: static;
+
+    width: max-content;
+
+    margin:
+      0
+      auto;
+
+    padding:
+      13px
+      14px
+      5px;
+
+    transform: none;
+
+    background: transparent;
+
+    font-size: 8px;
+    letter-spacing: 0.22em;
+  }
+
+
+  /* -------------------------------------------------------
+     TABLE GRID
+     ------------------------------------------------------- */
+
+  .dining-layout {
+    width: 100%;
+    height: auto;
+
+    margin: 0;
+
+    padding:
+      22px
+      18px
+      28px;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+
+    grid-template-rows:
+      repeat(5, 76px);
+
+    gap:
+      18px
+      10px;
+
+    place-items: center;
+  }
+
+  .dining-table {
+    width: 62px;
+    height: 48px;
+
+    min-width: 0;
+
+    margin: 0;
+
+    font-size: 9px;
+  }
+
+  .dining-table.shape-round {
+    width: 54px;
+    height: 54px;
+  }
+
+  .dining-table.shape-square {
+    width: 58px;
+    height: 50px;
+  }
+
+  .dining-table.shape-large {
+    width: 76px;
+    height: 52px;
+  }
+
+  .dining-table.shape-large-wide {
+    width: 84px;
+    height: 54px;
+  }
+
+  .dining-table::before,
+  .dining-table::after {
+    width: 18px;
+    height: 4px;
+  }
+
+  .dining-table::before {
+    top: -6px;
+  }
+
+  .dining-table::after {
+    bottom: -6px;
+  }
+
+
+  /* -------------------------------------------------------
+     LOUNGE
+     ------------------------------------------------------- */
+
+  /*
+   * The desktop lounge doesn't fit naturally beside the
+   * dining grid on a phone. Removing it prevents collision.
+   */
+
+  .lounge-zone {
+    display: none !important;
+  }
+
+
+  /* -------------------------------------------------------
+     RECEPTION
+     ------------------------------------------------------- */
+
+  .reception-zone {
+    position: absolute;
+
+    left: 12px;
+    bottom: 12px;
+
+    width: 118px;
+    height: 30px;
+
+    margin: 0;
+
+    font-size: 6px;
+    letter-spacing: 0.15em;
+  }
+
+
+  /* -------------------------------------------------------
+     ENTRANCE
+     ------------------------------------------------------- */
+
+  .entrance-zone {
+    position: absolute;
+
+    left: 50%;
+    bottom: 12px;
+
+    width: 110px;
+    height: 30px;
+
+    transform: translateX(-50%);
+
+    font-size: 7px;
+    letter-spacing: 0.18em;
+  }
+
+
+  /* -------------------------------------------------------
+     SELECTED CHECK
+     ------------------------------------------------------- */
+
+  .selected-check {
+    width: 17px;
+    height: 17px;
+
+    top: -7px;
+    right: -7px;
+
+    font-size: 9px;
+  }
+
+
+  /* -------------------------------------------------------
+     SIDEBAR
+     ------------------------------------------------------- */
+
+  .booking-sidebar {
+    position: relative;
+
+    top: auto;
+
+    width: 100%;
+
+    margin-top: 14px;
+
+    box-shadow: none;
+  }
+
+
+  /* -------------------------------------------------------
+     TABS
+     ------------------------------------------------------- */
+
+  .floorplan-tabs {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(4, minmax(0, 1fr));
+
+    overflow: hidden;
+  }
+
+  .floorplan-tabs button {
+    min-width: 0;
+
+    padding:
+      11px
+      5px;
+
+    white-space: nowrap;
+
+    font-size: 9px;
+  }
+
+
+  /* -------------------------------------------------------
+     SELECTED TABLES
+     ------------------------------------------------------- */
+
+  .selection-card {
+    width: 100%;
+  }
+
+  .selected-item {
+    min-height: 48px;
+  }
+
+
+  /* -------------------------------------------------------
+     DATE / TIME / GUEST CONTROLS
+     ------------------------------------------------------- */
+
+  .booking-controls {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+  }
+
+
+  /* -------------------------------------------------------
+     QUICK INFO
+     ------------------------------------------------------- */
+
+  .booking-quick-info {
+    width: 100%;
+  }
+
+
+  /* -------------------------------------------------------
+     PREVENT GLOBAL HORIZONTAL SCROLL
+     ------------------------------------------------------- */
+
+  .booking-page,
+  .booking-main,
+  .booking-content,
+  .restaurant-demo {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+  .floorplan {
+    padding: 7px;
+  }
+
+  .private-room-grid {
+    grid-template-rows: repeat(2, 84px);
+    gap: 6px;
+  }
+
+  .private-room {
+    height: 84px;
+  }
+
+  .party-zone {
+    height: 138px;
+  }
+
+  .party-hall {
+    width: 180px;
+    height: 58px;
+  }
+
+  .dining-layout {
+    padding:
+      18px
+      10px
+      25px;
+
+    grid-template-rows:
+      repeat(5, 70px);
+
+    row-gap: 14px;
+  }
+
+  .dining-table {
+    width: 56px;
+    height: 44px;
+  }
+
+  .dining-table.shape-round {
+    width: 50px;
+    height: 50px;
+  }
+
+  .dining-table.shape-large {
+    width: 70px;
+    height: 48px;
+  }
+
+  .dining-table.shape-large-wide {
+    width: 76px;
+    height: 50px;
+  }
+
+  .floorplan-tabs button {
+    font-size: 8px;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+}
