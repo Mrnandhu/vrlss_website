@@ -51,7 +51,7 @@ const projects = [
     tags: ['Mobile App', 'E-commerce', 'UI'],
     icon: Smartphone,
     className: 'work-mobile',
-    demo: '#',
+    demo: '/demos/ecommerce',
   },
   {
     number: '05',
