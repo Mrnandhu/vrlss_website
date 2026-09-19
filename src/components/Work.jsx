@@ -73,7 +73,7 @@ const projects = [
     tags: ['AI & Automation', 'Assistant', 'Workflows'],
     icon: Bot,
     className: 'work-ai',
-    demo: '#',
+    demo: '/demos/ai-assistant',
   },
 ]
 

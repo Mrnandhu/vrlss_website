@@ -12856,3 +12856,753 @@
   width: 100% !important;
 }
 
+
+/* =========================================================
+   WORK SECTION — PREVIEW CONTAINMENT FIX
+   ========================================================= */
+
+#work,
+.work-section,
+.work-grid {
+  overflow: visible;
+}
+
+#work .work-card,
+#work .work-item {
+  position: relative;
+  overflow: hidden !important;
+  isolation: isolate;
+}
+
+#work .work-card > *,
+#work .work-item > * {
+  max-width: 100%;
+}
+
+#work .work-card .work-visual,
+#work .work-item .work-visual,
+#work .work-card .project-visual,
+#work .work-item .project-visual,
+#work .work-card .preview,
+#work .work-item .preview {
+  position: relative;
+  overflow: hidden !important;
+  max-width: 100%;
+}
+
+#work .work-card img,
+#work .work-item img {
+  max-width: 100%;
+}
+
+#work .work-card .work-visual *,
+#work .work-item .work-visual *,
+#work .work-card .project-visual *,
+#work .work-item .project-visual *,
+#work .work-card .preview *,
+#work .work-item .preview * {
+  max-width: 100%;
+}
+
+
+/* Prevent anchored Work section from hiding beneath the navbar */
+
+#work {
+  scroll-margin-top: 110px;
+}
+
+
+/* =========================================================
+   WORK — DEMO 06 AI BUSINESS ASSISTANT PREVIEW
+   Strictly isolate the small portfolio tile from the
+   full AI Assistant application's global .ai-* styles.
+   ========================================================= */
+
+#work .project-06 {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+}
+
+#work .project-06 .project-preview {
+  position: relative !important;
+  width: 100% !important;
+  height: 330px !important;
+  min-height: 330px !important;
+  max-height: 330px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+/* AI preview shell */
+
+#work .project-06 .ai-preview {
+  position: relative !important;
+
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  box-sizing: border-box !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  padding: 28px 30px 30px !important;
+  margin: 0 !important;
+
+  overflow: hidden !important;
+
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(20, 201, 107, .12),
+      transparent 38%
+    ),
+    linear-gradient(
+      135deg,
+      #eef8f2,
+      #e2f3e9
+    ) !important;
+}
+
+
+/* AI preview header */
+
+#work .project-06 .ai-header {
+  position: relative !important;
+
+  width: 100% !important;
+  height: 22px !important;
+  min-height: 22px !important;
+
+  flex: 0 0 22px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  margin: 0 0 14px !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+
+  border: 0 !important;
+}
+
+
+/* Brand inside preview */
+
+#work .project-06 .ai-brand {
+  position: static !important;
+
+  width: auto !important;
+  height: auto !important;
+
+  display: flex !important;
+  align-items: center !important;
+
+  gap: 8px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+
+  color: #18221d !important;
+
+  font-size: 8px !important;
+  line-height: 1 !important;
+  font-weight: 750 !important;
+  letter-spacing: .16em !important;
+}
+
+#work .project-06 .ai-brand span {
+  position: static !important;
+
+  width: 9px !important;
+  height: 9px !important;
+
+  flex: 0 0 9px !important;
+
+  display: block !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border-radius: 50% !important;
+
+  background: #16c96b !important;
+}
+
+
+/* Status line */
+
+#work .project-06 .ai-status {
+  position: static !important;
+
+  width: 30px !important;
+  height: 6px !important;
+
+  flex: 0 0 30px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border-radius: 999px !important;
+
+  background: #8ed7ad !important;
+}
+
+
+/* ---------------------------------------------------------
+   PREVIEW CHAT WINDOW
+   --------------------------------------------------------- */
+
+#work .project-06 .ai-body {
+  position: relative !important;
+
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+
+  flex: 1 1 auto !important;
+
+  display: flex !important;
+  flex-direction: row !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+
+  border: 1.5px solid #202622 !important;
+  border-radius: 17px !important;
+
+  background: #ffffff !important;
+
+  box-shadow: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   IMPORTANT:
+   Keep the preview sidebar STATIC.
+   This prevents the full Demo 06 fixed sidebar from
+   leaking into the homepage tile.
+   --------------------------------------------------------- */
+
+#work .project-06 .ai-body .ai-sidebar {
+  position: static !important;
+
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+
+  transform: none !important;
+
+  width: 48px !important;
+  min-width: 48px !important;
+  max-width: 48px !important;
+
+  height: 100% !important;
+  min-height: 0 !important;
+
+  flex: 0 0 48px !important;
+
+  box-sizing: border-box !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+
+  gap: 12px !important;
+
+  margin: 0 !important;
+  padding: 17px 10px !important;
+
+  overflow: hidden !important;
+
+  border: 0 !important;
+  border-right: 1px solid #e1e9e4 !important;
+
+  border-radius: 0 !important;
+
+  background: #f4faf6 !important;
+
+  color: inherit !important;
+
+  z-index: 1 !important;
+}
+
+
+/* Sidebar little bars */
+
+#work .project-06 .ai-body .ai-sidebar div {
+  position: static !important;
+
+  width: 21px !important;
+  height: 6px !important;
+
+  min-width: 21px !important;
+  min-height: 6px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border: 0 !important;
+  border-radius: 999px !important;
+
+  background: #d2ddd7 !important;
+
+  box-shadow: none !important;
+}
+
+
+/* Active square */
+
+#work .project-06 .ai-body .ai-sidebar .ai-side-active {
+  width: 25px !important;
+  height: 25px !important;
+
+  min-width: 25px !important;
+  min-height: 25px !important;
+
+  margin: 0 0 2px !important;
+
+  border-radius: 7px !important;
+
+  background: #16c96b !important;
+}
+
+
+/* ---------------------------------------------------------
+   CHAT AREA
+   --------------------------------------------------------- */
+
+#work .project-06 .ai-chat {
+  position: static !important;
+
+  width: auto !important;
+  height: 100% !important;
+  min-width: 0 !important;
+
+  flex: 1 1 auto !important;
+
+  box-sizing: border-box !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+
+  gap: 10px !important;
+
+  margin: 0 !important;
+  padding: 17px !important;
+
+  overflow: hidden !important;
+
+  background: #ffffff !important;
+
+  color: #18221d !important;
+}
+
+
+/* Messages */
+
+#work .project-06 .ai-message {
+  position: static !important;
+
+  width: auto !important;
+  max-width: 70% !important;
+
+  height: auto !important;
+
+  margin: 0 !important;
+  padding: 9px !important;
+
+  border-radius: 10px !important;
+
+  box-sizing: border-box !important;
+
+  box-shadow: none !important;
+}
+
+#work .project-06 .ai-message-user {
+  align-self: flex-end !important;
+
+  background: #e4f7ec !important;
+}
+
+#work .project-06 .ai-message-bot {
+  align-self: flex-start !important;
+
+  background: #f2f5f3 !important;
+}
+
+
+/* Message skeleton */
+
+#work .project-06 .ai-message div {
+  position: static !important;
+
+  width: 100% !important;
+  height: 5px !important;
+
+  margin: 0 0 5px !important;
+  padding: 0 !important;
+
+  border: 0 !important;
+  border-radius: 999px !important;
+
+  background: #c8d5ce !important;
+}
+
+#work .project-06 .ai-message div:last-child {
+  width: 65% !important;
+
+  margin-bottom: 0 !important;
+}
+
+#work .project-06 .ai-message-user div {
+  background: #93dcb1 !important;
+}
+
+
+/* ---------------------------------------------------------
+   INPUT
+   --------------------------------------------------------- */
+
+#work .project-06 .ai-input {
+  position: static !important;
+
+  width: 100% !important;
+  height: 31px !important;
+  min-height: 31px !important;
+
+  flex: 0 0 31px !important;
+
+  display: flex !important;
+  align-items: center !important;
+
+  gap: 8px !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 !important;
+  padding: 0 10px !important;
+
+  border: 1px solid #cfdad4 !important;
+  border-radius: 999px !important;
+
+  background: #ffffff !important;
+
+  box-shadow: none !important;
+}
+
+#work .project-06 .ai-input span {
+  position: static !important;
+
+  width: 7px !important;
+  height: 7px !important;
+
+  min-width: 7px !important;
+  min-height: 7px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border-radius: 50% !important;
+
+  background: #16c96b !important;
+}
+
+#work .project-06 .ai-input div {
+  position: static !important;
+
+  width: 70px !important;
+  height: 5px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border-radius: 999px !important;
+
+  background: #d5dfda !important;
+}
+
+
+/* ---------------------------------------------------------
+   PREVENT ANY GLOBAL AI DEMO ELEMENT FROM ESCAPING
+   --------------------------------------------------------- */
+
+#work .project-06 .ai-preview *,
+#work .project-06 .ai-preview *::before,
+#work .project-06 .ai-preview *::after {
+  box-sizing: border-box;
+}
+
+#work .project-06 .ai-preview [style*="position: fixed"],
+#work .project-06 .ai-preview [style*="position:fixed"] {
+  position: absolute !important;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE WORK CARD
+   --------------------------------------------------------- */
+
+@media (max-width: 800px) {
+  #work .project-06 .project-preview {
+    height: 280px !important;
+    min-height: 280px !important;
+    max-height: 280px !important;
+  }
+
+  #work .project-06 .ai-preview {
+    padding: 22px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  #work .project-06 .project-preview {
+    height: 250px !important;
+    min-height: 250px !important;
+    max-height: 250px !important;
+  }
+
+  #work .project-06 .ai-preview {
+    padding: 17px !important;
+  }
+
+  #work .project-06 .ai-body .ai-sidebar {
+    display: none !important;
+  }
+
+  #work .project-06 .ai-chat {
+    padding: 13px !important;
+  }
+}
+
+
+/* =========================================================
+   FINAL FIX — REMOVE BLACK AI HEADER FROM WORK TILE
+   Homepage portfolio preview only.
+   ========================================================= */
+
+#work .project-06 .ai-preview > .ai-header {
+  display: none !important;
+}
+
+/* In case the header is wrapped/named differently */
+#work .project-06 .ai-preview > .ai-topbar,
+#work .project-06 .ai-preview > .ai-window-header,
+#work .project-06 .ai-preview > .ai-preview-header {
+  display: none !important;
+}
+
+/* Rebalance the preview after removing the black bar */
+#work .project-06 .ai-preview {
+  padding: 28px 30px 30px !important;
+  gap: 0 !important;
+}
+
+/* Chat window now fills the complete preview */
+#work .project-06 .ai-body {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  flex: 1 1 auto !important;
+}
+
+/* Make sure no pseudo-element recreates the black strip */
+#work .project-06 .ai-preview::before,
+#work .project-06 .ai-preview::after {
+  display: none !important;
+}
+
+@media (max-width: 800px) {
+  #work .project-06 .ai-preview {
+    padding: 22px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  #work .project-06 .ai-preview {
+    padding: 17px !important;
+  }
+}
+
+
+/* =========================================================
+   DEMO 06 — FINAL BLACK BAR REMOVAL
+   Homepage Work tile ONLY
+   ========================================================= */
+
+/* The black AI title bar is the first element inside
+   the homepage preview. Remove it completely. */
+
+#work .project-06 .ai-preview > :first-child {
+  display: none !important;
+}
+
+/* Restore the preview layout after removing the bar */
+
+#work .project-06 .ai-preview {
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 28px 30px 30px !important;
+  gap: 0 !important;
+  overflow: hidden !important;
+}
+
+/* The actual AI workspace becomes the complete preview */
+
+#work .project-06 .ai-preview > .ai-body,
+#work .project-06 .ai-preview .ai-body {
+  display: flex !important;
+  position: relative !important;
+
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+
+  flex: 1 1 auto !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+
+  background: #ffffff !important;
+}
+
+/* If the workspace has another wrapper, don't let it
+   create another dark header area. */
+
+#work .project-06 .ai-preview .ai-body > .ai-header,
+#work .project-06 .ai-preview .ai-body > .ai-topbar,
+#work .project-06 .ai-preview .ai-body > .ai-window-header,
+#work .project-06 .ai-preview .ai-body > .ai-preview-header {
+  display: none !important;
+}
+
+/* Make sure no pseudo-element recreates the black strip */
+
+#work .project-06 .ai-preview::before,
+#work .project-06 .ai-preview::after {
+  display: none !important;
+  content: none !important;
+}
+
+@media (max-width: 800px) {
+  #work .project-06 .ai-preview {
+    padding: 22px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  #work .project-06 .ai-preview {
+    padding: 17px !important;
+  }
+}
+
+
+/* =========================================================
+   DEMO 06 — HOMEPAGE AI TILE
+   Remove the black AI header from the miniature preview.
+   IMPORTANT: Work.jsx uses .work-ai, not .project-06.
+   ========================================================= */
+
+#work .work-ai .ai-preview .ai-header {
+  display: none !important;
+}
+
+/* Remove any height/margin that belonged to that header */
+#work .work-ai .ai-preview {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  padding: 28px 30px 30px !important;
+}
+
+/* The white AI workspace should now occupy the available area */
+#work .work-ai .ai-preview .ai-body {
+  display: flex !important;
+
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+
+  flex: 1 1 auto !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+
+  background: #ffffff !important;
+}
+
+/* Keep the miniature AI workspace clean */
+#work .work-ai .ai-preview .ai-body .ai-sidebar {
+  display: flex !important;
+
+  position: static !important;
+  transform: none !important;
+
+  width: 48px !important;
+  min-width: 48px !important;
+  height: 100% !important;
+
+  flex: 0 0 48px !important;
+
+  margin: 0 !important;
+
+  background: #f4faf6 !important;
+}
+
+/* Chat area expands after the header is removed */
+#work .work-ai .ai-preview .ai-chat {
+  position: static !important;
+
+  width: auto !important;
+  height: 100% !important;
+  min-width: 0 !important;
+
+  flex: 1 1 auto !important;
+
+  margin: 0 !important;
+
+  background: #ffffff !important;
+}
+
+/* Prevent pseudo-elements from creating another dark strip */
+#work .work-ai .ai-preview::before,
+#work .work-ai .ai-preview::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+  #work .work-ai .ai-preview {
+    padding: 22px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  #work .work-ai .ai-preview {
+    padding: 17px !important;
+  }
+
+  #work .work-ai .ai-preview .ai-sidebar {
+    display: none !important;
+  }
+}
+
