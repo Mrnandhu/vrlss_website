@@ -62,7 +62,7 @@ const projects = [
     tags: ['Custom Software', 'Healthcare', 'Management'],
     icon: Hospital,
     className: 'work-hospital',
-    demo: '#',
+    demo: '/demos/hospital',
   },
   {
     number: '06',

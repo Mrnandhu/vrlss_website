@@ -1,6 +1,7 @@
 import ShowroomDemo from './demos/ShowroomDemo/ShowroomDemo'
 import MartBillingDemo from './demos/MartBillingDemo/MartBillingDemo'
 import EcommerceDemo from './demos/EcommerceDemo/EcommerceDemo'
+import HospitalDemo from './demos/HospitalDemo/HospitalDemo'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './components/Services'
@@ -59,6 +60,10 @@ function App() {
 
   if (path === '/demos/ecommerce') {
     return <EcommerceDemo />
+  }
+
+  if (path === '/demos/hospital') {
+    return <HospitalDemo />
   }
 
   return <MainWebsite />

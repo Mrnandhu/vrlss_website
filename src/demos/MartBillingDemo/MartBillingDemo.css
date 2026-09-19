@@ -1561,3 +1561,874 @@
     font-size: 8px;
   }
 }
+
+/* =========================================================
+   DEMO 03 — BLUE / LIGHT BLUE / WHITE THEME
+   ========================================================= */
+
+.mart-demo {
+  --mart-blue-dark: #0b1f3a;
+  --mart-blue-deep: #102d55;
+  --mart-blue: #1769d2;
+  --mart-blue-light: #eaf3ff;
+  --mart-blue-soft: #f3f8ff;
+  --mart-white: #ffffff;
+  --mart-text: #122033;
+  --mart-muted: #718096;
+  --mart-border: #dce6f2;
+}
+
+/* Main application background */
+.mart-demo,
+.mart-app,
+.mart-main {
+  background: #f5f9fe;
+  color: #122033;
+}
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.mart-demo .mart-sidebar {
+  background:
+    linear-gradient(
+      180deg,
+      #0a1b33 0%,
+      #0d2749 100%
+    ) !important;
+
+  border-right: 1px solid #173a63 !important;
+  color: #ffffff !important;
+}
+
+.mart-demo .mart-sidebar::before {
+  background: #1769d2;
+}
+
+.mart-demo .mart-sidebar button,
+.mart-demo .mart-sidebar a {
+  color: #aebfd5;
+}
+
+.mart-demo .mart-sidebar button:hover,
+.mart-demo .mart-sidebar a:hover {
+  background: rgba(59, 130, 246, .12);
+  color: #ffffff;
+}
+
+.mart-demo .mart-sidebar .active,
+.mart-demo .mart-sidebar .mart-nav-active {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(23, 105, 210, .35),
+      rgba(23, 105, 210, .12)
+    ) !important;
+
+  color: #ffffff !important;
+  border-left-color: #3b82f6 !important;
+}
+
+.mart-demo .mart-sidebar svg {
+  color: #8fbdf4;
+}
+
+.mart-demo .mart-sidebar .active svg,
+.mart-demo .mart-sidebar .mart-nav-active svg {
+  color: #60a5fa;
+}
+
+.mart-demo .mart-sidebar-bottom {
+  border-top-color: #214364 !important;
+}
+
+.mart-demo .mart-sidebar-note {
+  background: rgba(255,255,255,.05) !important;
+  border-color: #24496f !important;
+  color: #aebfd5 !important;
+}
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.mart-demo .mart-brand,
+.mart-demo .mart-logo {
+  color: #ffffff;
+}
+
+.mart-demo .mart-brand-mark,
+.mart-demo .mart-logo-mark {
+  background: #1769d2 !important;
+  color: #ffffff !important;
+  border-color: #3b82f6 !important;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.mart-demo .mart-header {
+  background: rgba(255,255,255,.95) !important;
+  border-bottom-color: #dce6f2 !important;
+}
+
+.mart-demo .mart-header h1,
+.mart-demo .mart-header h2 {
+  color: #122033 !important;
+}
+
+.mart-demo .mart-header small,
+.mart-demo .mart-header span {
+  color: #718096;
+}
+
+.mart-demo .mart-search {
+  background: #ffffff !important;
+  border-color: #d6e2ef !important;
+  color: #122033 !important;
+}
+
+.mart-demo .mart-search:focus-within {
+  border-color: #4b8fe8 !important;
+  box-shadow: 0 0 0 3px rgba(23,105,210,.08);
+}
+
+.mart-demo .mart-header-profile {
+  background: #eaf3ff !important;
+  color: #1769d2 !important;
+}
+
+/* =========================================================
+   DEMO / CONCEPT BANNER
+   ========================================================= */
+
+.mart-demo .mart-demo-banner,
+.mart-demo .mart-note,
+.mart-demo .mart-demo-note {
+  background: #eaf3ff !important;
+  border-color: #c8ddf7 !important;
+  color: #45627f !important;
+}
+
+.mart-demo .mart-demo-banner strong,
+.mart-demo .mart-note strong,
+.mart-demo .mart-demo-note strong {
+  color: #1769d2 !important;
+}
+
+/* =========================================================
+   PRIMARY BUTTONS
+   ========================================================= */
+
+.mart-demo button.mart-primary,
+.mart-demo .mart-primary-button,
+.mart-demo .mart-add-button,
+.mart-demo .mart-new-bill-button {
+  background: #1769d2 !important;
+  border-color: #1769d2 !important;
+  color: #ffffff !important;
+}
+
+.mart-demo button.mart-primary:hover,
+.mart-demo .mart-primary-button:hover,
+.mart-demo .mart-add-button:hover,
+.mart-demo .mart-new-bill-button:hover {
+  background: #1257b2 !important;
+  border-color: #1257b2 !important;
+}
+
+/* =========================================================
+   STAT / KPI CARDS
+   ========================================================= */
+
+.mart-demo .mart-stat-card,
+.mart-demo .mart-card,
+.mart-demo .mart-panel {
+  background: #ffffff !important;
+  border-color: #dce6f2 !important;
+  color: #122033;
+}
+
+.mart-demo .mart-stat-card:hover,
+.mart-demo .mart-card:hover {
+  border-color: #b9d2ef !important;
+  box-shadow: 0 12px 35px rgba(16,45,85,.08);
+}
+
+.mart-demo .mart-stat-icon,
+.mart-demo .mart-card-icon {
+  background: #eaf3ff !important;
+  color: #1769d2 !important;
+}
+
+/* Numbers */
+.mart-demo .mart-stat-card strong,
+.mart-demo .mart-stat-value {
+  color: #122033 !important;
+}
+
+/* Labels */
+.mart-demo .mart-stat-card span,
+.mart-demo .mart-stat-card small {
+  color: #718096 !important;
+}
+
+/* =========================================================
+   GREEN ACCENTS → BLUE
+   ========================================================= */
+
+.mart-demo [class*="green"],
+.mart-demo .text-green,
+.mart-demo .positive {
+  color: #1769d2 !important;
+}
+
+.mart-demo .bg-green,
+.mart-demo .positive-bg {
+  background: #eaf3ff !important;
+}
+
+.mart-demo .green-dot {
+  background: #1769d2 !important;
+}
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+.mart-demo table {
+  background: #ffffff;
+}
+
+.mart-demo th {
+  background: #f5f9fe !important;
+  color: #718096 !important;
+  border-bottom-color: #dce6f2 !important;
+}
+
+.mart-demo td {
+  border-bottom-color: #e8eef5 !important;
+  color: #425466;
+}
+
+.mart-demo tbody tr:hover {
+  background: #f7faff !important;
+}
+
+/* =========================================================
+   STATUS BADGES
+   ========================================================= */
+
+.mart-demo .status-paid,
+.mart-demo .status-completed,
+.mart-demo .status-active,
+.mart-demo .status-success {
+  background: #e7f1ff !important;
+  color: #155db5 !important;
+}
+
+.mart-demo .status-pending,
+.mart-demo .status-warning {
+  background: #fff3d9 !important;
+  color: #9a6a16 !important;
+}
+
+.mart-demo .status-low,
+.mart-demo .status-danger {
+  background: #ffe8e8 !important;
+  color: #b4232f !important;
+}
+
+/* =========================================================
+   BILL / INVOICE AREA
+   ========================================================= */
+
+.mart-demo .mart-bill-card,
+.mart-demo .mart-invoice,
+.mart-demo .mart-bill-preview {
+  background: #ffffff !important;
+  border-color: #dce6f2 !important;
+}
+
+.mart-demo .mart-bill-header {
+  background: #f3f8ff !important;
+  border-bottom-color: #dce6f2 !important;
+}
+
+.mart-demo .mart-total {
+  color: #1769d2 !important;
+}
+
+/* =========================================================
+   PRODUCTS / INVENTORY
+   ========================================================= */
+
+.mart-demo .mart-product-card,
+.mart-demo .mart-inventory-card {
+  background: #ffffff !important;
+  border-color: #dce6f2 !important;
+}
+
+.mart-demo .mart-product-card:hover,
+.mart-demo .mart-inventory-card:hover {
+  border-color: #8eb8ed !important;
+}
+
+.mart-demo .mart-product-icon,
+.mart-demo .mart-inventory-icon {
+  background: #eaf3ff !important;
+  color: #1769d2 !important;
+}
+
+/* =========================================================
+   INPUTS / SELECTS
+   ========================================================= */
+
+.mart-demo input,
+.mart-demo select,
+.mart-demo textarea {
+  background: #ffffff !important;
+  border-color: #d6e2ef !important;
+  color: #122033 !important;
+}
+
+.mart-demo input:focus,
+.mart-demo select:focus,
+.mart-demo textarea:focus {
+  border-color: #4b8fe8 !important;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(23,105,210,.08);
+}
+
+/* =========================================================
+   DROPDOWNS
+   ========================================================= */
+
+.mart-demo .mart-dropdown,
+.mart-demo .mart-menu,
+.mart-demo .mart-popover {
+  background: #ffffff !important;
+  border-color: #dce6f2 !important;
+  box-shadow: 0 18px 45px rgba(16,45,85,.12);
+}
+
+.mart-demo .mart-dropdown button:hover,
+.mart-demo .mart-menu button:hover {
+  background: #eaf3ff !important;
+  color: #1769d2 !important;
+}
+
+/* =========================================================
+   CHART / SALES AREA
+   ========================================================= */
+
+.mart-demo .mart-chart,
+.mart-demo .mart-chart-area {
+  background: #ffffff !important;
+  border-color: #dce6f2 !important;
+}
+
+.mart-demo .mart-chart-line,
+.mart-demo .mart-chart-bar,
+.mart-demo .mart-progress {
+  background: #1769d2 !important;
+}
+
+.mart-demo .mart-chart-fill {
+  background: rgba(23,105,210,.12) !important;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .mart-demo .mart-sidebar {
+    background:
+      linear-gradient(
+        180deg,
+        #0a1b33,
+        #0d2749
+      ) !important;
+  }
+
+  .mart-demo .mart-mobile-menu {
+    background: #ffffff !important;
+    border-color: #dce6f2 !important;
+    color: #1769d2 !important;
+  }
+}
+
+
+/* =========================================================
+   DEMO 03 — WARM BEIGE / CHARCOAL / ORANGE THEME
+   ========================================================= */
+
+.mart-demo {
+  --mart-bg: #f4eee7;
+  --mart-bg-soft: #f8f3ed;
+  --mart-white: #ffffff;
+
+  --mart-black: #171515;
+  --mart-charcoal: #211f1f;
+  --mart-charcoal-2: #2b2828;
+
+  --mart-orange: #ed5a1c;
+  --mart-orange-dark: #c9440d;
+  --mart-orange-soft: #fde6d7;
+
+  --mart-peach: #f8ddd0;
+
+  --mart-text: #171515;
+  --mart-muted: #77716c;
+  --mart-border: #e5ddd5;
+
+  --mart-red: #d92d20;
+}
+
+
+/* =========================================================
+   GLOBAL BACKGROUND
+   ========================================================= */
+
+.mart-demo {
+  background: var(--mart-bg) !important;
+  color: var(--mart-text) !important;
+}
+
+.mart-demo .mart-app,
+.mart-demo .mart-main {
+  background: var(--mart-bg) !important;
+}
+
+
+/* =========================================================
+   SIDEBAR — CHARCOAL
+   ========================================================= */
+
+.mart-demo .mart-sidebar {
+  background:
+    linear-gradient(
+      180deg,
+      #171515 0%,
+      #211f1f 100%
+    ) !important;
+
+  border-right: 1px solid #332f2d !important;
+  color: #ffffff !important;
+}
+
+.mart-demo .mart-sidebar::before {
+  background: var(--mart-orange) !important;
+}
+
+
+/* Sidebar text */
+
+.mart-demo .mart-sidebar,
+.mart-demo .mart-sidebar * {
+  color: #e9e3dd;
+}
+
+.mart-demo .mart-sidebar button,
+.mart-demo .mart-sidebar a {
+  color: #aaa29b !important;
+}
+
+
+/* Sidebar hover */
+
+.mart-demo .mart-sidebar button:hover,
+.mart-demo .mart-sidebar a:hover {
+  background: rgba(237, 90, 28, .10) !important;
+  color: #ffffff !important;
+}
+
+
+/* Active navigation */
+
+.mart-demo .mart-sidebar .active,
+.mart-demo .mart-sidebar .mart-nav-active {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(237, 90, 28, .28),
+      rgba(237, 90, 28, .12)
+    ) !important;
+
+  color: #ffffff !important;
+
+  border-left-color: var(--mart-orange) !important;
+}
+
+.mart-demo .mart-sidebar .active svg,
+.mart-demo .mart-sidebar .mart-nav-active svg {
+  color: #ff8551 !important;
+}
+
+
+/* Sidebar icons */
+
+.mart-demo .mart-sidebar svg {
+  color: #aaa29b;
+}
+
+
+/* Sidebar bottom */
+
+.mart-demo .mart-sidebar-bottom {
+  border-top-color: #393432 !important;
+}
+
+.mart-demo .mart-sidebar-note {
+  background: rgba(255,255,255,.04) !important;
+  border-color: #393432 !important;
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.mart-demo .mart-brand,
+.mart-demo .mart-logo {
+  color: #ffffff !important;
+}
+
+.mart-demo .mart-brand-mark,
+.mart-demo .mart-logo-mark {
+  background: var(--mart-orange) !important;
+  border-color: var(--mart-orange) !important;
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.mart-demo .mart-header {
+  background: rgba(255,255,255,.94) !important;
+  border-bottom-color: var(--mart-border) !important;
+}
+
+.mart-demo .mart-header h1,
+.mart-demo .mart-header h2 {
+  color: var(--mart-text) !important;
+}
+
+.mart-demo .mart-header small,
+.mart-demo .mart-header span {
+  color: var(--mart-muted) !important;
+}
+
+
+/* Search */
+
+.mart-demo .mart-search {
+  background: #ffffff !important;
+  border-color: #ddd3ca !important;
+  color: var(--mart-text) !important;
+}
+
+.mart-demo .mart-search:focus-within {
+  border-color: var(--mart-orange) !important;
+  box-shadow: 0 0 0 3px rgba(237,90,28,.10) !important;
+}
+
+
+/* Profile */
+
+.mart-demo .mart-header-profile {
+  background: var(--mart-orange-soft) !important;
+  color: var(--mart-orange-dark) !important;
+}
+
+
+/* =========================================================
+   DEMO / CONCEPT BANNER
+   ========================================================= */
+
+.mart-demo .mart-demo-banner,
+.mart-demo .mart-note,
+.mart-demo .mart-demo-note {
+  background: #fff0e7 !important;
+  border-color: #f2cbb8 !important;
+  color: #6f625a !important;
+}
+
+.mart-demo .mart-demo-banner strong,
+.mart-demo .mart-note strong,
+.mart-demo .mart-demo-note strong {
+  color: var(--mart-orange-dark) !important;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTONS
+   ========================================================= */
+
+.mart-demo button.mart-primary,
+.mart-demo .mart-primary-button,
+.mart-demo .mart-add-button,
+.mart-demo .mart-new-bill-button {
+  background: var(--mart-orange) !important;
+  border-color: var(--mart-orange) !important;
+  color: #ffffff !important;
+}
+
+.mart-demo button.mart-primary:hover,
+.mart-demo .mart-primary-button:hover,
+.mart-demo .mart-add-button:hover,
+.mart-demo .mart-new-bill-button:hover {
+  background: var(--mart-orange-dark) !important;
+  border-color: var(--mart-orange-dark) !important;
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.mart-demo .mart-stat-card,
+.mart-demo .mart-card,
+.mart-demo .mart-panel {
+  background: #ffffff !important;
+  border-color: var(--mart-border) !important;
+  color: var(--mart-text) !important;
+}
+
+.mart-demo .mart-stat-card:hover,
+.mart-demo .mart-card:hover {
+  border-color: #edc1ac !important;
+
+  box-shadow:
+    0 14px 35px rgba(80,48,32,.08) !important;
+}
+
+
+/* =========================================================
+   KPI ICONS
+   ========================================================= */
+
+.mart-demo .mart-stat-icon,
+.mart-demo .mart-card-icon {
+  background: var(--mart-orange-soft) !important;
+  color: var(--mart-orange) !important;
+}
+
+
+/* KPI numbers */
+
+.mart-demo .mart-stat-card strong,
+.mart-demo .mart-stat-value {
+  color: var(--mart-black) !important;
+}
+
+.mart-demo .mart-stat-card span,
+.mart-demo .mart-stat-card small {
+  color: var(--mart-muted) !important;
+}
+
+
+/* =========================================================
+   GREEN → ORANGE
+   ========================================================= */
+
+.mart-demo [class*="green"],
+.mart-demo .text-green,
+.mart-demo .positive {
+  color: var(--mart-orange) !important;
+}
+
+.mart-demo .bg-green,
+.mart-demo .positive-bg {
+  background: var(--mart-orange-soft) !important;
+}
+
+.mart-demo .green-dot {
+  background: var(--mart-orange) !important;
+}
+
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+.mart-demo table {
+  background: #ffffff !important;
+}
+
+.mart-demo th {
+  background: #faf7f3 !important;
+  color: #817870 !important;
+  border-bottom-color: var(--mart-border) !important;
+}
+
+.mart-demo td {
+  border-bottom-color: #eee7e0 !important;
+  color: #544d48 !important;
+}
+
+.mart-demo tbody tr:hover {
+  background: #fffaf6 !important;
+}
+
+
+/* =========================================================
+   STATUS BADGES
+   ========================================================= */
+
+.mart-demo .status-paid,
+.mart-demo .status-completed,
+.mart-demo .status-active,
+.mart-demo .status-success {
+  background: #fff0e7 !important;
+  color: #bd4818 !important;
+}
+
+.mart-demo .status-pending,
+.mart-demo .status-warning {
+  background: #fff3d9 !important;
+  color: #9a6a16 !important;
+}
+
+.mart-demo .status-low,
+.mart-demo .status-danger {
+  background: #ffe5e2 !important;
+  color: var(--mart-red) !important;
+}
+
+
+/* =========================================================
+   BILL / INVOICE
+   ========================================================= */
+
+.mart-demo .mart-bill-card,
+.mart-demo .mart-invoice,
+.mart-demo .mart-bill-preview {
+  background: #ffffff !important;
+  border-color: var(--mart-border) !important;
+}
+
+.mart-demo .mart-bill-header {
+  background: #fff5ef !important;
+  border-bottom-color: var(--mart-border) !important;
+}
+
+.mart-demo .mart-total {
+  color: var(--mart-orange) !important;
+}
+
+
+/* =========================================================
+   PRODUCTS / INVENTORY
+   ========================================================= */
+
+.mart-demo .mart-product-card,
+.mart-demo .mart-inventory-card {
+  background: #ffffff !important;
+  border-color: var(--mart-border) !important;
+}
+
+.mart-demo .mart-product-card:hover,
+.mart-demo .mart-inventory-card:hover {
+  border-color: #edc1ac !important;
+}
+
+.mart-demo .mart-product-icon,
+.mart-demo .mart-inventory-icon {
+  background: var(--mart-orange-soft) !important;
+  color: var(--mart-orange) !important;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+.mart-demo input,
+.mart-demo select,
+.mart-demo textarea {
+  background: #ffffff !important;
+  border-color: #ddd3ca !important;
+  color: var(--mart-text) !important;
+}
+
+.mart-demo input:focus,
+.mart-demo select:focus,
+.mart-demo textarea:focus {
+  border-color: var(--mart-orange) !important;
+  outline: none !important;
+
+  box-shadow:
+    0 0 0 3px rgba(237,90,28,.09) !important;
+}
+
+
+/* =========================================================
+   DROPDOWNS
+   ========================================================= */
+
+.mart-demo .mart-dropdown,
+.mart-demo .mart-menu,
+.mart-demo .mart-popover {
+  background: #ffffff !important;
+  border-color: var(--mart-border) !important;
+
+  box-shadow:
+    0 18px 45px rgba(50,35,25,.12) !important;
+}
+
+.mart-demo .mart-dropdown button:hover,
+.mart-demo .mart-menu button:hover {
+  background: var(--mart-orange-soft) !important;
+  color: var(--mart-orange-dark) !important;
+}
+
+
+/* =========================================================
+   CHART
+   ========================================================= */
+
+.mart-demo .mart-chart,
+.mart-demo .mart-chart-area {
+  background: #ffffff !important;
+  border-color: var(--mart-border) !important;
+}
+
+.mart-demo .mart-chart-line,
+.mart-demo .mart-chart-bar,
+.mart-demo .mart-progress {
+  background: var(--mart-orange) !important;
+}
+
+.mart-demo .mart-chart-fill {
+  background: rgba(237,90,28,.12) !important;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .mart-demo .mart-sidebar {
+    background:
+      linear-gradient(
+        180deg,
+        #171515,
+        #211f1f
+      ) !important;
+  }
+
+  .mart-demo .mart-mobile-menu {
+    background: #ffffff !important;
+    border-color: var(--mart-border) !important;
+    color: var(--mart-orange) !important;
+  }
+
+}

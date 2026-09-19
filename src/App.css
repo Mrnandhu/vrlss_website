@@ -12811,3 +12811,48 @@
   }
 }
 
+
+/* =========================================================
+   WORK SECTION — REMOVE DECORATIVE APP SIDEBARS
+   These are only the miniature UI sidebars inside portfolio
+   preview cards. Real demo pages are unaffected.
+   ========================================================= */
+
+#work .work-mart .billing-sidebar,
+#work .work-hospital .hospital-sidebar,
+#work .work-ai .ai-sidebar,
+#work .work-showroom .showroom-sidebar {
+  display: none !important;
+}
+
+/* Expand the miniature preview content after sidebar removal */
+
+#work .work-mart .billing-main {
+  width: 100% !important;
+  margin-left: 0 !important;
+}
+
+#work .work-hospital .hospital-main {
+  width: 100% !important;
+  margin-left: 0 !important;
+}
+
+#work .work-ai .ai-main {
+  width: 100% !important;
+  margin-left: 0 !important;
+}
+
+#work .work-showroom .showroom-main {
+  width: 100% !important;
+  margin-left: 0 !important;
+}
+
+/* Make the preview artwork use the full available card width */
+
+#work .work-mart .billing-preview,
+#work .work-hospital .hospital-preview,
+#work .work-ai .ai-preview,
+#work .work-showroom .showroom-preview {
+  width: 100% !important;
+}
+
