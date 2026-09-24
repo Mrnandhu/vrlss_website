@@ -8,9 +8,19 @@ function LazySection({ children, fallback = null, rootMargin = '900px', anchorId
     const host = hostRef.current
     if (!host) return
 
+    const activate = () => setReady(true)
+
+    if (anchorId) {
+      host.id = anchorId
+      if (window.location.hash === `#${anchorId}`) activate()
+      window.addEventListener('hashchange', activate)
+    }
+
     if (!('IntersectionObserver' in window)) {
-      setReady(true)
-      return
+      activate()
+      return () => {
+        if (anchorId) window.removeEventListener('hashchange', activate)
+      }
     }
 
     const observer = new IntersectionObserver(
@@ -24,8 +34,11 @@ function LazySection({ children, fallback = null, rootMargin = '900px', anchorId
 
     observer.observe(host)
 
-    return () => {\n      observer.disconnect()\n      if (anchorId) window.removeEventListener('hashchange', activate)\n    }
-  }, [rootMargin])
+    return () => {
+      observer.disconnect()
+      if (anchorId) window.removeEventListener('hashchange', activate)
+    }
+  }, [rootMargin, anchorId])
 
   return (
     <div ref={hostRef} className="lazy-section-host">
