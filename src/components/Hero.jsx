@@ -95,7 +95,17 @@ function Hero() {
 
       {/* Hero Background */}
       <div className="hero-background">
-        <img src="/assets/hero.png" alt="" />
+        <picture>
+          <source media="(max-width: 760px)" srcSet="/assets/hero-mobile.webp" />
+          <img
+            src="/assets/hero.webp"
+            alt=""
+            width="1400"
+            height="788"
+            fetchPriority="high"
+            decoding="async"
+          />
+        </picture>
         <div className="hero-white-fade" />
         <div className="hero-glow" />
       </div>

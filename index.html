@@ -22,7 +22,28 @@
     <meta name="twitter:title" content="VRLS Solutions | Websites, Web Apps & Custom Software" />
     <meta name="twitter:description" content="Modern websites, web applications, mobile apps, custom business software and AI automation built around real requirements." />
     <meta name="twitter:image" content="https://vrlss.in/og-image.jpg" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" />
+
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/hero.webp"
+      imagesrcset="/assets/hero-mobile.webp 700w, /assets/hero.webp 1400w"
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
+
+    <link
+      rel="preload"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" /></noscript>
   </head>
   <body>
     <div id="root"></div>
