@@ -2053,3 +2053,49 @@
     transform: rotate(5deg) translateY(-15px);
   }
 }
+
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-eyebrow,
+.hero-title-line,
+.hero-description,
+.hero-actions,
+.hero-proof {
+  animation: hero-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-title-line:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.hero-description {
+  animation-delay: 0.16s;
+}
+
+.hero-actions {
+  animation-delay: 0.24s;
+}
+
+.hero-proof {
+  animation-delay: 0.32s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-eyebrow,
+  .hero-title-line,
+  .hero-description,
+  .hero-actions,
+  .hero-proof {
+    animation: none;
+  }
+}
