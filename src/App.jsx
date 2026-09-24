@@ -32,7 +32,7 @@ const Footer = lazy(() => import('./components/Footer'))
 
 import './App.css'
 
-function DeferredContent({ children, minHeight = 500 }) {
+function DeferredContent({ children, minHeight = 500, anchorId }) {
   return (
     <LazySection
       rootMargin="1000px"
@@ -54,27 +54,27 @@ function MainWebsite() {
         <Hero />
         <Work />
 
-        <DeferredContent minHeight={760}>
+        <DeferredContent anchorId="services" minHeight={760}>
           <Services />
         </DeferredContent>
 
-        <DeferredContent minHeight={1000}>
+        <DeferredContent anchorId="pricing" minHeight={1000}>
           <Pricing />
         </DeferredContent>
 
-        <DeferredContent minHeight={850}>
+        <DeferredContent anchorId="process" minHeight={850}>
           <Process />
         </DeferredContent>
 
-        <DeferredContent minHeight={900}>
+        <DeferredContent anchorId="about" minHeight={900}>
           <About />
         </DeferredContent>
 
-        <DeferredContent minHeight={950}>
+        <DeferredContent anchorId="technologies" minHeight={950}>
           <Technologies />
         </DeferredContent>
 
-        <DeferredContent minHeight={800}>
+        <DeferredContent anchorId="contact" minHeight={800}>
           <Contact />
         </DeferredContent>
       </main>
