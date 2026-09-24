@@ -8,24 +8,33 @@ function LazySection({ children, fallback = null, rootMargin = '900px', anchorId
     const host = hostRef.current
     if (!host) return
 
-    const activate = () => {\n      setReady(true)\n      import('../below-fold.css')\n    }
+    const activate = () => {
+      setReady(true)
+      import('../below-fold.css')
+    }
 
     if (anchorId) {
       host.id = anchorId
+
       if (window.location.hash === `#${anchorId}`) activate()
+
       window.addEventListener('hashchange', activate)
     }
 
     if (!('IntersectionObserver' in window)) {
       activate()
+
       return () => {
-        if (anchorId) window.removeEventListener('hashchange', activate)
+        if (anchorId) {
+          window.removeEventListener('hashchange', activate)
+        }
       }
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return
+
         activate()
         observer.disconnect()
       },
@@ -36,7 +45,10 @@ function LazySection({ children, fallback = null, rootMargin = '900px', anchorId
 
     return () => {
       observer.disconnect()
-      if (anchorId) window.removeEventListener('hashchange', activate)
+
+      if (anchorId) {
+        window.removeEventListener('hashchange', activate)
+      }
     }
   }, [rootMargin, anchorId])
 
