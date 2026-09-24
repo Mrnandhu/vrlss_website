@@ -35,6 +35,7 @@ import './App.css'
 function DeferredContent({ children, minHeight = 500, anchorId }) {
   return (
     <LazySection
+      anchorId={anchorId}
       rootMargin="1000px"
       fallback={<div className="lazy-section-placeholder" style={{ minHeight }} aria-hidden="true" />}
     >
