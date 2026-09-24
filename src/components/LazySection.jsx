@@ -8,7 +8,7 @@ function LazySection({ children, fallback = null, rootMargin = '900px', anchorId
     const host = hostRef.current
     if (!host) return
 
-    const activate = () => setReady(true)
+    const activate = () => {\n      setReady(true)\n      import('../below-fold.css')\n    }
 
     if (anchorId) {
       host.id = anchorId
