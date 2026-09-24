@@ -18,10 +18,10 @@ const EducationDemo = lazy(() => import('./demos/EducationDemo/EducationDemo'))
 
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import Work from './components/Work'
 import LazySection from './components/LazySection'
 import SEO from './components/SEO'
 
+const Work = lazy(() => import('./components/Work'))
 const Services = lazy(() => import('./components/Services'))
 const Pricing = lazy(() => import('./components/Pricing'))
 const Process = lazy(() => import('./components/Process'))
@@ -32,11 +32,11 @@ const Footer = lazy(() => import('./components/Footer'))
 
 import './App.css'
 
-function DeferredContent({ children, minHeight = 500, anchorId }) {
+function DeferredContent({ children, minHeight = 500, anchorId, rootMargin = '1000px' }) {
   return (
     <LazySection
       anchorId={anchorId}
-      rootMargin="1000px"
+      rootMargin={rootMargin}
       fallback={<div className="lazy-section-placeholder" style={{ minHeight }} aria-hidden="true" />}
     >
       <Suspense fallback={<div className="lazy-section-placeholder" style={{ minHeight }} aria-hidden="true" />}>
@@ -53,7 +53,9 @@ function MainWebsite() {
 
       <main>
         <Hero />
-        <Work />
+        <DeferredContent anchorId="demos" minHeight={900} rootMargin="250px">
+          <Work />
+        </DeferredContent>
 
         <DeferredContent anchorId="services" minHeight={760}>
           <Services />

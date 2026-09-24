@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { ArrowRight, ArrowUpRight, Heart, Menu, Search, ShoppingBag, X } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Heart, Menu, Search, X } from 'lucide-react'
 import './BoutiqueFashionDemo.css'
 
 const products = [

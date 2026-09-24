@@ -27,21 +27,35 @@ const projects = [
 
 function ProjectPreview({ project }) {
   const mobileImage = project.image.replace('-800.webp', '-480.webp')
+  const desktopAvif = project.image.replace('.webp', '.avif')
+  const mobileAvif = mobileImage.replace('.webp', '.avif')
 
   return (
     <div className={`project-preview ${project.className}`}>
-      <img
-        className="project-image"
-        src={project.image}
-        srcSet={`${mobileImage} 480w, ${project.image} 800w`}
-        sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 600px"
-        alt={`${project.title} demo concept`}
-        width="800"
-        height="533"
-        loading="lazy"
-        decoding="async"
-        fetchPriority="low"
-      />
+      <picture>
+        <source
+          type="image/avif"
+          srcSet={`${mobileAvif} 480w, ${desktopAvif} 640w`}
+          sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 600px"
+        />
+        <source
+          type="image/webp"
+          srcSet={`${mobileImage} 480w, ${project.image} 640w`}
+          sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 600px"
+        />
+        <img
+          className="project-image"
+          src={project.image}
+          srcSet={`${mobileImage} 480w, ${project.image} 640w`}
+          sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 600px"
+          alt={`${project.title} demo concept`}
+          width="640"
+          height="427"
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
+        />
+      </picture>
       <div className="project-image-overlay" />
       <div className="preview-chip">DEMO CONCEPT</div>
     </div>

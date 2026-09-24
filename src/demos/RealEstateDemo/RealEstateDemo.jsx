@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { ArrowLeft, ArrowUpRight, BedDouble, Bath, MapPin, Search, SlidersHorizontal, Phone, Mail, Sparkles, Check } from 'lucide-react'
+import { ArrowUpRight, BedDouble, Bath, MapPin, Search, SlidersHorizontal, Phone, Mail, Sparkles, Check } from 'lucide-react'
 import './RealEstateDemo.css'
 
 const properties = [

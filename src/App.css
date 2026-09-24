@@ -59,7 +59,7 @@
 }
 
 .brand-v {
-  color: #16c96b;
+  color: #087c40;
   display: inline-block;
   position: relative;
   margin-right: 5px;
@@ -1265,7 +1265,7 @@
 .service-number {
   margin-left: 14px;
 
-  color: #8a948f;
+  color: #5f6b65;
 
   font-size: 11px;
   font-weight: 700;
@@ -1861,7 +1861,7 @@
   justify-content: space-between;
   align-items: center;
 
-  color: #78847e;
+  color: #5f6b65;
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 1.8px;

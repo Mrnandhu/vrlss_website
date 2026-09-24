@@ -6,7 +6,20 @@ function Hero() {
 
       <div className="hero-background">
         <picture>
-          <source media="(max-width: 760px)" srcSet="/assets/hero-mobile.webp" />
+          <source
+            type="image/avif"
+            media="(max-width: 760px)"
+            srcSet="/assets/hero-mobile.avif"
+          />
+          <source
+            type="image/avif"
+            srcSet="/assets/hero.avif"
+          />
+          <source
+            type="image/webp"
+            media="(max-width: 760px)"
+            srcSet="/assets/hero-mobile.webp"
+          />
           <img
             src="/assets/hero.webp"
             alt=""
