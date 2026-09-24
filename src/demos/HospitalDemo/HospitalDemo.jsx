@@ -220,6 +220,10 @@ function HospitalDemo() {
     useState(false)
   const [showNotifications, setShowNotifications] =
     useState(false)
+  const [showPatientBooking, setShowPatientBooking] =
+    useState(false)
+  const [patientBookingCreated, setPatientBookingCreated] =
+    useState(false)
 
   const filteredPatients = useMemo(() => {
     return patients.filter((patient) => {
@@ -243,6 +247,7 @@ function HospitalDemo() {
     setSelectedPatient(null)
     setShowAppointmentForm(false)
     setShowNotifications(false)
+    setShowPatientBooking(false)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
@@ -402,6 +407,15 @@ function HospitalDemo() {
               <span />
             </button>
 
+            <button
+              type="button"
+              className="hospital-patient-booking-button"
+              onClick={() => setShowPatientBooking(true)}
+            >
+              <CalendarDays size={14} />
+              Book appointment
+            </button>
+
             <div className="hospital-avatar">DR</div>
           </div>
 
@@ -504,6 +518,29 @@ function HospitalDemo() {
             setAppointmentCreated(true)
           }}
         />
+      )}
+
+      {showPatientBooking && (
+        <PatientBookingModal
+          onClose={() => setShowPatientBooking(false)}
+          onBook={() => {
+            setShowPatientBooking(false)
+            setPatientBookingCreated(true)
+          }}
+        />
+      )}
+
+      {patientBookingCreated && (
+        <div className="hospital-toast">
+          <Check size={16} />
+          Appointment request submitted successfully.
+          <button
+            type="button"
+            onClick={() => setPatientBookingCreated(false)}
+          >
+            <X size={13} />
+          </button>
+        </div>
       )}
 
       {appointmentCreated && (
@@ -1261,6 +1298,59 @@ function PatientModal({ patient, onClose }) {
             </div>
           </>
         )}
+      </div>
+    </div>
+  )
+}
+
+function PatientBookingModal({ onClose, onBook }) {
+  return (
+    <div
+      className="hospital-modal-backdrop"
+      onMouseDown={onClose}
+    >
+      <div
+        className="hospital-patient-booking-modal"
+        onMouseDown={(event) => event.stopPropagation()}
+      >
+        <button
+          type="button"
+          className="hospital-modal-close"
+          onClick={onClose}
+        >
+          <X size={18} />
+        </button>
+
+        <div className="hospital-booking-kicker">
+          PATIENT APPOINTMENT BOOKING
+        </div>
+        <h2>Book a consultation.</h2>
+        <p className="hospital-booking-intro">
+          A patient-facing booking flow connected to the clinic management system. All details are demonstration data.
+        </p>
+
+        <div className="hospital-form-grid">
+          <FormField label="Full name" />
+          <FormField label="Phone number" />
+          <FormField label="Department" />
+          <FormField label="Preferred doctor" />
+          <FormField label="Preferred date" />
+          <FormField label="Preferred time" />
+        </div>
+
+        <label className="hospital-form-field hospital-form-field-full">
+          <span>Reason for visit</span>
+          <textarea placeholder="Briefly describe what you need help with" rows="3" />
+        </label>
+
+        <button
+          type="button"
+          className="hospital-primary-button hospital-form-button"
+          onClick={onBook}
+        >
+          Request appointment
+          <CalendarDays size={15} />
+        </button>
       </div>
     </div>
   )

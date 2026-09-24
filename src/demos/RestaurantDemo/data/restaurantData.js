@@ -8,10 +8,10 @@ export const restaurantData = {
   },
 
   navigation: [
-    { label: 'Experience', href: '#experience' },
     { label: 'Menu', href: '#menu' },
-    { label: 'Story', href: '#story' },
+    { label: 'Experience', href: '#experience' },
     { label: 'Gallery', href: '#gallery' },
+    { label: 'Story', href: '#story' },
     { label: 'Private Dining', href: '#private-dining' },
   ],
 

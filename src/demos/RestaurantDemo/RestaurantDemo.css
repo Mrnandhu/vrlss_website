@@ -1867,6 +1867,47 @@
   }
 }
 
+
+/* MENU EXPANSION */
+
+.menu-expand-wrap {
+  display: flex;
+  justify-content: center;
+  padding-top: 28px;
+}
+
+.menu-expand-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 20px;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(255,255,255,.82);
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.menu-expand-button:hover {
+  border-color: #e2d0a5;
+  background: #e2d0a5;
+  color: #17231d;
+}
+
+.menu-expand-button svg {
+  transition: transform 180ms ease;
+}
+
+.menu-expand-button svg.is-open {
+  transform: rotate(180deg);
+}
+
 /* =========================================================
    RESERVATION — BOOKING ENTRY
    ========================================================= */

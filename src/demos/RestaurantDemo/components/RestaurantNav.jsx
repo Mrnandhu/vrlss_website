@@ -38,12 +38,12 @@ function RestaurantNav() {
           ))}
 
           <a
-  className="restaurant-nav-cta"
-  href="#reservations"
->
-  Reserve
-  <ArrowUpRight size={15} />
-</a>
+            className="restaurant-nav-cta"
+            href="#menu"
+          >
+            Explore menu
+            <ArrowUpRight size={15} />
+          </a>
         </nav>
 
         <button
@@ -65,18 +65,18 @@ function RestaurantNav() {
         ))}
 
         <a
-          href="#reservations"
+          href="#menu"
           className="restaurant-mobile-reserve"
           onClick={(event) => {
             event.preventDefault()
             closeMenu()
-            document.getElementById('reservations')?.scrollIntoView({
+            document.getElementById('menu')?.scrollIntoView({
               behavior: 'smooth',
               block: 'start',
             })
           }}
         >
-          Reserve a table
+          View the menu
           <ArrowUpRight size={16} />
         </a>
       </div>

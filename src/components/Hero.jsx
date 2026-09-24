@@ -110,23 +110,23 @@ function Hero() {
 
         <h1 className="hero-title">
           <span className="hero-title-line">
-            Ideas to
+            Websites &
           </span>
 
           <span className="hero-title-line">
-            Real <em>Products.</em>
+            Digital <em>Solutions.</em>
           </span>
         </h1>
 
         <p className="hero-description">
-          We design and build websites, web applications, mobile apps and
-          custom software that solve real business problems.
+          Modern websites, web applications and custom business software designed
+          around the needs of businesses, startups and growing teams.
         </p>
 
         <div className="hero-actions">
 
-          <a href="#work" className="primary-button">
-            Explore Our Work
+          <a href="#demos" className="primary-button">
+            Explore Demo Solutions
             <ArrowRight size={18} />
           </a>
 
@@ -172,8 +172,8 @@ function Hero() {
             </span>
 
             <div>
-              <strong>Results</strong>
-              <small>Focused on growth</small>
+              <strong>Custom</strong>
+              <small>Built to your needs</small>
             </div>
           </div>
 

@@ -5,17 +5,17 @@ function Reservation() {
     <section className="restaurant-section reservation-section" id="reservations">
       <div className="restaurant-container">
         <div className="reservation-content">
-          <span className="restaurant-eyebrow">RESERVATIONS</span>
+          <span className="restaurant-eyebrow">PLAN YOUR VISIT</span>
 
           <h2>
-            Save your
+            Ready for
             <br />
-            seat.
+            the table?
           </h2>
 
           <p>
-            Choose your dining experience and continue to our
-            reservation concept.
+            Explore the menu first, then reserve a table when you're
+            ready to visit the restaurant.
           </p>
 
           <a

@@ -2,14 +2,12 @@ import { useState } from 'react'
 import { ArrowUpRight, X } from 'lucide-react'
 
 const navItems = [
-  'Home',
-  'Services',
-  'Work',
-  'Process',
-  'Technologies',
-  'Pricing',
-  'About',
-  'Contact',
+  { label: 'Home', href: '#home' },
+  { label: 'Demos', href: '#demos' },
+  { label: 'Services', href: '#services' },
+  { label: 'Pricing', href: '#pricing' },
+  { label: 'About', href: '#about' },
+  { label: 'Contact', href: '#contact' },
 ]
 
 function Navbar() {
@@ -49,10 +47,10 @@ function Navbar() {
       <nav className="nav-links">
         {navItems.map((item) => (
           <a
-            key={item}
-            href={`#${item.toLowerCase()}`}
+            key={item.label}
+            href={item.href}
           >
-            {item}
+            {item.label}
           </a>
         ))}
       </nav>
@@ -111,15 +109,15 @@ function Navbar() {
           <nav className="mobile-nav-links">
             {navItems.map((item, index) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+                key={item.label}
+                href={item.href}
                 onClick={closeMenu}
               >
                 <small>
                   {String(index + 1).padStart(2, '0')}
                 </small>
 
-                {item}
+                {item.label}
 
                 <ArrowUpRight
                   size={17}

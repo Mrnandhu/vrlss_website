@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { ArrowUpRight, Leaf } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, Leaf } from 'lucide-react'
 import { restaurantData } from '../data/restaurantData'
 
 const dishImageName = (name) =>
@@ -15,6 +15,7 @@ const getDishImage = (dish) =>
 
 function RestaurantMenu({ onSelectDish }) {
   const [activeCategory, setActiveCategory] = useState('All')
+  const [showAll, setShowAll] = useState(false)
 
   const filteredMenu = useMemo(() => {
     if (activeCategory === 'All') {
@@ -25,6 +26,17 @@ function RestaurantMenu({ onSelectDish }) {
       (dish) => dish.category === activeCategory,
     )
   }, [activeCategory])
+
+  const visibleMenu = showAll
+    ? filteredMenu
+    : filteredMenu.slice(0, 12)
+
+  const canExpand = filteredMenu.length > 12
+
+  const handleCategoryChange = (category) => {
+    setActiveCategory(category)
+    setShowAll(false)
+  }
 
   return (
     <section className="restaurant-section restaurant-menu-section" id="menu">
@@ -54,7 +66,7 @@ function RestaurantMenu({ onSelectDish }) {
                 aria-selected={activeCategory === category}
                 key={category}
                 className={activeCategory === category ? 'active' : ''}
-                onClick={() => setActiveCategory(category)}
+                onClick={() => handleCategoryChange(category)}
               >
                 {category}
               </button>
@@ -63,7 +75,7 @@ function RestaurantMenu({ onSelectDish }) {
         </div>
 
         <div className="menu-grid">
-          {filteredMenu.map((dish) => (
+          {visibleMenu.map((dish) => (
             <article
               className={`dish-card ${
                 dish.featured ? 'dish-card-featured' : ''
@@ -139,6 +151,22 @@ function RestaurantMenu({ onSelectDish }) {
             </article>
           ))}
         </div>
+
+        {canExpand && (
+          <div className="menu-expand-wrap">
+            <button
+              type="button"
+              className="menu-expand-button"
+              onClick={() => setShowAll((value) => !value)}
+            >
+              {showAll ? 'Show featured selection' : 'View full menu'}
+              <ArrowDown
+                size={15}
+                className={showAll ? 'is-open' : ''}
+              />
+            </button>
+          </div>
+        )}
 
         <div className="menu-note">
           <span>CONCEPT MENU</span>

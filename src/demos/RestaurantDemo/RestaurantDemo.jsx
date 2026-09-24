@@ -39,13 +39,13 @@ function RestaurantDemo() {
       <main>
         <RestaurantHero />
 
-        <Experience />
-
         <RestaurantMenu onSelectDish={setSelectedDish} />
 
-        <Story />
+        <Experience />
 
         <Gallery />
+
+        <Story />
 
         <PrivateDining />
 

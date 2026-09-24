@@ -1482,9 +1482,44 @@
 
 .project-preview {
   position: relative;
-  height: 390px;
+  height: 245px;
   overflow: hidden;
   background: #edf2ef;
+}
+
+.project-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.project-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,18,14,0.38), rgba(10,18,14,0.03) 45%, rgba(10,18,14,0.22));
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.045);
+}
+
+.preview-chip {
+  position: absolute;
+  z-index: 6;
+  right: 20px;
+  bottom: 18px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(8,14,11,0.78);
+  backdrop-filter: blur(8px);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
 }
 
 .preview-top {
@@ -1501,6 +1536,8 @@
 }
 
 .preview-brand {
+  position: relative;
+  z-index: 6;
   display: flex;
   align-items: center;
   gap: 7px;
@@ -1520,6 +1557,8 @@
 }
 
 .preview-dots {
+  position: relative;
+  z-index: 6;
   display: flex;
   gap: 5px;
 }
@@ -1911,7 +1950,7 @@
   }
 
   .project-preview {
-    height: 340px;
+    height: 225px;
   }
 }
 
@@ -1940,7 +1979,7 @@
   }
 
   .project-preview {
-    height: 320px;
+    height: 220px;
   }
 
   .project-info {
@@ -1950,7 +1989,7 @@
 
 @media (max-width: 430px) {
   .project-preview {
-    height: 290px;
+    height: 190px;
   }
 
   .restaurant-preview,
@@ -13606,3 +13645,188 @@
   }
 }
 
+
+/* =========================
+   NEW DEMO CONCEPT PREVIEWS
+========================= */
+.concept-preview{height:330px;position:relative;overflow:hidden;background:linear-gradient(145deg,#f1f5f2,#dfe7e2);border-bottom:1px solid rgba(8,10,9,.08);padding:34px;display:flex;align-items:center;justify-content:center}
+.concept-preview.work-function{background:linear-gradient(135deg,#2a221c,#8f6a43)}
+.concept-preview.work-interior{background:linear-gradient(135deg,#e9e1d7,#c8b9a5)}
+.concept-preview.work-realestate{background:linear-gradient(135deg,#dbe8ee,#8da8b4)}
+.concept-preview.work-events{background:linear-gradient(135deg,#f0e2e5,#cda4ad)}
+.concept-preview.work-boutique{background:linear-gradient(135deg,#eee5dd,#b79c88)}
+.concept-preview.work-furniture{background:linear-gradient(135deg,#e7ded2,#9b8268)}
+.concept-preview.work-education{background:linear-gradient(135deg,#e3ece7,#92b2a3)}
+.concept-window{position:absolute;inset:42px 60px;background:rgba(255,255,255,.88);border:1px solid rgba(255,255,255,.8);box-shadow:0 22px 50px rgba(0,0,0,.16);padding:16px;display:flex;gap:6px;align-items:flex-start}
+.concept-window span{width:7px;height:7px;border-radius:50%;background:#a9b1ac}.concept-window span:first-child{background:#777}.concept-lines{position:absolute;width:42%;height:44%;left:24%;top:31%;display:grid;gap:10px}.concept-lines b{display:block;background:#d8dfda;border-radius:4px}.concept-lines b:first-child{width:68%;height:18px;background:#222}.concept-lines b:nth-child(2){width:90%;height:8px}.concept-lines b:nth-child(3){width:76%;height:8px}.concept-lines b:nth-child(4){width:55%;height:8px}.concept-lines b:nth-child(5){width:35%;height:28px;background:var(--green)}
+.concept-chip{position:absolute;right:28px;bottom:24px;background:#080a09;color:#fff;padding:7px 10px;font-size:8px;letter-spacing:1.5px;border-radius:999px}
+#demos .project-card{overflow:hidden}
+#demos .project-demo-link{white-space:nowrap}
+
+
+/* =========================================================
+   DEMO SOLUTIONS — COMPACT IMAGE + DETAILS TILES
+   ========================================================= */
+#demos .project-card {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+}
+
+#demos .project-preview {
+  height: 155px !important;
+  min-height: 155px !important;
+  max-height: 155px !important;
+  overflow: hidden !important;
+  background: #edf2ef !important;
+}
+
+#demos .project-image {
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+#demos .project-image-overlay {
+  background: linear-gradient(180deg, rgba(8,14,11,.08), rgba(8,14,11,.30)) !important;
+}
+
+#demos .preview-chip {
+  right: 14px !important;
+  bottom: 12px !important;
+  padding: 6px 9px !important;
+  font-size: 7px !important;
+}
+
+#demos .project-info {
+  padding: 17px 18px 18px !important;
+}
+
+#demos .project-meta {
+  font-size: 7px !important;
+  letter-spacing: 1.45px !important;
+}
+
+#demos .project-title-row {
+  gap: 14px !important;
+  margin-top: 9px !important;
+  align-items: center !important;
+}
+
+#demos .project-title-row h3 {
+  font-size: 19px !important;
+  line-height: 1.12 !important;
+  letter-spacing: -.65px !important;
+}
+
+#demos .project-title-row p {
+  margin-top: 5px !important;
+  font-size: 11px !important;
+  line-height: 1.45 !important;
+  max-width: 460px !important;
+}
+
+#demos .project-demo-link {
+  width: auto !important;
+  min-width: 78px !important;
+  height: 34px !important;
+  padding: 0 12px !important;
+  border-radius: 999px !important;
+  gap: 5px !important;
+  display: flex !important;
+  white-space: nowrap !important;
+  font-size: 10px !important;
+}
+
+#demos .project-tags {
+  gap: 5px !important;
+  margin-top: 10px !important;
+}
+
+#demos .project-tags span {
+  padding: 5px 8px !important;
+  font-size: 7px !important;
+}
+
+@media (max-width: 900px) {
+  #demos .project-preview {
+    height: 145px !important;
+    min-height: 145px !important;
+    max-height: 145px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  #demos .project-preview {
+    height: 150px !important;
+    min-height: 150px !important;
+    max-height: 150px !important;
+  }
+
+  #demos .project-info {
+    padding: 15px 16px 16px !important;
+  }
+
+  #demos .project-title-row h3 {
+    font-size: 18px !important;
+  }
+
+  #demos .project-title-row p {
+    font-size: 10.5px !important;
+  }
+
+  #demos .project-demo-link {
+    min-width: 72px !important;
+    height: 32px !important;
+    padding: 0 10px !important;
+    font-size: 9px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  #demos .project-preview {
+    height: 135px !important;
+    min-height: 135px !important;
+    max-height: 135px !important;
+  }
+
+  #demos .project-info {
+    padding: 14px 15px 15px !important;
+  }
+
+  #demos .project-title-row {
+    gap: 9px !important;
+  }
+
+  #demos .project-title-row h3 {
+    font-size: 17px !important;
+  }
+
+  #demos .project-title-row p {
+    font-size: 10px !important;
+    line-height: 1.4 !important;
+  }
+
+  #demos .project-demo-link {
+    min-width: 68px !important;
+    height: 30px !important;
+    padding: 0 8px !important;
+    font-size: 8.5px !important;
+  }
+
+  #demos .project-tags {
+    margin-top: 8px !important;
+  }
+}
+
+
+.route-loading {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  color: #39423e;
+  background: #f8faf9;
+  font-size: 14px;
+  font-weight: 600;
+}
