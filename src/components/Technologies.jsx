@@ -1,4 +1,4 @@
-const mainTechnologies = [
+import { useEffect } from 'react'\n\nconst mainTechnologies = [
   {
     name: 'HTML5',
     icon: 'devicon-html5-plain',
