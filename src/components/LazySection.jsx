@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-function LazySection({ children, fallback = null, rootMargin = '900px' }) {
+function LazySection({ children, fallback = null, rootMargin = '900px', anchorId }) {
   const hostRef = useRef(null)
   const [ready, setReady] = useState(false)
 
@@ -16,7 +16,7 @@ function LazySection({ children, fallback = null, rootMargin = '900px' }) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return
-        setReady(true)
+        activate()
         observer.disconnect()
       },
       { rootMargin, threshold: 0.01 }
@@ -24,7 +24,7 @@ function LazySection({ children, fallback = null, rootMargin = '900px' }) {
 
     observer.observe(host)
 
-    return () => observer.disconnect()
+    return () => {\n      observer.disconnect()\n      if (anchorId) window.removeEventListener('hashchange', activate)\n    }
   }, [rootMargin])
 
   return (
