@@ -24,20 +24,12 @@ const projects = [
   { number:'10', type:'VRLS DEMO / CONCEPT', title:'Hospital / Clinic Management', description:'Clinic management dashboard with patients, doctors, appointments, billing and patient booking.', tags:['Healthcare','Appointments','Management'], icon: Hospital, className:'work-hospital', demo:'/demos/hospital', image:'/assets/demos/webp/hospital-800.webp' },
 ]
 
-
 function ProjectPreview({ project }) {
   const mobileImage = project.image.replace('-800.webp', '-480.webp')
-  const desktopAvif = project.image.replace('.webp', '.avif')
-  const mobileAvif = mobileImage.replace('.webp', '.avif')
 
   return (
     <div className={`project-preview ${project.className}`}>
       <picture>
-        <source
-          type="image/avif"
-          srcSet={`${mobileAvif} 480w, ${desktopAvif} 640w`}
-          sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 600px"
-        />
         <source
           type="image/webp"
           srcSet={`${mobileImage} 480w, ${project.image} 640w`}
