@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
 
-.wedding-demo{--ink:#201d1b;--muted:#706b65;--paper:#f7f3ed;--cream:#eee7dd;--sage:#dce4d9;--accent:#7c675b;background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;min-height:100vh}
+.wedding-demo{--ink:#201d1b;--muted:#706b65;--paper:#f7f3ed;--cream:#eee7dd;--sage:#dce4d9;--accent:#7c675b;background:var(--paper);color:var(--ink);font-family:Inter,sans-serif;min-height:100vh}
 .wedding-demo *{box-sizing:border-box}.wedding-demo a{color:inherit;text-decoration:none}.wedding-demo img{display:block;width:100%;height:100%;object-fit:cover}
 .wed-nav{height:76px;border-bottom:1px solid #dcd4ca;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:rgba(247,243,237,.95);position:sticky;top:0;z-index:20}
 .wed-brand{display:flex;flex-direction:column;line-height:.85;letter-spacing:.14em}.wed-brand span{font-size:12px}.wed-brand strong{font-size:19px;font-weight:600}.wed-brand small{font-size:6px;letter-spacing:.18em;margin-top:5px;color:var(--muted)}
@@ -8,7 +7,7 @@
 .wed-nav-cta,.wed-button{display:inline-flex;align-items:center;gap:10px;background:#1d211e;color:#fff!important;border-radius:999px;padding:12px 17px;font-size:11px}
 .wed-hero{max-width:1400px;margin:0 auto;padding:72px 5vw 88px;display:grid;grid-template-columns:.82fr 1.18fr;gap:7vw;align-items:center}
 .wed-hero-copy{max-width:570px}.wed-eyebrow,.wed-section-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#74706a}.wed-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:24px}.wed-eyebrow span,.wed-section-label:before{content:'';display:inline-block;width:22px;height:1px;background:#8c9885}
-.wed-hero h1{font-size:clamp(48px,6vw,88px);font-weight:500;line-height:.95;letter-spacing:-.055em;margin-bottom:28px}.wed-hero h1 em,.wed-intro h2 em,.wed-gallery-head h2 em,.wed-packages h2 em,.wed-process h2 em,.wed-contact h2 em{font-family:'Playfair Display',serif;font-weight:500;color:#7d675b}
+.wed-hero h1{font-size:clamp(48px,6vw,88px);font-weight:500;line-height:.95;letter-spacing:-.055em;margin-bottom:28px}.wed-hero h1 em,.wed-intro h2 em,.wed-gallery-head h2 em,.wed-packages h2 em,.wed-process h2 em,.wed-contact h2 em{font-family:Georgia,serif;font-weight:500;color:#7d675b}
 .wed-hero-copy>p{font-size:15px;line-height:1.7;color:var(--muted);max-width:490px}.wed-actions{display:flex;gap:18px;align-items:center;margin-top:28px}.wed-text-link{font-size:11px;display:flex;align-items:center;gap:4px}.wed-hero-note{display:flex;align-items:center;gap:8px;margin-top:35px;color:#89827a;font-size:10px}
 .wed-hero-image{height:620px;position:relative}.wed-hero-image img{object-position:center}.wed-image-label{position:absolute;left:18px;bottom:18px;background:#f7f3ed;padding:11px 14px;font-size:10px}.wed-image-label span{margin-right:16px;color:#8d8a84}
 .wed-intro{background:#e7e0d6;padding:110px 12vw;display:grid;grid-template-columns:.75fr 1.25fr;gap:8vw}.wed-intro h2,.wed-gallery-head h2,.wed-packages h2,.wed-process h2,.wed-contact h2{font-size:clamp(38px,4vw,64px);font-weight:500;line-height:.98;letter-spacing:-.04em}.wed-intro p{max-width:600px;margin-top:20px;color:#6e6962;line-height:1.75;font-size:14px}
