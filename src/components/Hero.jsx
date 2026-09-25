@@ -20,7 +20,11 @@ function Hero() {
             media="(max-width: 760px)"
             srcSet="/assets/hero-mobile.webp"
           />
-          <img
+                  <source
+          type="image/webp"
+          srcSet="/assets/hero.webp"
+        />
+        <img
             src="/assets/hero.webp"
             alt=""
             width="1400"
