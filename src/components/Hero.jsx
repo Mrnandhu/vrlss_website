@@ -92,7 +92,7 @@ function Hero() {
         <div className="hero-grid" />
 
         <img className="hero-clouds hero-layer" src="/assets/clouds.png" alt="" width="2048" height="1024" />
-        <img className="hero-character hero-layer" src="/assets/hero-character.png" alt="" width="1536" height="1536" fetchPriority="high" decoding="async" />
+        <img className="hero-character hero-layer" src="/assets/hero.png" alt="" width="1536" height="1536" fetchPriority="high" decoding="async" />
         <img className="hero-robot hero-layer" src="/assets/robo.png" alt="" width="1536" height="1536" />
 
         <span className="hero-particle particle-one" />
