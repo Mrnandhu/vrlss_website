@@ -2979,11 +2979,11 @@
 
 .hero-robot {
   z-index: 5;
-  width: clamp(150px, 19vw, 280px);
+  width: clamp(130px, 14vw, 205px);
   max-width: none;
   height: auto;
-  right: 6%;
-  top: 17%;
+  right: 5%;
+  top: 8%;
   filter: drop-shadow(0 20px 28px rgba(14, 44, 28, .18));
 }
 
@@ -3058,8 +3058,9 @@
   }
 
   .hero-robot {
-    width: 180px;
-    right: 3%;
+    width: 165px;
+    right: 2%;
+    top: 7%;
   }
 }
 
@@ -3088,9 +3089,9 @@
   }
 
   .hero-robot {
-    width: 145px;
-    right: 1%;
-    top: 38%;
+    width: 125px;
+    right: 2%;
+    top: 22%;
   }
 
   .hero-ambient-glow {
