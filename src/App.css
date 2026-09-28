@@ -2815,3 +2815,108 @@
     clip-path: none !important;
   }
 }
+
+/* Minimal technology stack */
+.technologies-minimal {
+  overflow: hidden;
+}
+
+.technologies-minimal .technologies-heading {
+  margin-bottom: 70px;
+}
+
+.technology-marquee-large {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+  border-top: 1px solid rgba(20,35,28,.10);
+  border-bottom: 1px solid rgba(20,35,28,.10);
+  padding: 24px 0;
+  background: rgba(235,243,238,.45);
+}
+
+.technology-marquee-large::before,
+.technology-marquee-large::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 13vw;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.technology-marquee-large::before {
+  left: 0;
+  background: linear-gradient(90deg, #f8faf9, transparent);
+}
+
+.technology-marquee-large::after {
+  right: 0;
+  background: linear-gradient(270deg, #f8faf9, transparent);
+}
+
+.technology-marquee-large .technology-marquee-track {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  animation: vrlss-tech-marquee 32s linear infinite;
+  will-change: transform;
+}
+
+.technology-marquee-large span {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  white-space: nowrap;
+  color: #33423a;
+  font-size: clamp(12px, 1vw, 15px);
+  font-weight: 700;
+  letter-spacing: .15px;
+}
+
+.technology-marquee-large span i {
+  width: 5px;
+  height: 5px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #10a653;
+  box-shadow: 0 0 0 5px rgba(16,166,83,.08);
+}
+
+.technology-marquee-large:hover .technology-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes vrlss-tech-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@media (max-width: 760px) {
+  .technologies-minimal .technologies-heading {
+    margin-bottom: 48px;
+  }
+
+  .technology-marquee-large {
+    padding: 20px 0;
+  }
+
+  .technology-marquee-large .technology-marquee-track {
+    gap: 24px;
+    animation-duration: 24s;
+  }
+
+  .technology-marquee-large span {
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .technology-marquee-large .technology-marquee-track {
+    animation: none;
+    transform: none;
+  }
+}
