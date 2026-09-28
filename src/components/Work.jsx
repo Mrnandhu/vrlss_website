@@ -23,12 +23,61 @@ function Work() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      gsap.from('.showcase-intro .section-eyebrow', {
+        y: 18, opacity: 0, duration: .7, ease: 'power3.out',
+        scrollTrigger: { trigger: '.showcase-intro', start: 'top 82%', once: true }
+      })
+
+      gsap.from('.showcase-intro-grid h2', {
+        yPercent: 28, opacity: 0, duration: 1, ease: 'power4.out',
+        scrollTrigger: { trigger: '.showcase-intro-grid', start: 'top 84%', once: true }
+      })
+
+      gsap.from('.showcase-intro-grid p', {
+        y: 30, opacity: 0, duration: .8, delay: .12, ease: 'power3.out',
+        scrollTrigger: { trigger: '.showcase-intro-grid', start: 'top 84%', once: true }
+      })
+
       gsap.utils.toArray('.showcase-card').forEach((card, index) => {
+        const media = card.querySelector('.showcase-media')
+        const image = card.querySelector('img')
+        const copy = card.querySelector('.showcase-copy')
+
         gsap.from(card, {
-          y: 70, opacity: 0, duration: 0.9, ease: 'power3.out',
-          scrollTrigger: { trigger: card, start: 'top 88%', once: true },
-          delay: index % 2 ? 0.08 : 0,
+          y: 80,
+          opacity: 0,
+          duration: .95,
+          ease: 'power4.out',
+          scrollTrigger: { trigger: card, start: 'top 92%', once: true },
+          delay: index % 2 ? .08 : 0,
         })
+
+        gsap.fromTo(media,
+          { clipPath: 'inset(8% 7% 8% 7% round 22px)' },
+          {
+            clipPath: 'inset(0% 0% 0% 0% round 22px)',
+            ease: 'none',
+            scrollTrigger: { trigger: card, start: 'top 88%', end: 'top 38%', scrub: .8 }
+          }
+        )
+
+        gsap.fromTo(image,
+          { scale: 1.12 },
+          {
+            scale: 1,
+            ease: 'none',
+            scrollTrigger: { trigger: card, start: 'top 90%', end: 'bottom 18%', scrub: 1 }
+          }
+        )
+
+        gsap.fromTo(copy,
+          { y: 35 },
+          {
+            y: 0,
+            ease: 'none',
+            scrollTrigger: { trigger: card, start: 'top 78%', end: 'top 35%', scrub: .8 }
+          }
+        )
       })
     }, sectionRef)
     return () => ctx.revert()
