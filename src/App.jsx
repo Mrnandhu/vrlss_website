@@ -23,7 +23,6 @@ import SEO from './components/SEO'
 
 const Work = lazy(() => import('./components/Work'))
 const Services = lazy(() => import('./components/Services'))
-const Pricing = lazy(() => import('./components/Pricing'))
 const Process = lazy(() => import('./components/Process'))
 const About = lazy(() => import('./components/About'))
 const Technologies = lazy(() => import('./components/Technologies'))
@@ -50,58 +49,26 @@ function MainWebsite() {
   return (
     <div className="app" id="top">
       <Navbar />
-
       <main>
         <Hero />
-        <DeferredContent anchorId="demos" minHeight={900} rootMargin="250px">
-          <Work />
-        </DeferredContent>
-
-        <DeferredContent anchorId="services" minHeight={760}>
-          <Services />
-        </DeferredContent>
-
-        <DeferredContent anchorId="pricing" minHeight={1000}>
-          <Pricing />
-        </DeferredContent>
-
-        <DeferredContent anchorId="process" minHeight={850}>
-          <Process />
-        </DeferredContent>
-
-        <DeferredContent anchorId="about" minHeight={900}>
-          <About />
-        </DeferredContent>
-
-        <DeferredContent anchorId="technologies" minHeight={950}>
-          <Technologies />
-        </DeferredContent>
-
-        <DeferredContent anchorId="contact" minHeight={800}>
-          <Contact />
-        </DeferredContent>
+        <DeferredContent anchorId="demos" minHeight={900} rootMargin="250px"><Work /></DeferredContent>
+        <DeferredContent anchorId="services" minHeight={760}><Services /></DeferredContent>
+        <DeferredContent anchorId="process" minHeight={850}><Process /></DeferredContent>
+        <DeferredContent anchorId="about" minHeight={900}><About /></DeferredContent>
+        <DeferredContent anchorId="technologies" minHeight={950}><Technologies /></DeferredContent>
+        <DeferredContent anchorId="contact" minHeight={800}><Contact /></DeferredContent>
       </main>
-
-      <DeferredContent minHeight={500}>
-        <Footer />
-      </DeferredContent>
+      <DeferredContent minHeight={500}><Footer /></DeferredContent>
     </div>
   )
 }
 
 function App() {
   const path = window.location.pathname
-
   const withSEO = (component) => (
     <>
       <SEO />
-      <Suspense
-        fallback={
-          <div className="route-loading" role="status" aria-live="polite">
-            Loading VRLS demo…
-          </div>
-        }
-      >
+      <Suspense fallback={<div className="route-loading" role="status" aria-live="polite">Loading VRLS demo…</div>}>
         {component}
       </Suspense>
     </>
