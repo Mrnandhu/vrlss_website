@@ -7,7 +7,7 @@ const pages = {
   '/': {
     title: 'VRLS Solutions | Websites, Web Apps & Custom Software',
     description:
-      'VRLS Solutions builds modern business websites, web applications, mobile apps, custom software, business systems and AI automation for businesses and growing teams.',
+      'VRLS Solutions is a digital product studio building modern websites, web applications, mobile apps, custom business software and AI automation for businesses, startups and growing teams.',
     type: 'website',
     index: true,
   },
@@ -186,18 +186,17 @@ function SEO() {
       '@type': 'Organization',
       '@id': `${SITE_URL}/#organization`,
       name: 'VRLS Solutions',
+      alternateName: 'VRLS',
       url: SITE_URL,
       logo: `${SITE_URL}/favicon.svg`,
       image: DEFAULT_IMAGE,
       email: 'sai.v.7079@gmail.com',
       telephone: '+91 9515294733',
-      sameAs: [
-        'https://in.linkedin.com/in/sai-durga-prasad-velagaleti-1b2554431',
-      ],
       contactPoint: {
         '@type': 'ContactPoint',
         contactType: 'sales',
         telephone: '+91 9515294733',
+        email: 'sai.v.7079@gmail.com',
         availableLanguage: ['English', 'Telugu'],
       },
     }
@@ -209,8 +208,9 @@ function SEO() {
       alternateName: 'VRLS',
       url: SITE_URL,
       description:
-        'Websites, web applications, mobile applications, custom business software and AI automation.',
+        'VRLS Solutions digital product studio for websites, web applications, mobile apps, custom business software and AI automation.',
       publisher: { '@id': `${SITE_URL}/#organization` },
+      inLanguage: 'en-IN',
     }
 
     const webPage = {
@@ -221,6 +221,7 @@ function SEO() {
       url: canonical,
       isPartOf: { '@id': `${SITE_URL}/#website` },
       about: { '@id': `${SITE_URL}/#organization` },
+      inLanguage: 'en-IN',
       primaryImageOfPage: {
         '@type': 'ImageObject',
         url: DEFAULT_IMAGE,
