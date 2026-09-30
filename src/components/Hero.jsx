@@ -45,11 +45,11 @@ function Hero() {
 
         <h1 className="hero-title">
           <span className="hero-title-line">
-            Websites &
+            VRLS <em>Solutions.</em>
           </span>
 
           <span className="hero-title-line">
-            Digital <em>Solutions.</em>
+            Websites &amp; Digital Solutions.
           </span>
         </h1>
 
