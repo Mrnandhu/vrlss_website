@@ -43,7 +43,6 @@ function Footer() {
             <a href="#work">Work</a>
             <a href="#process">Process</a>
             <a href="#technologies">Technologies</a>
-            <a href="#pricing">Pricing</a>
             <a href="#about">About</a>
 
           </div>
