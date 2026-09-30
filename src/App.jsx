@@ -23,7 +23,6 @@ import SEO from './components/SEO'
 
 const Work = lazy(() => import('./components/Work'))
 const Services = lazy(() => import('./components/Services'))
-const Pricing = lazy(() => import('./components/Pricing'))
 const Process = lazy(() => import('./components/Process'))
 const About = lazy(() => import('./components/About'))
 const Technologies = lazy(() => import('./components/Technologies'))
@@ -59,13 +58,7 @@ function MainWebsite() {
 
         <DeferredContent anchorId="services" minHeight={760}>
           <Services />
-        </DeferredContent>
-
-        <DeferredContent anchorId="pricing" minHeight={1000}>
-          <Pricing />
-        </DeferredContent>
-
-        <DeferredContent anchorId="process" minHeight={850}>
+        </DeferredContent><DeferredContent anchorId="process" minHeight={850}>
           <Process />
         </DeferredContent>
 
