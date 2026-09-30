@@ -206,6 +206,7 @@ function SEO() {
       '@type': 'WebSite',
       '@id': `${SITE_URL}/#website`,
       name: 'VRLS Solutions',
+      alternateName: 'VRLS',
       url: SITE_URL,
       description:
         'Websites, web applications, mobile applications, custom business software and AI automation.',
