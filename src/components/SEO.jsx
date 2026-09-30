@@ -263,9 +263,15 @@ function SEO() {
       })),
     }
 
+    const graph = [organization, website, webPage]
+
+    if (pathname === '/') {
+      graph.push(...services, demoItemList)
+    }
+
     setStructuredData({
       '@context': 'https://schema.org',
-      '@graph': [organization, website, webPage, ...services, demoItemList],
+      '@graph': graph,
     })
   }, [])
 
