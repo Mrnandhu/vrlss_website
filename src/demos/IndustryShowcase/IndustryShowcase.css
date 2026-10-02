@@ -57,6 +57,13 @@
 .industry-service-card h3 { margin: 26px 0 8px; font-size: 17px; letter-spacing: -.025em; }
 .industry-service-card p { min-height: 43px; margin: 0; color: var(--demo-muted); font-size: 12px; line-height: 1.6; }
 .industry-service-card a { margin-top: 17px; display: inline-flex; align-items: center; gap: 5px; color: var(--demo-blue); font-size: 11px; font-weight: 750; }
+.industry-gallery { padding: 86px max(24px, calc((100% - 1192px) / 2)); background: #fff; }
+.industry-gallery-grid { display: grid; grid-template-columns: 1.2fr .9fr .9fr; gap: 14px; }
+.industry-gallery-grid figure { position: relative; height: 300px; margin: 0; overflow: hidden; border-radius: 14px; background: var(--demo-soft); }
+.industry-gallery-grid figure:first-child { height: 390px; grid-row: span 2; }
+.industry-gallery-grid img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.industry-gallery-grid figure:hover img { transform: scale(1.035); }
+.industry-gallery-grid figcaption { position: absolute; right: 0; bottom: 0; left: 0; min-height: 66px; padding: 28px 18px 15px; display: flex; align-items: flex-end; justify-content: space-between; color: #fff; background: linear-gradient(transparent, rgba(10,22,45,.68)); font-size: 12px; font-weight: 700; }
 .industry-departments { background: #fff; }
 .industry-store-layout { display: grid; grid-template-columns: 1fr 270px; align-items: start; gap: 20px; }
 .industry-department-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
@@ -107,6 +114,10 @@
   .industry-hero-visual { min-height: 300px; height: 68vw; max-height: 430px; border-radius: 15px; }
   .industry-proof-row { gap: 11px; font-size: 10px; }
   .industry-services, .industry-departments, .industry-approach, .industry-contact { padding: 58px 18px; }
+  .industry-gallery { padding: 58px 18px; }
+  .industry-gallery-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .industry-gallery-grid figure,.industry-gallery-grid figure:first-child { height: 220px; grid-row: auto; }
+  .industry-gallery-grid figure:first-child { grid-column: 1 / -1; height: 270px; }
   .industry-section-head { align-items: flex-start; flex-direction: column; gap: 10px; margin-bottom: 25px; }
   .industry-section-head h2, .industry-approach h2 { font-size: 37px; }
   .industry-service-grid { grid-template-columns: 1fr; gap: 11px; }

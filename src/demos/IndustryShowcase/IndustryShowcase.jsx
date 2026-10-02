@@ -4,11 +4,13 @@ import {
   ArrowRight,
   ArrowUpRight,
   CalendarDays,
+  Camera,
   Check,
   Droplets,
   HeartPulse,
   Leaf,
   Menu,
+  PawPrint,
   Scissors,
   ShoppingBag,
   ShieldCheck,
@@ -87,6 +89,45 @@ const concepts = {
     formOptions: ['Hair styling', 'Colour & treatments', 'Skin & beauty'],
     icon: Scissors, footer: 'Salon and beauty website concept',
   },
+  'pet-shop': {
+    brand: 'Good & Paws', category: 'NEIGHBORHOOD PET SHOP', image: '/assets/pet-shop-demo.webp',
+    title: <>Everything they need.<br /><em>More tail wags.</em></>,
+    intro: 'A friendly neighborhood pet shop concept for discovering everyday essentials, trusted care and little reasons to play.',
+    primary: 'Browse departments', secondary: 'Explore the shop',
+    serviceTitle: 'Good things for every companion.',
+    serviceIntro: 'Help pet parents find the essentials, compare useful categories and build a simple list before they visit.',
+    services: [
+      ['01', 'Food & nutrition', 'Everyday food options and helpful nutrition details.', ShoppingBag],
+      ['02', 'Play & enrichment', 'Toys and activities for curious, happy companions.', Sparkles],
+      ['03', 'Walks & comfort', 'Useful leads, beds and accessories for daily life.', PawPrint],
+    ],
+    steps: ['Choose a department', 'Build a shopping list', 'Plan a store visit'],
+    formTitle: 'Build a shopping list', formLabel: 'DEMO PET SHOPPING LIST', formPlaceholder: 'Search pet essentials',
+    formOptions: ['Dog food', 'Cat food', 'Treats', 'Toys & enrichment', 'Leashes & collars', 'Beds & bowls', 'Grooming essentials'],
+    icon: PawPrint, footer: 'Neighborhood pet shop website concept', isStore: true,
+  },
+  photography: {
+    brand: 'Still & Story Studio', category: 'PHOTOGRAPHY STUDIO', image: '/assets/photography-demo.webp',
+    title: <>Keep the moments<br /><em>that feel like you.</em></>,
+    intro: 'An image-led studio concept for exploring portrait sessions, event coverage and thoughtful brand photography.',
+    primary: 'Plan a session', secondary: 'View the gallery',
+    serviceTitle: 'Stories worth keeping.',
+    serviceIntro: 'Give clients a feel for the work, make session details easy to understand and keep enquiries simple.',
+    services: [
+      ['01', 'Portrait sessions', 'Relaxed portraits for people, families and milestones.', Camera],
+      ['02', 'Events & celebrations', 'Document the people and moments that make a day.', Sparkles],
+      ['03', 'Brand photography', 'Clear, considered imagery for independent businesses.', ShoppingBag],
+    ],
+    steps: ['Choose a session', 'Share your ideas', 'Plan the shoot'],
+    formTitle: 'Let’s plan your session', formLabel: 'PHOTOGRAPHY ENQUIRY', formPlaceholder: 'Tell us what you would like to capture',
+    formOptions: ['Portrait session', 'Event coverage', 'Brand photography'],
+    gallery: [
+      { image: '/assets/photography-demo.webp', label: 'Portrait sessions', alt: 'Photographer working with a portrait client in a studio' },
+      { image: '/assets/demos/webp/wedding-events-800.webp', label: 'Celebrations', alt: 'Wedding tables prepared for an intimate celebration' },
+      { image: '/assets/demos/webp/boutique-800.webp', label: 'Brand stories', alt: 'Fashion boutique collection ready for a brand shoot' },
+    ],
+    icon: Camera, footer: 'Photography portfolio website concept',
+  },
 }
 
 function IndustryShowcase({ type }) {
@@ -121,6 +162,7 @@ function IndustryShowcase({ type }) {
         </button>
         <nav className={menuOpen ? 'industry-nav-links is-open' : 'industry-nav-links'}>
           <a href="#services" onClick={() => setMenuOpen(false)}>Services</a>
+          {concept.gallery && <a href="#gallery" onClick={() => setMenuOpen(false)}>Gallery</a>}
           {concept.isStore && <a href="#departments" onClick={() => setMenuOpen(false)}>Departments</a>}
           <a href="#approach" onClick={() => setMenuOpen(false)}>How it works</a>
           <a className="industry-nav-cta" href="#contact" onClick={() => setMenuOpen(false)}>{concept.primary}<ArrowUpRight size={15} /></a>
@@ -134,7 +176,7 @@ function IndustryShowcase({ type }) {
           <p>{concept.intro}</p>
           <div className="industry-hero-actions">
             <a className="industry-primary" href={concept.isStore ? '#departments' : '#contact'}>{concept.primary}<ArrowRight size={16} /></a>
-            <a className="industry-secondary" href="#services">{concept.secondary}<ArrowDownRight size={16} /></a>
+            <a className="industry-secondary" href={concept.gallery ? '#gallery' : '#services'}>{concept.secondary}<ArrowDownRight size={16} /></a>
           </div>
           <div className="industry-proof-row">
             <span><ShieldCheck size={17} /> Clear service details</span>
@@ -162,6 +204,18 @@ function IndustryShowcase({ type }) {
           ))}
         </div>
       </section>
+
+      {concept.gallery && (
+        <section className="industry-gallery" id="gallery">
+          <div className="industry-section-head">
+            <div><span className="industry-eyebrow"><i /> A FEEL FOR THE WORK</span><h2>Different stories.<br />One point of view.</h2></div>
+            <p>A flexible gallery gives people a quick sense of the studio’s style before they get in touch.</p>
+          </div>
+          <div className="industry-gallery-grid">
+            {concept.gallery.map((image) => <figure key={image.label}><img src={image.image} alt={image.alt} loading="lazy" /><figcaption>{image.label}<ArrowUpRight size={14} /></figcaption></figure>)}
+          </div>
+        </section>
+      )}
 
       {concept.isStore && (
         <section className="industry-departments" id="departments">

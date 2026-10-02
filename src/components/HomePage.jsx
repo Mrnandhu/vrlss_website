@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Check, Globe2, Layers3, Sparkles } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Check, Globe2, Layers3, MessageCircle, Sparkles } from 'lucide-react'
 import Navbar from './Navbar'
 import './HomePage.css'
 
@@ -7,6 +7,7 @@ const projects = [
     number: '01',
     title: 'Function Hall',
     category: 'Events & hospitality',
+    description: 'A polished venue experience for celebrations, packages and event enquiries.',
     image: '/assets/demos/webp/function-hall-800.webp',
     alt: 'Elegant event hall arranged for a celebration',
     href: '/demos/function-hall',
@@ -15,6 +16,7 @@ const projects = [
     number: '02',
     title: 'Interior Designer',
     category: 'Interior & portfolio',
+    description: 'An editorial portfolio for studios, room stories and consultation requests.',
     image: '/assets/demos/webp/interior-800.webp',
     alt: 'Warm contemporary living room interior',
     href: '/demos/interior-design',
@@ -23,9 +25,64 @@ const projects = [
     number: '03',
     title: 'Real Estate',
     category: 'Property & listings',
+    description: 'A clear property finder with useful details and a simple viewing enquiry.',
     image: '/assets/demos/webp/real-estate-800.webp',
     alt: 'Modern home representing a property website concept',
     href: '/demos/real-estate',
+  },
+  {
+    number: '04',
+    title: 'Car Wash & Auto Care',
+    category: 'Local services',
+    description: 'Service choices and visit requests for a neighborhood detailing studio.',
+    image: '/assets/car-wash-hero.webp',
+    alt: 'Modern vehicle care and detailing studio',
+    href: '/demos/car-wash',
+  },
+  {
+    number: '05',
+    title: 'Veterinary Care',
+    category: 'Pets & wellness',
+    description: 'A reassuring clinic website for preventive care and appointment requests.',
+    image: '/assets/pet-vet-hero.webp',
+    alt: 'Veterinary care concept for pets and their owners',
+    href: '/demos/pet-vet',
+  },
+  {
+    number: '06',
+    title: 'Neighborhood Pet Shop',
+    category: 'Pets & retail',
+    description: 'A friendly pet store with product departments and an easy shopping list.',
+    image: '/assets/pet-shop-demo.webp',
+    alt: 'Dog and cat in a bright neighborhood pet shop',
+    href: '/demos/pet-shop',
+  },
+  {
+    number: '07',
+    title: 'Hair & Beauty Studio',
+    category: 'Salon & beauty',
+    description: 'Salon services, studio details and a straightforward appointment flow.',
+    image: '/assets/salon-hero.webp',
+    alt: 'Refined hair and beauty studio concept',
+    href: '/demos/salon',
+  },
+  {
+    number: '08',
+    title: 'Portrait Photographer',
+    category: 'Creative studio',
+    description: 'An image-led portfolio for sessions, galleries and client enquiries.',
+    image: '/assets/photography-demo.webp',
+    alt: 'Portrait photographer working with a client in a bright studio',
+    href: '/demos/photography',
+  },
+  {
+    number: '09',
+    title: 'Grocery & Market',
+    category: 'Retail & grocery',
+    description: 'A local market concept for browsing departments and building a list.',
+    image: '/assets/supermarket-hero.webp',
+    alt: 'Fresh neighborhood grocery store concept',
+    href: '/demos/supermarket',
   },
 ]
 
@@ -45,6 +102,8 @@ const stories = [
 ]
 
 function HomePage() {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
   return (
     <div className="modern-site" id="top">
       <Navbar />
@@ -58,6 +117,7 @@ function HomePage() {
               <div className="modern-actions">
                 <a className="modern-button modern-button-primary" href="#demos">Explore our work <ArrowRight size={17} /></a>
                 <a className="modern-button modern-button-secondary" href="#contact">Start a project <ArrowUpRight size={16} /></a>
+                <a className="modern-button modern-button-whatsapp" href="https://wa.me/919515294733" target="_blank" rel="noreferrer"><MessageCircle size={16} /> WhatsApp us</a>
               </div>
               <div className="modern-proof">
                 <span><Globe2 size={16} /> Built around your business</span>
@@ -65,7 +125,9 @@ function HomePage() {
               </div>
             </div>
             <div className="modern-hero-visual">
-              <img src="/assets/hero-cosmic.svg" alt="A glowing planet rising over a futuristic city at night" fetchPriority="high" />
+              <video autoPlay={!prefersReducedMotion} muted loop playsInline preload={prefersReducedMotion ? 'none' : 'metadata'} poster="/assets/hero-poster.webp" aria-hidden="true" tabIndex={-1}>
+                <source src="/assets/hero.mp4" type="video/mp4" />
+              </video>
               <div className="hero-note"><span className="hero-note-icon"><Sparkles size={17} /></span><div><b>Made for real work</b><small>Digital products with a clear purpose</small></div></div>
               <span className="hero-index">VRLS&nbsp; / &nbsp;01</span>
             </div>
@@ -77,15 +139,21 @@ function HomePage() {
             <div><span className="modern-eyebrow"><i /> SELECTED CONCEPTS</span><h2>Ideas made <em>real.</em></h2></div>
             <p>Explore a few of the digital experiences we shape for different businesses and industries.</p>
           </div>
-          <div className="modern-project-grid">
-            {projects.map((project) => (
-              <a className="modern-project-card" href={project.href} key={project.number}>
-                <div className="modern-project-image"><img src={project.image} alt={project.alt} loading="lazy" /><span>{project.number}</span><i><ArrowUpRight size={18} /></i></div>
-                <div className="modern-project-copy"><div><small>{project.category}</small><h3>{project.title}</h3></div><ArrowUpRight className="project-arrow" size={19} /></div>
+          <div className="modern-project-stack" aria-label="Business website demos">
+            {projects.map((project, index) => (
+              <a className="modern-project-card" href={project.href} key={project.number} style={{ '--stack-index': index }}>
+                <img src={project.image} alt={project.alt} loading={index < 2 ? 'eager' : 'lazy'} />
+                <span className="project-index">{project.number} <i /> VRLS / DEMO</span>
+                <div className="modern-project-copy">
+                  <small>{project.category}</small>
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                  <span className="project-explore">Explore this concept <ArrowUpRight size={16} /></span>
+                </div>
               </a>
             ))}
           </div>
-          <a className="modern-text-link" href="#services">See what we build <ArrowRight size={16} /></a>
+          <div className="modern-stack-hint"><span>SCROLL TO EXPLORE</span><ArrowRight size={15} /></div>
         </section>
 
         <section className="modern-build" id="about">

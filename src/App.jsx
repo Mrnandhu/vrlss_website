@@ -41,6 +41,8 @@ function App() {
     '/demos/hospital': <HospitalDemo />,
     '/demos/car-wash': <IndustryShowcase type="car-wash" />,
     '/demos/pet-vet': <IndustryShowcase type="pet-vet" />,
+    '/demos/pet-shop': <IndustryShowcase type="pet-shop" />,
+    '/demos/photography': <IndustryShowcase type="photography" />,
     '/demos/supermarket': <IndustryShowcase type="supermarket" />,
     '/demos/salon': <IndustryShowcase type="salon" />,
   }

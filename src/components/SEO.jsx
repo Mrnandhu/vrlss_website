@@ -81,6 +81,16 @@ const pages = {
     description: 'Explore a fictional veterinary care website concept with service information and appointment requests.',
     index: true,
   },
+  '/demos/pet-shop': {
+    title: 'Pet Shop Website Demo | VRLS Solutions',
+    description: 'Explore a fictional neighborhood pet shop website concept with pet essentials, store departments and a simple shopping list.',
+    index: true,
+  },
+  '/demos/photography': {
+    title: 'Photography Studio Website Demo | VRLS Solutions',
+    description: 'Explore a fictional photography studio website concept with portrait, event and brand work, a gallery and session enquiries.',
+    index: true,
+  },
   '/demos/supermarket': {
     title: 'Supermarket & Grocery Demo | VRLS Solutions',
     description: 'Explore a fictional supermarket storefront concept with grocery departments and an interactive shopping list.',
