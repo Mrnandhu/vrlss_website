@@ -7,8 +7,8 @@
   --white: #fff;
   --navy: #493d32;
   --blue: #3e827b;
-  --line: #e0e6ef;
-  --paper: #f5f7fa;
+  --line: #e6ddcf;
+  --paper: #f7f3ea;
   --royal: #3e827b;
   --accent: #3e827b;
   --teal: #4d8b86;
@@ -19,7 +19,7 @@
 body,
 .app {
   color: #493d32 !important;
-  background: #f5f7fa !important;
+  background: #f7f3ea !important;
 }
 
 /* The navbar stays dark across desktop and mobile. */
@@ -32,6 +32,8 @@ html body .app .navbar {
 html body .app .navbar .brand-text strong,
 html body .app .navbar .brand-text small,
 html body .app .navbar .nav-links a,
+html body .app .navbar .nav-links a:hover,
+html body .app .navbar .nav-links a:first-child,
 html body .app .navbar .nav-links a:is(.active,.is-active,[aria-current="page"]),
 html body .app .navbar .mobile-menu { color: #f8f7f4 !important; }
 html body .app .navbar .brand-v,
@@ -59,10 +61,10 @@ html body .app .mobile-contact-details a { color: #f8f7f4 !important; }
 /* Keep the hero bright and its copy legible over the existing business image. */
 .app .hero {
   color: #493d32 !important;
-  background-color: #f5f7fa !important;
+  background-color: #f7f3ea !important;
 }
 .app .hero-white-fade {
-  background: linear-gradient(90deg, rgba(248,250,253,.99) 0%, rgba(248,250,253,.96) 35%, rgba(248,250,253,.74) 56%, rgba(248,250,253,.2) 82%, rgba(248,250,253,.04) 100%) !important;
+  background: linear-gradient(90deg, rgba(250,247,239,.99) 0%, rgba(250,247,239,.96) 35%, rgba(250,247,239,.74) 56%, rgba(250,247,239,.2) 82%, rgba(250,247,239,.04) 100%) !important;
 }
 .app .hero-title,
 .app .hero-title-line { color: #493d32 !important; }
@@ -88,12 +90,12 @@ html body .app .mobile-contact-details a { color: #f8f7f4 !important; }
 .app .proof-icon {
   color: var(--accent) !important;
   border-color: #d4e8e5 !important;
-  background: #edf7f5 !important;
+  background: #eef5ef !important;
 }
-.app .hero-proof:nth-of-type(2) .proof-icon { color:var(--royal) !important; border-color:#d4e8e5 !important; background:#edf7f5 !important; }
-.app .hero-proof:nth-of-type(3) .proof-icon { color:var(--teal) !important; border-color:#d4e7e4 !important; background:#edf7f5 !important; }
+.app .hero-proof:nth-of-type(2) .proof-icon { color:var(--royal) !important; border-color:#d4e8e5 !important; background:#eef5ef !important; }
+.app .hero-proof:nth-of-type(3) .proof-icon { color:var(--teal) !important; border-color:#d4e7e4 !important; background:#eef5ef !important; }
 .app .proof-divider,
-.app .process-line { background: #d9e0ea !important; }
+.app .process-line { background: #e4dacb !important; }
 
 /* All major page sections return to a clear light canvas. */
 .app .services-section,
@@ -104,7 +106,7 @@ html body .app .mobile-contact-details a { color: #f8f7f4 !important; }
 .app .work-section,
 .app .industries-section {
   color: #493d32 !important;
-  background: #f5f7fa !important;
+  background: #f7f3ea !important;
 }
 .app .services-heading h2,
 .app .work-heading h2,
@@ -238,14 +240,14 @@ html body .app .footer .footer-cta > a:hover { background: #2f6a65 !important; }
 .app .about-arrow { color: var(--accent) !important; }
 .app .capability-item,
 .app .contact-bottom,
-.app .technology-marquee { border-color: #dce3ed !important; }
+.app .technology-marquee { border-color: #e6ddcf !important; }
 .app .technology-marquee span { color: #263b5f !important; }
 .app .technology-marquee span:nth-child(4n + 1) { color:#3e827b !important; }
 .app .technology-marquee span:nth-child(4n + 2) { color:#3e827b !important; }
 .app .technology-marquee span:nth-child(4n + 3) { color:#4d8b86 !important; }
 .app .technology-marquee span:nth-child(4n) { color:#a17b3f !important; }
-.app .technology-marquee::before { background: linear-gradient(90deg,#f5f7fa,transparent) !important; }
-.app .technology-marquee::after { background: linear-gradient(270deg,#f5f7fa,transparent) !important; }
+.app .technology-marquee::before { background: linear-gradient(90deg,#f7f3ea,transparent) !important; }
+.app .technology-marquee::after { background: linear-gradient(270deg,#f7f3ea,transparent) !important; }
 .app .contact-form input,
 .app .contact-form textarea {
   color: #f7f5f1 !important;
@@ -308,51 +310,51 @@ html body .app .footer-bottom { border-color: #2e3b53 !important; }
   --universal-ink: #493d32;
   --universal-blue: #3e827b;
   --universal-paper: #fff;
-  --universal-soft: #f3f6fa;
-  --universal-line: #e1e7ef;
+  --universal-soft: #f1eadf;
+  --universal-line: #e6ddcf;
   color: #493d32 !important;
-  background: #f5f7fa !important;
+  background: #f7f3ea !important;
 }
 .universal-demo-shell :is(.boutique-demo,.cafe-demo,.education-demo,.furniture-demo,.real-estate-demo,.wedding-demo,.nd-demo,.fh-demo,.restaurant-demo) {
   --ink: #493d32;
   --muted: #75695d;
-  --cream: #f5f7fa;
+  --cream: #f7f3ea;
   --paper: #fff;
-  --line: #e1e7ef;
+  --line: #e6ddcf;
   color: #493d32 !important;
-  background: #f5f7fa !important;
+  background: #f7f3ea !important;
 }
-.universal-demo-shell .boutique-demo { --sage: #edf2f8; --muted: #75695d; }
-.universal-demo-shell .cafe-demo { --sage: #edf2f8; }
-.universal-demo-shell .education-demo { --ed-ink:#493d32; --ed-muted:#75695d; --ed-paper:#fff; --ed-soft:#f3f6fa; --ed-line:#e1e7ef; --ed-white:#fff; }
-.universal-demo-shell .furniture-demo { --fd-ink:#493d32; --fd-muted:#75695d; --fd-paper:#fff; --fd-soft:#f3f6fa; --fd-line:#e1e7ef; --fd-white:#fff; }
-.universal-demo-shell .real-estate-demo { --muted:#75695d; --accent:#3e827b; --soft:#edf2f8; }
-.universal-demo-shell .wedding-demo { --muted:#75695d; --accent:#3e827b; --sage:#edf2f8; }
+.universal-demo-shell .boutique-demo { --sage: #f0e9dc; --muted: #75695d; }
+.universal-demo-shell .cafe-demo { --sage: #f0e9dc; }
+.universal-demo-shell .education-demo { --ed-ink:#493d32; --ed-muted:#75695d; --ed-paper:#fff; --ed-soft:#f1eadf; --ed-line:#e6ddcf; --ed-white:#fff; }
+.universal-demo-shell .furniture-demo { --fd-ink:#493d32; --fd-muted:#75695d; --fd-paper:#fff; --fd-soft:#f1eadf; --fd-line:#e6ddcf; --fd-white:#fff; }
+.universal-demo-shell .real-estate-demo { --muted:#75695d; --accent:#3e827b; --soft:#f0e9dc; }
+.universal-demo-shell .wedding-demo { --muted:#75695d; --accent:#3e827b; --sage:#f0e9dc; }
 .universal-demo-shell .nd-demo { --muted:#75695d; --olive:#3e827b; }
 .universal-demo-shell .fh-demo { --gold:#3e827b; }
 .universal-demo-shell .restaurant-demo { --cream-soft:#eaf0f8; --green:#493d32; --green-deep:#352b24; --green-light:#3e827b; --white:#fff; }
-.universal-demo-shell .ecom-demo { --ecom-bg:#fff; --ecom-text:#493d32; --ecom-muted:#75695d; --ecom-border:#e1e7ef; --ecom-green:#3e827b; --ecom-green-soft:#edf7f5; }
-.universal-demo-shell .mart-demo { --mart-green:#3e827b; --mart-green-dark:#2f6a65; --mart-green-soft:#edf7f5; }
-.universal-demo-shell .showroom-app-demo { --showroom-app-bg:#fff; --showroom-app-border:#e1e7ef; --showroom-app-text:#493d32; --showroom-app-muted:#75695d; --showroom-app-soft:#f3f6fa; --showroom-app-accent:#3e827b; --showroom-app-accent-dark:#2f6a65; }
-.universal-demo-shell .hospital-demo { --hospital-bg:#fff; --hospital-text:#493d32; --hospital-muted:#75695d; --hospital-border:#e1e7ef; --hospital-green:#3e827b; --hospital-green-soft:#edf7f5; --hospital-blue:#3e827b; }
-.universal-demo-shell .ai-demo { --ai-bg:#f5f7fa; --ai-bg-soft:#edf2f8; --ai-panel:#fff; --ai-panel-2:#f3f6fa; --ai-border:#e1e7ef; --ai-border-light:#d7dfeb; --ai-text:#493d32; --ai-muted:#75695d; --ai-dim:#8290a5; --ai-accent:#3e827b; --ai-accent-bright:#2f6a65; --ai-accent-soft:rgba(62,130,123,.1); --ai-accent-glow:rgba(62,130,123,.12); background:#f5f7fa !important; }
+.universal-demo-shell .ecom-demo { --ecom-bg:#fff; --ecom-text:#493d32; --ecom-muted:#75695d; --ecom-border:#e6ddcf; --ecom-green:#3e827b; --ecom-green-soft:#eef5ef; }
+.universal-demo-shell .mart-demo { --mart-green:#3e827b; --mart-green-dark:#2f6a65; --mart-green-soft:#eef5ef; }
+.universal-demo-shell .showroom-app-demo { --showroom-app-bg:#fff; --showroom-app-border:#e6ddcf; --showroom-app-text:#493d32; --showroom-app-muted:#75695d; --showroom-app-soft:#f1eadf; --showroom-app-accent:#3e827b; --showroom-app-accent-dark:#2f6a65; }
+.universal-demo-shell .hospital-demo { --hospital-bg:#fff; --hospital-text:#493d32; --hospital-muted:#75695d; --hospital-border:#e6ddcf; --hospital-green:#3e827b; --hospital-green-soft:#eef5ef; --hospital-blue:#3e827b; }
+.universal-demo-shell .ai-demo { --ai-bg:#f7f3ea; --ai-bg-soft:#f0e9dc; --ai-panel:#fff; --ai-panel-2:#f1eadf; --ai-border:#e6ddcf; --ai-border-light:#d7dfeb; --ai-text:#493d32; --ai-muted:#75695d; --ai-dim:#8290a5; --ai-accent:#3e827b; --ai-accent-bright:#2f6a65; --ai-accent-soft:rgba(62,130,123,.1); --ai-accent-glow:rgba(62,130,123,.12); background:#f7f3ea !important; }
 .universal-demo-shell .industry-demo {
   --demo-ink:#493d32;
   --demo-muted:#75695d;
   --demo-blue:#3e827b;
-  --demo-line:#e1e7ef;
-  --demo-soft:#f3f6fa;
+  --demo-line:#e6ddcf;
+  --demo-soft:#f1eadf;
   color:#493d32 !important;
-  background:#f5f7fa !important;
+  background:#f7f3ea !important;
 }
 .universal-demo-shell .industry-demo :is(.industry-demo-note,.industry-services,.industry-departments,.industry-approach,.industry-service-card,.industry-department-card,.industry-request-form input,.industry-request-form select,.industry-request-form textarea,.industry-list-controls input,.industry-nav-links) {
   color:#493d32 !important;
-  border-color:#e1e7ef !important;
+  border-color:#e6ddcf !important;
   background:#fff !important;
 }
 .universal-demo-shell .industry-demo :is(.industry-nav-links,.industry-menu-toggle,.industry-secondary) {
   color:#493d32 !important;
-  border-color:#dce3ed !important;
+  border-color:#e6ddcf !important;
   background:#fff !important;
 }
 .universal-demo-shell .industry-demo :is(.industry-service-card h3,.industry-section-head h2,.industry-approach h2,.industry-contact h2,.industry-step p) { color:#493d32 !important; }
@@ -365,7 +367,7 @@ html body .app .footer-bottom { border-color: #2e3b53 !important; }
   .app #services .service-card { min-height:280px; }
 }
 @media (max-width: 760px) {
-  .app .hero-white-fade { background:linear-gradient(180deg,rgba(248,250,253,.98) 0%,rgba(248,250,253,.91) 44%,rgba(248,250,253,.58) 78%,rgba(248,250,253,.2) 100%) !important; }
+  .app .hero-white-fade { background:linear-gradient(180deg,rgba(250,247,239,.98) 0%,rgba(250,247,239,.91) 44%,rgba(250,247,239,.58) 78%,rgba(250,247,239,.2) 100%) !important; }
   .app #services .services-grid,
   .app #demos .work-grid { grid-template-columns:minmax(0,1fr); }
   .app #services .service-card { min-height:252px; }
