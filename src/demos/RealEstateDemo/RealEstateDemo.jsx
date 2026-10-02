@@ -12,7 +12,7 @@ const properties = [
     beds: 4,
     baths: 4,
     area: '2,850 sq.ft',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85',
+    image: '/assets/demos/webp/real-estate-800.webp',
     tag: 'Featured',
   },
   {
@@ -24,7 +24,7 @@ const properties = [
     beds: 3,
     baths: 3,
     area: '1,760 sq.ft',
-    image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85',
+    image: '/assets/demos/webp/real-estate-800.webp',
     tag: 'New',
   },
   {
@@ -36,7 +36,7 @@ const properties = [
     beds: 3,
     baths: 3,
     area: '2,150 sq.ft',
-    image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=85',
+    image: '/assets/demos/webp/real-estate-800.webp',
     tag: 'Open for viewing',
   },
   {
@@ -48,7 +48,7 @@ const properties = [
     beds: 2,
     baths: 2,
     area: '1,280 sq.ft',
-    image: 'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=85',
+    image: '/assets/demos/webp/real-estate-800.webp',
     tag: 'Ready to move',
   },
 ]
@@ -126,7 +126,7 @@ function RealEstateDemo() {
             </div>
           </div>
           <div className="re-hero-image">
-            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=88" alt="Modern residential interior" />
+            <img src="/assets/demos/webp/real-estate-800.webp" alt="Modern residential interior" />
             <div className="re-hero-note"><Sparkles size={15} /><span>Thoughtfully selected homes</span></div>
           </div>
         </section>
@@ -177,7 +177,7 @@ function RealEstateDemo() {
 
         <section className="re-feature">
           <div className="re-feature-image">
-            <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1600&q=85" alt="Bright contemporary home" loading="lazy" />
+            <img src="/assets/demos/webp/real-estate-800.webp" alt="Bright contemporary home" loading="lazy" />
           </div>
           <div className="re-feature-copy">
             <span className="re-eyebrow"><span /> BUILT FOR PROPERTY BUSINESSES</span>

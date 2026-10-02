@@ -3,14 +3,14 @@ import { ArrowUpRight, CalendarDays, Coffee, MapPin, Clock3, X } from 'lucide-re
 import './CafeDemo.css'
 
 const menu = [
-  { name: 'House Cappuccino', category: 'Coffee', price: '₹190', image: 'https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=900&q=85', note: 'Double espresso, silky milk and a light cocoa finish.' },
-  { name: 'Iced Spanish Latte', category: 'Coffee', price: '₹220', image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=900&q=85', note: 'Chilled espresso, milk and a touch of condensed sweetness.' },
-  { name: 'Berry French Toast', category: 'Breakfast', price: '₹320', image: 'https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=900&q=85', note: 'Brioche, berries, cream and maple.' },
-  { name: 'Avocado Sourdough', category: 'Breakfast', price: '₹290', image: 'https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?auto=format&fit=crop&w=900&q=85', note: 'Sourdough toast, avocado, greens and a soft poached egg.' },
-  { name: 'Basil Pesto Pasta', category: 'Lunch', price: '₹360', image: 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=900&q=85', note: 'Penne, basil pesto, parmesan and roasted vegetables.' },
-  { name: 'Garden Grain Bowl', category: 'Lunch', price: '₹340', image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=85', note: 'Seasonal greens, grains, roasted vegetables and house dressing.' },
-  { name: 'Basque Cheesecake', category: 'Dessert', price: '₹240', image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85', note: 'Burnt-top cheesecake with a soft centre.' },
-  { name: 'Chocolate Sea Salt Tart', category: 'Dessert', price: '₹230', image: 'https://images.unsplash.com/photo-1575377427642-087cf684f04d?auto=format&fit=crop&w=900&q=85', note: 'Dark chocolate ganache, crisp pastry and sea salt.' },
+  { name: 'House Cappuccino', category: 'Coffee', price: '₹190', image: '/assets/demos/webp/cafe-800.webp', note: 'Double espresso, silky milk and a light cocoa finish.' },
+  { name: 'Iced Spanish Latte', category: 'Coffee', price: '₹220', image: '/assets/demos/webp/cafe-800.webp', note: 'Chilled espresso, milk and a touch of condensed sweetness.' },
+  { name: 'Berry French Toast', category: 'Breakfast', price: '₹320', image: '/assets/demos/webp/cafe-800.webp', note: 'Brioche, berries, cream and maple.' },
+  { name: 'Avocado Sourdough', category: 'Breakfast', price: '₹290', image: '/assets/demos/webp/cafe-800.webp', note: 'Sourdough toast, avocado, greens and a soft poached egg.' },
+  { name: 'Basil Pesto Pasta', category: 'Lunch', price: '₹360', image: '/assets/demos/webp/cafe-800.webp', note: 'Penne, basil pesto, parmesan and roasted vegetables.' },
+  { name: 'Garden Grain Bowl', category: 'Lunch', price: '₹340', image: '/assets/demos/webp/cafe-800.webp', note: 'Seasonal greens, grains, roasted vegetables and house dressing.' },
+  { name: 'Basque Cheesecake', category: 'Dessert', price: '₹240', image: '/assets/demos/webp/cafe-800.webp', note: 'Burnt-top cheesecake with a soft centre.' },
+  { name: 'Chocolate Sea Salt Tart', category: 'Dessert', price: '₹230', image: '/assets/demos/webp/cafe-800.webp', note: 'Dark chocolate ganache, crisp pastry and sea salt.' },
 ]
 
 const filters = ['All', 'Coffee', 'Breakfast', 'Lunch', 'Dessert']
@@ -56,7 +56,7 @@ function CafeDemo() {
             </div>
           </div>
           <div className="hero-image">
-            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1500&q=90" alt="Cafe coffee and seating" />
+            <img src="/assets/demos/webp/cafe-800.webp" alt="Cafe coffee and seating" />
             <span>House roast · slow mornings</span>
           </div>
         </section>
@@ -104,7 +104,7 @@ function CafeDemo() {
 
         <section className="cafe-space">
           <div className="space-image">
-            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1500&q=90" alt="Warm cafe interior" loading="lazy" />
+            <img src="/assets/demos/webp/cafe-800.webp" alt="Warm cafe interior" loading="lazy" />
           </div>
           <div className="space-copy">
             <span className="section-label">THE SPACE</span>
@@ -142,7 +142,7 @@ function CafeDemo() {
             <button className="dark-btn" onClick={() => setShowBooking(true)}>Plan a table <ArrowUpRight size={15} /></button>
           </div>
           <div className="visit-image">
-            <img src="https://images.unsplash.com/photo-1511081692775-05d0f180a065?auto=format&fit=crop&w=1200&q=85" alt="Cafe table setting" loading="lazy" />
+            <img src="/assets/demos/webp/cafe-800.webp" alt="Cafe table setting" loading="lazy" />
           </div>
         </section>
 

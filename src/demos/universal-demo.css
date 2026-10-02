@@ -1,0 +1,98 @@
+.universal-demo-shell {
+  --universal-ink: #101d39;
+  --universal-blue: #2563eb;
+  --universal-paper: #fff;
+  --universal-soft: #f3f6fa;
+  --universal-line: #e1e7ef;
+  min-height: 100vh;
+}
+
+/* Keep the existing demo layouts while bringing their surfaces and accents
+   into the same light navy and blue system as the main site. */
+.universal-demo-shell .boutique-demo,
+.universal-demo-shell .cafe-demo,
+.universal-demo-shell .education-demo,
+.universal-demo-shell .furniture-demo,
+.universal-demo-shell .real-estate-demo,
+.universal-demo-shell .wedding-demo,
+.universal-demo-shell .nd-demo,
+.universal-demo-shell .fh-demo,
+.universal-demo-shell .restaurant-demo {
+  --ink: #101d39;
+  --cream: #f3f6fa;
+  --paper: #fff;
+  --line: #e1e7ef;
+  color: var(--universal-ink);
+}
+
+.universal-demo-shell .boutique-demo { --muted: #64718a; --sage: #edf3fb; }
+.universal-demo-shell .cafe-demo { --sage: #edf3fb; }
+.universal-demo-shell .education-demo { --ed-ink: #101d39; --ed-muted: #64718a; --ed-paper: #fff; --ed-soft: #edf3fb; --ed-line: #e1e7ef; --ed-white: #fff; }
+.universal-demo-shell .furniture-demo { --fd-ink: #101d39; --fd-muted: #64718a; --fd-paper: #fff; --fd-soft: #edf3fb; --fd-line: #e1e7ef; --fd-white: #fff; }
+.universal-demo-shell .real-estate-demo { --muted: #64718a; --accent: #2563eb; --soft: #edf3fb; }
+.universal-demo-shell .wedding-demo { --muted: #64718a; --accent: #2563eb; --cream: #f3f6fa; --sage: #edf3fb; }
+.universal-demo-shell .nd-demo { --muted: #64718a; --olive: #2563eb; --cream: #f3f6fa; }
+.universal-demo-shell .fh-demo { --gold: #2563eb; --cream: #f3f6fa; }
+.universal-demo-shell .restaurant-demo { --cream: #f3f6fa; --cream-soft: #eaf0f8; --green: #101d39; --green-deep: #0b1730; --green-light: #2563eb; --line: rgba(16, 29, 57, .14); --white: #fff; }
+
+.universal-demo-shell .ecom-demo {
+  --ecom-bg: #f3f6fa;
+  --ecom-text: #101d39;
+  --ecom-muted: #64718a;
+  --ecom-border: #e1e7ef;
+  --ecom-green: #2563eb;
+  --ecom-green-soft: #edf3fb;
+}
+.universal-demo-shell .mart-demo {
+  --mart-green: #2563eb;
+  --mart-green-dark: #1d4ed8;
+  --mart-green-soft: #edf3fb;
+}
+.universal-demo-shell .showroom-app-demo {
+  --showroom-app-bg: #f3f6fa;
+  --showroom-app-border: #e1e7ef;
+  --showroom-app-text: #101d39;
+  --showroom-app-muted: #64718a;
+  --showroom-app-soft: #edf3fb;
+  --showroom-app-accent: #2563eb;
+  --showroom-app-accent-dark: #1d4ed8;
+}
+.universal-demo-shell .hospital-demo {
+  --hospital-bg: #f3f6fa;
+  --hospital-text: #101d39;
+  --hospital-muted: #64718a;
+  --hospital-border: #e1e7ef;
+  --hospital-green: #2563eb;
+  --hospital-green-soft: #edf3fb;
+  --hospital-blue: #1d4ed8;
+}
+.universal-demo-shell .ai-demo {
+  --ai-bg: #f5f7fb;
+  --ai-bg-soft: #eef2f8;
+  --ai-panel: #fff;
+  --ai-panel-2: #f8fafc;
+  --ai-border: #e1e7ef;
+  --ai-border-light: #d6deea;
+  --ai-text: #101d39;
+  --ai-muted: #64718a;
+  --ai-dim: #7b8799;
+  --ai-accent: #2563eb;
+  --ai-accent-bright: #3b82f6;
+  --ai-accent-soft: rgba(37, 99, 235, .1);
+  --ai-accent-glow: rgba(37, 99, 235, .16);
+  background: #f5f7fb;
+}
+
+.universal-demo-shell :is(.boutique-demo, .cafe-demo, .education-demo, .furniture-demo, .real-estate-demo, .wedding-demo, .nd-demo, .fh-demo, .restaurant-demo) em { color: #2563eb !important; }
+.universal-demo-shell :is(.boutique-demo, .cafe-demo, .education-demo, .furniture-demo, .real-estate-demo, .wedding-demo, .nd-demo, .fh-demo, .restaurant-demo) :is(a, button):focus-visible {
+  outline: 3px solid rgba(37, 99, 235, .42);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .universal-demo-shell *, .universal-demo-shell *::before, .universal-demo-shell *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}

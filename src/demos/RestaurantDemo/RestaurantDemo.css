@@ -172,7 +172,7 @@
   inset: 0;
   background:
     linear-gradient(90deg, rgba(5,16,11,.82), rgba(5,16,11,.35) 55%, rgba(5,16,11,.2)),
-    url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=2200&q=90')
+    url('/assets/demos/webp/restaurant-800.webp')
     center / cover no-repeat;
   transform: scale(1.03);
 }
@@ -752,7 +752,7 @@
   inset: 0;
   background:
     linear-gradient(0deg, rgba(13,35,25,.35), transparent),
-    url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1400&q=88')
+    url('/assets/demos/webp/restaurant-800.webp')
     center / cover no-repeat;
 }
 
@@ -960,7 +960,7 @@
   position: absolute;
   inset: 0;
   background:
-    url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=2000&q=88')
+    url('/assets/demos/webp/restaurant-800.webp')
     center / cover no-repeat;
 }
 

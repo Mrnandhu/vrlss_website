@@ -3,10 +3,10 @@ import { ArrowRight, Check, ChevronDown, Menu, X, BookOpen, CalendarDays, Gradua
 import './EducationDemo.css'
 
 const programs = [
-  { category: 'School', title: 'Foundation & School Programs', text: 'A structured learning path for students building strong academic fundamentals.', image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=85', points: ['Concept-focused learning', 'Regular assessments', 'Parent communication'] },
-  { category: 'Competitive', title: 'JEE & NEET Preparation', text: 'Focused preparation programs with topic-wise practice, tests and revision.', image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=85', points: ['Subject modules', 'Mock tests', 'Revision planning'] },
-  { category: 'Skills', title: 'Computer & Coding', text: 'Practical digital skills for students who want to learn technology by building.', image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85', points: ['Web fundamentals', 'Programming basics', 'Project-based practice'] },
-  { category: 'Language', title: 'Spoken English', text: 'Confidence-building sessions for everyday communication, vocabulary and presentation.', image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=85', points: ['Conversation practice', 'Vocabulary', 'Presentation skills'] },
+  { category: 'School', title: 'Foundation & School Programs', text: 'A structured learning path for students building strong academic fundamentals.', image: '/assets/demos/webp/education-800.webp', points: ['Concept-focused learning', 'Regular assessments', 'Parent communication'] },
+  { category: 'Competitive', title: 'JEE & NEET Preparation', text: 'Focused preparation programs with topic-wise practice, tests and revision.', image: '/assets/demos/webp/education-800.webp', points: ['Subject modules', 'Mock tests', 'Revision planning'] },
+  { category: 'Skills', title: 'Computer & Coding', text: 'Practical digital skills for students who want to learn technology by building.', image: '/assets/demos/webp/education-800.webp', points: ['Web fundamentals', 'Programming basics', 'Project-based practice'] },
+  { category: 'Language', title: 'Spoken English', text: 'Confidence-building sessions for everyday communication, vocabulary and presentation.', image: '/assets/demos/webp/education-800.webp', points: ['Conversation practice', 'Vocabulary', 'Presentation skills'] },
 ]
 
 const process = [
@@ -59,7 +59,7 @@ function EducationDemo() {
             </div>
             <div className="ed-meta"><span><GraduationCap size={13} /> Multiple learning paths</span><span><BookOpen size={13} /> Practical & guided</span></div>
           </div>
-          <div className="ed-hero-image"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1500&q=85" alt="Students learning in a classroom" /><span>Fictional education demo</span></div>
+          <div className="ed-hero-image"><img src="/assets/demos/webp/education-800.webp" alt="Books prepared for a learning session" /><span>Fictional education demo</span></div>
         </section>
 
         <section className="ed-intro" id="approach">
@@ -79,7 +79,7 @@ function EducationDemo() {
         </section>
 
         <section className="ed-feature">
-          <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=1500&q=85" alt="Students collaborating" />
+          <img src="/assets/demos/webp/education-800.webp" alt="Books prepared for a learning session" />
           <div><p className="ed-eyebrow">Built for progress</p><h2>More than classes.<br /><em>A learning journey.</em></h2><p>Use this section to explain what makes the institute's approach different — from mentoring and practice to assessments and regular feedback.</p><a className="ed-dark-btn" href="#admissions">Start an enquiry <ArrowRight size={13} /></a></div>
         </section>
 

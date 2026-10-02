@@ -3,8 +3,8 @@ import { ArrowUpRight, X } from 'lucide-react'
 
 const navItems = [
   { label: 'Home', href: '#home' },
-  { label: 'Demos', href: '#demos' },
   { label: 'Services', href: '#services' },
+  { label: 'Industries & Demos', href: '#demos' },
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ]

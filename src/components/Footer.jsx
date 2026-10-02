@@ -40,7 +40,7 @@ function Footer() {
             </span>
 
             <a href="#services">Services</a>
-            <a href="#work">Work</a>
+            <a href="#demos">Industries &amp; Demos</a>
             <a href="#process">Process</a>
             <a href="#technologies">Technologies</a>
             <a href="#about">About</a>
