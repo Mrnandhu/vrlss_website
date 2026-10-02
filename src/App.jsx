@@ -15,6 +15,7 @@ const CafeDemo = lazy(() => import('./demos/CafeDemo/CafeDemo'))
 const BoutiqueFashionDemo = lazy(() => import('./demos/BoutiqueFashionDemo/BoutiqueFashionDemo'))
 const FurnitureDemo = lazy(() => import('./demos/FurnitureDemo/FurnitureDemo'))
 const EducationDemo = lazy(() => import('./demos/EducationDemo/EducationDemo'))
+const IndustryShowcase = lazy(() => import('./demos/IndustryShowcase/IndustryShowcase'))
 
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -30,6 +31,8 @@ const Contact = lazy(() => import('./components/Contact'))
 const Footer = lazy(() => import('./components/Footer'))
 
 import './App.css'
+import './redesign.css'
+import './demos/universal-demo.css'
 
 function DeferredContent({ children, minHeight = 500, anchorId, rootMargin = '1000px' }) {
   return (
@@ -52,18 +55,20 @@ function MainWebsite() {
 
       <main>
         <Hero />
-        <DeferredContent anchorId="demos" minHeight={900} rootMargin="250px">
-          <Work />
-        </DeferredContent>
-
         <DeferredContent anchorId="services" minHeight={760}>
           <Services />
-        </DeferredContent><DeferredContent anchorId="process" minHeight={850}>
-          <Process />
+        </DeferredContent>
+
+        <DeferredContent anchorId="demos" minHeight={1100} rootMargin="250px">
+          <Work />
         </DeferredContent>
 
         <DeferredContent anchorId="about" minHeight={900}>
           <About />
+        </DeferredContent>
+
+        <DeferredContent anchorId="process" minHeight={850}>
+          <Process />
         </DeferredContent>
 
         <DeferredContent anchorId="technologies" minHeight={950}>
@@ -95,7 +100,7 @@ function App() {
           </div>
         }
       >
-        {component}
+        <div className="universal-demo-shell">{component}</div>
       </Suspense>
     </>
   )
@@ -115,6 +120,10 @@ function App() {
   if (path === '/demos/ai-assistant') return withSEO(<AIAssistantDemo />)
   if (path === '/demos/ecommerce') return withSEO(<EcommerceDemo />)
   if (path === '/demos/hospital') return withSEO(<HospitalDemo />)
+  if (path === '/demos/car-wash') return withSEO(<IndustryShowcase type="car-wash" />)
+  if (path === '/demos/pet-vet') return withSEO(<IndustryShowcase type="pet-vet" />)
+  if (path === '/demos/supermarket') return withSEO(<IndustryShowcase type="supermarket" />)
+  if (path === '/demos/salon') return withSEO(<IndustryShowcase type="salon" />)
 
   return withSEO(<MainWebsite />)
 }

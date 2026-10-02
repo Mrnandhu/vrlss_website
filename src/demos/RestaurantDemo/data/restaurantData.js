@@ -104,7 +104,7 @@ export const restaurantData = {
       category: 'Andhra Veg',
       dietary: ['Vegetarian'],
       price: '₹340',
-      description: 'Cashews cooked in a tangy tomato gravy with aromatic South Indian spices.',
+      description: 'Cashews cooked in a tangy tomato gravy with aromatic regional spices.',
       featured: false,
     },
     {
@@ -268,7 +268,7 @@ export const restaurantData = {
       category: 'Mutton',
       dietary: ['Non-Vegetarian'],
       price: '₹600',
-      description: 'Mutton tossed with freshly cracked black pepper and aromatic South Indian spices.',
+      description: 'Mutton tossed with freshly cracked black pepper and aromatic regional spices.',
       featured: false,
     },
     {
@@ -442,7 +442,7 @@ export const restaurantData = {
       category: 'Starters',
       dietary: ['Vegetarian'],
       price: '₹300',
-      description: 'Crispy paneer cubes marinated in a spicy South Indian-style 65 masala.',
+      description: 'Crispy paneer cubes marinated in a spicy house 65 masala.',
       featured: false,
     },
     {
@@ -460,7 +460,7 @@ export const restaurantData = {
       category: 'Starters',
       dietary: ['Vegetarian'],
       price: '₹290',
-      description: 'Golden fried mushrooms with a spicy South Indian seasoning.',
+      description: 'Golden fried mushrooms with a spicy house seasoning.',
       featured: false,
     },
     {
@@ -678,7 +678,7 @@ export const restaurantData = {
       category: 'Desserts',
       dietary: ['Vegetarian'],
       price: '₹160',
-      description: 'Traditional dense Indian frozen dessert with a rich creamy texture.',
+      description: 'Traditional dense traditional frozen dessert with a rich creamy texture.',
       featured: false,
     },
     {
@@ -797,37 +797,37 @@ export const restaurantData = {
       id: 1,
       label: 'The Kitchen',
       image:
-        'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1400&q=85',
+        '/assets/demos/webp/restaurant-800.webp',
     },
     {
       id: 2,
       label: 'At the Table',
       image:
-        'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=85',
+        '/assets/demos/webp/restaurant-800.webp',
     },
     {
       id: 3,
       label: 'Over the Fire',
       image:
-        'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1400&q=85',
+        '/assets/demos/webp/restaurant-800.webp',
     },
     {
       id: 4,
       label: 'Seasonal Produce',
       image:
-        'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1400&q=85',
+        '/assets/demos/webp/restaurant-800.webp',
     },
     {
       id: 5,
       label: 'The Dining Room',
       image:
-        'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1400&q=85',
+        '/assets/demos/webp/restaurant-800.webp',
     },
     {
       id: 6,
       label: 'The Details',
       image:
-        'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=85',
+        '/assets/demos/webp/restaurant-800.webp',
     },
   ],
 

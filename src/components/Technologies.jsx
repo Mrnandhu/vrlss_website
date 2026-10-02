@@ -127,6 +127,11 @@ const additionalTechnologies = [
 ]
 
 function Technologies() {
+  const rows = [
+    mainTechnologies.map(({ name }) => name),
+    additionalTechnologies,
+  ]
+
   return (
     <section id="technologies" className="technologies-section">
       <div className="technologies-container">
@@ -155,66 +160,19 @@ function Technologies() {
         </div>
 
 
-        {/* =====================================
-            24 MAIN TECHNOLOGIES
-            4 ROWS × 6 COLUMNS
-        ===================================== */}
-
-        <div className="technology-grid">
-          {mainTechnologies.map((technology, index) => (
-            <article
-              className="technology-card"
-              key={technology.name}
-            >
-              <div className="technology-card-top">
-                <span className="technology-number">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-
-                <span className="technology-arrow">
-                  ↗
-                </span>
+        <div className="technology-marquees" aria-label="Technologies used">
+          {rows.map((technologies, rowIndex) => (
+            <div className={`technology-marquee technology-marquee-${rowIndex + 1}`} key={rowIndex}>
+              <div className="technology-marquee-track" aria-hidden="true">
+                {[...technologies, ...technologies].map((technology, index) => (
+                  <span key={`${technology}-${index}`}>
+                    <i />
+                    {technology}
+                  </span>
+                ))}
               </div>
-
-              <div className="technology-logo">
-                <i className={technology.icon} />
-              </div>
-
-              <div className="technology-info">
-                <span>TECHNOLOGY</span>
-                <h3>{technology.name}</h3>
-              </div>
-            </article>
+            </div>
           ))}
-        </div>
-
-
-        {/* =====================================
-            ADDITIONAL TECHNOLOGIES
-        ===================================== */}
-
-        <div className="technology-strip-label">
-          <span />
-          MORE FROM THE STACK
-        </div>
-
-        <div className="technology-marquee">
-
-          <div className="technology-marquee-track">
-
-            {[...additionalTechnologies, ...additionalTechnologies].map(
-              (technology, index) => (
-                <span
-                  key={`${technology}-${index}`}
-                >
-                  <i />
-                  {technology}
-                </span>
-              )
-            )}
-
-          </div>
-
         </div>
 
       </div>

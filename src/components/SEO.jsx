@@ -71,6 +71,26 @@ const pages = {
       'Explore a fictional clinic management system concept with patients, doctors, appointments, billing, medical records and appointment booking.',
     index: true,
   },
+  '/demos/car-wash': {
+    title: 'Car Wash & Auto Care Website Demo | VRLS Solutions',
+    description: 'Explore a fictional car wash and detailing website concept with service information and a visit request experience.',
+    index: true,
+  },
+  '/demos/pet-vet': {
+    title: 'Pet & Veterinary Care Website Demo | VRLS Solutions',
+    description: 'Explore a fictional veterinary care website concept with service information and appointment requests.',
+    index: true,
+  },
+  '/demos/supermarket': {
+    title: 'Supermarket & Grocery Demo | VRLS Solutions',
+    description: 'Explore a fictional supermarket storefront concept with grocery departments and an interactive shopping list.',
+    index: true,
+  },
+  '/demos/salon': {
+    title: 'Beauty Salon & Hair Studio Website Demo | VRLS Solutions',
+    description: 'Explore a fictional salon website concept with hair and beauty services and appointment requests.',
+    index: true,
+  },
   '/demos/restaurant/booking': {
     title: 'Restaurant Booking Demo | VRLS Solutions',
     description: 'Interactive restaurant booking demonstration by VRLS Solutions.',

@@ -3,14 +3,14 @@ import { ArrowRight, ArrowUpRight, Heart, Menu, Search, X } from 'lucide-react'
 import './BoutiqueFashionDemo.css'
 
 const products = [
-  { id:1, name:'Satin Drape Dress', category:'Dresses', price:2890, image:'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=1000&q=85', note:'Fluid evening silhouette' },
-  { id:2, name:'Linen Co-ord Set', category:'Sets', price:2490, image:'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1000&q=85', note:'Relaxed everyday tailoring' },
-  { id:3, name:'Soft Tailored Blazer', category:'Outerwear', price:3190, image:'https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=1000&q=85', note:'Structured, easy layering' },
-  { id:4, name:'Pleated Midi Skirt', category:'Skirts', price:2190, image:'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=1000&q=85', note:'Light movement and clean lines' },
-  { id:5, name:'Everyday Cotton Shirt', category:'Shirts', price:1690, image:'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1000&q=85', note:'A wardrobe staple' },
-  { id:6, name:'Hand-finished Kurta Set', category:'Ethnic', price:2790, image:'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85', note:'Modern festive dressing' },
-  { id:7, name:'Minimal Shoulder Bag', category:'Accessories', price:1890, image:'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=85', note:'Compact everyday carry' },
-  { id:8, name:'Gold-tone Layered Chain', category:'Accessories', price:990, image:'https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=1000&q=85', note:'A subtle finishing detail' },
+  { id:1, name:'Satin Drape Dress', category:'Dresses', price:2890, image:'/assets/demos/webp/boutique-800.webp', note:'Fluid evening silhouette' },
+  { id:2, name:'Linen Co-ord Set', category:'Sets', price:2490, image:'/assets/demos/webp/boutique-800.webp', note:'Relaxed everyday tailoring' },
+  { id:3, name:'Soft Tailored Blazer', category:'Outerwear', price:3190, image:'/assets/demos/webp/boutique-800.webp', note:'Structured, easy layering' },
+  { id:4, name:'Pleated Midi Skirt', category:'Skirts', price:2190, image:'/assets/demos/webp/boutique-800.webp', note:'Light movement and clean lines' },
+  { id:5, name:'Everyday Cotton Shirt', category:'Shirts', price:1690, image:'/assets/demos/webp/boutique-800.webp', note:'A wardrobe staple' },
+  { id:6, name:'Hand-finished Kurta Set', category:'Ethnic', price:2790, image:'/assets/demos/webp/boutique-800.webp', note:'Modern festive dressing' },
+  { id:7, name:'Minimal Shoulder Bag', category:'Accessories', price:1890, image:'/assets/demos/webp/boutique-800.webp', note:'Compact everyday carry' },
+  { id:8, name:'Gold-tone Layered Chain', category:'Accessories', price:990, image:'/assets/demos/webp/boutique-800.webp', note:'A subtle finishing detail' },
 ]
 
 const categories=['All','Dresses','Sets','Outerwear','Skirts','Shirts','Ethnic','Accessories']
@@ -67,7 +67,7 @@ function BoutiqueFashionDemo(){
           <p>A refined fashion storefront concept for boutiques that want their collections, product details and customer enquiries to feel effortless.</p>
           <div className="boutique-hero-actions"><a className="button-dark" href="#collection">Explore collection <ArrowRight size={15}/></a><a className="button-light" href="#contact">Talk to the studio</a></div>
         </div>
-        <div className="boutique-hero-image"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1500&q=88" alt="Fashion editorial"/><span>CURATED / SS26</span></div>
+        <div className="boutique-hero-image"><img src="/assets/demos/webp/boutique-800.webp" alt="Clothing arranged in a boutique"/><span>CURATED COLLECTION</span></div>
       </section>
 
       <section className="boutique-intro" id="studio">
@@ -82,7 +82,7 @@ function BoutiqueFashionDemo(){
       </section>
 
       <section className="boutique-lookbook" id="lookbook">
-        <div className="lookbook-image"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1400&q=88" alt="Boutique styling"/></div>
+        <div className="lookbook-image"><img src="/assets/demos/webp/boutique-800.webp" alt="Clothing arranged in a boutique"/></div>
         <div className="lookbook-copy"><span className="eyebrow">THE LOOKBOOK</span><h2>See the collection <em>come together.</em></h2><p>Editorial stories can turn a simple catalogue into a visual experience — useful for seasonal launches, festive edits and new drops.</p><a className="button-dark" href="#collection">Browse pieces <ArrowRight size={15}/></a></div>
       </section>
 

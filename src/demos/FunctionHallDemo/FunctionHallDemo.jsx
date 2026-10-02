@@ -2,15 +2,15 @@ import { ArrowLeft, ArrowRight, CalendarDays, Check, MapPin, Phone, Sparkles, Us
 import './FunctionHallDemo.css'
 
 const gallery = [
-  'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=85',
-  'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1200&q=85',
-  'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=85',
+  '/assets/demos/webp/function-hall-800.webp',
+  '/assets/demos/webp/cafe-800.webp',
+  '/assets/demos/webp/restaurant-800.webp',
 ]
 
 const packages = [
-  { name: 'Classic Celebration', price: '₹45,000+', detail: 'Venue, seating, basic decor and event coordination.' },
-  { name: 'Grand Wedding', price: '₹75,000+', detail: 'Premium decor, stage setup, dining area and dedicated coordination.' },
-  { name: 'Signature Event', price: '₹1,20,000+', detail: 'Full venue styling, premium ambience and customized arrangements.' },
+  { name: 'Classic Celebration', price: 'Request a quote', detail: 'Venue, seating, basic decor and event coordination.' },
+  { name: 'Grand Wedding', price: 'Request a quote', detail: 'Premium decor, stage setup, dining area and dedicated coordination.' },
+  { name: 'Signature Event', price: 'Request a quote', detail: 'Full venue styling, premium ambience and customized arrangements.' },
 ]
 
 function FunctionHallDemo() {
@@ -34,7 +34,7 @@ function FunctionHallDemo() {
             <p>A premium venue website concept designed to showcase spaces, packages, facilities and enquiries in one elegant experience.</p>
             <div className="fh-actions"><a className="fh-primary" href="#contact">Plan Your Event <ArrowRight size={18}/></a><a className="fh-secondary" href="#gallery">Explore Gallery</a></div>
           </div>
-          <div className="fh-hero-meta"><span><Users size={16}/> Up to 800 guests</span><span><MapPin size={16}/> Rajahmundry</span><span><CalendarDays size={16}/> Events all year</span></div>
+          <div className="fh-hero-meta"><span><Users size={16}/> Flexible event layouts</span><span><MapPin size={16}/> Venue details on enquiry</span><span><CalendarDays size={16}/> Date enquiries</span></div>
         </section>
 
         <section id="about" className="fh-intro fh-container">
@@ -45,9 +45,9 @@ function FunctionHallDemo() {
         <section id="spaces" className="fh-spaces fh-container">
           <div className="fh-section-head"><div><span className="fh-label">SPACES</span><h2>Built for every<br/><em>kind of gathering.</em></h2></div><p>From intimate celebrations to large receptions, visitors can quickly understand capacity, facilities and the right space for their event.</p></div>
           <div className="fh-space-grid">
-            <article className="fh-space-card fh-space-large"><div className="fh-space-photo photo-one"/><div><span>01 · GRAND HALL</span><h3>Grand Ballroom</h3><p>Up to 800 guests · Stage · Dining · Parking</p></div></article>
-            <article className="fh-space-card"><div className="fh-space-photo photo-two"/><div><span>02 · INTIMATE</span><h3>Garden Terrace</h3><p>Up to 180 guests · Outdoor · Evening events</p></div></article>
-            <article className="fh-space-card"><div className="fh-space-photo photo-three"/><div><span>03 · CORPORATE</span><h3>Conference Suite</h3><p>Up to 120 guests · AV ready · Meeting setup</p></div></article>
+            <article className="fh-space-card fh-space-large"><div className="fh-space-photo photo-one"/><div><span>01 · GRAND HALL</span><h3>Grand Ballroom</h3><p>Stage · Dining · Event enquiries</p></div></article>
+            <article className="fh-space-card"><div className="fh-space-photo photo-two"/><div><span>02 · INTIMATE</span><h3>Garden Terrace</h3><p>Outdoor setting · Evening events</p></div></article>
+            <article className="fh-space-card"><div className="fh-space-photo photo-three"/><div><span>03 · CORPORATE</span><h3>Conference Suite</h3><p>AV ready · Meeting setup</p></div></article>
           </div>
         </section>
 

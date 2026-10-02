@@ -1,9 +1,9 @@
 import './InteriorDesignDemo.css'
 
 const projects = [
-  ['Calm House', 'Residential · 2,400 sq ft', 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=90'],
-  ['Oak & Stone', 'Residential · Full interiors', 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=90'],
-  ['The Workroom', 'Commercial · Office interiors', 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=90'],
+  ['Calm House', 'Residential · 2,400 sq ft', '/assets/demos/webp/interior-800.webp'],
+  ['Oak & Stone', 'Residential · Full interiors', '/assets/demos/webp/interior-800.webp'],
+  ['The Workroom', 'Commercial · Office interiors', '/assets/demos/webp/interior-800.webp'],
 ]
 
 const services = [

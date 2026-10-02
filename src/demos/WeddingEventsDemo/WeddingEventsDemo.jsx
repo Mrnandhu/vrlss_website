@@ -2,15 +2,15 @@ import { ArrowUpRight, CalendarDays, Check, ChevronRight, Heart, MapPin, Sparkle
 import './WeddingEventsDemo.css'
 
 const gallery = [
-  { image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=85', label: 'Garden Ceremony', type: 'Wedding' },
-  { image: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1200&q=85', label: 'Evening Reception', type: 'Celebration' },
-  { image: 'https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1200&q=85', label: 'Intimate Details', type: 'Wedding' },
-  { image: 'https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1200&q=85', label: 'Private Celebration', type: 'Event' },
+  { image: '/assets/demos/webp/function-hall-800.webp', label: 'Garden Ceremony', type: 'Wedding' },
+  { image: '/assets/demos/webp/cafe-800.webp', label: 'Evening Reception', type: 'Celebration' },
+  { image: '/assets/demos/webp/restaurant-800.webp', label: 'Intimate Details', type: 'Wedding' },
+  { image: '/assets/demos/webp/restaurant-800.webp', label: 'Private Celebration', type: 'Event' },
 ]
 
 const packages = [
-  { name: 'Intimate', price: 'From ₹45,000', copy: 'Thoughtful planning for smaller celebrations with a clear, simple flow.', items: ['Event planning', 'Vendor coordination', 'Timeline support'] },
-  { name: 'Signature', price: 'From ₹1,20,000', copy: 'A complete planning experience for weddings and larger celebrations.', items: ['Full event planning', 'Design direction', 'Guest & vendor coordination'] },
+  { name: 'Intimate', price: 'Request a quote', copy: 'Thoughtful planning for smaller celebrations with a clear, simple flow.', items: ['Event planning', 'Vendor coordination', 'Timeline support'] },
+  { name: 'Signature', price: 'Request a quote', copy: 'A complete planning experience for weddings and larger celebrations.', items: ['Full event planning', 'Design direction', 'Guest & vendor coordination'] },
   { name: 'Grand', price: 'Custom', copy: 'A tailored production for multi-day weddings and elaborate events.', items: ['Creative direction', 'Production coordination', 'On-ground event management'] },
 ]
 
@@ -51,7 +51,7 @@ function WeddingEventsDemo() {
             <div className="wed-hero-note"><Sparkles size={15} /> A fictional concept created by VRLSS</div>
           </div>
           <div className="wed-hero-image">
-            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1500&q=90" alt="Wedding table and floral event styling" />
+            <img src="/assets/demos/webp/function-hall-800.webp" alt="Wedding table and floral event styling" />
             <div className="wed-image-label"><span>01</span> Designed around your day</div>
           </div>
         </section>
