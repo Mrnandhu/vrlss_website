@@ -1,62 +1,16 @@
-/* VRLS single light palette: white, royal violet, muted violet and near-black. */
 :root {
   color-scheme: light;
-  --vrls-white: #ffffff;
-  --vrls-violet: #5f01fb;
-  --vrls-muted: #514a85;
-  --vrls-black: #0b0d1b;
-  --vrls-ui: 'DM Sans', 'Brandon Grotesque', 'Gill Sans Nova', Arial, sans-serif;
-  --vrls-display: 'Bodoni Moda', 'Lust', 'Carina Pro', Georgia, serif;
+  --vrls-green: #254f3d;
+  --vrls-green-deep: #183a2d;
+  --vrls-lime: #b7d85a;
+  --vrls-ink: #1d2823;
+  --vrls-muted: #65736c;
+  --vrls-paper: #f5f7f3;
+  --vrls-line: #dce4dc;
 }
-html, body, #root { min-height: 100%; color: var(--vrls-black); background: var(--vrls-white); }
-html, body { font-family: var(--vrls-ui); }
-#top.app :is(h1,h2,h3,h4), .universal-demo-shell :is(h1,h2,h3,h4) { font-family: var(--vrls-display); }
-#top.app :is(p,a,button,input,textarea,label), .universal-demo-shell :is(p,a,button,input,textarea,label) { font-family: var(--vrls-ui); }
-#top.app :is(.brand-text strong,.footer-logo strong) { font-family: 'Coiny', var(--vrls-ui); font-weight: 400; }
-
-/* Normalize every page and demo to the approved palette. Preserve content photos. */
-html body #top.app *, html body #top.app *::before, html body #top.app *::after,
-html body .universal-demo-shell *, html body .universal-demo-shell *::before, html body .universal-demo-shell *::after {
-  color: var(--vrls-black) !important;
-  background-color: var(--vrls-white) !important;
-  background-image: none !important;
-  border-color: var(--vrls-muted) !important;
-  box-shadow: none !important;
-  text-shadow: none !important;
-  outline-color: var(--vrls-violet) !important;
-}
-html body #top.app :is(.hero-background,.hero-background img),
-html body .universal-demo-shell :is(img,video,canvas,iframe) { background-color: transparent !important; }
-html body .universal-demo-shell .fh-hero-image { background-image: url('/assets/demos/webp/function-hall-800.webp') !important; background-position: center !important; background-size: cover !important; }
-html body .universal-demo-shell .nd-material-image { background-image: url('/assets/demos/webp/interior-800.webp') !important; background-position: center !important; background-size: cover !important; }
-html body .universal-demo-shell .fh-hero-overlay { background-image: linear-gradient(90deg, rgba(11,13,27,.76), rgba(11,13,27,.2)) !important; }
-html body #top.app .hero-white-fade { background-image: linear-gradient(90deg, rgba(255,255,255,.99), rgba(255,255,255,.82) 48%, rgba(255,255,255,.04)) !important; }
-html body #top.app .project-image-overlay { background-image: linear-gradient(180deg, rgba(11,13,27,.18), transparent 44%, rgba(11,13,27,.08)) !important; }
-
-/* Shared brand accents, buttons and highlighted words. */
-html body #top.app :is(.brand-v,.hero-title em,.services-heading h2 em,.work-heading h2 em,.industries-heading h2 em,.process-heading h2 em,.about-heading h2 em,.technologies-heading h2 em,.contact-header h2 em,.footer-cta h2 em,.eyebrow-line,.section-eyebrow span,.technologies-eyebrow span,.contact-eyebrow span,.service-icon,.service-arrow,.capability-icon,.capability-arrow,.project-link,.process-marker,.contact-option-icon),
-html body .universal-demo-shell :is(h1 em,h2 em,.industry-hero h1 em,.demo-kicker,.eyebrow,.section-label) { color: var(--vrls-violet) !important; }
-html body #top.app :is(.nav-links a::after,.eyebrow-line,.section-eyebrow span,.technologies-eyebrow span,.contact-eyebrow span) { background-color: var(--vrls-violet) !important; }
-html body #top.app :is(.nav-cta,.primary-button,.contact-submit-primary,.mobile-project-button,.footer-cta>a),
-html body .universal-demo-shell :is(button[class*="primary"],a[class*="primary"],.demo-cta,.industry-primary,.industry-nav-cta,.fh-primary,.wed-nav-cta,.wed-button,.ecom-add-button,.mart-primary,.mart-button-primary,.ai-primary-button,.hospital-primary,.showroom-app-primary,.rest-primary,.hospital-primary-button,.hospital-patient-booking-button,.ai-new-chat,.ai-send-button,.ecom-cart-button,.ecom-checkout-button,.mart-primary-button,.mart-submit-button,.showroom-app-primary-button) {
-  color: var(--vrls-white) !important;
-  background-color: var(--vrls-violet) !important;
-  border-color: var(--vrls-violet) !important;
-}
-html body #top.app :is(.hero-description,.hero-eyebrow,.services-heading-content>p,.work-heading-content>p,.process-heading-content>p,.about-heading-grid>p,.technologies-heading>p,.contact-header>p,.footer-brand p,.footer-column a,.footer-bottom),
-html body .universal-demo-shell :is(p,small,label,.demo-kicker,.eyebrow,.section-label) { color: var(--vrls-muted) !important; }
-html body #top.app :is(.contact-form input,.contact-form textarea),
-html body .universal-demo-shell :is(input,textarea,select) { color:var(--vrls-black) !important; background-color:var(--vrls-white) !important; border-color:var(--vrls-muted) !important; }
-html body #top.app :is(.contact-form input::placeholder,.contact-form textarea::placeholder),
-html body .universal-demo-shell :is(input::placeholder,textarea::placeholder) { color:var(--vrls-muted) !important; }
-
-/* Cards and controls keep a clean white surface with clear violet edges. */
-html body #top.app :is(.service-card,.project-card,.project-info,.process-intro-card,.process-step-content,.about-capabilities,.about-statement,.contact-option,.contact-form-wrapper,.industry-card,.service-tags span,.project-tags span),
-html body .universal-demo-shell :is(.industry-service-card,.industry-item-card,.industry-list-card,.ai-chat-panel,.ai-panel-card,.ai-metric-card,.ai-insight-card,.ecom-card,.mart-card,.hospital-card,.showroom-app-card,.hospital-sidebar,.hospital-panel,.hospital-table-wrap,.ai-sidebar,.ai-main,.ai-right-panel,.ecom-site-header,.ecom-modal,.mart-sidebar,.mart-header,.mart-panel,.mart-modal,.showroom-app-sidebar,.showroom-app-header,.showroom-app-panel) {
-  color:var(--vrls-black) !important;
-  background-color:var(--vrls-white) !important;
-  border-color:var(--vrls-muted) !important;
-}
-html body #top.app .footer { color:var(--vrls-white) !important; background-color:var(--vrls-black) !important; }
-html body #top.app .footer :is(.footer-logo strong,.footer-logo small,.footer-brand p,.footer-column a,.footer-bottom,.footer-column-label,.footer-cta h2) { color:var(--vrls-white) !important; }
-html body #top.app .footer .footer-cta>a { color:var(--vrls-white) !important; background-color:var(--vrls-violet) !important; }
+html, body, #root { min-height:100%; }
+html, body { margin:0; color:var(--vrls-ink); background:#fff; font-family:Inter,"DM Sans",Arial,sans-serif; }
+#root { min-height:100vh; }
+.universal-demo-shell { min-height:100vh; color:var(--vrls-ink); background:#fff; font-family:Inter,"DM Sans",Arial,sans-serif; }
+.universal-demo-shell :is(h1,h2,h3,h4) { font-family:Inter,"DM Sans",Arial,sans-serif; }
+.universal-demo-shell :is(button,input,textarea,select) { font:inherit; }
