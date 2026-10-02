@@ -1,16 +1,16 @@
-/* Light editorial canvas with deep navy navigation, cards and footer. */
+/* Light editorial canvas with walnut surfaces and teal and gold accents. */
 :root {
-  --green: #3f73c8;
-  --green-dark: #315da8;
-  --black: #1d3152;
-  --muted: #64718a;
+  --green: #3e827b;
+  --green-dark: #2f6a65;
+  --black: #493d32;
+  --muted: #75695d;
   --white: #fff;
-  --navy: #1d3152;
-  --blue: #3f73c8;
+  --navy: #493d32;
+  --blue: #3e827b;
   --line: #e0e6ef;
   --paper: #f5f7fa;
-  --royal: #3f73c8;
-  --accent: #3f73c8;
+  --royal: #3e827b;
+  --accent: #3e827b;
   --teal: #4d8b86;
   --gold: #b58a4b;
   --sky: #7193c2;
@@ -18,7 +18,7 @@
 
 body,
 .app {
-  color: #14213b !important;
+  color: #493d32 !important;
   background: #f5f7fa !important;
 }
 
@@ -26,40 +26,46 @@ body,
 html body .app .navbar {
   color: #f8f7f4 !important;
   border-color: rgba(255,255,255,.1) !important;
-  background: rgba(23, 41, 69, .98) !important;
-  box-shadow: 0 8px 28px rgba(16, 29, 57, .12) !important;
+  background: rgba(77, 62, 50, .98) !important;
+  box-shadow: 0 8px 28px rgba(73,61,50,.14) !important;
 }
 html body .app .navbar .brand-text strong,
 html body .app .navbar .brand-text small,
 html body .app .navbar .nav-links a,
+html body .app .navbar .nav-links a:is(.active,.is-active,[aria-current="page"]),
 html body .app .navbar .mobile-menu { color: #f8f7f4 !important; }
 html body .app .navbar .brand-v,
-html body .app .navbar .nav-links a:hover { color: #9db8e5 !important; }
+html body .app .navbar .nav-links a:hover { color: #a8d2cb !important; }
 html body .app .navbar .nav-links a::after,
 html body .app .navbar .brand-v::after,
 html body .app .navbar .mobile-menu span { background: var(--accent) !important; }
+html body .app .navbar .nav-cta {
+  color:#fff !important;
+  border-color:#3e827b !important;
+  background:#3e827b !important;
+}
 html body .app .navbar .mobile-menu {
   border-color: #39445a !important;
-  background: #243958 !important;
+  background: #62503f !important;
 }
 html body .app .mobile-nav-panel {
   color: #f8f7f4 !important;
   border-color: #39445a !important;
-  background: #182945 !important;
+  background: #514236 !important;
 }
 html body .app .mobile-nav-links a,
 html body .app .mobile-contact-details a { color: #f8f7f4 !important; }
 
 /* Keep the hero bright and its copy legible over the existing business image. */
 .app .hero {
-  color: #1d3152 !important;
+  color: #493d32 !important;
   background-color: #f5f7fa !important;
 }
 .app .hero-white-fade {
   background: linear-gradient(90deg, rgba(248,250,253,.99) 0%, rgba(248,250,253,.96) 35%, rgba(248,250,253,.74) 56%, rgba(248,250,253,.2) 82%, rgba(248,250,253,.04) 100%) !important;
 }
 .app .hero-title,
-.app .hero-title-line { color: #1d3152 !important; }
+.app .hero-title-line { color: #493d32 !important; }
 .app .hero-title em,
 .app .services-heading h2 em,
 .app .work-heading h2 em,
@@ -77,14 +83,14 @@ html body .app .mobile-contact-details a { color: #f8f7f4 !important; }
 .app .process-heading-content > p,
 .app .about-heading-grid > p,
 .app .technologies-heading > p,
-.app .contact-header > p { color: #5c6b83 !important; }
-.app .hero-proof strong { color: #14213b !important; }
+.app .contact-header > p { color: #716559 !important; }
+.app .hero-proof strong { color: #493d32 !important; }
 .app .proof-icon {
   color: var(--accent) !important;
-  border-color: #d6e2f3 !important;
-  background: #edf3fb !important;
+  border-color: #d4e8e5 !important;
+  background: #edf7f5 !important;
 }
-.app .hero-proof:nth-of-type(2) .proof-icon { color:var(--royal) !important; border-color:#d5e1f2 !important; background:#edf3fb !important; }
+.app .hero-proof:nth-of-type(2) .proof-icon { color:var(--royal) !important; border-color:#d4e8e5 !important; background:#edf7f5 !important; }
 .app .hero-proof:nth-of-type(3) .proof-icon { color:var(--teal) !important; border-color:#d4e7e4 !important; background:#edf7f5 !important; }
 .app .proof-divider,
 .app .process-line { background: #d9e0ea !important; }
@@ -97,7 +103,7 @@ html body .app .mobile-contact-details a { color: #f8f7f4 !important; }
 .app .contact-section,
 .app .work-section,
 .app .industries-section {
-  color: #14213b !important;
+  color: #493d32 !important;
   background: #f5f7fa !important;
 }
 .app .services-heading h2,
@@ -105,9 +111,9 @@ html body .app .mobile-contact-details a { color: #f8f7f4 !important; }
 .app .process-heading h2,
 .app .about-heading h2,
 .app .technologies-heading h2,
-.app .contact-header h2 { color: #1d3152 !important; }
+.app .contact-header h2 { color: #493d32 !important; }
 
-/* Service, demo, process and contact tiles use a matching navy surface. */
+/* Service, demo, process and contact tiles use a matching walnut surface. */
 .app .service-card,
 .app .project-card,
 .app .process-intro-card,
@@ -118,8 +124,8 @@ html body .app .mobile-contact-details a { color: #f8f7f4 !important; }
 .app .industry-card {
   color: #f7f5f1 !important;
   border-color: #2e3b53 !important;
-  background: #1c2d4a !important;
-  box-shadow: 0 14px 34px rgba(16,29,57,.12) !important;
+  background: #584738 !important;
+  box-shadow: 0 14px 34px rgba(73,61,50,.14) !important;
 }
 .app .service-card h3,
 .app .project-title-row h3,
@@ -136,54 +142,54 @@ html body .app .mobile-contact-details a { color: #f8f7f4 !important; }
 .app .process-step p,
 .app .capability-content p,
 .app .contact-form-intro p,
-.app .industry-card-copy p { color: #c0cada !important; }
+.app .industry-card-copy p { color: #e1d8cc !important; }
 .app .service-number,
 .app .project-meta,
 .app .about-capabilities-header,
 .app .capability-number,
 .app .contact-option > div > span,
 .app .contact-form-intro > span,
-.app .contact-form label > span { color: #aebbd0 !important; }
+.app .contact-form label > span { color: #cdbfa9 !important; }
 .app .service-tags span,
 .app .project-tags span {
-  color: #e9e5df !important;
-  border-color: #405775 !important;
-  background: #223754 !important;
+  color: #f1eadf !important;
+  border-color: #786754 !important;
+  background: #6a5745 !important;
 }
-.app .service-card:nth-child(4n + 1) .service-tags span { border-color:#3c5271 !important; }
-.app .service-card:nth-child(4n + 2) .service-tags span { border-color:#3c5478 !important; }
+.app .service-card:nth-child(4n + 1) .service-tags span { border-color:#826e57 !important; }
+.app .service-card:nth-child(4n + 2) .service-tags span { border-color:#826e57 !important; }
 .app .service-card:nth-child(4n + 3) .service-tags span { border-color:#385956 !important; }
-.app .service-card:nth-child(4n) .service-tags span { border-color:#5b4c34 !important; }
+.app .service-card:nth-child(4n) .service-tags span { border-color:#766044 !important; }
 .app .service-icon,
 .app .process-intro-icon,
 .app .process-marker,
 .app .capability-icon,
 .app .contact-option-icon {
-  color: #a9c1e8 !important;
-  border-color: rgba(63,115,200,.35) !important;
-  background: #243653 !important;
+  color: #a8d2cb !important;
+  border-color: rgba(62,130,123,.35) !important;
+  background: #62503f !important;
 }
 .app #services .service-card:nth-child(4n + 1) .service-icon,
-.app #services .service-card:nth-child(4n + 1) .service-arrow { color:#8eaddb !important; border-color:rgba(113,147,194,.38) !important; background:#1d2c45 !important; }
+.app #services .service-card:nth-child(4n + 1) .service-arrow { color:#9acbc4 !important; border-color:rgba(77,139,134,.38) !important; background:#514236 !important; }
 .app #services .service-card:nth-child(4n + 2) .service-icon,
-.app #services .service-card:nth-child(4n + 2) .service-arrow { color:#a9c1e8 !important; border-color:rgba(63,115,200,.35) !important; background:#243653 !important; }
+.app #services .service-card:nth-child(4n + 2) .service-arrow { color:#a8d2cb !important; border-color:rgba(62,130,123,.35) !important; background:#62503f !important; }
 .app #services .service-card:nth-child(4n + 3) .service-icon,
-.app #services .service-card:nth-child(4n + 3) .service-arrow { color:#8fc4bd !important; border-color:rgba(77,139,134,.4) !important; background:#1e393d !important; }
+.app #services .service-card:nth-child(4n + 3) .service-arrow { color:#8fc4bd !important; border-color:rgba(77,139,134,.4) !important; background:#244441 !important; }
 .app #services .service-card:nth-child(4n) .service-icon,
 .app #services .service-card:nth-child(4n) .service-arrow { color:#e0bd7d !important; border-color:rgba(181,138,75,.4) !important; background:#303b50 !important; }
-.app .process-step:nth-child(4n + 1) .process-marker { color:#8eaddb !important; border-color:rgba(113,147,194,.38) !important; background:#1d2c45 !important; }
-.app .process-step:nth-child(4n + 2) .process-marker { color:#a9c1e8 !important; border-color:rgba(63,115,200,.35) !important; background:#243653 !important; }
-.app .process-step:nth-child(4n + 3) .process-marker { color:#8fc4bd !important; border-color:rgba(77,139,134,.4) !important; background:#1e393d !important; }
+.app .process-step:nth-child(4n + 1) .process-marker { color:#9acbc4 !important; border-color:rgba(77,139,134,.38) !important; background:#514236 !important; }
+.app .process-step:nth-child(4n + 2) .process-marker { color:#a8d2cb !important; border-color:rgba(62,130,123,.35) !important; background:#62503f !important; }
+.app .process-step:nth-child(4n + 3) .process-marker { color:#8fc4bd !important; border-color:rgba(77,139,134,.4) !important; background:#244441 !important; }
 .app .process-step:nth-child(4n) .process-marker { color:#e0bd7d !important; border-color:rgba(181,138,75,.4) !important; background:#303b50 !important; }
 .app .service-arrow,
 .app .capability-arrow,
 .app .project-link,
-.app .industry-card-copy > span { color: #a9c1e8 !important; }
-.app #demos .project-preview { background: #243958 !important; }
-.app #demos .project-info { color: #f7f5f1 !important; background: #1c2d4a !important; }
+.app .industry-card-copy > span { color: #a8d2cb !important; }
+.app #demos .project-preview { background: #62503f !important; }
+.app #demos .project-info { color: #f7f5f1 !important; background: #584738 !important; }
 .app #demos .project-title-row h3,
 .app #demos .project-meta { color: #f7f5f1 !important; }
-.app #demos .project-title-row p { color: #c0cada !important; }
+.app #demos .project-title-row p { color: #e1d8cc !important; }
 
 /* Sapphire buttons retain white labels in every section, including the footer. */
 .app #demos .project-demo-link,
@@ -199,8 +205,8 @@ html body .app .footer .footer-cta > a {
   min-height: 46px !important;
   padding: 0 21px !important;
   color: #fff !important;
-  border: 1px solid #3f73c8 !important;
-  background: #3f73c8 !important;
+  border: 1px solid #3e827b !important;
+  background: #3e827b !important;
   box-shadow: 0 10px 24px rgba(49,93,168,.22) !important;
   text-decoration: none !important;
   opacity: 1 !important;
@@ -209,33 +215,33 @@ html body .app .footer .footer-cta > a {
 .app .nav-cta:hover,
 .app .primary-button:hover,
 .app .contact-submit-primary:hover,
-html body .app .footer .footer-cta > a:hover { background: #315da8 !important; }
+html body .app .footer .footer-cta > a:hover { background: #2f6a65 !important; }
 .app .secondary-button,
 .app .contact-submit {
   color: #f7f5f1 !important;
   border-color: #43516b !important;
-  background: #243958 !important;
+  background: #62503f !important;
 }
 
 /* Keep the editorial about panel as a dark feature tile on the light canvas. */
 .app .about-statement {
   border: 1px solid #2e3b53 !important;
-  background: linear-gradient(145deg, #172640, #15243e) !important;
+  background: linear-gradient(145deg, #62503f, #493d32) !important;
 }
 .app .about-statement-content h3,
 .app .about-statement-content p,
 .app .about-small-label { color: #f8f7f4 !important; }
-.app .about-statement-content h3 em { color: #a9c1e8 !important; }
-.app .about-statement-content p { color: #c0cada !important; }
-.app .about-orbit { border-color: rgba(63,115,200,.2) !important; }
-.app .about-symbol { color: #fff !important; background: #3f73c8 !important; }
+.app .about-statement-content h3 em { color: #a8d2cb !important; }
+.app .about-statement-content p { color: #e1d8cc !important; }
+.app .about-orbit { border-color: rgba(62,130,123,.2) !important; }
+.app .about-symbol { color: #fff !important; background: #3e827b !important; }
 .app .about-arrow { color: var(--accent) !important; }
 .app .capability-item,
 .app .contact-bottom,
 .app .technology-marquee { border-color: #dce3ed !important; }
 .app .technology-marquee span { color: #263b5f !important; }
-.app .technology-marquee span:nth-child(4n + 1) { color:#3f73c8 !important; }
-.app .technology-marquee span:nth-child(4n + 2) { color:#3f73c8 !important; }
+.app .technology-marquee span:nth-child(4n + 1) { color:#3e827b !important; }
+.app .technology-marquee span:nth-child(4n + 2) { color:#3e827b !important; }
 .app .technology-marquee span:nth-child(4n + 3) { color:#4d8b86 !important; }
 .app .technology-marquee span:nth-child(4n) { color:#a17b3f !important; }
 .app .technology-marquee::before { background: linear-gradient(90deg,#f5f7fa,transparent) !important; }
@@ -244,27 +250,27 @@ html body .app .footer .footer-cta > a:hover { background: #315da8 !important; }
 .app .contact-form textarea {
   color: #f7f5f1 !important;
   border-color: #43516b !important;
-  background: #15243e !important;
+  background: #493d32 !important;
 }
 .app .contact-form input::placeholder,
-.app .contact-form textarea::placeholder { color: #aebbd0 !important; }
+.app .contact-form textarea::placeholder { color: #cdbfa9 !important; }
 
-/* Dark footer as requested; link and CTA contrast stay clear. */
+/* Dark walnut footer with clear link and CTA contrast. */
 html body .app .footer {
   color: #dedfe4 !important;
-  background: #14223b !important;
+  background: #493d32 !important;
 }
 html body .app .footer-logo strong,
 html body .app .footer-cta h2 { color: #f8f7f4 !important; }
-html body .app .footer-logo strong span { color: #9db8e5 !important; }
+html body .app .footer-logo strong span { color: #a8d2cb !important; }
 html body .app .footer-logo small,
 html body .app .footer-brand p,
 html body .app .footer-column a,
 html body .app .footer-bottom,
 html body .app .footer-column-label,
-html body .app .footer-cta > div > span { color: #c0cada !important; }
+html body .app .footer-cta > div > span { color: #e1d8cc !important; }
 html body .app .footer-column a:hover,
-html body .app .footer-bottom a { color: #a9c1e8 !important; }
+html body .app .footer-bottom a { color: #a8d2cb !important; }
 html body .app .footer-cta,
 html body .app .footer-bottom { border-color: #2e3b53 !important; }
 
@@ -299,60 +305,60 @@ html body .app .footer-bottom { border-color: #2e3b53 !important; }
 
 /* Standalone business demos use a light theme with the same sapphire accent. */
 .universal-demo-shell {
-  --universal-ink: #1d3152;
-  --universal-blue: #3f73c8;
+  --universal-ink: #493d32;
+  --universal-blue: #3e827b;
   --universal-paper: #fff;
   --universal-soft: #f3f6fa;
   --universal-line: #e1e7ef;
-  color: #1d3152 !important;
+  color: #493d32 !important;
   background: #f5f7fa !important;
 }
 .universal-demo-shell :is(.boutique-demo,.cafe-demo,.education-demo,.furniture-demo,.real-estate-demo,.wedding-demo,.nd-demo,.fh-demo,.restaurant-demo) {
-  --ink: #1d3152;
-  --muted: #64718a;
+  --ink: #493d32;
+  --muted: #75695d;
   --cream: #f5f7fa;
   --paper: #fff;
   --line: #e1e7ef;
-  color: #1d3152 !important;
+  color: #493d32 !important;
   background: #f5f7fa !important;
 }
-.universal-demo-shell .boutique-demo { --sage: #edf2f8; --muted: #64718a; }
+.universal-demo-shell .boutique-demo { --sage: #edf2f8; --muted: #75695d; }
 .universal-demo-shell .cafe-demo { --sage: #edf2f8; }
-.universal-demo-shell .education-demo { --ed-ink:#1d3152; --ed-muted:#64718a; --ed-paper:#fff; --ed-soft:#f3f6fa; --ed-line:#e1e7ef; --ed-white:#fff; }
-.universal-demo-shell .furniture-demo { --fd-ink:#1d3152; --fd-muted:#64718a; --fd-paper:#fff; --fd-soft:#f3f6fa; --fd-line:#e1e7ef; --fd-white:#fff; }
-.universal-demo-shell .real-estate-demo { --muted:#64718a; --accent:#3f73c8; --soft:#edf2f8; }
-.universal-demo-shell .wedding-demo { --muted:#64718a; --accent:#3f73c8; --sage:#edf2f8; }
-.universal-demo-shell .nd-demo { --muted:#64718a; --olive:#3f73c8; }
-.universal-demo-shell .fh-demo { --gold:#3f73c8; }
-.universal-demo-shell .restaurant-demo { --cream-soft:#eaf0f8; --green:#1d3152; --green-deep:#0b1730; --green-light:#3f73c8; --white:#fff; }
-.universal-demo-shell .ecom-demo { --ecom-bg:#fff; --ecom-text:#1d3152; --ecom-muted:#64718a; --ecom-border:#e1e7ef; --ecom-green:#3f73c8; --ecom-green-soft:#edf3fb; }
-.universal-demo-shell .mart-demo { --mart-green:#3f73c8; --mart-green-dark:#315da8; --mart-green-soft:#edf3fb; }
-.universal-demo-shell .showroom-app-demo { --showroom-app-bg:#fff; --showroom-app-border:#e1e7ef; --showroom-app-text:#1d3152; --showroom-app-muted:#64718a; --showroom-app-soft:#f3f6fa; --showroom-app-accent:#3f73c8; --showroom-app-accent-dark:#315da8; }
-.universal-demo-shell .hospital-demo { --hospital-bg:#fff; --hospital-text:#1d3152; --hospital-muted:#64718a; --hospital-border:#e1e7ef; --hospital-green:#3f73c8; --hospital-green-soft:#edf3fb; --hospital-blue:#3f73c8; }
-.universal-demo-shell .ai-demo { --ai-bg:#f5f7fa; --ai-bg-soft:#edf2f8; --ai-panel:#fff; --ai-panel-2:#f3f6fa; --ai-border:#e1e7ef; --ai-border-light:#d7dfeb; --ai-text:#1d3152; --ai-muted:#64718a; --ai-dim:#8290a5; --ai-accent:#3f73c8; --ai-accent-bright:#315da8; --ai-accent-soft:rgba(63,115,200,.1); --ai-accent-glow:rgba(63,115,200,.12); background:#f5f7fa !important; }
+.universal-demo-shell .education-demo { --ed-ink:#493d32; --ed-muted:#75695d; --ed-paper:#fff; --ed-soft:#f3f6fa; --ed-line:#e1e7ef; --ed-white:#fff; }
+.universal-demo-shell .furniture-demo { --fd-ink:#493d32; --fd-muted:#75695d; --fd-paper:#fff; --fd-soft:#f3f6fa; --fd-line:#e1e7ef; --fd-white:#fff; }
+.universal-demo-shell .real-estate-demo { --muted:#75695d; --accent:#3e827b; --soft:#edf2f8; }
+.universal-demo-shell .wedding-demo { --muted:#75695d; --accent:#3e827b; --sage:#edf2f8; }
+.universal-demo-shell .nd-demo { --muted:#75695d; --olive:#3e827b; }
+.universal-demo-shell .fh-demo { --gold:#3e827b; }
+.universal-demo-shell .restaurant-demo { --cream-soft:#eaf0f8; --green:#493d32; --green-deep:#352b24; --green-light:#3e827b; --white:#fff; }
+.universal-demo-shell .ecom-demo { --ecom-bg:#fff; --ecom-text:#493d32; --ecom-muted:#75695d; --ecom-border:#e1e7ef; --ecom-green:#3e827b; --ecom-green-soft:#edf7f5; }
+.universal-demo-shell .mart-demo { --mart-green:#3e827b; --mart-green-dark:#2f6a65; --mart-green-soft:#edf7f5; }
+.universal-demo-shell .showroom-app-demo { --showroom-app-bg:#fff; --showroom-app-border:#e1e7ef; --showroom-app-text:#493d32; --showroom-app-muted:#75695d; --showroom-app-soft:#f3f6fa; --showroom-app-accent:#3e827b; --showroom-app-accent-dark:#2f6a65; }
+.universal-demo-shell .hospital-demo { --hospital-bg:#fff; --hospital-text:#493d32; --hospital-muted:#75695d; --hospital-border:#e1e7ef; --hospital-green:#3e827b; --hospital-green-soft:#edf7f5; --hospital-blue:#3e827b; }
+.universal-demo-shell .ai-demo { --ai-bg:#f5f7fa; --ai-bg-soft:#edf2f8; --ai-panel:#fff; --ai-panel-2:#f3f6fa; --ai-border:#e1e7ef; --ai-border-light:#d7dfeb; --ai-text:#493d32; --ai-muted:#75695d; --ai-dim:#8290a5; --ai-accent:#3e827b; --ai-accent-bright:#2f6a65; --ai-accent-soft:rgba(62,130,123,.1); --ai-accent-glow:rgba(62,130,123,.12); background:#f5f7fa !important; }
 .universal-demo-shell .industry-demo {
-  --demo-ink:#1d3152;
-  --demo-muted:#64718a;
-  --demo-blue:#3f73c8;
+  --demo-ink:#493d32;
+  --demo-muted:#75695d;
+  --demo-blue:#3e827b;
   --demo-line:#e1e7ef;
   --demo-soft:#f3f6fa;
-  color:#1d3152 !important;
+  color:#493d32 !important;
   background:#f5f7fa !important;
 }
 .universal-demo-shell .industry-demo :is(.industry-demo-note,.industry-services,.industry-departments,.industry-approach,.industry-service-card,.industry-department-card,.industry-request-form input,.industry-request-form select,.industry-request-form textarea,.industry-list-controls input,.industry-nav-links) {
-  color:#1d3152 !important;
+  color:#493d32 !important;
   border-color:#e1e7ef !important;
   background:#fff !important;
 }
 .universal-demo-shell .industry-demo :is(.industry-nav-links,.industry-menu-toggle,.industry-secondary) {
-  color:#1d3152 !important;
+  color:#493d32 !important;
   border-color:#dce3ed !important;
   background:#fff !important;
 }
-.universal-demo-shell .industry-demo :is(.industry-service-card h3,.industry-section-head h2,.industry-approach h2,.industry-contact h2,.industry-step p) { color:#1d3152 !important; }
-.universal-demo-shell .industry-demo :is(.industry-service-card p,.industry-section-head > p,.industry-approach-copy > p,.industry-contact-copy > p,.industry-request-form label,.industry-list-card li) { color:#64718a !important; }
-.universal-demo-shell .industry-demo :is(.industry-request-form input,.industry-request-form select,.industry-request-form textarea,.industry-list-controls input) { color:#1d3152 !important; }
-.universal-demo-shell .industry-demo :is(.industry-primary,.industry-nav-cta) { color:#fff !important; background:#3f73c8 !important; }
+.universal-demo-shell .industry-demo :is(.industry-service-card h3,.industry-section-head h2,.industry-approach h2,.industry-contact h2,.industry-step p) { color:#493d32 !important; }
+.universal-demo-shell .industry-demo :is(.industry-service-card p,.industry-section-head > p,.industry-approach-copy > p,.industry-contact-copy > p,.industry-request-form label,.industry-list-card li) { color:#75695d !important; }
+.universal-demo-shell .industry-demo :is(.industry-request-form input,.industry-request-form select,.industry-request-form textarea,.industry-list-controls input) { color:#493d32 !important; }
+.universal-demo-shell .industry-demo :is(.industry-primary,.industry-nav-cta) { color:#fff !important; background:#3e827b !important; }
 
 @media (max-width: 900px) {
   .app #services .services-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
@@ -369,7 +375,7 @@ html body .app .footer-bottom { border-color: #2e3b53 !important; }
     min-height:clamp(170px,42vw,220px) !important;
     max-height:220px !important;
   }
-  html body .app .mobile-nav-panel { color:#f8f7f4 !important; background:#182945 !important; }
+  html body .app .mobile-nav-panel { color:#f8f7f4 !important; background:#514236 !important; }
   html body .app .mobile-nav-links a,
   html body .app .mobile-contact-details a { color:#f8f7f4 !important; }
 }
