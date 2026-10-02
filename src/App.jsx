@@ -33,6 +33,7 @@ const Footer = lazy(() => import('./components/Footer'))
 import './App.css'
 import './redesign.css'
 import './demos/universal-demo.css'
+import './royal-theme.css'
 
 function DeferredContent({ children, minHeight = 500, anchorId, rootMargin = '1000px' }) {
   return (
