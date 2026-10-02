@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { ArrowUpRight, X } from 'lucide-react'
+import ThemeToggle from './ThemeToggle'
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -53,6 +54,8 @@ function Navbar() {
           </a>
         ))}
       </nav>
+
+      <ThemeToggle />
 
 
       {/* =====================================
