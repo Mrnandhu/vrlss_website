@@ -224,6 +224,11 @@ html body .app .footer .footer-cta > a:hover { background: #2f6a65 !important; }
   border-color: #43516b !important;
   background: #62503f !important;
 }
+.app .hero .secondary-button {
+  color:#493d32 !important;
+  border-color:#d9cfbf !important;
+  background:#fffdf8 !important;
+}
 
 /* Keep the editorial about panel as a dark feature tile on the light canvas. */
 .app .about-statement {
@@ -380,4 +385,436 @@ html body .app .footer-bottom { border-color: #2e3b53 !important; }
   html body .app .mobile-nav-panel { color:#f8f7f4 !important; background:#514236 !important; }
   html body .app .mobile-nav-links a,
   html body .app .mobile-contact-details a { color:#f8f7f4 !important; }
+}
+
+/* Beat late-loaded legacy navigation and eyebrow colors explicitly. */
+html body #top.app > header.navbar nav.nav-links > a,
+html body #top.app > header.navbar nav.nav-links > a:first-child,
+html body #top.app > header.navbar nav.nav-links > a:is(.active,.is-active,[aria-current="page"]) {
+  color:#fffaf2 !important;
+}
+html body #top.app > header.navbar nav.nav-links > a:hover {
+  color:#a8d2cb !important;
+}
+html body #top.app > header.navbar nav.nav-links > a::after {
+  background-color:#3e827b !important;
+}
+html body #top.app > header.navbar .nav-cta {
+  color:#fff !important;
+  border-color:#3e827b !important;
+  background:#3e827b !important;
+}
+.app .hero .eyebrow-line,
+.app .section-eyebrow span,
+.app .technologies-eyebrow span,
+.app .contact-eyebrow span {
+  background-color:#3e827b !important;
+}
+
+/* Pastel cream and lavender finish across the complete site. */
+:root {
+  --green:#7561aa;
+  --green-dark:#5f4a93;
+  --black:#342d45;
+  --navy:#342d45;
+  --muted:#746d80;
+  --blue:#7561aa;
+  --accent:#7561aa;
+  --royal:#7561aa;
+  --paper:#fbf8f1;
+  --line:#e7e0ed;
+}
+body,
+html body #top.app {
+  color:#342d45 !important;
+  background:#fbf8f1 !important;
+}
+html body #top.app > header.navbar {
+  color:#342d45 !important;
+  border-color:#e7e0ed !important;
+  background:rgba(251,248,241,.97) !important;
+  box-shadow:0 8px 26px rgba(52,45,69,.08) !important;
+}
+html body #top.app > header.navbar .brand-text strong,
+html body #top.app > header.navbar .brand-text small,
+html body #top.app > header.navbar nav.nav-links > a,
+html body #top.app > header.navbar nav.nav-links > a:first-child,
+html body #top.app > header.navbar nav.nav-links > a:is(.active,.is-active,[aria-current="page"]) {
+  color:#342d45 !important;
+}
+html body #top.app > header.navbar nav.nav-links > a:hover { color:#7561aa !important; }
+html body #top.app > header.navbar nav.nav-links > a::after,
+html body #top.app > header.navbar .brand-v::after { background:#7561aa !important; }
+html body #top.app > header.navbar .brand-v { color:#7561aa !important; }
+html body #top.app > header.navbar .nav-cta,
+html body #top.app .primary-button,
+html body #top.app .mobile-project-button,
+html body #top.app #demos .project-demo-link,
+html body #top.app .contact-submit-primary {
+  color:#fff !important;
+  border-color:#7561aa !important;
+  background:#7561aa !important;
+  box-shadow:0 9px 22px rgba(117,97,170,.18) !important;
+}
+html body #top.app > header.navbar .mobile-menu {
+  color:#342d45 !important;
+  border-color:#e1d9e9 !important;
+  background:#f1edf8 !important;
+}
+html body #top.app .mobile-nav-panel {
+  color:#342d45 !important;
+  border-color:#e7e0ed !important;
+  background:#fbf8f1 !important;
+}
+html body #top.app .mobile-nav-links a,
+html body #top.app .mobile-contact-details a { color:#342d45 !important; }
+
+html body #top.app main > section,
+html body #top.app .services-section,
+html body #top.app .work-section,
+html body #top.app .industries-section,
+html body #top.app .process-section,
+html body #top.app .about-section,
+html body #top.app .technologies-section,
+html body #top.app .contact-section {
+  color:#342d45 !important;
+  background:#fbf8f1 !important;
+}
+html body #top.app .hero,
+html body #top.app .hero-title,
+html body #top.app .hero-title-line,
+html body #top.app .services-heading h2,
+html body #top.app .work-heading h2,
+html body #top.app .industries-heading h2,
+html body #top.app .process-heading h2,
+html body #top.app .about-heading h2,
+html body #top.app .technologies-heading h2,
+html body #top.app .contact-header h2 {
+  color:#342d45 !important;
+}
+html body #top.app .hero-white-fade {
+  background:linear-gradient(90deg,rgba(251,248,241,.99) 0%,rgba(251,248,241,.95) 35%,rgba(251,248,241,.72) 57%,rgba(251,248,241,.18) 82%,rgba(251,248,241,.03) 100%) !important;
+}
+html body #top.app .hero-title em,
+html body #top.app .services-heading h2 em,
+html body #top.app .work-heading h2 em,
+html body #top.app .industries-heading h2 em,
+html body #top.app .process-heading h2 em,
+html body #top.app .about-heading h2 em,
+html body #top.app .technologies-heading h2 em,
+html body #top.app .contact-header h2 em,
+html body #top.app .footer-cta h2 em { color:#7561aa !important; }
+html body #top.app :is(.hero-description,.hero-eyebrow,.services-heading-content > p,.work-heading-content > p,.process-heading-content > p,.about-heading-grid > p,.technologies-heading > p,.contact-header > p) { color:#746d80 !important; }
+html body #top.app :is(.eyebrow-line,.section-eyebrow span,.technologies-eyebrow span,.contact-eyebrow span) { background:#7561aa !important; }
+
+html body #top.app #services .service-card,
+html body #top.app #demos .project-card,
+html body #top.app .process-intro-card,
+html body #top.app .process-step-content,
+html body #top.app .about-capabilities,
+html body #top.app .about-statement,
+html body #top.app .contact-option,
+html body #top.app .contact-form-wrapper,
+html body #top.app .industry-card {
+  color:#342d45 !important;
+  border-color:#e7e0ed !important;
+  background:#fffdfa !important;
+  box-shadow:0 12px 30px rgba(52,45,69,.08) !important;
+}
+html body #top.app #demos .project-info { color:#342d45 !important; background:#fffdfa !important; }
+html body #top.app :is(.service-card h3,.project-title-row h3,.project-copy h3,.process-intro-card h3,.process-step h3,.capability-content h3,.contact-option h3,.contact-form-intro h3,.industry-card-copy h3,.about-statement-content h3) { color:#342d45 !important; }
+html body #top.app :is(.service-card p,.project-copy p,.process-intro-card p,.process-step p,.capability-content p,.contact-form-intro p,.industry-card-copy p,.about-statement-content p) { color:#746d80 !important; }
+html body #top.app :is(.service-number,.project-meta,.about-capabilities-header,.capability-number,.contact-option > div > span,.contact-form-intro > span,.contact-form label > span) { color:#746d80 !important; }
+html body #top.app .service-tags span,
+html body #top.app .project-tags span {
+  color:#5a506c !important;
+  border-color:#e3dcec !important;
+  background:#f3eff8 !important;
+}
+html body #top.app :is(.service-icon,.process-intro-icon,.process-marker,.capability-icon,.contact-option-icon) {
+  color:#7561aa !important;
+  border-color:#e1d8ee !important;
+  background:#f1edf8 !important;
+}
+html body #top.app .service-card:nth-child(3n + 2) .service-icon,
+html body #top.app .process-step:nth-child(3n + 2) .process-marker { color:#5d8b7d !important; border-color:#d5e6dd !important; background:#edf5f0 !important; }
+html body #top.app .service-card:nth-child(3n) .service-icon,
+html body #top.app .process-step:nth-child(3n) .process-marker { color:#aa8951 !important; border-color:#eadfc9 !important; background:#f8f2e7 !important; }
+html body #top.app .service-arrow,
+html body #top.app .capability-arrow,
+html body #top.app .project-link,
+html body #top.app .industry-card-copy > span { color:#7561aa !important; }
+html body #top.app .project-preview { background:#f1edf8 !important; }
+html body #top.app .hero .secondary-button {
+  color:#5b506d !important;
+  border-color:#ded6e7 !important;
+  background:#fffdfa !important;
+}
+html body #top.app .contact-form input,
+html body #top.app .contact-form textarea {
+  color:#342d45 !important;
+  border-color:#ded6e7 !important;
+  background:#fffdfa !important;
+}
+html body #top.app .contact-form input::placeholder,
+html body #top.app .contact-form textarea::placeholder { color:#8b8297 !important; }
+html body #top.app .about-orbit { border-color:rgba(117,97,170,.18) !important; }
+html body #top.app .about-symbol { color:#fff !important; background:#7561aa !important; }
+html body #top.app .about-statement-content h3 em { color:#7561aa !important; }
+html body #top.app .technology-marquee { border-color:#e7e0ed !important; }
+html body #top.app .technology-marquee span:nth-child(4n + 1) { color:#7561aa !important; }
+html body #top.app .technology-marquee span:nth-child(4n + 2) { color:#5d8b7d !important; }
+html body #top.app .technology-marquee span:nth-child(4n + 3) { color:#aa8951 !important; }
+html body #top.app .technology-marquee span:nth-child(4n) { color:#6c8dad !important; }
+html body #top.app .technology-marquee::before { background:linear-gradient(90deg,#fbf8f1,transparent) !important; }
+html body #top.app .technology-marquee::after { background:linear-gradient(270deg,#fbf8f1,transparent) !important; }
+
+html body #top.app > footer.footer,
+html body #top.app .footer {
+  color:#5b5268 !important;
+  border-color:#e5deeb !important;
+  background:#f1edf8 !important;
+}
+html body #top.app .footer-logo strong,
+html body #top.app .footer-cta h2 { color:#342d45 !important; }
+html body #top.app .footer-logo strong span { color:#7561aa !important; }
+html body #top.app :is(.footer-logo small,.footer-brand p,.footer-column a,.footer-bottom,.footer-column-label,.footer-cta > div > span,.footer-contact a) { color:#746d80 !important; }
+html body #top.app .footer-column a:hover,
+html body #top.app .footer-bottom a:hover { color:#7561aa !important; }
+html body #top.app .footer-cta,
+html body #top.app .footer-bottom { border-color:#ddd5e5 !important; }
+html body #top.app .footer .footer-cta > a {
+  color:#fff !important;
+  border-color:#7561aa !important;
+  background:#7561aa !important;
+}
+
+html body .universal-demo-shell {
+  --universal-ink:#342d45 !important;
+  --universal-blue:#7561aa !important;
+  --universal-paper:#fffdfa !important;
+  --universal-soft:#f1edf8 !important;
+  --universal-line:#e7e0ed !important;
+  color:#342d45 !important;
+  background:#fbf8f1 !important;
+}
+
+@media (max-width:760px) {
+  html body #top.app .hero-white-fade {
+    background:linear-gradient(180deg,rgba(251,248,241,.98) 0%,rgba(251,248,241,.91) 44%,rgba(251,248,241,.58) 78%,rgba(251,248,241,.2) 100%) !important;
+  }
+}
+
+/* Shared aqua, mint, blush and mauve palette from the approved reference. */
+:root {
+  --green:#51e2f5;
+  --green-dark:#2a8794;
+  --black:#493740;
+  --navy:#493740;
+  --muted:#806b73;
+  --blue:#51e2f5;
+  --accent:#a28089;
+  --royal:#51e2f5;
+  --teal:#99f5e5;
+  --gold:#ffabb6;
+  --paper:#edf7f6;
+  --line:#cfeae8;
+}
+html body #top.app,
+html body #top.app main > section,
+html body #top.app .services-section,
+html body #top.app .work-section,
+html body #top.app .industries-section,
+html body #top.app .process-section,
+html body #top.app .about-section,
+html body #top.app .technologies-section,
+html body #top.app .contact-section {
+  color:#493740 !important;
+  background:#edf7f6 !important;
+}
+html body #top.app > header.navbar {
+  color:#493740 !important;
+  border-color:#cfeae8 !important;
+  background:rgba(237,247,246,.97) !important;
+  box-shadow:0 8px 26px rgba(74,55,64,.08) !important;
+}
+html body #top.app > header.navbar .brand-text strong,
+html body #top.app > header.navbar .brand-text small,
+html body #top.app > header.navbar nav.nav-links > a,
+html body #top.app > header.navbar nav.nav-links > a:first-child,
+html body #top.app > header.navbar nav.nav-links > a:is(.active,.is-active,[aria-current="page"]),
+html body #top.app > header.navbar .mobile-menu { color:#493740 !important; }
+html body #top.app > header.navbar nav.nav-links > a:hover { color:#80616d !important; }
+html body #top.app > header.navbar nav.nav-links > a::after,
+html body #top.app > header.navbar .brand-v::after { background:#51e2f5 !important; }
+html body #top.app > header.navbar .brand-v { color:#80616d !important; }
+html body #top.app > header.navbar .nav-cta,
+html body #top.app .primary-button,
+html body #top.app .mobile-project-button,
+html body #top.app #demos .project-demo-link,
+html body #top.app .contact-submit-primary,
+html body #top.app .footer .footer-cta > a {
+  color:#493740 !important;
+  border-color:#51e2f5 !important;
+  background:#51e2f5 !important;
+  box-shadow:0 9px 22px rgba(81,226,245,.2) !important;
+}
+html body #top.app > header.navbar .mobile-menu,
+html body #top.app .mobile-nav-panel {
+  border-color:#cfeae8 !important;
+  background:#edf7f6 !important;
+}
+html body #top.app .hero-white-fade {
+  background:linear-gradient(90deg,rgba(237,247,246,.99) 0%,rgba(237,247,246,.95) 35%,rgba(237,247,246,.72) 57%,rgba(237,247,246,.18) 82%,rgba(237,247,246,.03) 100%) !important;
+}
+html body #top.app :is(.hero,.hero-title,.hero-title-line,.services-heading h2,.work-heading h2,.industries-heading h2,.process-heading h2,.about-heading h2,.technologies-heading h2,.contact-header h2) { color:#493740 !important; }
+html body #top.app :is(.hero-title em,.services-heading h2 em,.work-heading h2 em,.industries-heading h2 em,.process-heading h2 em,.about-heading h2 em,.technologies-heading h2 em,.contact-header h2 em,.footer-cta h2 em,.about-statement-content h3 em) { color:#a28089 !important; }
+html body #top.app :is(.hero-description,.hero-eyebrow,.services-heading-content > p,.work-heading-content > p,.process-heading-content > p,.about-heading-grid > p,.technologies-heading > p,.contact-header > p) { color:#806b73 !important; }
+html body #top.app :is(.eyebrow-line,.section-eyebrow span,.technologies-eyebrow span,.contact-eyebrow span) { background:#a28089 !important; }
+
+html body #top.app #services .service-card,
+html body #top.app #demos .project-card,
+html body #top.app .process-intro-card,
+html body #top.app .process-step-content,
+html body #top.app .about-capabilities,
+html body #top.app .about-statement,
+html body #top.app .contact-option,
+html body #top.app .contact-form-wrapper,
+html body #top.app .industry-card,
+html body #top.app #demos .project-info {
+  color:#493740 !important;
+  border-color:#cfeae8 !important;
+  background:#fff !important;
+  box-shadow:0 12px 30px rgba(74,55,64,.08) !important;
+}
+html body #top.app #services .service-card:nth-child(4n + 2) { background:#f5fffc !important; }
+html body #top.app #services .service-card:nth-child(4n + 3) { background:#fff7f8 !important; }
+html body #top.app #services .service-card:nth-child(4n) { background:#f8f4f7 !important; }
+html body #top.app :is(.service-card h3,.project-title-row h3,.project-copy h3,.process-intro-card h3,.process-step h3,.capability-content h3,.contact-option h3,.contact-form-intro h3,.industry-card-copy h3,.about-statement-content h3) { color:#493740 !important; }
+html body #top.app :is(.service-card p,.project-copy p,.process-intro-card p,.process-step p,.capability-content p,.contact-form-intro p,.industry-card-copy p,.about-statement-content p) { color:#806b73 !important; }
+html body #top.app :is(.service-number,.project-meta,.about-capabilities-header,.capability-number,.contact-option > div > span,.contact-form-intro > span,.contact-form label > span) { color:#806b73 !important; }
+html body #top.app .service-tags span,
+html body #top.app .project-tags span { color:#66515a !important; border-color:#cfeae8 !important; background:#edf7f6 !important; }
+html body #top.app :is(.service-icon,.process-intro-icon,.process-marker,.capability-icon,.contact-option-icon) { color:#6e5965 !important; border-color:#cfeae8 !important; background:#99f5e5 !important; }
+html body #top.app .service-card:nth-child(3n + 2) .service-icon,
+html body #top.app .process-step:nth-child(3n + 2) .process-marker { border-color:#f4d3d8 !important; background:#ffabb6 !important; }
+html body #top.app .service-card:nth-child(3n) .service-icon,
+html body #top.app .process-step:nth-child(3n) .process-marker { border-color:#e4d7dc !important; background:#a28089 !important; }
+html body #top.app :is(.service-arrow,.capability-arrow,.project-link,.industry-card-copy > span) { color:#80616d !important; }
+html body #top.app .project-preview { background:#edf7f6 !important; }
+html body #top.app .hero .secondary-button {
+  color:#66515a !important;
+  border-color:#c9e7e5 !important;
+  background:#fff !important;
+}
+html body #top.app .contact-form input,
+html body #top.app .contact-form textarea { color:#493740 !important; border-color:#c9e7e5 !important; background:#fff !important; }
+html body #top.app .contact-form input::placeholder,
+html body #top.app .contact-form textarea::placeholder { color:#9b858d !important; }
+html body #top.app .technology-marquee { border-color:#cfeae8 !important; }
+html body #top.app .technology-marquee span:nth-child(4n + 1) { color:#80616d !important; }
+html body #top.app .technology-marquee span:nth-child(4n + 2) { color:#4b8e83 !important; }
+html body #top.app .technology-marquee span:nth-child(4n + 3) { color:#c47783 !important; }
+html body #top.app .technology-marquee span:nth-child(4n) { color:#a28089 !important; }
+html body #top.app .technology-marquee::before { background:linear-gradient(90deg,#edf7f6,transparent) !important; }
+html body #top.app .technology-marquee::after { background:linear-gradient(270deg,#edf7f6,transparent) !important; }
+html body #top.app .footer {
+  color:#66515a !important;
+  border-color:#d7eae7 !important;
+  background:#e9f4f2 !important;
+}
+html body #top.app .footer-logo strong,
+html body #top.app .footer-cta h2 { color:#493740 !important; }
+html body #top.app .footer-logo strong span { color:#80616d !important; }
+html body #top.app :is(.footer-logo small,.footer-brand p,.footer-column a,.footer-bottom,.footer-column-label,.footer-cta > div > span,.footer-contact a) { color:#806b73 !important; }
+html body #top.app .footer-column a:hover,
+html body #top.app .footer-bottom a:hover { color:#80616d !important; }
+html body #top.app .footer-cta,
+html body #top.app .footer-bottom { border-color:#cfe4e1 !important; }
+
+/* Apply the same reference palette to every standalone demo route. */
+html body .universal-demo-shell {
+  --universal-ink:#493740 !important;
+  --universal-blue:#51e2f5 !important;
+  --universal-paper:#fff !important;
+  --universal-soft:#edf7f6 !important;
+  --universal-line:#cfeae8 !important;
+  color:#493740 !important;
+  background:#edf7f6 !important;
+}
+html body .universal-demo-shell :is(.boutique-demo,.cafe-demo,.education-demo,.furniture-demo,.real-estate-demo,.wedding-demo,.nd-demo,.fh-demo,.restaurant-demo) {
+  --ink:#493740 !important;
+  --muted:#806b73 !important;
+  --cream:#edf7f6 !important;
+  --paper:#fff !important;
+  --line:#cfeae8 !important;
+  color:#493740 !important;
+  background:#edf7f6 !important;
+}
+html body .universal-demo-shell .education-demo { --ed-ink:#493740 !important; --ed-muted:#806b73 !important; --ed-paper:#fff !important; --ed-soft:#edf7f6 !important; --ed-line:#cfeae8 !important; --ed-white:#fff !important; }
+html body .universal-demo-shell .furniture-demo { --fd-ink:#493740 !important; --fd-muted:#806b73 !important; --fd-paper:#fff !important; --fd-soft:#edf7f6 !important; --fd-line:#cfeae8 !important; --fd-white:#fff !important; }
+html body .universal-demo-shell .real-estate-demo { --accent:#a28089 !important; --soft:#edf7f6 !important; }
+html body .universal-demo-shell .wedding-demo { --accent:#a28089 !important; --sage:#99f5e5 !important; }
+html body .universal-demo-shell .boutique-demo,
+html body .universal-demo-shell .cafe-demo { --sage:#99f5e5 !important; }
+html body .universal-demo-shell .nd-demo { --olive:#a28089 !important; }
+html body .universal-demo-shell .fh-demo { --gold:#ffabb6 !important; }
+html body .universal-demo-shell .restaurant-demo { --cream-soft:#99f5e5 !important; --green:#a28089 !important; --green-deep:#80616d !important; --green-light:#51e2f5 !important; --white:#fff !important; }
+html body .universal-demo-shell .ecom-demo { --ecom-bg:#edf7f6 !important; --ecom-text:#493740 !important; --ecom-muted:#806b73 !important; --ecom-border:#cfeae8 !important; --ecom-green:#51e2f5 !important; --ecom-green-soft:#99f5e5 !important; }
+html body .universal-demo-shell .mart-demo { --mart-green:#51e2f5 !important; --mart-green-dark:#4b8e83 !important; --mart-green-soft:#99f5e5 !important; }
+html body .universal-demo-shell .showroom-app-demo { --showroom-app-bg:#edf7f6 !important; --showroom-app-border:#cfeae8 !important; --showroom-app-text:#493740 !important; --showroom-app-muted:#806b73 !important; --showroom-app-soft:#fff !important; --showroom-app-accent:#a28089 !important; --showroom-app-accent-dark:#80616d !important; }
+html body .universal-demo-shell .hospital-demo { --hospital-bg:#edf7f6 !important; --hospital-text:#493740 !important; --hospital-muted:#806b73 !important; --hospital-border:#cfeae8 !important; --hospital-green:#4b8e83 !important; --hospital-green-soft:#99f5e5 !important; --hospital-blue:#51e2f5 !important; }
+html body .universal-demo-shell .ai-demo { --ai-bg:#edf7f6 !important; --ai-bg-soft:#99f5e5 !important; --ai-panel:#fff !important; --ai-panel-2:#f5fffc !important; --ai-border:#cfeae8 !important; --ai-border-light:#c9e7e5 !important; --ai-text:#493740 !important; --ai-muted:#806b73 !important; --ai-dim:#9b858d !important; --ai-accent:#a28089 !important; --ai-accent-bright:#80616d !important; --ai-accent-soft:rgba(162,128,137,.12) !important; --ai-accent-glow:rgba(81,226,245,.12) !important; background:#edf7f6 !important; }
+html body .universal-demo-shell .industry-demo {
+  --demo-ink:#493740 !important;
+  --demo-muted:#806b73 !important;
+  --demo-blue:#a28089 !important;
+  --demo-line:#cfeae8 !important;
+  --demo-soft:#edf7f6 !important;
+  color:#493740 !important;
+  background:#edf7f6 !important;
+}
+html body .universal-demo-shell .industry-demo :is(.industry-demo-note,.industry-services,.industry-departments,.industry-approach,.industry-service-card,.industry-department-card,.industry-request-form input,.industry-request-form select,.industry-request-form textarea,.industry-list-controls input,.industry-nav-links,.industry-item-card,.industry-list-card) {
+  color:#493740 !important;
+  border-color:#cfeae8 !important;
+  background:#fff !important;
+}
+html body .universal-demo-shell .industry-demo :is(.industry-nav-links,.industry-menu-toggle,.industry-secondary) { color:#493740 !important; border-color:#cfeae8 !important; background:#fff !important; }
+html body .universal-demo-shell .industry-demo :is(.industry-service-card h3,.industry-section-head h2,.industry-approach h2,.industry-contact h2,.industry-step p) { color:#493740 !important; }
+html body .universal-demo-shell .industry-demo :is(.industry-service-card p,.industry-section-head > p,.industry-approach-copy > p,.industry-contact-copy > p,.industry-request-form label,.industry-list-card li) { color:#806b73 !important; }
+html body .universal-demo-shell .industry-demo :is(.industry-request-form input,.industry-request-form select,.industry-request-form textarea,.industry-list-controls input) { color:#493740 !important; background:#fff !important; }
+html body .universal-demo-shell .industry-demo :is(.industry-primary,.industry-nav-cta) { color:#493740 !important; background:#51e2f5 !important; }
+html body .universal-demo-shell :is(button,a[class*="button"],a[class*="cta"],.demo-cta) { accent-color:#a28089; }
+html body .universal-demo-shell :is(h1,h2,h3,h4,.section-title,.demo-title) { color:#493740 !important; }
+html body .universal-demo-shell :is(h1 em,h2 em,.eyebrow,.section-label,.demo-kicker) { color:#a28089 !important; }
+html body .universal-demo-shell :is(.boutique-demo,.cafe-demo,.education-demo,.furniture-demo,.real-estate-demo,.wedding-demo,.nd-demo,.fh-demo,.restaurant-demo) {
+  --sage:#99f5e5 !important;
+  --olive:#a28089 !important;
+  --gold:#ffabb6 !important;
+  --accent:#a28089 !important;
+  --cream:#edf7f6 !important;
+  --paper:#fff !important;
+  --line:#cfeae8 !important;
+  --muted:#806b73 !important;
+}
+html body .universal-demo-shell :is(.ecom-nav,.ecom-desktop-nav,.mart-nav,.showroom-app-nav,.hospital-nav,.ai-nav,.wed-nav,.industry-nav) {
+  color:#493740 !important;
+  border-color:#cfeae8 !important;
+  background:#edf7f6 !important;
+}
+html body .universal-demo-shell :is(.fh-primary,.wed-nav-cta,.wed-button,.ecom-hero-copy > button,.ecom-add-button,.mart-primary,.mart-button-primary,.ai-primary-button,.industry-primary,.industry-nav-cta,.hospital-primary,.showroom-app-primary,.rest-primary) {
+  color:#493740 !important;
+  border-color:#51e2f5 !important;
+  background:#51e2f5 !important;
+}
+html body .universal-demo-shell :is(.industry-service-card,.industry-item-card,.industry-list-card,.ai-chat-panel,.ai-panel-card,.ai-metric-card,.ai-insight-card,.ecom-card,.mart-card,.hospital-card,.showroom-app-card) {
+  color:#493740 !important;
+  border-color:#cfeae8 !important;
+  background:#fff !important;
+}
+html body .universal-demo-shell :is(.industry-service-card h3,.industry-item-card strong,.industry-list-card h3,.ai-panel-card h3,.ai-insight-card h3,.ecom-card-info h3,.hospital-card h3,.showroom-app-card h3) { color:#493740 !important; }
+html body .universal-demo-shell :is(.industry-service-card p,.industry-list-card p,.ai-panel-card p,.ai-insight-card p,.ecom-card-info span,.hospital-card p,.showroom-app-card p) { color:#806b73 !important; }
+html body .universal-demo-shell :is(.industry-service-card-top,.industry-item-icon,.industry-list-card li svg,.ecom-nav-active,.ecom-card-info strong,.ai-panel-heading > svg) { color:#a28089 !important; }
+@media (max-width:760px) {
+  html body #top.app .hero-white-fade { background:linear-gradient(180deg,rgba(237,247,246,.98) 0%,rgba(237,247,246,.91) 44%,rgba(237,247,246,.58) 78%,rgba(237,247,246,.2) 100%) !important; }
 }
