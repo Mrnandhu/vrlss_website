@@ -2,15 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem('vrls-color-theme') === 'light' ? 'light' : 'dark'
+      } catch {
+        document.documentElement.dataset.theme = 'dark'
+      }
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Coiny&display=swap" rel="stylesheet" />
     <title>VRLS Solutions | Websites, Web Apps & Custom Software</title>
     <meta
       name="description"
       content="VRLS Solutions is a digital product studio building modern websites, web applications, mobile apps, custom business software and AI automation for businesses, startups and growing teams."
     />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="theme-color" content="#f8faf9" />
+    <meta name="theme-color" content="#0b0d1b" />
     <meta name="author" content="VRLS Solutions" />
     <meta name="application-name" content="VRLS Solutions" />
     <link rel="canonical" href="https://vrlss.in/" />
