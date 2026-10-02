@@ -444,6 +444,31 @@ body,
 .universal-demo-shell .industry-demo :is(.industry-request-form input, .industry-request-form select, .industry-request-form textarea, .industry-list-controls input) { color: #f7f5f1 !important; }
 .universal-demo-shell .industry-demo :is(.industry-primary, .industry-nav-cta) { color: #fff !important; background: #b35b49 !important; }
 
+/* These rules also beat the late-loaded legacy navigation overrides. */
+html body .app .navbar {
+  border-color: rgba(255, 255, 255, .1) !important;
+  background: rgba(9, 12, 18, .9) !important;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .06) !important;
+}
+
+html body .app .navbar .nav-links a,
+html body .app .navbar .brand-text strong,
+html body .app .navbar .brand-text small {
+  color: #f7f5f1 !important;
+}
+
+html body .app .navbar .nav-links a:hover,
+html body .app .navbar .brand-v {
+  color: #e1a08d !important;
+}
+
+html body .app .navbar .nav-cta,
+html body .app .mobile-project-button {
+  color: #fff !important;
+  border-color: var(--copper) !important;
+  background: var(--copper) !important;
+}
+
 @media (max-width: 900px) {
   .app #services .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .app #services .service-card { min-height: 280px; }
@@ -462,5 +487,15 @@ body,
     height: clamp(170px, 42vw, 220px) !important;
     min-height: clamp(170px, 42vw, 220px) !important;
     max-height: 220px !important;
+  }
+
+  html body .app .mobile-nav-panel {
+    color: #f7f5f1 !important;
+    background: #0d121b !important;
+  }
+
+  html body .app .mobile-nav-links a,
+  html body .app .mobile-contact-details a {
+    color: #f7f5f1 !important;
   }
 }
