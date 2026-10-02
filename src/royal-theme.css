@@ -1,0 +1,466 @@
+/* Midnight navy, warm white and copper red color system. */
+:root {
+  --green: #b35b49;
+  --green-dark: #934536;
+  --black: #080b12;
+  --muted: #b4bdca;
+  --white: #f7f5f1;
+  --navy: #0a1020;
+  --blue: #b35b49;
+  --line: #303642;
+  --paper: #0d121b;
+  --royal: #617db8;
+  --copper: #b35b49;
+}
+
+body,
+.app {
+  color: #f7f5f1 !important;
+  background: #090c12 !important;
+}
+
+.app .navbar {
+  border-color: rgba(255, 255, 255, .1) !important;
+  background: rgba(9, 12, 18, .9) !important;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .06) !important;
+}
+
+.app .navbar .brand-text strong,
+.app .navbar .brand-text small,
+.app .navbar .nav-links a,
+.app .navbar .mobile-menu {
+  color: #f7f5f1 !important;
+}
+
+.app .navbar .brand-v {
+  color: var(--copper) !important;
+}
+
+.app .navbar .nav-links a::after,
+.app .navbar .brand-v::after,
+.app .navbar .mobile-menu span {
+  background-color: var(--copper) !important;
+}
+
+.app .navbar .nav-links a:hover { color: #e1a08d !important; }
+
+.app .navbar .mobile-menu {
+  border-color: #343a46 !important;
+  background: #111722 !important;
+}
+
+.app .mobile-nav-panel {
+  color: #f7f5f1 !important;
+  background: #0d121b !important;
+}
+
+.app .mobile-nav-links a,
+.app .mobile-contact-details a {
+  color: #f7f5f1 !important;
+}
+
+.app .hero {
+  color: #f7f5f1 !important;
+  background: #090c12 !important;
+}
+
+.app .hero-white-fade {
+  background: linear-gradient(90deg, rgba(9, 12, 18, .98) 0%, rgba(9, 12, 18, .92) 35%, rgba(9, 12, 18, .68) 56%, rgba(9, 12, 18, .18) 82%, rgba(9, 12, 18, .06) 100%) !important;
+}
+
+.app .hero-title,
+.app .hero-title-line,
+.app .hero-description,
+.app .hero-proof strong,
+.app .hero-scroll {
+  color: #f7f5f1 !important;
+}
+
+.app .hero-title em,
+.app .services-heading h2 em,
+.app .work-heading h2 em,
+.app .process-heading h2 em,
+.app .about-heading h2 em,
+.app .technologies-heading h2 em,
+.app .contact-header h2 em,
+.app .footer-cta h2 em {
+  color: var(--copper) !important;
+}
+
+.app .hero-eyebrow,
+.app .hero-proof small,
+.app .services-heading-content > p,
+.app .work-heading-content > p,
+.app .process-heading-content > p,
+.app .about-heading-grid > p,
+.app .technologies-heading > p,
+.app .contact-header > p {
+  color: #c2c7d0 !important;
+}
+
+.app .proof-icon,
+.app .service-icon,
+.app .process-intro-icon,
+.app .process-marker,
+.app .capability-icon,
+.app .contact-option-icon {
+  color: #e1a08d !important;
+  border-color: rgba(179, 91, 73, .35) !important;
+  background: #261915 !important;
+}
+
+.app .proof-divider,
+.app .process-line {
+  background: #343b47 !important;
+}
+
+.app .services-section,
+.app .process-section,
+.app .about-section,
+.app .technologies-section,
+.app .contact-section,
+.app .work-section,
+.app .industries-section {
+  color: #f7f5f1 !important;
+  background: #0c1018 !important;
+}
+
+.app .service-card,
+.app .project-card,
+.app .process-intro-card,
+.app .process-step-content,
+.app .about-capabilities,
+.app .contact-option,
+.app .contact-form-wrapper,
+.app .industry-card {
+  color: #f7f5f1 !important;
+  border-color: #303642 !important;
+  background: #131923 !important;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, .2) !important;
+}
+
+.app .service-card h3,
+.app .project-title-row h3,
+.app .project-copy h3,
+.app .process-intro-card h3,
+.app .process-step h3,
+.app .capability-content h3,
+.app .contact-option h3,
+.app .contact-form-intro h3,
+.app .industry-card-copy h3 {
+  color: #f7f5f1 !important;
+}
+
+.app .service-card p,
+.app .project-copy p,
+.app .process-intro-card p,
+.app .process-step p,
+.app .capability-content p,
+.app .contact-form-intro p,
+.app .industry-card-copy p {
+  color: #c2c7d0 !important;
+}
+
+.app .service-number,
+.app .project-meta,
+.app .about-capabilities-header,
+.app .capability-number,
+.app .contact-option > div > span,
+.app .contact-form-intro > span,
+.app .contact-form label > span {
+  color: #aab4c2 !important;
+}
+
+.app .service-tags span,
+.app .project-tags span {
+  color: #ded9d3 !important;
+  border-color: #3a414d !important;
+  background: #1c2430 !important;
+}
+
+.app .service-arrow,
+.app .capability-arrow,
+.app .project-link,
+.app .industry-card-copy > span {
+  color: #d58a74 !important;
+}
+
+.app .project-preview {
+  background: #10151d !important;
+}
+
+.app #demos .project-info {
+  color: #f7f5f1 !important;
+  background: #131923 !important;
+}
+
+.app #demos .project-title-row h3,
+.app #demos .project-title-row p,
+.app #demos .project-meta {
+  color: #f7f5f1 !important;
+}
+
+.app #demos .project-title-row p {
+  color: #c2c7d0 !important;
+}
+
+.app #demos .project-demo-link,
+.app .nav-cta,
+.app .primary-button,
+.app .mobile-project-button,
+.app .contact-submit-primary {
+  color: #fff !important;
+  border-color: var(--copper) !important;
+  background: var(--copper) !important;
+  box-shadow: 0 10px 24px rgba(111, 48, 38, .24) !important;
+}
+
+.app #demos .project-demo-link:hover,
+.app .nav-cta:hover,
+.app .primary-button:hover,
+.app .contact-submit-primary:hover {
+  background: #984736 !important;
+}
+
+.app .secondary-button,
+.app .contact-submit {
+  color: #f7f5f1 !important;
+  border-color: #424957 !important;
+  background: #151b25 !important;
+}
+
+.app .about-statement {
+  border: 1px solid #35425a !important;
+  background: linear-gradient(145deg, #111a2a, #0b1019) !important;
+}
+
+.app .about-statement-content h3,
+.app .about-statement-content p,
+.app .about-small-label {
+  color: #f7f5f1 !important;
+}
+
+.app .about-statement-content h3 em { color: #d58a74 !important; }
+
+.app .about-statement-content p {
+  color: #c2c7d0 !important;
+}
+
+.app .about-orbit {
+  border-color: rgba(179, 91, 73, .23) !important;
+}
+
+.app .about-symbol {
+  color: #f6e2da !important;
+  background: #6a342b !important;
+}
+
+.app .about-arrow {
+  color: #d58a74 !important;
+}
+
+.app .capability-item,
+.app .contact-bottom,
+.app .technology-marquee {
+  border-color: #303642 !important;
+}
+
+.app .technology-marquee span {
+  color: #e9e5df !important;
+}
+
+.app .technology-marquee::before {
+  background: linear-gradient(90deg, #0c1018, transparent) !important;
+}
+
+.app .technology-marquee::after {
+  background: linear-gradient(270deg, #0c1018, transparent) !important;
+}
+
+.app .contact-form input,
+.app .contact-form textarea {
+  color: #f7f5f1 !important;
+  border-color: #3a414d !important;
+  background: #0d121b !important;
+}
+
+.app .contact-form input::placeholder,
+.app .contact-form textarea::placeholder {
+  color: #929cab !important;
+}
+
+.app .footer {
+  color: #dedfe4 !important;
+  background: #07090e !important;
+}
+
+.app .footer-logo strong,
+.app .footer-cta h2 {
+  color: #f7f5f1 !important;
+}
+
+.app .footer-logo strong span {
+  color: #d58a74 !important;
+}
+
+.app .footer-logo small,
+.app .footer-brand p,
+.app .footer-column a,
+.app .footer-bottom,
+.app .footer-column-label,
+.app .footer-cta > div > span {
+  color: #b4bdca !important;
+}
+
+.app .footer-cta,
+.app .footer-bottom {
+  border-color: #303642 !important;
+}
+
+.app .footer-cta > a {
+  color: #fff !important;
+  background: var(--copper) !important;
+}
+
+/* Equal, responsive tile proportions across the service and demo grids. */
+.app #services .services-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 16px;
+}
+
+.app #services .service-card {
+  display: flex;
+  min-height: 292px;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.app #services .service-card-content {
+  margin-top: auto;
+  padding-top: 38px;
+}
+
+.app #services .service-tags {
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.app #services .service-tags span {
+  padding: 6px 9px;
+  font-size: 8px;
+}
+
+.app #demos .work-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 20px;
+}
+
+.app #demos .project-card {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.app #demos .project-preview {
+  height: clamp(170px, 16vw, 205px) !important;
+  min-height: clamp(170px, 16vw, 205px) !important;
+  max-height: 205px !important;
+}
+
+.app #demos .project-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.app #demos .project-tags {
+  margin-top: auto !important;
+  padding-top: 12px;
+}
+
+/* Apply the same ink and copper palette to standalone demo routes. */
+.universal-demo-shell {
+  --universal-ink: #f7f5f1;
+  --universal-blue: #b35b49;
+  --universal-paper: #111722;
+  --universal-soft: #171e29;
+  --universal-line: #303642;
+  color: #f7f5f1 !important;
+  background: #090c12 !important;
+}
+
+.universal-demo-shell :is(.boutique-demo, .cafe-demo, .education-demo, .furniture-demo, .real-estate-demo, .wedding-demo, .nd-demo, .fh-demo, .restaurant-demo) {
+  --ink: #f7f5f1;
+  --muted: #b4bdca;
+  --cream: #0d121b;
+  --paper: #111722;
+  --line: #303642;
+  color: #f7f5f1 !important;
+  background: #090c12 !important;
+}
+
+.universal-demo-shell .boutique-demo { --sage: #171e29; }
+.universal-demo-shell .cafe-demo { --sage: #171e29; }
+.universal-demo-shell .education-demo { --ed-ink: #f7f5f1; --ed-muted: #b4bdca; --ed-paper: #111722; --ed-soft: #171e29; --ed-line: #303642; --ed-white: #f7f5f1; }
+.universal-demo-shell .furniture-demo { --fd-ink: #f7f5f1; --fd-muted: #b4bdca; --fd-paper: #111722; --fd-soft: #171e29; --fd-line: #303642; --fd-white: #f7f5f1; }
+.universal-demo-shell .real-estate-demo { --accent: #b35b49; --soft: #171e29; }
+.universal-demo-shell .wedding-demo { --accent: #b35b49; --sage: #171e29; }
+.universal-demo-shell .nd-demo { --olive: #b35b49; }
+.universal-demo-shell .fh-demo { --gold: #b35b49; }
+.universal-demo-shell .restaurant-demo { --cream-soft: #171e29; --green: #111722; --green-deep: #090c12; --green-light: #b35b49; --white: #f7f5f1; }
+
+.universal-demo-shell .ecom-demo { --ecom-bg: #0d121b; --ecom-text: #f7f5f1; --ecom-muted: #b4bdca; --ecom-border: #303642; --ecom-green: #b35b49; --ecom-green-soft: #241815; }
+.universal-demo-shell .mart-demo { --mart-green: #b35b49; --mart-green-dark: #934536; --mart-green-soft: #241815; }
+.universal-demo-shell .showroom-app-demo { --showroom-app-bg: #0d121b; --showroom-app-border: #303642; --showroom-app-text: #f7f5f1; --showroom-app-muted: #b4bdca; --showroom-app-soft: #171e29; --showroom-app-accent: #b35b49; --showroom-app-accent-dark: #934536; }
+.universal-demo-shell .hospital-demo { --hospital-bg: #0d121b; --hospital-text: #f7f5f1; --hospital-muted: #b4bdca; --hospital-border: #303642; --hospital-green: #b35b49; --hospital-green-soft: #241815; --hospital-blue: #617db8; }
+.universal-demo-shell .ai-demo { --ai-bg: #0d121b; --ai-bg-soft: #171e29; --ai-panel: #111722; --ai-panel-2: #171e29; --ai-border: #303642; --ai-border-light: #3a414d; --ai-text: #f7f5f1; --ai-muted: #b4bdca; --ai-dim: #929cab; --ai-accent: #b35b49; --ai-accent-bright: #d58a74; --ai-accent-soft: rgba(179, 91, 73, .12); --ai-accent-glow: rgba(179, 91, 73, .18); background: #0d121b !important; }
+
+.universal-demo-shell .industry-demo {
+  --demo-ink: #f7f5f1;
+  --demo-muted: #b4bdca;
+  --demo-blue: #c47761;
+  --demo-line: #303642;
+  --demo-soft: #171e29;
+  color: #f7f5f1 !important;
+  background: #090c12 !important;
+}
+
+.universal-demo-shell .industry-demo :is(.industry-demo-note, .industry-services, .industry-departments, .industry-approach, .industry-service-card, .industry-department-card, .industry-request-form input, .industry-request-form select, .industry-request-form textarea, .industry-list-controls input, .industry-nav-links) {
+  color: #f7f5f1 !important;
+  border-color: #303642 !important;
+  background: #111722 !important;
+}
+
+.universal-demo-shell .industry-demo :is(.industry-nav-links, .industry-menu-toggle, .industry-secondary) {
+  color: #f7f5f1 !important;
+  border-color: #3a414d !important;
+  background: #151b25 !important;
+}
+
+.universal-demo-shell .industry-demo :is(.industry-service-card h3, .industry-section-head h2, .industry-approach h2, .industry-contact h2, .industry-step p) { color: #f7f5f1 !important; }
+.universal-demo-shell .industry-demo :is(.industry-service-card p, .industry-section-head > p, .industry-approach-copy > p, .industry-contact-copy > p, .industry-request-form label, .industry-list-card li) { color: #c2c7d0 !important; }
+.universal-demo-shell .industry-demo :is(.industry-request-form input, .industry-request-form select, .industry-request-form textarea, .industry-list-controls input) { color: #f7f5f1 !important; }
+.universal-demo-shell .industry-demo :is(.industry-primary, .industry-nav-cta) { color: #fff !important; background: #b35b49 !important; }
+
+@media (max-width: 900px) {
+  .app #services .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .app #services .service-card { min-height: 280px; }
+}
+
+@media (max-width: 760px) {
+  .app .hero-white-fade {
+    background: linear-gradient(180deg, rgba(9, 12, 18, .98) 0%, rgba(9, 12, 18, .91) 44%, rgba(9, 12, 18, .52) 78%, rgba(9, 12, 18, .24) 100%) !important;
+  }
+
+  .app #services .services-grid,
+  .app #demos .work-grid { grid-template-columns: minmax(0, 1fr); }
+  .app #services .service-card { min-height: 252px; }
+  .app #services .service-card-content { padding-top: 32px; }
+  .app #demos .project-preview {
+    height: clamp(170px, 42vw, 220px) !important;
+    min-height: clamp(170px, 42vw, 220px) !important;
+    max-height: 220px !important;
+  }
+}
