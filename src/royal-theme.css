@@ -11,6 +11,9 @@
   --paper: #f5f7fa;
   --royal: #365d9c;
   --copper: #ad5747;
+  --teal: #4d8b86;
+  --gold: #b58a4b;
+  --sky: #7193c2;
 }
 
 body,
@@ -81,6 +84,8 @@ html body .app .mobile-contact-details a { color: #f8f7f4 !important; }
   border-color: #ead4cf !important;
   background: #fbf2ef !important;
 }
+.app .hero-proof:nth-of-type(2) .proof-icon { color:var(--royal) !important; border-color:#d5e1f2 !important; background:#edf3fb !important; }
+.app .hero-proof:nth-of-type(3) .proof-icon { color:var(--teal) !important; border-color:#d4e7e4 !important; background:#edf7f5 !important; }
 .app .proof-divider,
 .app .process-line { background: #d9e0ea !important; }
 
@@ -145,6 +150,10 @@ html body .app .mobile-contact-details a { color: #f8f7f4 !important; }
   border-color: #3c4960 !important;
   background: #1c2940 !important;
 }
+.app .service-card:nth-child(4n + 1) .service-tags span { border-color:#3c5271 !important; }
+.app .service-card:nth-child(4n + 2) .service-tags span { border-color:#63443e !important; }
+.app .service-card:nth-child(4n + 3) .service-tags span { border-color:#385956 !important; }
+.app .service-card:nth-child(4n) .service-tags span { border-color:#5b4c34 !important; }
 .app .service-icon,
 .app .process-intro-icon,
 .app .process-marker,
@@ -154,6 +163,18 @@ html body .app .mobile-contact-details a { color: #f8f7f4 !important; }
   border-color: rgba(217,138,117,.35) !important;
   background: #2b2025 !important;
 }
+.app #services .service-card:nth-child(4n + 1) .service-icon,
+.app #services .service-card:nth-child(4n + 1) .service-arrow { color:#8eaddb !important; border-color:rgba(113,147,194,.38) !important; background:#1d2c45 !important; }
+.app #services .service-card:nth-child(4n + 2) .service-icon,
+.app #services .service-card:nth-child(4n + 2) .service-arrow { color:#e2a08d !important; border-color:rgba(217,138,117,.35) !important; background:#2b2025 !important; }
+.app #services .service-card:nth-child(4n + 3) .service-icon,
+.app #services .service-card:nth-child(4n + 3) .service-arrow { color:#8fc4bd !important; border-color:rgba(77,139,134,.4) !important; background:#1b302f !important; }
+.app #services .service-card:nth-child(4n) .service-icon,
+.app #services .service-card:nth-child(4n) .service-arrow { color:#e0bd7d !important; border-color:rgba(181,138,75,.4) !important; background:#30291e !important; }
+.app .process-step:nth-child(4n + 1) .process-marker { color:#8eaddb !important; border-color:rgba(113,147,194,.38) !important; background:#1d2c45 !important; }
+.app .process-step:nth-child(4n + 2) .process-marker { color:#e2a08d !important; border-color:rgba(217,138,117,.35) !important; background:#2b2025 !important; }
+.app .process-step:nth-child(4n + 3) .process-marker { color:#8fc4bd !important; border-color:rgba(77,139,134,.4) !important; background:#1b302f !important; }
+.app .process-step:nth-child(4n) .process-marker { color:#e0bd7d !important; border-color:rgba(181,138,75,.4) !important; background:#30291e !important; }
 .app .service-arrow,
 .app .capability-arrow,
 .app .project-link,
@@ -213,6 +234,10 @@ html body .app .footer .footer-cta > a:hover { background: #8f4235 !important; }
 .app .contact-bottom,
 .app .technology-marquee { border-color: #dce3ed !important; }
 .app .technology-marquee span { color: #263b5f !important; }
+.app .technology-marquee span:nth-child(4n + 1) { color:#365d9c !important; }
+.app .technology-marquee span:nth-child(4n + 2) { color:#ad5747 !important; }
+.app .technology-marquee span:nth-child(4n + 3) { color:#4d8b86 !important; }
+.app .technology-marquee span:nth-child(4n) { color:#9a743c !important; }
 .app .technology-marquee::before { background: linear-gradient(90deg,#f5f7fa,transparent) !important; }
 .app .technology-marquee::after { background: linear-gradient(270deg,#f5f7fa,transparent) !important; }
 .app .contact-form input,
