@@ -21,7 +21,6 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import LazySection from './components/LazySection'
 import SEO from './components/SEO'
-import ThemeToggle from './components/ThemeToggle'
 
 const Work = lazy(() => import('./components/Work'))
 const Services = lazy(() => import('./components/Services'))
@@ -104,7 +103,6 @@ function App() {
       >
         <div className="universal-demo-shell">
           {component}
-          {path.startsWith('/demos/') && <ThemeToggle floating />}
         </div>
       </Suspense>
     </>
