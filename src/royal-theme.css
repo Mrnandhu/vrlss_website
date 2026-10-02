@@ -1133,3 +1133,51 @@ html[data-theme="light"] body .universal-demo-shell :is(input,textarea,select) {
 /* Demo color variables that are named by feature rather than by component. */
 html[data-theme="dark"] body .universal-demo-shell :is(.ecom-demo,.mart-demo,.showroom-app-demo,.hospital-demo,.ai-demo) { --ecom-bg:#0b0d1b !important; --ecom-text:#fff !important; --ecom-muted:#b8bac5 !important; --ecom-border:#555762 !important; --ecom-green:#d4af37 !important; --ecom-green-soft:#242630 !important; --mart-green:#d4af37 !important; --mart-green-dark:#555762 !important; --mart-green-soft:#242630 !important; --showroom-app-bg:#0b0d1b !important; --showroom-app-border:#555762 !important; --showroom-app-text:#fff !important; --showroom-app-muted:#b8bac5 !important; --showroom-app-soft:#242630 !important; --showroom-app-accent:#d4af37 !important; --showroom-app-accent-dark:#555762 !important; --hospital-bg:#0b0d1b !important; --hospital-text:#fff !important; --hospital-muted:#b8bac5 !important; --hospital-border:#555762 !important; --hospital-green:#d4af37 !important; --hospital-green-soft:#242630 !important; --hospital-blue:#d4af37 !important; --ai-bg:#0b0d1b !important; --ai-bg-soft:#242630 !important; --ai-panel:#151722 !important; --ai-panel-2:#242630 !important; --ai-border:#555762 !important; --ai-border-light:#555762 !important; --ai-text:#fff !important; --ai-muted:#b8bac5 !important; --ai-dim:#b8bac5 !important; --ai-accent:#d4af37 !important; --ai-accent-bright:#d4af37 !important; --ai-accent-soft:rgba(212,175,55,.14) !important; --ai-accent-glow:rgba(212,175,55,.1) !important; }
 html[data-theme="light"] body .universal-demo-shell :is(.ecom-demo,.mart-demo,.showroom-app-demo,.hospital-demo,.ai-demo) { --ecom-bg:#fff !important; --ecom-text:#0b0d1b !important; --ecom-muted:#514a85 !important; --ecom-border:#514a85 !important; --ecom-green:#5f01fb !important; --ecom-green-soft:#fff !important; --mart-green:#5f01fb !important; --mart-green-dark:#514a85 !important; --mart-green-soft:#fff !important; --showroom-app-bg:#fff !important; --showroom-app-border:#514a85 !important; --showroom-app-text:#0b0d1b !important; --showroom-app-muted:#514a85 !important; --showroom-app-soft:#fff !important; --showroom-app-accent:#5f01fb !important; --showroom-app-accent-dark:#514a85 !important; --hospital-bg:#fff !important; --hospital-text:#0b0d1b !important; --hospital-muted:#514a85 !important; --hospital-border:#514a85 !important; --hospital-green:#514a85 !important; --hospital-green-soft:#fff !important; --hospital-blue:#5f01fb !important; --ai-bg:#fff !important; --ai-bg-soft:#fff !important; --ai-panel:#fff !important; --ai-panel-2:#fff !important; --ai-border:#514a85 !important; --ai-border-light:#514a85 !important; --ai-text:#0b0d1b !important; --ai-muted:#514a85 !important; --ai-dim:#514a85 !important; --ai-accent:#5f01fb !important; --ai-accent-bright:#514a85 !important; --ai-accent-soft:rgba(95,1,251,.08) !important; --ai-accent-glow:rgba(95,1,251,.08) !important; }
+
+/* Enforce the four approved colors throughout every UI surface and demo. */
+html[data-theme="dark"] body #top.app *,
+html[data-theme="dark"] body #top.app *::before,
+html[data-theme="dark"] body #top.app *::after,
+html[data-theme="dark"] body .universal-demo-shell *,
+html[data-theme="dark"] body .universal-demo-shell *::before,
+html[data-theme="dark"] body .universal-demo-shell *::after {
+  color:#fff !important;
+  background-color:#0b0d1b !important;
+  background-image:none !important;
+  border-color:#808080 !important;
+  box-shadow:none !important;
+  text-shadow:none !important;
+  outline-color:#d4af37 !important;
+}
+html[data-theme="light"] body #top.app *,
+html[data-theme="light"] body #top.app *::before,
+html[data-theme="light"] body #top.app *::after,
+html[data-theme="light"] body .universal-demo-shell *,
+html[data-theme="light"] body .universal-demo-shell *::before,
+html[data-theme="light"] body .universal-demo-shell *::after {
+  color:#0b0d1b !important;
+  background-color:#fff !important;
+  background-image:none !important;
+  border-color:#514a85 !important;
+  box-shadow:none !important;
+  text-shadow:none !important;
+  outline-color:#5f01fb !important;
+}
+/* Keep the existing photographs while recoloring their overlays to the theme. */
+html[data-theme] body #top.app .hero-background,
+html[data-theme] body .universal-demo-shell :is(.fh-hero-image,.nd-material-image) { background-color:transparent !important; }
+html[data-theme="dark"] body .universal-demo-shell .fh-hero-overlay { background-image:linear-gradient(90deg,rgba(11,13,27,.82),rgba(11,13,27,.32)) !important; }
+html[data-theme="light"] body .universal-demo-shell .fh-hero-overlay { background-image:linear-gradient(90deg,rgba(11,13,27,.72),rgba(11,13,27,.24)) !important; }
+html[data-theme="dark"] body #top.app .hero-white-fade { background-image:linear-gradient(90deg,rgba(11,13,27,.98),rgba(11,13,27,.8) 48%,rgba(11,13,27,.08)) !important; }
+html[data-theme="light"] body #top.app .hero-white-fade { background-image:linear-gradient(90deg,rgba(255,255,255,.99),rgba(255,255,255,.82) 48%,rgba(255,255,255,.04)) !important; }
+/* The only accent colors are royal gold in dark mode and violet in light mode. */
+html[data-theme="dark"] body #top.app :is(.brand-v,.hero-title em,.section-eyebrow span,.eyebrow-line,.nav-links a::after,.footer-logo strong span,.service-icon,.service-arrow,.capability-icon,.capability-arrow,.project-link,.process-marker,.contact-option-icon),
+html[data-theme="dark"] body .universal-demo-shell :is(h1 em,h2 em,.industry-hero h1 em,.demo-kicker,.eyebrow,.section-label) { color:#d4af37 !important; }
+html[data-theme="light"] body #top.app :is(.brand-v,.hero-title em,.section-eyebrow span,.eyebrow-line,.nav-links a::after,.footer-logo strong span,.service-icon,.service-arrow,.capability-icon,.capability-arrow,.project-link,.process-marker,.contact-option-icon),
+html[data-theme="light"] body .universal-demo-shell :is(h1 em,h2 em,.industry-hero h1 em,.demo-kicker,.eyebrow,.section-label) { color:#5f01fb !important; }
+html[data-theme="dark"] body #top.app :is(.service-card,.project-card,.project-info,.process-intro-card,.process-step-content,.about-capabilities,.about-statement,.contact-option,.contact-form-wrapper,.industry-card),
+html[data-theme="dark"] body .universal-demo-shell :is(.industry-service-card,.industry-item-card,.industry-list-card,.ai-chat-panel,.ai-panel-card,.ai-metric-card,.ai-insight-card,.ecom-card,.mart-card,.hospital-card,.showroom-app-card,.hospital-sidebar,.hospital-panel,.hospital-table-wrap,.ai-sidebar,.ai-main,.ai-right-panel,.ecom-site-header,.ecom-modal,.mart-sidebar,.mart-header,.mart-panel,.mart-modal,.showroom-app-sidebar,.showroom-app-header,.showroom-app-panel) { background-color:#808080 !important; }
+html[data-theme="light"] body #top.app :is(.nav-cta,.primary-button,.contact-submit-primary,.mobile-project-button,.footer-cta>a),
+html[data-theme="light"] body .universal-demo-shell :is(button[class*="primary"],a[class*="primary"],.demo-cta,.industry-primary,.industry-nav-cta,.fh-primary,.wed-nav-cta,.wed-button,.ecom-add-button,.mart-primary,.mart-button-primary,.ai-primary-button,.hospital-primary,.showroom-app-primary,.rest-primary,.hospital-primary-button,.hospital-patient-booking-button,.ai-new-chat,.ai-send-button,.ecom-cart-button,.ecom-checkout-button,.mart-primary-button,.mart-submit-button,.showroom-app-primary-button) { color:#fff !important; background-color:#5f01fb !important; border-color:#5f01fb !important; }
+html[data-theme="dark"] body #top.app :is(.nav-cta,.primary-button,.contact-submit-primary,.mobile-project-button,.footer-cta>a),
+html[data-theme="dark"] body .universal-demo-shell :is(button[class*="primary"],a[class*="primary"],.demo-cta,.industry-primary,.industry-nav-cta,.fh-primary,.wed-nav-cta,.wed-button,.ecom-add-button,.mart-primary,.mart-button-primary,.ai-primary-button,.hospital-primary,.showroom-app-primary,.rest-primary,.hospital-primary-button,.hospital-patient-booking-button,.ai-new-chat,.ai-send-button,.ecom-cart-button,.ecom-checkout-button,.mart-primary-button,.mart-submit-button,.showroom-app-primary-button) { color:#0b0d1b !important; background-color:#d4af37 !important; border-color:#d4af37 !important; }
