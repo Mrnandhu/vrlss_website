@@ -198,15 +198,15 @@ html body .app .footer .footer-cta > a:hover { background: #8f4235 !important; }
 
 /* Keep the editorial about panel as a dark feature tile on the light canvas. */
 .app .about-statement {
-  border: 1px solid #d8e0eb !important;
-  background: linear-gradient(145deg, #fff, #edf2f8) !important;
+  border: 1px solid #2e3b53 !important;
+  background: linear-gradient(145deg, #172640, #0d1729) !important;
 }
 .app .about-statement-content h3,
 .app .about-statement-content p,
-.app .about-small-label { color: #101d39 !important; }
-.app .about-statement-content h3 em { color: var(--copper) !important; }
-.app .about-statement-content p { color: #5c6b83 !important; }
-.app .about-orbit { border-color: rgba(54,93,156,.12) !important; }
+.app .about-small-label { color: #f8f7f4 !important; }
+.app .about-statement-content h3 em { color: #e2a08d !important; }
+.app .about-statement-content p { color: #c0cada !important; }
+.app .about-orbit { border-color: rgba(217,138,117,.2) !important; }
 .app .about-symbol { color: #fff !important; background: #365d9c !important; }
 .app .about-arrow { color: var(--copper) !important; }
 .app .capability-item,
