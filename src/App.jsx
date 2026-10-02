@@ -104,7 +104,7 @@ function App() {
       >
         <div className="universal-demo-shell">
           {component}
-          <ThemeToggle floating />
+          {path.startsWith('/demos/') && <ThemeToggle floating />}
         </div>
       </Suspense>
     </>
