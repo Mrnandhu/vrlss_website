@@ -65,7 +65,7 @@ function HomePage() {
               </div>
             </div>
             <div className="modern-hero-visual">
-              <img src="/assets/hero.webp" alt="A modern digital workspace with analytics on screen" fetchPriority="high" />
+              <img src="/assets/hero-redesign.webp" alt="A modern business workspace with a laptop and analytics on screen" fetchPriority="high" />
               <div className="hero-note"><span className="hero-note-icon"><Sparkles size={17} /></span><div><b>Made for real work</b><small>Digital products with a clear purpose</small></div></div>
               <span className="hero-index">VRLS&nbsp; / &nbsp;01</span>
             </div>
