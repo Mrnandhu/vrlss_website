@@ -1,4 +1,8 @@
 import { lazy, Suspense } from 'react'
+import SEO from './components/SEO'
+import HomePage from './components/HomePage'
+import './demos/universal-demo.css'
+import './royal-theme.css'
 
 const ShowroomDemo = lazy(() => import('./demos/ShowroomDemo/ShowroomDemo'))
 const MartBillingDemo = lazy(() => import('./demos/MartBillingDemo/MartBillingDemo'))
@@ -17,118 +21,41 @@ const FurnitureDemo = lazy(() => import('./demos/FurnitureDemo/FurnitureDemo'))
 const EducationDemo = lazy(() => import('./demos/EducationDemo/EducationDemo'))
 const IndustryShowcase = lazy(() => import('./demos/IndustryShowcase/IndustryShowcase'))
 
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import LazySection from './components/LazySection'
-import SEO from './components/SEO'
-
-const Work = lazy(() => import('./components/Work'))
-const Services = lazy(() => import('./components/Services'))
-const Process = lazy(() => import('./components/Process'))
-const About = lazy(() => import('./components/About'))
-const Technologies = lazy(() => import('./components/Technologies'))
-const Contact = lazy(() => import('./components/Contact'))
-const Footer = lazy(() => import('./components/Footer'))
-
-import './App.css'
-import './redesign.css'
-import './demos/universal-demo.css'
-import './royal-theme.css'
-
-function DeferredContent({ children, minHeight = 500, anchorId, rootMargin = '1000px' }) {
-  return (
-    <LazySection
-      anchorId={anchorId}
-      rootMargin={rootMargin}
-      fallback={<div className="lazy-section-placeholder" style={{ minHeight }} aria-hidden="true" />}
-    >
-      <Suspense fallback={<div className="lazy-section-placeholder" style={{ minHeight }} aria-hidden="true" />}>
-        {children}
-      </Suspense>
-    </LazySection>
-  )
-}
-
-function MainWebsite() {
-  return (
-    <div className="app" id="top">
-      <Navbar />
-
-      <main>
-        <Hero />
-        <DeferredContent anchorId="services" minHeight={760}>
-          <Services />
-        </DeferredContent>
-
-        <DeferredContent anchorId="demos" minHeight={1100} rootMargin="250px">
-          <Work />
-        </DeferredContent>
-
-        <DeferredContent anchorId="about" minHeight={900}>
-          <About />
-        </DeferredContent>
-
-        <DeferredContent anchorId="process" minHeight={850}>
-          <Process />
-        </DeferredContent>
-
-        <DeferredContent anchorId="technologies" minHeight={950}>
-          <Technologies />
-        </DeferredContent>
-
-        <DeferredContent anchorId="contact" minHeight={800}>
-          <Contact />
-        </DeferredContent>
-      </main>
-
-      <DeferredContent minHeight={500}>
-        <Footer />
-      </DeferredContent>
-    </div>
-  )
-}
-
 function App() {
   const path = window.location.pathname
+  const routes = {
+    '/demos/function-hall': <FunctionHallDemo />,
+    '/demos/interior-design': <InteriorDesignDemo />,
+    '/demos/real-estate': <RealEstateDemo />,
+    '/demos/wedding-events': <WeddingEventsDemo />,
+    '/demos/cafe': <CafeDemo />,
+    '/demos/boutique': <BoutiqueFashionDemo />,
+    '/demos/furniture': <FurnitureDemo />,
+    '/demos/education': <EducationDemo />,
+    '/demos/restaurant/booking': <BookingPage />,
+    '/demos/restaurant': <RestaurantDemo />,
+    '/demos/showroom': <ShowroomDemo />,
+    '/demos/mart-billing': <MartBillingDemo />,
+    '/demos/ai-assistant': <AIAssistantDemo />,
+    '/demos/ecommerce': <EcommerceDemo />,
+    '/demos/hospital': <HospitalDemo />,
+    '/demos/car-wash': <IndustryShowcase type="car-wash" />,
+    '/demos/pet-vet': <IndustryShowcase type="pet-vet" />,
+    '/demos/supermarket': <IndustryShowcase type="supermarket" />,
+    '/demos/salon': <IndustryShowcase type="salon" />,
+  }
+  const demo = routes[path]
 
-  const withSEO = (component) => (
+  if (!demo) return <HomePage />
+
+  return (
     <>
       <SEO />
-      <Suspense
-        fallback={
-          <div className="route-loading" role="status" aria-live="polite">
-            Loading VRLS demo…
-          </div>
-        }
-      >
-        <div className="universal-demo-shell">
-          {component}
-        </div>
+      <Suspense fallback={<div className="route-loading" role="status">Loading VRLS demo…</div>}>
+        <div className="universal-demo-shell">{demo}</div>
       </Suspense>
     </>
   )
-
-  if (path === '/demos/function-hall') return withSEO(<FunctionHallDemo />)
-  if (path === '/demos/interior-design') return withSEO(<InteriorDesignDemo />)
-  if (path === '/demos/real-estate') return withSEO(<RealEstateDemo />)
-  if (path === '/demos/wedding-events') return withSEO(<WeddingEventsDemo />)
-  if (path === '/demos/cafe') return withSEO(<CafeDemo />)
-  if (path === '/demos/boutique') return withSEO(<BoutiqueFashionDemo />)
-  if (path === '/demos/furniture') return withSEO(<FurnitureDemo />)
-  if (path === '/demos/education') return withSEO(<EducationDemo />)
-  if (path === '/demos/restaurant/booking') return withSEO(<BookingPage />)
-  if (path === '/demos/restaurant') return withSEO(<RestaurantDemo />)
-  if (path === '/demos/showroom') return withSEO(<ShowroomDemo />)
-  if (path === '/demos/mart-billing') return withSEO(<MartBillingDemo />)
-  if (path === '/demos/ai-assistant') return withSEO(<AIAssistantDemo />)
-  if (path === '/demos/ecommerce') return withSEO(<EcommerceDemo />)
-  if (path === '/demos/hospital') return withSEO(<HospitalDemo />)
-  if (path === '/demos/car-wash') return withSEO(<IndustryShowcase type="car-wash" />)
-  if (path === '/demos/pet-vet') return withSEO(<IndustryShowcase type="pet-vet" />)
-  if (path === '/demos/supermarket') return withSEO(<IndustryShowcase type="supermarket" />)
-  if (path === '/demos/salon') return withSEO(<IndustryShowcase type="salon" />)
-
-  return withSEO(<MainWebsite />)
 }
 
 export default App
