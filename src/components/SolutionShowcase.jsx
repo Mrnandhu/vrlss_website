@@ -4,6 +4,76 @@ import './SolutionShowcase.css'
 const solutions = [
   {
     number: '01',
+    title: 'MEDORA CLINIC',
+    category: 'Clinics & Medical Centres',
+    description:
+      'A bilingual clinic website with live opening hours, clear prices, insurance details and WhatsApp booking.',
+    image:
+      'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=70',
+    href: '/demos/medora-clinic',
+    bilingual: true,
+    accent: '#0073AB',
+    accentLight: '#DEF3FF',
+    dark: '#04334D',
+  },
+  {
+    number: '02',
+    title: 'MAJLIS KITCHEN',
+    category: 'Restaurants & Cafés',
+    description:
+      'A bilingual restaurant website with a full menu, delivery details and WhatsApp ordering.',
+    image:
+      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=70',
+    href: '/demos/majlis-kitchen',
+    bilingual: true,
+    accent: '#92722A',
+    accentLight: '#F2ECCF',
+    dark: '#361E12',
+  },
+  {
+    number: '03',
+    title: 'ORBIT BEAUTY STUDIO',
+    category: 'Salons & Beauty',
+    description:
+      'A bilingual ladies salon website with service prices, home-service booking and WhatsApp appointments.',
+    image:
+      'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=70',
+    href: '/demos/orbit-beauty-studio',
+    bilingual: true,
+    accent: '#A21CAF',
+    accentLight: '#FAE8FF',
+    dark: '#4A044E',
+  },
+  {
+    number: '04',
+    title: 'MOTION AUTO',
+    category: 'Garages & Car Services',
+    description:
+      'A bilingual garage website with service prices, free pick-up booking and WhatsApp quotes.',
+    image:
+      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=70',
+    href: '/demos/motion-auto',
+    bilingual: true,
+    accent: '#F29F0E',
+    accentLight: '#FDF4C8',
+    dark: '#441B04',
+  },
+  {
+    number: '05',
+    title: 'NADEEF HOME SERVICES',
+    category: 'Cleaning & Maintenance',
+    description:
+      'A bilingual cleaning and AC maintenance website with clear prices and same-day WhatsApp booking.',
+    image:
+      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=70',
+    href: '/demos/nadeef-home-services',
+    bilingual: true,
+    accent: '#002DC2',
+    accentLight: '#D3EDFF',
+    dark: '#071C5F',
+  },
+  {
+    number: '06',
     title: 'NOVA DEVELOPMENTS',
     category: 'Property & Development',
     description:
@@ -16,7 +86,7 @@ const solutions = [
     dark: '#441B04',
   },
   {
-    number: '02',
+    number: '07',
     title: 'ATLAS INTERIORS',
     category: 'Interior & Fit-out',
     description:
@@ -29,7 +99,7 @@ const solutions = [
     dark: '#361E12',
   },
   {
-    number: '03',
+    number: '08',
     title: 'ALPHA CONTRACTING',
     category: 'Construction & Contracting',
     description:
@@ -42,33 +112,7 @@ const solutions = [
     dark: '#073B2E',
   },
   {
-    number: '04',
-    title: 'MEDORA CLINIC',
-    category: 'Healthcare & Clinics',
-    description:
-      'A clear, trustworthy digital experience for clinics, medical centres and specialist practices.',
-    image:
-      'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=70',
-    href: '/demos/medora-clinic',
-    accent: '#1677A8',
-    accentLight: '#D9F0FA',
-    dark: '#073B4C',
-  },
-  {
-    number: '05',
-    title: 'MAJLIS HOSPITALITY',
-    category: 'Restaurant & Hospitality',
-    description:
-      'A refined customer experience for restaurants, cafés, catering companies and hospitality brands.',
-    image:
-      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=70',
-    href: '/demos/majlis-hospitality',
-    accent: '#1677A8',
-    accentLight: '#D9F0FA',
-    dark: '#073B4C',
-  },
-  {
-    number: '06',
+    number: '09',
     title: 'LUMI EVENTS',
     category: 'Events & Venues',
     description:
@@ -81,33 +125,7 @@ const solutions = [
     dark: '#4A123A',
   },
   {
-    number: '07',
-    title: 'MOTION AUTO',
-    category: 'Automotive Services',
-    description:
-      'A conversion-focused experience for automotive workshops, detailing studios and vehicle services.',
-    image:
-      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=70',
-    href: '/demos/motion-auto',
-    accent: '#64748B',
-    accentLight: '#E2E8F0',
-    dark: '#172033',
-  },
-  {
-    number: '08',
-    title: 'ORBIT BEAUTY STUDIO',
-    category: 'Beauty & Wellness',
-    description:
-      'A vibrant, image-led digital experience for salons, beauty studios and modern personal-care brands.',
-    image:
-      'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=70',
-    href: '/demos/orbit-beauty-studio',
-    accent: '#F43F8C',
-    accentLight: '#FDE2EF',
-    dark: '#3B1027',
-  },
-  {
-    number: '09',
+    number: '10',
     title: 'GULFCORE TRADING',
     category: 'Trading & B2B',
     description:
@@ -120,7 +138,7 @@ const solutions = [
     dark: '#361E12',
   },
   {
-    number: '10',
+    number: '11',
     title: 'SANDS TOURISM',
     category: 'Travel & Experiences',
     description:
@@ -371,7 +389,13 @@ export default function SolutionShowcase() {
                   </span>
 
                   <span className="showcase-status">
-                    SOLUTION CONCEPT
+                    {solution.bilingual ? (
+                      <>
+                        ENGLISH + <span style={{ letterSpacing: 0 }}>عربي</span>
+                      </>
+                    ) : (
+                      'SOLUTION CONCEPT'
+                    )}
                   </span>
                 </div>
 

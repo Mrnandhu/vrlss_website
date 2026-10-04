@@ -4,15 +4,26 @@ import HomePage from './components/HomePage'
 
 import './royal-theme.css'
 
+// Bilingual Gulf demos (one shared template, see src/demos/gulf)
+const MedoraClinic = lazy(() => import('./demos/gulf/MedoraClinic'))
+const MajlisKitchen = lazy(() => import('./demos/gulf/MajlisKitchen'))
+const OrbitBeautyStudio = lazy(() => import('./demos/gulf/OrbitBeautyStudio'))
+const MotionAuto = lazy(() => import('./demos/gulf/MotionAuto'))
+const NadeefHomeServices = lazy(() => import('./demos/gulf/NadeefHomeServices'))
+
 const demos = {
+  '/demos/medora-clinic': MedoraClinic,
+  '/demos/majlis-kitchen': MajlisKitchen,
+  '/demos/majlis-hospitality': MajlisKitchen,
+  '/demos/orbit-beauty-studio': OrbitBeautyStudio,
+  '/demos/motion-auto': MotionAuto,
+  '/demos/nadeef-home-services': NadeefHomeServices,
+
+  // Premium concept demos
   '/demos/nova-developments': lazy(() => import('./demos/NovaDevelopments/NovaDevelopments')),
   '/demos/atlas-interiors': lazy(() => import('./demos/AtlasInteriors/AtlasInteriors')),
   '/demos/alpha-contracting': lazy(() => import('./demos/AlphaContracting/AlphaContracting')),
-  '/demos/medora-clinic': lazy(() => import('./demos/MedoraClinic/MedoraClinic')),
-  '/demos/majlis-hospitality': lazy(() => import('./demos/MajlisHospitality/MajlisHospitality')),
   '/demos/lumi-events': lazy(() => import('./demos/LumiEvents/LumiEvents')),
-  '/demos/motion-auto': lazy(() => import('./demos/MotionAuto/MotionAuto')),
-  '/demos/orbit-beauty-studio': lazy(() => import('./demos/OrbitBusiness/OrbitBusiness')),
   '/demos/gulfcore-trading': lazy(() => import('./demos/GulfCoreTrading/GulfCoreTrading')),
   '/demos/sands-tourism': lazy(() => import('./demos/SandsTourism/SandsTourism')),
 }

@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://vrlss.in/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://vrlss.in/demos/function-hall</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://vrlss.in/demos/interior-design</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://vrlss.in/demos/real-estate</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://vrlss.in/demos/wedding-events</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://vrlss.in/demos/restaurant</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://vrlss.in/demos/cafe</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://vrlss.in/demos/boutique</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://vrlss.in/demos/furniture</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://vrlss.in/demos/education</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://vrlss.in/demos/hospital</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://vrlss.in/demos/pet-shop</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://vrlss.in/demos/photography</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vrlss.in/demos/medora-clinic</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vrlss.in/demos/majlis-kitchen</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vrlss.in/demos/orbit-beauty-studio</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vrlss.in/demos/motion-auto</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vrlss.in/demos/nadeef-home-services</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vrlss.in/demos/nova-developments</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vrlss.in/demos/atlas-interiors</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vrlss.in/demos/alpha-contracting</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vrlss.in/demos/lumi-events</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vrlss.in/demos/gulfcore-trading</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vrlss.in/demos/sands-tourism</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
