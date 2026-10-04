@@ -1,0 +1,1004 @@
+:root {
+  --sands-red: #ea4f49;
+  --sands-red-dark: #b52520;
+  --sands-red-deep: #7c2320;
+  --sands-red-light: #fdcdcb;
+  --sands-paper: #fffdfb;
+  --sands-soft: #fef2f2;
+  --sands-dark: #18191b;
+  --sands-black: #0e0f12;
+  --sands-grey: #68686d;
+  --sands-border: rgba(14,15,18,.13);
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+.sands-demo {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--sands-paper);
+  color: var(--sands-black);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.sands-demo *,
+.sands-demo *::before,
+.sands-demo *::after {
+  box-sizing: border-box;
+}
+
+.sands-demo a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sands-demo h1,
+.sands-demo h2,
+.sands-demo h3,
+.sands-demo p {
+  margin: 0;
+}
+
+/* =========================================================
+   NAV
+   ========================================================= */
+
+.sands-nav {
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 86px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 5vw;
+
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,.2);
+}
+
+.sands-logo,
+.sands-footer-logo {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -.07em;
+}
+
+.sands-logo span,
+.sands-footer-logo span {
+  color: var(--sands-red-light);
+}
+
+.sands-nav nav {
+  display: flex;
+  gap: 34px;
+}
+
+.sands-nav nav a {
+  font-size: 9px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: .8;
+  transition: opacity .25s ease;
+}
+
+.sands-nav nav a:hover {
+  opacity: 1;
+}
+
+.sands-nav-cta {
+  padding: 13px 18px;
+
+  border: 1px solid rgba(255,255,255,.5);
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.sands-nav-cta span {
+  margin-left: 10px;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.sands-hero {
+  position: relative;
+
+  min-height: 100vh;
+  height: 850px;
+  max-height: 1000px;
+
+  overflow: hidden;
+
+  background: #292323;
+  color: #fff;
+}
+
+.sands-hero-image {
+  position: absolute;
+  inset: 0;
+
+  background:
+    url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2200&q=90")
+    center / cover no-repeat;
+
+  transform: scale(1.03);
+}
+
+.sands-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(12,10,10,.78),
+      rgba(12,10,10,.2) 70%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(12,10,10,.7),
+      transparent 50%
+    );
+}
+
+.sands-hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: 90%;
+  max-width: 1400px;
+  height: 100%;
+
+  margin: auto;
+  padding-top: 190px;
+}
+
+.sands-eyebrow {
+  color: var(--sands-red-light);
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .22em;
+}
+
+.sands-hero h1 {
+  margin-top: 30px;
+
+  max-width: 1000px;
+
+  font-size: clamp(70px, 10vw, 150px);
+  line-height: .82;
+  letter-spacing: -.08em;
+}
+
+.sands-hero h1 em {
+  color: var(--sands-red-light);
+  font-style: normal;
+}
+
+.sands-hero-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 55px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.sands-hero-bottom p {
+  max-width: 370px;
+
+  font-size: 13px;
+  line-height: 1.8;
+  color: rgba(255,255,255,.72);
+}
+
+.sands-scroll {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .18em;
+}
+
+.sands-scroll span {
+  width: 50px;
+  height: 50px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255,255,255,.45);
+  border-radius: 50%;
+
+  font-size: 17px;
+}
+
+.sands-hero-index {
+  position: absolute;
+  right: 5vw;
+  bottom: 55px;
+
+  font-size: 8px;
+  letter-spacing: .18em;
+  color: rgba(255,255,255,.5);
+}
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.sands-intro {
+  padding: 135px 7vw;
+}
+
+.sands-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  color: var(--sands-grey);
+}
+
+.sands-label span {
+  color: var(--sands-red-dark);
+}
+
+.sands-intro-grid {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 10vw;
+
+  margin-top: 80px;
+}
+
+.sands-intro h2,
+.sands-heading-row h2,
+.sands-journey h2 {
+  font-size: clamp(55px, 7vw, 105px);
+  line-height: .86;
+  letter-spacing: -.075em;
+}
+
+.sands-intro h2 em,
+.sands-heading-row h2 em,
+.sands-journey h2 em {
+  color: var(--sands-red-dark);
+  font-style: normal;
+}
+
+.sands-intro-copy {
+  padding-top: 10px;
+}
+
+.sands-large-copy {
+  max-width: 500px;
+
+  font-size: 23px;
+  line-height: 1.45;
+  letter-spacing: -.025em;
+}
+
+.sands-intro-copy > p:not(.sands-large-copy) {
+  max-width: 450px;
+  margin-top: 35px;
+
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--sands-grey);
+}
+
+.sands-link {
+  display: inline-flex;
+  gap: 18px;
+
+  margin-top: 45px;
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid var(--sands-red);
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   DESTINATION
+   ========================================================= */
+
+.sands-destination {
+  position: relative;
+  min-height: 760px;
+  overflow: hidden;
+
+  background: var(--sands-dark);
+}
+
+.sands-destination-image {
+  position: absolute;
+  inset: 0;
+
+  background:
+    url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2200&q=90")
+    center / cover no-repeat;
+
+  opacity: .82;
+}
+
+.sands-destination-card {
+  position: absolute;
+  right: 7vw;
+  bottom: 7vw;
+
+  width: min(390px, 80vw);
+  padding: 43px;
+
+  background: rgba(255,253,251,.95);
+}
+
+.sands-destination-card > span,
+.sands-visual-copy > span,
+.sands-contact-inner > span {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  color: var(--sands-red-dark);
+}
+
+.sands-destination-card h3 {
+  margin-top: 25px;
+
+  font-size: 52px;
+  line-height: .88;
+  letter-spacing: -.065em;
+}
+
+.sands-destination-card h3 em {
+  color: var(--sands-red);
+  font-style: normal;
+}
+
+.sands-destination-card p {
+  margin-top: 25px;
+
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--sands-grey);
+}
+
+.sands-destination-card a {
+  display: inline-flex;
+  gap: 18px;
+
+  margin-top: 28px;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   EXPERIENCES
+   ========================================================= */
+
+.sands-experiences {
+  padding: 135px 7vw;
+  background: var(--sands-soft);
+}
+
+.sands-heading-row {
+  display: grid;
+  grid-template-columns: 1fr .55fr;
+  gap: 8vw;
+
+  margin-top: 75px;
+}
+
+.sands-heading-row p {
+  align-self: end;
+
+  max-width: 350px;
+
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--sands-grey);
+}
+
+.sands-experience-list {
+  margin-top: 90px;
+
+  border-top: 1px solid var(--sands-border);
+}
+
+.sands-experience {
+  display: grid;
+  grid-template-columns: 90px 1fr 40px;
+  gap: 30px;
+  align-items: center;
+
+  padding: 35px 0;
+
+  border-bottom: 1px solid var(--sands-border);
+
+  transition:
+    padding .3s ease,
+    background .3s ease;
+}
+
+.sands-experience:hover {
+  padding-left: 20px;
+  padding-right: 20px;
+  background: rgba(255,255,255,.7);
+}
+
+.sands-experience > span:first-child {
+  color: var(--sands-red-dark);
+
+  font-size: 9px;
+  letter-spacing: .15em;
+}
+
+.sands-experience h3 {
+  font-size: 25px;
+  letter-spacing: -.045em;
+}
+
+.sands-experience p {
+  max-width: 570px;
+  margin-top: 8px;
+
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--sands-grey);
+}
+
+.sands-arrow {
+  color: var(--sands-red-dark);
+  font-size: 20px;
+}
+
+/* =========================================================
+   VISUAL
+   ========================================================= */
+
+.sands-visual {
+  position: relative;
+  min-height: 850px;
+  overflow: hidden;
+
+  background: #322322;
+  color: #fff;
+}
+
+.sands-visual-image {
+  position: absolute;
+  inset: 0;
+
+  background:
+    url("https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=2200&q=90")
+    center / cover no-repeat;
+}
+
+.sands-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.62),
+      transparent 75%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(0,0,0,.6),
+      transparent 55%
+    );
+}
+
+.sands-visual-copy {
+  position: absolute;
+  z-index: 2;
+  left: 7vw;
+  bottom: 8vw;
+
+  max-width: 700px;
+}
+
+.sands-visual-copy > span {
+  color: var(--sands-red-light);
+}
+
+.sands-visual-copy h2 {
+  margin-top: 30px;
+
+  font-size: clamp(65px, 8vw, 120px);
+  line-height: .83;
+  letter-spacing: -.08em;
+}
+
+.sands-visual-copy h2 em {
+  color: var(--sands-red-light);
+  font-style: normal;
+}
+
+.sands-visual-copy p {
+  max-width: 400px;
+  margin-top: 35px;
+
+  font-size: 13px;
+  line-height: 1.8;
+  color: rgba(255,255,255,.68);
+}
+
+/* =========================================================
+   JOURNEY
+   ========================================================= */
+
+.sands-journey {
+  padding: 135px 7vw;
+}
+
+.sands-journey-grid {
+  display: grid;
+  grid-template-columns: 1fr .8fr;
+  gap: 10vw;
+
+  margin-top: 80px;
+}
+
+.sands-journey-copy > p {
+  max-width: 450px;
+
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.sands-planning {
+  margin-top: 60px;
+
+  border-top: 1px solid var(--sands-border);
+}
+
+.sands-planning div {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  padding: 19px 0;
+
+  border-bottom: 1px solid var(--sands-border);
+}
+
+.sands-planning span {
+  width: 30px;
+
+  color: var(--sands-red-dark);
+  font-size: 9px;
+}
+
+.sands-planning strong {
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   GALLERY
+   ========================================================= */
+
+.sands-gallery {
+  position: relative;
+
+  min-height: 900px;
+  overflow: hidden;
+
+  background: var(--sands-dark);
+}
+
+.sands-gallery-main {
+  position: absolute;
+  top: 8%;
+  left: 10%;
+  width: 50%;
+  height: 75%;
+
+  background:
+    url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1600&q=90")
+    center / cover no-repeat;
+}
+
+.sands-gallery-small {
+  position: absolute;
+
+  width: 25%;
+  height: 30%;
+
+  background-position: center;
+  background-size: cover;
+}
+
+.sands-gallery-small-one {
+  right: 10%;
+  top: 13%;
+
+  background-image:
+    url("https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1000&q=90");
+}
+
+.sands-gallery-small-two {
+  right: 18%;
+  bottom: 10%;
+
+  background-image:
+    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=90");
+}
+
+.sands-gallery-title {
+  position: absolute;
+  z-index: 2;
+
+  left: 57%;
+  bottom: 15%;
+
+  color: #fff;
+}
+
+.sands-gallery-title > span {
+  color: var(--sands-red-light);
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .2em;
+}
+
+.sands-gallery-title h2 {
+  margin-top: 25px;
+
+  font-size: clamp(55px, 7vw, 100px);
+  line-height: .85;
+  letter-spacing: -.075em;
+}
+
+.sands-gallery-title h2 em {
+  color: var(--sands-red-light);
+  font-style: normal;
+}
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.sands-contact {
+  padding: 150px 7vw;
+
+  background:
+    linear-gradient(
+      125deg,
+      #fffdfb 0%,
+      #fff5f4 48%,
+      #fde4e3 100%
+    );
+}
+
+.sands-contact-inner {
+  max-width: 1000px;
+}
+
+.sands-contact-inner > span {
+  color: var(--sands-red-dark);
+}
+
+.sands-contact h2 {
+  margin-top: 50px;
+
+  font-size: clamp(70px, 9vw, 135px);
+  line-height: .82;
+  letter-spacing: -.08em;
+}
+
+.sands-contact p {
+  max-width: 450px;
+  margin-top: 45px;
+
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--sands-grey);
+}
+
+.sands-contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin-top: 45px;
+}
+
+.sands-contact-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+
+  padding: 17px 22px;
+
+  background: var(--sands-red-dark);
+  color: #fff;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+
+  transition:
+    background .25s ease,
+    transform .25s ease;
+}
+
+.sands-contact-actions a:hover {
+  background: var(--sands-black);
+  transform: translateY(-3px);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.sands-footer {
+  padding: 75px 5vw 25px;
+
+  background: var(--sands-black);
+  color: #fff;
+}
+
+.sands-footer-main {
+  display: grid;
+  grid-template-columns: 1.2fr .7fr .8fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.sands-footer p {
+  max-width: 220px;
+  margin-top: 20px;
+
+  font-size: 10px;
+  line-height: 1.7;
+  color: rgba(255,255,255,.45);
+}
+
+.sands-footer-links {
+  display: grid;
+  gap: 13px;
+}
+
+.sands-footer-links a {
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.65);
+}
+
+.sands-back-home {
+  justify-self: end;
+
+  padding: 12px 16px;
+
+  border: 1px solid rgba(255,255,255,.22);
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+
+.sands-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 80px;
+  padding-top: 20px;
+
+  border-top: 1px solid rgba(255,255,255,.13);
+
+  font-size: 7px;
+  letter-spacing: .13em;
+  color: rgba(255,255,255,.35);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .sands-nav {
+    height: 70px;
+  }
+
+  .sands-nav nav {
+    display: none;
+  }
+
+  .sands-nav-cta {
+    padding: 10px 12px;
+    font-size: 7px;
+  }
+
+  .sands-hero {
+    min-height: 760px;
+    height: 100svh;
+  }
+
+  .sands-hero-content {
+    padding-top: 150px;
+  }
+
+  .sands-hero h1 {
+    font-size: clamp(58px, 16vw, 100px);
+  }
+
+  .sands-hero-bottom {
+    bottom: 35px;
+  }
+
+  .sands-hero-index {
+    display: none;
+  }
+
+  .sands-intro,
+  .sands-experiences,
+  .sands-journey,
+  .sands-contact {
+    padding: 90px 6vw;
+  }
+
+  .sands-intro-grid,
+  .sands-heading-row,
+  .sands-journey-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .sands-intro-grid {
+    margin-top: 55px;
+  }
+
+  .sands-heading-row {
+    margin-top: 50px;
+  }
+
+  .sands-large-copy {
+    font-size: 19px;
+  }
+
+  .sands-destination {
+    min-height: 650px;
+  }
+
+  .sands-destination-card {
+    right: 5vw;
+    left: 5vw;
+    bottom: 5vw;
+    width: auto;
+  }
+
+  .sands-experience {
+    grid-template-columns: 35px 1fr 20px;
+    gap: 12px;
+  }
+
+  .sands-experience h3 {
+    font-size: 19px;
+  }
+
+  .sands-visual {
+    min-height: 700px;
+  }
+
+  .sands-gallery {
+    min-height: 800px;
+  }
+
+  .sands-gallery-main {
+    left: 6%;
+    width: 72%;
+    height: 55%;
+  }
+
+  .sands-gallery-small {
+    width: 34%;
+    height: 25%;
+  }
+
+  .sands-gallery-small-one {
+    right: 6%;
+    top: 12%;
+  }
+
+  .sands-gallery-small-two {
+    right: 8%;
+    bottom: 8%;
+  }
+
+  .sands-gallery-title {
+    left: 6%;
+    bottom: 12%;
+  }
+
+  .sands-footer-main {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sands-back-home {
+    justify-self: start;
+  }
+
+  .sands-footer-bottom {
+    display: grid;
+    gap: 10px;
+    margin-top: 55px;
+  }
+}
+
+@media (max-width: 500px) {
+  .sands-hero-bottom p {
+    max-width: 240px;
+    font-size: 11px;
+  }
+
+  .sands-scroll {
+    display: none;
+  }
+
+  .sands-experience {
+    padding: 28px 0;
+  }
+
+  .sands-experience p {
+    font-size: 10px;
+  }
+
+  .sands-gallery-main {
+    width: 88%;
+    left: 6%;
+    height: 48%;
+  }
+
+  .sands-gallery-small {
+    width: 38%;
+    height: 23%;
+  }
+
+  .sands-gallery-title {
+    bottom: 10%;
+  }
+
+  .sands-contact h2 {
+    font-size: 62px;
+  }
+
+  .sands-footer-main {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+}

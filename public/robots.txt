@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /demos/restaurant/booking
+Disallow: /demos/showroom
+Disallow: /demos/mart-billing
+Disallow: /demos/ai-assistant
+Disallow: /demos/ecommerce
+
+Sitemap: https://vrlss.in/sitemap.xml

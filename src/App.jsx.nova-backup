@@ -1,0 +1,21 @@
+import SEO from './components/SEO'
+import HomePage from './components/HomePage'
+import NovaDevelopments from './demos/NovaDevelopments'
+import './royal-theme.css'
+
+function App() {
+  const path = window.location.pathname.replace(/\/+$/, '') || '/'
+  const hash = window.location.hash
+  const isNova = path === '/demos/nova-developments' || hash === '#/demos/nova-developments'
+
+  if (isNova) return <NovaDevelopments />
+
+  return (
+    <>
+      <SEO />
+      <HomePage />
+    </>
+  )
+}
+
+export default App

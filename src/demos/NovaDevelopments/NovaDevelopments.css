@@ -1,0 +1,1490 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+.nova-page {
+  --nova-50: #fffbeb;
+  --nova-100: #fdf4c8;
+  --nova-200: #fbe68c;
+  --nova-300: #fad44f;
+  --nova-400: #f8c027;
+  --nova-500: #f29f0e;
+  --nova-600: #d67909;
+  --nova-700: #b2550b;
+  --nova-800: #904110;
+  --nova-900: #773610;
+  --nova-950: #441b04;
+
+  background: var(--nova-50);
+  color: var(--nova-950);
+  font-family: 'DM Sans', sans-serif;
+  overflow: hidden;
+}
+
+.nova-page *,
+.nova-page *::before,
+.nova-page *::after {
+  box-sizing: border-box;
+}
+
+.nova-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nova-page img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nova-nav {
+  position: fixed;
+  z-index: 100;
+  top: 18px;
+  left: 50%;
+  width: min(1380px, calc(100% - 48px));
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 14px 13px 20px;
+  background: rgba(255, 251, 235, 0.9);
+  border: 1px solid rgba(119, 54, 16, 0.15);
+  border-radius: 999px;
+  backdrop-filter: blur(18px);
+}
+
+.nova-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nova-brand-mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  background: var(--nova-950);
+  color: var(--nova-300);
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.nova-brand strong,
+.nova-brand small {
+  display: block;
+}
+
+.nova-brand strong {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+}
+
+.nova-brand small {
+  margin-top: 1px;
+  font-size: 7px;
+  letter-spacing: 0.22em;
+  opacity: 0.6;
+}
+
+.nova-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-left: auto;
+  margin-right: 34px;
+}
+
+.nova-nav-links a {
+  position: relative;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nova-nav-links a::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -6px;
+  left: 0;
+  height: 1px;
+  background: var(--nova-600);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.nova-nav-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nova-nav-cta,
+.nova-footer-enquire {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 17px;
+  background: var(--nova-950);
+  color: var(--nova-50);
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nova-nav-cta span,
+.nova-footer-enquire span {
+  color: var(--nova-300);
+  font-size: 14px;
+}
+
+.nova-menu {
+  display: none;
+  border: 0;
+  background: transparent;
+}
+
+.nova-hero {
+  position: relative;
+  min-height: 100svh;
+  color: white;
+  overflow: hidden;
+}
+
+.nova-hero > img {
+  position: absolute;
+  inset: 0;
+}
+
+.nova-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(35, 14, 2, 0.78) 0%, rgba(35, 14, 2, 0.3) 52%, rgba(35, 14, 2, 0.08) 100%),
+    linear-gradient(0deg, rgba(20, 8, 1, 0.55), transparent 50%);
+}
+
+.nova-hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-height: 100svh;
+  width: min(1380px, calc(100% - 48px));
+  margin: auto;
+  padding: 190px 0 120px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.nova-kicker {
+  color: var(--nova-400);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.nova-hero h1 {
+  max-width: 830px;
+  margin: 22px 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(54px, 7.5vw, 116px);
+  font-weight: 500;
+  line-height: 0.91;
+  letter-spacing: -0.065em;
+}
+
+.nova-hero h1 em,
+.nova-page h2 em {
+  display: block;
+  color: var(--nova-300);
+  font-style: normal;
+}
+
+.nova-hero-content > p {
+  max-width: 510px;
+  margin: 0 0 34px;
+  color: rgba(255, 251, 235, 0.82);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.nova-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.nova-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 21px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.nova-button:hover {
+  transform: translateY(-3px);
+}
+
+.nova-button span {
+  font-size: 16px;
+}
+
+.nova-button-light {
+  background: var(--nova-300);
+  color: var(--nova-950);
+}
+
+.nova-text-link {
+  display: inline-flex;
+  gap: 15px;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.nova-text-link span {
+  font-size: 16px;
+}
+
+.nova-light-link {
+  color: white;
+}
+
+.nova-hero-meta {
+  position: absolute;
+  z-index: 3;
+  right: 5%;
+  bottom: 44px;
+  left: 5%;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+}
+
+.nova-scroll {
+  position: absolute;
+  z-index: 3;
+  right: 5%;
+  bottom: 86px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+}
+
+.nova-scroll b {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.nova-section {
+  width: min(1380px, calc(100% - 48px));
+  margin: auto;
+}
+
+.nova-intro {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  gap: 60px;
+  padding-top: 160px;
+  padding-bottom: 160px;
+}
+
+.nova-intro-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding-top: 10px;
+}
+
+.nova-intro-label span,
+.nova-intro-label p {
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.nova-intro-label span {
+  color: var(--nova-600);
+  font-weight: 700;
+}
+
+.nova-intro-label p {
+  margin: 0;
+  opacity: 0.5;
+}
+
+.nova-intro-copy {
+  max-width: 1000px;
+}
+
+.nova-dark-kicker {
+  color: var(--nova-700);
+}
+
+.nova-intro h2,
+.nova-section-heading h2,
+.nova-architecture-heading h2,
+.nova-location-heading h2,
+.nova-gallery-top h2 {
+  margin: 20px 0 32px;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(48px, 6vw, 88px);
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: -0.06em;
+}
+
+.nova-intro h2 em,
+.nova-section-heading h2 em,
+.nova-architecture-heading h2 em,
+.nova-location-heading h2 em,
+.nova-gallery-top h2 em {
+  color: var(--nova-700);
+}
+
+.nova-lead {
+  max-width: 820px;
+  margin: 0;
+  font-size: clamp(20px, 2vw, 27px);
+  line-height: 1.5;
+  letter-spacing: -0.025em;
+}
+
+.nova-intro-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 50px;
+  margin-top: 80px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(119, 54, 16, 0.2);
+}
+
+.nova-intro-bottom p {
+  max-width: 470px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.8;
+  opacity: 0.68;
+}
+
+.nova-line-number {
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.nova-image-feature {
+  display: grid;
+  grid-template-columns: 1.45fr 0.55fr;
+  min-height: 720px;
+  background: var(--nova-950);
+  color: var(--nova-50);
+}
+
+.nova-feature-image {
+  min-height: 600px;
+}
+
+.nova-feature-panel {
+  display: flex;
+  padding: 80px 60px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nova-feature-panel h2 {
+  margin: 18px 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(38px, 4vw, 60px);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+.nova-feature-panel p {
+  max-width: 360px;
+  margin: 0;
+  color: rgba(255, 251, 235, 0.68);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.nova-feature-stat {
+  display: flex;
+  gap: 25px;
+  margin-top: 90px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 251, 235, 0.2);
+}
+
+.nova-feature-stat span {
+  color: var(--nova-300);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.nova-feature-stat p {
+  font-size: 10px;
+  line-height: 1.7;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.nova-residences {
+  padding-top: 170px;
+  padding-bottom: 180px;
+}
+
+.nova-section-heading {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  align-items: end;
+  gap: 70px;
+  margin-bottom: 75px;
+}
+
+.nova-section-heading h2 {
+  margin-bottom: 0;
+}
+
+.nova-section-heading > p {
+  margin: 0 0 8px;
+  font-size: 13px;
+  line-height: 1.8;
+  opacity: 0.62;
+}
+
+.nova-residence-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.nova-residence-card {
+  min-width: 0;
+}
+
+.nova-residence-image {
+  position: relative;
+  height: 510px;
+  overflow: hidden;
+}
+
+.nova-residence-image img {
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.nova-residence-card:hover .nova-residence-image img {
+  transform: scale(1.045);
+}
+
+.nova-residence-image span {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+  color: white;
+  font-size: 10px;
+}
+
+.nova-residence-info {
+  padding: 25px 4px 0;
+}
+
+.nova-residence-info > span {
+  color: var(--nova-700);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+}
+
+.nova-residence-info h3 {
+  margin: 10px 0 10px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.nova-residence-info p {
+  max-width: 360px;
+  margin: 0 0 22px;
+  color: rgba(68, 27, 4, 0.62);
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.nova-residence-info a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--nova-700);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.nova-residence-info a span {
+  font-size: 14px;
+}
+
+.nova-amenities {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  min-height: 900px;
+  background: var(--nova-200);
+}
+
+.nova-amenities-image {
+  min-height: 700px;
+}
+
+.nova-amenities-content {
+  padding: 110px clamp(40px, 7vw, 110px);
+}
+
+.nova-amenities-content h2 {
+  max-width: 600px;
+  margin: 20px 0 25px;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(48px, 5vw, 76px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.nova-amenities-content h2 em {
+  color: var(--nova-700);
+}
+
+.nova-amenities-intro {
+  max-width: 510px;
+  margin: 0 0 65px;
+  font-size: 14px;
+  line-height: 1.8;
+  opacity: 0.7;
+}
+
+.nova-feature-list {
+  border-top: 1px solid rgba(119, 54, 16, 0.28);
+}
+
+.nova-feature-row {
+  display: grid;
+  grid-template-columns: 50px 1fr 25px;
+  align-items: start;
+  gap: 25px;
+  padding: 25px 0;
+  border-bottom: 1px solid rgba(119, 54, 16, 0.28);
+}
+
+.nova-feature-row > span {
+  color: var(--nova-700);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.nova-feature-row h3 {
+  margin: 0 0 6px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.nova-feature-row p {
+  max-width: 440px;
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.7;
+  opacity: 0.65;
+}
+
+.nova-feature-row > b {
+  color: var(--nova-700);
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.nova-architecture {
+  padding-top: 170px;
+  padding-bottom: 170px;
+}
+
+.nova-architecture-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.nova-architecture-heading h2 {
+  max-width: 800px;
+  margin-left: auto;
+}
+
+.nova-architecture-grid {
+  display: grid;
+  grid-template-columns: 0.48fr 1fr;
+  gap: 80px;
+  margin-top: 70px;
+}
+
+.nova-architecture-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nova-architecture-copy .nova-lead {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.nova-architecture-number {
+  color: var(--nova-600);
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(100px, 15vw, 230px);
+  font-weight: 500;
+  line-height: 0.8;
+  letter-spacing: -0.1em;
+}
+
+.nova-architecture-image {
+  height: 700px;
+}
+
+.nova-material {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 700px;
+  background: var(--nova-950);
+  color: var(--nova-50);
+}
+
+.nova-material-image {
+  min-height: 600px;
+}
+
+.nova-material-copy {
+  display: flex;
+  padding: 90px clamp(40px, 8vw, 130px);
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nova-material-copy h2 {
+  margin: 20px 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(45px, 5vw, 75px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.nova-material-copy p {
+  max-width: 440px;
+  margin: 0;
+  color: rgba(255, 251, 235, 0.68);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.nova-location {
+  padding-top: 170px;
+  padding-bottom: 170px;
+}
+
+.nova-location-heading {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  column-gap: 80px;
+  align-items: end;
+  margin-bottom: 70px;
+}
+
+.nova-location-heading > .nova-kicker {
+  grid-column: 1 / -1;
+}
+
+.nova-location-heading h2 {
+  margin-bottom: 0;
+}
+
+.nova-location-heading > p {
+  max-width: 430px;
+  margin: 0 0 8px;
+  font-size: 13px;
+  line-height: 1.8;
+  opacity: 0.62;
+}
+
+.nova-map {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+  background: #f3e7bf;
+  border: 1px solid rgba(119, 54, 16, 0.15);
+}
+
+.nova-map-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background-image:
+    linear-gradient(rgba(119, 54, 16, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(119, 54, 16, 0.08) 1px, transparent 1px);
+  background-size: 55px 55px;
+}
+
+.nova-map-road {
+  position: absolute;
+  height: 14px;
+  background: rgba(119, 54, 16, 0.14);
+  transform-origin: left center;
+}
+
+.road-one {
+  top: 48%;
+  left: -5%;
+  width: 110%;
+  transform: rotate(-14deg);
+}
+
+.road-two {
+  top: 20%;
+  left: 38%;
+  width: 90%;
+  transform: rotate(54deg);
+}
+
+.road-three {
+  top: 75%;
+  left: 15%;
+  width: 90%;
+  transform: rotate(24deg);
+}
+
+.nova-map-pin {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  display: flex;
+  width: 95px;
+  height: 95px;
+  align-items: center;
+  justify-content: center;
+  background: var(--nova-950);
+  border: 10px solid rgba(242, 159, 14, 0.3);
+  border-radius: 50%;
+  color: var(--nova-300);
+  transform: translate(-50%, -50%);
+}
+
+.nova-map-pin span {
+  font-family: 'Manrope', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.nova-map-pin small {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  color: var(--nova-950);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  transform: translateX(-50%);
+}
+
+.nova-map-label {
+  position: absolute;
+  color: rgba(68, 27, 4, 0.45);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.label-one {
+  top: 20%;
+  left: 18%;
+}
+
+.label-two {
+  top: 25%;
+  right: 12%;
+}
+
+.label-three {
+  right: 20%;
+  bottom: 17%;
+}
+
+.nova-gallery {
+  padding-bottom: 170px;
+}
+
+.nova-gallery-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 70px;
+}
+
+.nova-gallery-top h2 {
+  margin-bottom: 0;
+}
+
+.nova-gallery-count {
+  color: var(--nova-700);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.nova-gallery-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  grid-template-rows: 390px 390px;
+  gap: 18px;
+}
+
+.gallery-large {
+  grid-row: 1 / 3;
+}
+
+.gallery-small {
+  min-height: 0;
+}
+
+.gallery-offset {
+  margin-left: 80px;
+}
+
+.nova-enquire {
+  position: relative;
+  min-height: 760px;
+  color: white;
+  overflow: hidden;
+}
+
+.nova-enquire-background,
+.nova-enquire-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.nova-enquire-background img {
+  filter: saturate(0.8);
+}
+
+.nova-enquire-overlay {
+  background: rgba(68, 27, 4, 0.7);
+}
+
+.nova-enquire-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: min(900px, calc(100% - 48px));
+  min-height: 760px;
+  margin: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.nova-enquire-content h2 {
+  max-width: 800px;
+  margin: 25px 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(58px, 8vw, 112px);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+}
+
+.nova-enquire-content p {
+  max-width: 460px;
+  margin: 0 0 35px;
+  color: rgba(255, 251, 235, 0.76);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.nova-footer {
+  padding: 55px 5% 28px;
+  background: var(--nova-950);
+  color: var(--nova-50);
+}
+
+.nova-footer-top {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 40px;
+  padding-bottom: 60px;
+}
+
+.nova-footer-brand .nova-brand-mark {
+  background: var(--nova-300);
+  color: var(--nova-950);
+}
+
+.nova-footer-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nova-footer-links a {
+  color: rgba(255, 251, 235, 0.65);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.nova-footer-enquire {
+  justify-self: end;
+  background: var(--nova-300);
+  color: var(--nova-950);
+}
+
+.nova-footer-enquire span {
+  color: var(--nova-950);
+}
+
+.nova-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 251, 235, 0.14);
+  color: rgba(255, 251, 235, 0.4);
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.nova-footer-bottom a {
+  color: var(--nova-300);
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .nova-nav {
+    width: calc(100% - 28px);
+  }
+
+  .nova-nav-links {
+    display: none;
+  }
+
+  .nova-menu {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    padding: 11px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .nova-menu span {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: var(--nova-950);
+  }
+
+  .nova-intro {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .nova-image-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .nova-feature-image {
+    min-height: 550px;
+  }
+
+  .nova-section-heading {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .nova-residence-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nova-residence-image {
+    height: min(700px, 70vw);
+  }
+
+  .nova-amenities {
+    grid-template-columns: 1fr;
+  }
+
+  .nova-amenities-image {
+    min-height: 600px;
+  }
+
+  .nova-architecture-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nova-architecture-image {
+    height: 600px;
+  }
+
+  .nova-material {
+    grid-template-columns: 1fr;
+  }
+
+  .nova-material-image {
+    min-height: 550px;
+  }
+
+  .nova-location-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .nova-location-heading > p {
+    margin-top: 20px;
+  }
+
+  .nova-footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .nova-footer-links {
+    flex-wrap: wrap;
+  }
+
+  .nova-footer-enquire {
+    justify-self: start;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .nova-nav {
+    top: 10px;
+    width: calc(100% - 20px);
+    padding: 9px 9px 9px 13px;
+  }
+
+  .nova-brand-mark {
+    width: 30px;
+    height: 30px;
+  }
+
+  .nova-brand strong {
+    font-size: 11px;
+  }
+
+  .nova-nav-cta {
+    display: none;
+  }
+
+  .nova-hero-content,
+  .nova-section {
+    width: calc(100% - 34px);
+  }
+
+  .nova-hero-content {
+    padding-top: 140px;
+    padding-bottom: 100px;
+  }
+
+  .nova-hero h1 {
+    font-size: clamp(48px, 14vw, 74px);
+  }
+
+  .nova-hero-content > p {
+    font-size: 13px;
+  }
+
+  .nova-hero-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .nova-hero-meta {
+    right: 17px;
+    bottom: 25px;
+    left: 17px;
+  }
+
+  .nova-scroll {
+    display: none;
+  }
+
+  .nova-intro,
+  .nova-residences,
+  .nova-architecture,
+  .nova-location {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  .nova-intro h2,
+  .nova-section-heading h2,
+  .nova-architecture-heading h2,
+  .nova-location-heading h2,
+  .nova-gallery-top h2 {
+    font-size: 48px;
+  }
+
+  .nova-intro-bottom {
+    margin-top: 50px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nova-feature-panel,
+  .nova-amenities-content,
+  .nova-material-copy {
+    padding: 70px 25px;
+  }
+
+  .nova-feature-image,
+  .nova-amenities-image,
+  .nova-material-image {
+    min-height: 420px;
+  }
+
+  .nova-residence-image {
+    height: 480px;
+  }
+
+  .nova-architecture-heading {
+    display: block;
+  }
+
+  .nova-architecture-image {
+    height: 480px;
+  }
+
+  .nova-architecture-number {
+    margin-top: 80px;
+    font-size: 130px;
+  }
+
+  .nova-map {
+    height: 420px;
+  }
+
+  .nova-gallery-top {
+    display: block;
+  }
+
+  .nova-gallery-count {
+    display: block;
+    margin-top: 20px;
+  }
+
+  .nova-gallery-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gallery-large,
+  .gallery-small {
+    height: 420px;
+  }
+
+  .gallery-offset {
+    margin-left: 0;
+  }
+
+  .nova-enquire,
+  .nova-enquire-content {
+    min-height: 650px;
+  }
+
+  .nova-enquire-content h2 {
+    font-size: 58px;
+  }
+
+  .nova-footer {
+    padding-right: 17px;
+    padding-left: 17px;
+  }
+
+  .nova-footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* NOVA navbar enquire CTA */
+.nova-nav-cta {
+  background: #FAD44F !important;
+  color: #441B04 !important;
+  border: 1px solid #FAD44F !important;
+}
+
+.nova-nav-cta:hover {
+  background: #F8C027 !important;
+  color: #441B04 !important;
+}
+
+.nova-nav-cta,
+.nova-nav-cta span,
+.nova-nav-cta svg {
+  color: #441B04 !important;
+}
+
+
+/* Brown text on Camel Yellow action buttons */
+.nova-demo a[href^="mailto:hello@vrlss.in"],
+.nova-demo a[href$="#enquire"] {
+  color: #441B04 !important;
+}
+
+.nova-demo a[href^="mailto:hello@vrlss.in"] *,
+.nova-demo a[href$="#enquire"] * {
+  color: #441B04 !important;
+}
+
+
+/* =========================================================
+   NOVA — CAMEL YELLOW BUTTON TEXT
+   ========================================================= */
+
+.nova-demo a.nova-button {
+  color: #441B04 !important;
+  -webkit-text-fill-color: #441B04 !important;
+}
+
+.nova-demo a.nova-button span,
+.nova-demo a.nova-button b,
+.nova-demo a.nova-button svg,
+.nova-demo a.nova-button svg *,
+.nova-demo a.nova-button * {
+  color: #441B04 !important;
+  fill: #441B04 !important;
+  stroke: #441B04 !important;
+  -webkit-text-fill-color: #441B04 !important;
+}
+
+/* Navbar enquire button */
+.nova-demo .nova-nav-cta {
+  color: #441B04 !important;
+  -webkit-text-fill-color: #441B04 !important;
+}
+
+.nova-demo .nova-nav-cta *,
+.nova-demo .nova-nav-cta svg,
+.nova-demo .nova-nav-cta svg * {
+  color: #441B04 !important;
+  fill: #441B04 !important;
+  stroke: #441B04 !important;
+  -webkit-text-fill-color: #441B04 !important;
+}
+
+
+/* =========================================================
+   NOVA CTA — FINAL TEXT COLOR
+   ========================================================= */
+
+.nova-demo .nova-nav-cta,
+.nova-demo .nova-nav-cta span,
+.nova-demo .nova-button.nova-button-light,
+.nova-demo .nova-button.nova-button-light span,
+.nova-demo .nova-footer-enquire,
+.nova-demo .nova-footer-enquire span {
+  color: #441B04 !important;
+  -webkit-text-fill-color: #441B04 !important;
+}
+
+
+/* =========================================================
+   NOVA — FINAL CTA VISIBILITY FIX
+   Camel Yellow buttons + dark brown text
+   ========================================================= */
+
+.nova-demo .nova-nav-cta,
+.nova-demo .nova-nav-cta span,
+
+.nova-demo .nova-button.nova-button-light,
+.nova-demo .nova-button.nova-button-light span,
+
+.nova-demo .nova-footer-enquire,
+.nova-demo .nova-footer-enquire span,
+
+.nova-demo .nova-enquire-content .nova-button,
+.nova-demo .nova-enquire-content .nova-button span {
+  background-color: #FAD44F !important;
+  color: #441B04 !important;
+  -webkit-text-fill-color: #441B04 !important;
+}
+
+.nova-demo .nova-nav-cta svg,
+.nova-demo .nova-nav-cta svg *,
+.nova-demo .nova-button.nova-button-light svg,
+.nova-demo .nova-button.nova-button-light svg *,
+.nova-demo .nova-footer-enquire svg,
+.nova-demo .nova-footer-enquire svg * {
+  color: #441B04 !important;
+  fill: #441B04 !important;
+  stroke: #441B04 !important;
+}
+
+
+/* =========================================================
+   NOVA — DIRECT CTA FIX
+   ========================================================= */
+
+/* Hero Register Interest */
+a.nova-button.nova-button-light[href="#enquire"] {
+  background: #FAD44F !important;
+  color: #441B04 !important;
+  -webkit-text-fill-color: #441B04 !important;
+}
+
+a.nova-button.nova-button-light[href="#enquire"] span {
+  color: #441B04 !important;
+  -webkit-text-fill-color: #441B04 !important;
+}
+
+/* Navbar Enquire */
+a.nova-nav-cta[href="#enquire"] {
+  background: #FAD44F !important;
+  color: #441B04 !important;
+  -webkit-text-fill-color: #441B04 !important;
+}
+
+a.nova-nav-cta[href="#enquire"] span {
+  color: #441B04 !important;
+  -webkit-text-fill-color: #441B04 !important;
+}
+
+/* Footer Enquire */
+a.nova-footer-enquire[href="#enquire"] {
+  background: #FAD44F !important;
+  color: #441B04 !important;
+  -webkit-text-fill-color: #441B04 !important;
+}
+
+a.nova-footer-enquire[href="#enquire"] span {
+  color: #441B04 !important;
+  -webkit-text-fill-color: #441B04 !important;
+}
+
+/* Force normal text rendering inside all yellow CTA anchors */
+a.nova-button.nova-button-light[href="#enquire"],
+a.nova-button.nova-button-light[href="#enquire"] span,
+a.nova-nav-cta[href="#enquire"],
+a.nova-nav-cta[href="#enquire"] span,
+a.nova-footer-enquire[href="#enquire"],
+a.nova-footer-enquire[href="#enquire"] span {
+  text-shadow: none !important;
+  mix-blend-mode: normal !important;
+}
+
+
+/* =========================================================
+   NOVA HERO REGISTER INTEREST — FINAL OVERRIDE
+   ========================================================= */
+
+.nova-demo .nova-hero-actions > a.nova-button.nova-button-light {
+  background: #FAD44F !important;
+  color: #441B04 !important;
+  -webkit-text-fill-color: #441B04 !important;
+}
+
+.nova-demo .nova-hero-actions > a.nova-button.nova-button-light span {
+  color: #441B04 !important;
+  -webkit-text-fill-color: #441B04 !important;
+}
+
+
+/* =========================================================
+   HERO REGISTER INTEREST — DIRECT TARGET
+   ========================================================= */
+
+.nova-demo .nova-hero-register {
+  background: #FAD44F !important;
+  color: #441B04 !important;
+  -webkit-text-fill-color: #441B04 !important;
+}
+
+.nova-demo .nova-hero-register .nova-hero-register-text {
+  color: #441B04 !important;
+  -webkit-text-fill-color: #441B04 !important;
+}
+
+.nova-demo .nova-hero-register .nova-hero-register-arrow {
+  color: #441B04 !important;
+  -webkit-text-fill-color: #441B04 !important;
+}
+
+
+/* =========================================================
+   NOVA FINAL ENQUIRY CTA
+   Camel Yellow background + dark brown text
+   ========================================================= */
+
+.nova-demo .nova-enquire-register {
+  background: #FAD44F !important;
+  color: #441B04 !important;
+  -webkit-text-fill-color: #441B04 !important;
+}
+
+.nova-demo .nova-enquire-register span {
+  color: #441B04 !important;
+  -webkit-text-fill-color: #441B04 !important;
+}
+
+
+/* FINAL ENQUIRY BUTTON — highest specificity */
+.nova-demo .nova-enquire-content a.nova-enquire-register {
+  background-color: #FAD44F !important;
+  color: #441B04 !important;
+  -webkit-text-fill-color: #441B04 !important;
+}
+
+.nova-demo .nova-enquire-content a.nova-enquire-register span {
+  color: #441B04 !important;
+  -webkit-text-fill-color: #441B04 !important;
+}
+

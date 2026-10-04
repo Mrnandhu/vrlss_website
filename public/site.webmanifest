@@ -1,0 +1,16 @@
+{
+  "name": "VRLS Solutions",
+  "short_name": "VRLS",
+  "description": "Websites, web applications, mobile applications, custom business software and AI automation.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8faf9",
+  "theme_color": "#f8faf9",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

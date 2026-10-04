@@ -1,0 +1,1491 @@
+/* =========================================================
+   VRLS — SELECTED SOLUTIONS
+   NOVA / CAMEL YELLOW
+   ========================================================= */
+
+.solution-showcase {
+  position: relative;
+  overflow: hidden;
+  padding: 120px 0 150px;
+  background: #0d0e10;
+  color: #fff;
+}
+
+.showcase-intro {
+  width: min(1180px, calc(100% - 64px));
+  margin: 0 auto 90px;
+}
+
+.showcase-intro-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #a7a9ae;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+}
+
+.showcase-intro-label span {
+  width: 24px;
+  height: 1px;
+  background: #EB5F24;
+}
+
+.showcase-intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.7fr);
+  gap: 80px;
+  align-items: end;
+  margin-top: 24px;
+}
+
+.showcase-intro-grid h2 {
+  margin: 0;
+  max-width: 760px;
+
+  color: #fff;
+  font-size: clamp(48px, 6vw, 84px);
+  line-height: .94;
+  letter-spacing: -.06em;
+  font-weight: 650;
+}
+
+.showcase-intro-grid h2 em {
+  color: #EB5F24;
+  font-style: normal;
+}
+
+.showcase-intro-grid p {
+  max-width: 440px;
+  margin: 0 0 5px;
+
+  color: #a7a9ae;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.showcase-stack {
+  position: relative;
+  width: min(1180px, calc(100% - 64px));
+  margin: 0 auto;
+}
+
+.showcase-card {
+  position: relative;
+
+  min-height: 610px;
+  padding: 28px;
+
+  overflow: hidden;
+
+  border: 1px solid color-mix(in srgb, var(--showcase-accent) 42%, transparent);
+  border-radius: 24px;
+
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(242, 159, 14, .16),
+      transparent 34%
+    ),
+    linear-gradient(
+      145deg,
+      #21180f 0%,
+      #101114 75%
+    );
+
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, .35);
+}
+
+.showcase-card::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(242, 159, 14, .045) 1px,
+      transparent 1px
+    );
+
+  background-size: 80px 100%;
+
+  mask-image:
+    linear-gradient(
+      90deg,
+      black,
+      transparent 80%
+    );
+}
+
+.showcase-card-top {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 24px;
+
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.showcase-number {
+  color: var(--showcase-accent);
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.showcase-status {
+  color: #777a81;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+}
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.showcase-card-grid {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: minmax(280px, .72fr) minmax(0, 1.28fr);
+
+  gap: 55px;
+  align-items: center;
+
+  min-height: 500px;
+
+  padding: 35px 0 10px;
+}
+
+.showcase-card-copy {
+  max-width: 440px;
+}
+
+.showcase-category {
+  display: inline-block;
+  margin-bottom: 18px;
+
+  color: var(--showcase-accent);
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.showcase-card-copy h3 {
+  margin: 0;
+
+  color: #fff;
+
+  font-size: clamp(38px, 4.2vw, 68px);
+  line-height: .94;
+  letter-spacing: -.055em;
+}
+
+.showcase-card-copy p {
+  max-width: 400px;
+  margin: 25px 0 30px;
+
+  color: #9b9ea5;
+
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.showcase-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  color: #fff;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.showcase-link b {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid rgba(242, 159, 14, .65);
+  border-radius: 50%;
+
+  color: var(--showcase-accent);
+  font-size: 16px;
+
+  transition:
+    background .3s ease,
+    color .3s ease,
+    transform .3s ease;
+}
+
+.showcase-link:hover b {
+  background: var(--showcase-accent);
+  color: var(--showcase-dark);
+  transform: translate(3px, -3px);
+}
+
+/* =========================================================
+   ACTUAL DEMO IMAGE
+   ========================================================= */
+
+.showcase-image {
+  position: relative;
+
+  display: block;
+
+  aspect-ratio: 16 / 10;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 16px;
+
+  background: #20170f;
+
+  box-shadow:
+    0 30px 70px rgba(0,0,0,.5);
+
+  transform:
+    perspective(1400px)
+    rotateY(-3deg)
+    rotateX(1deg);
+
+  transition:
+    transform .5s ease,
+    box-shadow .5s ease;
+}
+
+.showcase-image:hover {
+  transform:
+    perspective(1400px)
+    rotateY(0deg)
+    rotateX(0deg)
+    translateY(-6px);
+
+  box-shadow:
+    0 38px 85px rgba(0,0,0,.58);
+}
+
+.showcase-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform .7s ease;
+}
+
+.showcase-image:hover img {
+  transform: scale(1.035);
+}
+
+.showcase-image-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(68,27,4,.05) 20%,
+      rgba(14,15,18,.72) 100%
+    );
+}
+
+.showcase-image-label {
+  position: absolute;
+  left: 24px;
+  bottom: 22px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.showcase-image-label span {
+  color: #fff;
+
+  font-size: 23px;
+  font-weight: 900;
+  letter-spacing: -.08em;
+}
+
+.showcase-image-label small {
+  margin-top: 4px;
+
+  color: var(--showcase-accent-light);
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .25em;
+}
+
+.showcase-image-arrow {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+
+  display: grid;
+  place-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid rgba(255,255,255,.5);
+  border-radius: 50%;
+
+  color: #fff;
+  font-size: 17px;
+
+  backdrop-filter: blur(8px);
+
+  transition:
+    background .3s ease,
+    color .3s ease;
+}
+
+.showcase-image:hover .showcase-image-arrow {
+  background: var(--showcase-accent);
+  color: var(--showcase-dark);
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .solution-showcase {
+    padding: 85px 0 100px;
+  }
+
+  .showcase-intro,
+  .showcase-stack {
+    width: min(100% - 32px, 620px);
+  }
+
+  .showcase-intro {
+    margin-bottom: 55px;
+  }
+
+  .showcase-intro-grid {
+    display: block;
+    margin-top: 20px;
+  }
+
+  .showcase-intro-grid h2 {
+    font-size: clamp(42px, 12vw, 62px);
+  }
+
+  .showcase-intro-grid p {
+    margin-top: 22px;
+  }
+
+  .showcase-card {
+    min-height: auto;
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .showcase-card-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 35px;
+
+    min-height: auto;
+
+    padding-top: 28px;
+  }
+
+  .showcase-card-copy {
+    max-width: none;
+  }
+
+  .showcase-card-copy h3 {
+    font-size: clamp(34px, 11vw, 54px);
+  }
+
+  .showcase-card-copy p {
+    margin: 18px 0 23px;
+    font-size: 13px;
+  }
+
+  .showcase-image {
+    transform: none;
+    aspect-ratio: 16 / 11;
+  }
+
+  .showcase-image:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showcase-image,
+  .showcase-image img,
+  .showcase-link b {
+    transition: none;
+  }
+}
+
+
+/* =========================================================
+   VRLS SHOWCASE — HORIZONTAL COMPACT TILES
+   ========================================================= */
+
+.solution-showcase {
+  background: #FEF5EE !important;
+  color: #171719 !important;
+  padding: 110px 0 120px !important;
+}
+
+
+/* Intro */
+
+.solution-showcase .showcase-intro {
+  width: min(1280px, calc(100% - 64px));
+  margin: 0 auto 55px;
+}
+
+.solution-showcase .showcase-intro-label {
+  color: #5d5b59 !important;
+}
+
+.solution-showcase .showcase-intro-label span {
+  background: #EB5F24 !important;
+}
+
+.solution-showcase .showcase-intro-grid {
+  grid-template-columns: minmax(0, 1.4fr) minmax(260px, .6fr);
+  gap: 60px;
+  margin-top: 20px;
+}
+
+.solution-showcase .showcase-intro-grid h2 {
+  color: #171719 !important;
+  font-size: clamp(42px, 5vw, 72px);
+}
+
+.solution-showcase .showcase-intro-grid h2 em {
+  color: #EB5F24 !important;
+}
+
+.solution-showcase .showcase-intro-grid p {
+  color: #66615d !important;
+}
+
+
+/* =========================================================
+   HORIZONTAL TILE TRACK
+   ========================================================= */
+
+.solution-showcase .showcase-stack {
+  width: 100%;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch;
+  gap: 22px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding:
+    10px
+    max(32px, calc((100vw - 1280px) / 2))
+    30px
+    max(32px, calc((100vw - 1280px) / 2));
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;
+}
+
+.solution-showcase .showcase-stack::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* =========================================================
+   COMPACT CARDS
+   ========================================================= */
+
+.solution-showcase .showcase-card {
+  flex: 0 0 410px !important;
+  width: 410px !important;
+  min-height: 0 !important;
+  height: 520px !important;
+
+  padding: 20px !important;
+
+  border-radius: 20px !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(
+        in srgb,
+        var(--showcase-accent) 7%,
+        #ffffff
+      ) 0%,
+      #ffffff 70%
+    ) !important;
+
+  color: #171719 !important;
+
+  border: 1px solid color-mix(
+    in srgb,
+    var(--showcase-accent) 32%,
+    #d9d4ce
+  ) !important;
+
+  box-shadow:
+    0 18px 45px rgba(60, 45, 30, .08);
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  scroll-snap-align: start;
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+.solution-showcase .showcase-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 25px 55px rgba(60, 45, 30, .14);
+}
+
+
+/* =========================================================
+   CARD TOP
+   ========================================================= */
+
+.solution-showcase .showcase-card-top {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 16px;
+
+  border-bottom: 1px solid rgba(40, 35, 30, .10);
+}
+
+.solution-showcase .showcase-number {
+  color: var(--showcase-accent) !important;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.solution-showcase .showcase-status {
+  color: #96918b !important;
+
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+}
+
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.solution-showcase .showcase-card-grid {
+  display: flex !important;
+  flex-direction: column !important;
+
+  gap: 18px;
+
+  height: 100%;
+  padding-top: 20px;
+}
+
+.solution-showcase .showcase-card-copy {
+  flex: 0 0 auto;
+}
+
+.solution-showcase .showcase-category {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: var(--showcase-accent) !important;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+.solution-showcase .showcase-card-copy h3 {
+  margin: 0;
+
+  color: #171719 !important;
+
+  font-size: clamp(28px, 3vw, 38px);
+  line-height: .95;
+  letter-spacing: -.045em;
+  font-weight: 750;
+}
+
+.solution-showcase .showcase-card-copy p {
+  max-width: 340px;
+
+  margin: 12px 0 0;
+
+  color: #77716b !important;
+
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   IMAGE
+   ========================================================= */
+
+.solution-showcase .showcase-image {
+  position: relative;
+
+  display: block;
+
+  flex: 1 1 auto;
+
+  min-height: 0;
+
+  overflow: hidden;
+
+  border-radius: 14px;
+
+  border: 1px solid rgba(30, 25, 20, .10);
+
+  background: #eee8e1;
+
+  text-decoration: none;
+}
+
+.solution-showcase .showcase-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform .6s cubic-bezier(.2,.7,.2,1);
+}
+
+.solution-showcase .showcase-image:hover img {
+  transform: scale(1.045);
+}
+
+
+/* Image overlay */
+
+.solution-showcase .showcase-image-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,0) 35%,
+      rgba(0,0,0,.62) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* Image branding */
+
+.solution-showcase .showcase-image-label {
+  position: absolute;
+
+  left: 18px;
+  bottom: 17px;
+
+  display: flex;
+  flex-direction: column;
+
+  color: #fff;
+
+  z-index: 2;
+}
+
+.solution-showcase .showcase-image-label span {
+  font-size: 21px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -.04em;
+}
+
+.solution-showcase .showcase-image-label small {
+  margin-top: 4px;
+
+  font-size: 7px;
+  line-height: 1;
+
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+
+/* Arrow */
+
+.solution-showcase .showcase-image-arrow {
+  position: absolute;
+
+  right: 14px;
+  bottom: 14px;
+
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: var(--showcase-accent);
+  color: #fff;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  z-index: 3;
+
+  transition:
+    transform .3s ease,
+    background .3s ease;
+}
+
+.solution-showcase .showcase-image:hover .showcase-image-arrow {
+  transform: rotate(45deg);
+}
+
+
+/* =========================================================
+   VIEW CONCEPT
+   ========================================================= */
+
+.solution-showcase .showcase-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-top: 16px;
+
+  color: #171719 !important;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+
+  text-decoration: none;
+}
+
+.solution-showcase .showcase-link b {
+  width: 28px;
+  height: 28px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  border: 1px solid var(--showcase-accent);
+
+  color: var(--showcase-dark) !important;
+
+  font-size: 13px;
+
+  transition:
+    background .25s ease,
+    color .25s ease;
+}
+
+.solution-showcase .showcase-link:hover b {
+  background: var(--showcase-accent);
+  color: #fff !important;
+}
+
+
+/* =========================================================
+   DESKTOP — SMALLER TILES
+   ========================================================= */
+
+@media (min-width: 1200px) {
+  .solution-showcase .showcase-card {
+    flex-basis: 390px !important;
+    width: 390px !important;
+    height: 500px !important;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .solution-showcase {
+    padding: 85px 0 95px !important;
+  }
+
+  .solution-showcase .showcase-intro {
+    width: calc(100% - 40px);
+    margin-bottom: 42px;
+  }
+
+  .solution-showcase .showcase-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .solution-showcase .showcase-stack {
+    gap: 18px;
+
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .solution-showcase .showcase-card {
+    flex-basis: 360px !important;
+    width: 360px !important;
+    height: 480px !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .solution-showcase {
+    padding: 70px 0 80px !important;
+  }
+
+  .solution-showcase .showcase-intro {
+    width: calc(100% - 36px);
+  }
+
+  .solution-showcase .showcase-intro-grid h2 {
+    font-size: 43px;
+  }
+
+  .solution-showcase .showcase-intro-grid p {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .solution-showcase .showcase-stack {
+    gap: 14px;
+
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .solution-showcase .showcase-card {
+    flex-basis: min(82vw, 330px) !important;
+    width: min(82vw, 330px) !important;
+    height: 455px !important;
+
+    padding: 16px !important;
+    border-radius: 17px !important;
+  }
+
+  .solution-showcase .showcase-card-copy h3 {
+    font-size: 29px;
+  }
+
+  .solution-showcase .showcase-card-copy p {
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .solution-showcase .showcase-image-label span {
+    font-size: 18px;
+  }
+}
+
+
+/* =========================================================
+   CENTER-FOCUS HORIZONTAL CAROUSEL
+   ========================================================= */
+
+.solution-showcase .showcase-carousel {
+  position: relative;
+  width: 100%;
+}
+
+
+/* Horizontal track */
+
+.solution-showcase .showcase-stack {
+  scroll-padding-inline: 50%;
+}
+
+
+/* =========================================================
+   SIDE CARDS
+   ========================================================= */
+
+.solution-showcase .showcase-card {
+  opacity: .38;
+  filter: blur(3px);
+  transform: scale(.88);
+
+  transition:
+    opacity .45s ease,
+    filter .45s ease,
+    transform .45s cubic-bezier(.2,.8,.2,1),
+    box-shadow .45s ease;
+}
+
+
+/* =========================================================
+   CENTER CARD
+   ========================================================= */
+
+.solution-showcase .showcase-card.is-active {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+
+  z-index: 5;
+
+  box-shadow:
+    0 30px 70px rgba(60, 45, 30, .16);
+}
+
+
+/* =========================================================
+   SIDE CARD IMAGE
+   ========================================================= */
+
+.solution-showcase .showcase-card:not(.is-active)
+.showcase-image img {
+  filter: saturate(.65);
+}
+
+
+/* =========================================================
+   CAROUSEL ARROWS
+   ========================================================= */
+
+.solution-showcase .showcase-arrow {
+  position: absolute;
+
+  top: 50%;
+  z-index: 20;
+
+  width: 54px;
+  height: 54px;
+
+  display: grid;
+  place-items: center;
+
+  transform: translateY(-50%);
+
+  border: 1px solid rgba(50, 40, 30, .16);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, .94);
+
+  color: #171719;
+
+  font-size: 22px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 30px rgba(60, 45, 30, .12);
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    color .25s ease,
+    box-shadow .25s ease;
+}
+
+.solution-showcase .showcase-arrow:hover {
+  background: #EB5F24;
+  color: #fff;
+
+  box-shadow:
+    0 16px 35px rgba(235, 95, 36, .25);
+
+  transform:
+    translateY(-50%)
+    scale(1.08);
+}
+
+.solution-showcase .showcase-arrow-left {
+  left: 18px;
+}
+
+.solution-showcase .showcase-arrow-right {
+  right: 18px;
+}
+
+
+/* =========================================================
+   CENTER CARD ACCENT
+   ========================================================= */
+
+.solution-showcase .showcase-card.is-active::after {
+  content: '';
+
+  position: absolute;
+
+  left: 22px;
+  right: 22px;
+  bottom: 0;
+
+  height: 3px;
+
+  border-radius: 3px 3px 0 0;
+
+  background: var(--showcase-accent);
+
+  opacity: .9;
+}
+
+
+/* =========================================================
+   DESKTOP — MAKE CENTER CARD MORE PROMINENT
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  .solution-showcase .showcase-card.is-active {
+    transform: scale(1.02);
+  }
+
+  .solution-showcase .showcase-arrow-left {
+    left: 22px;
+  }
+
+  .solution-showcase .showcase-arrow-right {
+    right: 22px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .solution-showcase .showcase-card {
+    opacity: .35;
+    filter: blur(2px);
+    transform: scale(.90);
+  }
+
+  .solution-showcase .showcase-card.is-active {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+
+  .solution-showcase .showcase-arrow {
+    width: 44px;
+    height: 44px;
+
+    font-size: 18px;
+  }
+
+  .solution-showcase .showcase-arrow-left {
+    left: 8px;
+  }
+
+  .solution-showcase .showcase-arrow-right {
+    right: 8px;
+  }
+}
+
+
+/* =========================================================
+   FINAL VRLS SHOWCASE CAROUSEL
+   5 DESKTOP / 1 MOBILE / INFINITE LOOP
+   ========================================================= */
+
+.solution-showcase .showcase-stack {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch;
+
+  gap: 16px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 50%;
+
+  scrollbar-width: none;
+
+  padding-top: 12px;
+  padding-bottom: 28px;
+}
+
+.solution-showcase .showcase-stack::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* ---------------------------------------------------------
+   5 TILES ON DESKTOP
+   --------------------------------------------------------- */
+
+.solution-showcase .showcase-card {
+  flex: 0 0 calc(
+    (100vw - 96px - 64px) / 5
+  ) !important;
+
+  width: calc(
+    (100vw - 96px - 64px) / 5
+  ) !important;
+
+  max-width: 270px;
+
+  height: 405px !important;
+
+  padding: 16px !important;
+
+  border-radius: 17px !important;
+
+  scroll-snap-align: center;
+
+  opacity: .34;
+  filter: blur(2.5px);
+  transform: scale(.91);
+
+  transition:
+    opacity .45s ease,
+    filter .45s ease,
+    transform .45s cubic-bezier(.2,.8,.2,1),
+    box-shadow .45s ease;
+}
+
+
+/* ---------------------------------------------------------
+   CENTER TILE
+   --------------------------------------------------------- */
+
+.solution-showcase .showcase-card.is-active {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1.04);
+
+  z-index: 5;
+
+  box-shadow:
+    0 24px 55px rgba(60, 45, 30, .15);
+}
+
+
+/* ---------------------------------------------------------
+   CARD TOP
+   --------------------------------------------------------- */
+
+.solution-showcase .showcase-card-top {
+  padding-bottom: 12px;
+}
+
+.solution-showcase .showcase-category {
+  margin: 0 !important;
+
+  color: var(--showcase-accent) !important;
+
+  font-size: 8px !important;
+  letter-spacing: 1.25px !important;
+}
+
+.solution-showcase .showcase-status {
+  font-size: 7px !important;
+  letter-spacing: 1.2px !important;
+}
+
+
+/* ---------------------------------------------------------
+   CARD CONTENT
+   --------------------------------------------------------- */
+
+.solution-showcase .showcase-card-grid {
+  gap: 12px !important;
+  padding-top: 14px !important;
+}
+
+.solution-showcase .showcase-card-copy h3 {
+  font-size: 24px !important;
+  line-height: .95 !important;
+}
+
+.solution-showcase .showcase-card-copy p {
+  margin-top: 9px !important;
+
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+}
+
+
+/* ---------------------------------------------------------
+   IMAGE
+   --------------------------------------------------------- */
+
+.solution-showcase .showcase-image {
+  border-radius: 12px;
+}
+
+.solution-showcase .showcase-image-label {
+  left: 13px;
+  bottom: 12px;
+}
+
+.solution-showcase .showcase-image-label span {
+  font-size: 17px;
+}
+
+.solution-showcase .showcase-image-label small {
+  font-size: 6px;
+  letter-spacing: 1.5px;
+}
+
+.solution-showcase .showcase-image-arrow {
+  right: 10px;
+  bottom: 10px;
+
+  width: 32px;
+  height: 32px;
+
+  font-size: 13px;
+}
+
+
+/* ---------------------------------------------------------
+   VIEW CONCEPT
+   --------------------------------------------------------- */
+
+.solution-showcase .showcase-link {
+  margin-top: 11px;
+
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+.solution-showcase .showcase-link b {
+  width: 24px;
+  height: 24px;
+
+  font-size: 11px;
+}
+
+
+/* ---------------------------------------------------------
+   DESKTOP ARROWS
+   --------------------------------------------------------- */
+
+.solution-showcase .showcase-arrow {
+  width: 48px;
+  height: 48px;
+
+  font-size: 20px;
+}
+
+.solution-showcase .showcase-arrow-left {
+  left: 12px;
+}
+
+.solution-showcase .showcase-arrow-right {
+  right: 12px;
+}
+
+
+/* ---------------------------------------------------------
+   TABLET
+   --------------------------------------------------------- */
+
+@media (max-width: 1100px) {
+
+  .solution-showcase .showcase-card {
+    flex-basis: calc(
+      (100vw - 64px - 48px) / 4
+    ) !important;
+
+    width: calc(
+      (100vw - 64px - 48px) / 4
+    ) !important;
+
+    height: 400px !important;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE — EXACTLY 1 TILE
+   --------------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+  .solution-showcase .showcase-stack {
+    gap: 14px;
+
+    padding-left: 9vw;
+    padding-right: 9vw;
+
+    scroll-padding-inline: 9vw;
+  }
+
+  .solution-showcase .showcase-card {
+    flex: 0 0 82vw !important;
+
+    width: 82vw !important;
+
+    max-width: none;
+
+    height: 455px !important;
+
+    padding: 17px !important;
+
+    border-radius: 18px !important;
+
+    opacity: .3;
+    filter: blur(2px);
+    transform: scale(.92);
+  }
+
+  .solution-showcase .showcase-card.is-active {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+
+  .solution-showcase .showcase-card-copy h3 {
+    font-size: 28px !important;
+  }
+
+  .solution-showcase .showcase-card-copy p {
+    font-size: 12px !important;
+    line-height: 1.55 !important;
+  }
+
+  .solution-showcase .showcase-arrow {
+    width: 42px;
+    height: 42px;
+
+    font-size: 17px;
+  }
+
+  .solution-showcase .showcase-arrow-left {
+    left: 7px;
+  }
+
+  .solution-showcase .showcase-arrow-right {
+    right: 7px;
+  }
+}
+
+/* Remove side-card blur */
+.solution-showcase .showcase-card {
+  filter: none !important;
+}
+
+/* Keep center card sharp and highlighted */
+.solution-showcase .showcase-card.is-active {
+  filter: none !important;
+}
+
+
+/* FINAL: no blur on any showcase tile */
+.solution-showcase .showcase-card,
+.solution-showcase .showcase-card:not(.is-active),
+.solution-showcase .showcase-card.is-active {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+.solution-showcase .showcase-card:not(.is-active) .showcase-image img {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+
+/* FINAL FIX — ALL SHOWCASE TILES FULLY SHARP */
+.solution-showcase .showcase-card,
+.solution-showcase .showcase-card.is-active,
+.solution-showcase .showcase-card:not(.is-active) {
+  filter: none !important;
+  -webkit-filter: none !important;
+  opacity: 1 !important;
+}
+
+.solution-showcase .showcase-card:not(.is-active) .showcase-image,
+.solution-showcase .showcase-card:not(.is-active) .showcase-image img {
+  filter: none !important;
+  -webkit-filter: none !important;
+  opacity: 1 !important;
+}
+
+.solution-showcase .showcase-card:not(.is-active) .showcase-card-copy,
+.solution-showcase .showcase-card:not(.is-active) .showcase-card-top {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* Remove any blur/fade effects from pseudo-elements */
+.solution-showcase .showcase-card::before,
+.solution-showcase .showcase-card::after {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+

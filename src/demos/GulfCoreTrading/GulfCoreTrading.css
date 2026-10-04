@@ -1,0 +1,1034 @@
+:root {
+  --gc-gold: #b68a35;
+  --gc-gold-dark: #92722a;
+  --gc-gold-light: #e6d7a2;
+  --gc-cream: #f9f7ed;
+  --gc-paper: #fffdf7;
+  --gc-black: #0e0f12;
+  --gc-dark: #1b1d21;
+  --gc-grey: #5f646d;
+  --gc-border: rgba(14, 15, 18, 0.14);
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+.gulfcore-demo {
+  margin: 0;
+  background: var(--gc-paper);
+  color: var(--gc-black);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+.gulfcore-demo *,
+.gulfcore-demo *::before,
+.gulfcore-demo *::after {
+  box-sizing: border-box;
+}
+
+.gulfcore-demo a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.gulfcore-demo p,
+.gulfcore-demo h1,
+.gulfcore-demo h2,
+.gulfcore-demo h3 {
+  margin: 0;
+}
+
+/* =========================================================
+   NAV
+   ========================================================= */
+
+.gulfcore-nav {
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 86px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 5vw;
+  color: #fff;
+
+  border-bottom: 1px solid rgba(255,255,255,.18);
+}
+
+.gulfcore-logo,
+.gulfcore-footer-logo {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -.06em;
+}
+
+.gulfcore-logo span,
+.gulfcore-footer-logo span {
+  color: var(--gc-gold-light);
+}
+
+.gulfcore-nav nav {
+  display: flex;
+  gap: 34px;
+}
+
+.gulfcore-nav nav a {
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .82;
+  transition: opacity .25s ease;
+}
+
+.gulfcore-nav nav a:hover {
+  opacity: 1;
+}
+
+.gulfcore-nav-cta {
+  padding: 13px 18px;
+  border: 1px solid rgba(255,255,255,.45);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.gulfcore-nav-cta span {
+  margin-left: 10px;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.gulfcore-hero {
+  position: relative;
+  min-height: 100vh;
+  height: 850px;
+  max-height: 1000px;
+  overflow: hidden;
+  background: #20201d;
+  color: #fff;
+}
+
+.gulfcore-hero-image {
+  position: absolute;
+  inset: 0;
+
+  background:
+    url("https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=2200&q=90")
+    center / cover no-repeat;
+
+  transform: scale(1.03);
+}
+
+.gulfcore-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8,9,9,.82) 0%,
+      rgba(8,9,9,.48) 45%,
+      rgba(8,9,9,.14) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(8,9,9,.7),
+      transparent 45%
+    );
+}
+
+.gulfcore-hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: 90%;
+  max-width: 1400px;
+  height: 100%;
+
+  margin: auto;
+  padding-top: 190px;
+}
+
+.gulfcore-eyebrow,
+.gulfcore-dark-label,
+.gulfcore-network-content > span,
+.gulfcore-contact-inner > span {
+  display: block;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.gulfcore-eyebrow {
+  color: var(--gc-gold-light);
+}
+
+.gulfcore-hero h1 {
+  margin-top: 30px;
+
+  font-size: clamp(70px, 10vw, 150px);
+  line-height: .82;
+  letter-spacing: -.075em;
+  font-weight: 700;
+}
+
+.gulfcore-hero h1 em {
+  color: var(--gc-gold-light);
+  font-style: normal;
+}
+
+.gulfcore-hero-bottom {
+  position: absolute;
+  bottom: 55px;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.gulfcore-hero-bottom p {
+  max-width: 360px;
+
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,.76);
+}
+
+.gulfcore-circle-link {
+  width: 64px;
+  height: 64px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255,255,255,.45);
+  border-radius: 50%;
+
+  font-size: 22px;
+}
+
+.gulfcore-hero-code {
+  position: absolute;
+  z-index: 3;
+  right: 5vw;
+  bottom: 55px;
+
+  font-size: 8px;
+  letter-spacing: .18em;
+  color: rgba(255,255,255,.55);
+}
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.gulfcore-intro {
+  padding: 130px 7vw;
+  background: var(--gc-paper);
+}
+
+.gulfcore-section-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  color: var(--gc-grey);
+}
+
+.gulfcore-section-label span {
+  color: var(--gc-gold-dark);
+}
+
+.gulfcore-intro-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 10vw;
+
+  margin-top: 80px;
+}
+
+.gulfcore-intro h2,
+.gulfcore-section-heading h2,
+.gulfcore-logistics h2 {
+  font-size: clamp(50px, 7vw, 105px);
+  line-height: .9;
+  letter-spacing: -.07em;
+}
+
+.gulfcore-intro h2 span,
+.gulfcore-section-heading h2 span,
+.gulfcore-logistics h2 span {
+  color: var(--gc-gold-dark);
+}
+
+.gulfcore-intro-copy {
+  padding-top: 10px;
+}
+
+.gulfcore-large-copy {
+  max-width: 520px;
+
+  font-size: 22px;
+  line-height: 1.45;
+  letter-spacing: -.025em;
+}
+
+.gulfcore-intro-copy > p:not(.gulfcore-large-copy) {
+  max-width: 460px;
+  margin-top: 35px;
+
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--gc-grey);
+}
+
+.gulfcore-text-link {
+  display: inline-flex;
+  gap: 18px;
+  margin-top: 45px;
+
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--gc-gold);
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   IMAGE STATEMENT
+   ========================================================= */
+
+.gulfcore-statement {
+  position: relative;
+  min-height: 720px;
+  overflow: hidden;
+  background: var(--gc-dark);
+}
+
+.gulfcore-statement-image {
+  position: absolute;
+  inset: 0;
+
+  background:
+    url("https://images.unsplash.com/photo-1586528116493-da8b9b1b5f54?auto=format&fit=crop&w=2200&q=90")
+    center / cover no-repeat;
+
+  opacity: .76;
+}
+
+.gulfcore-statement-card {
+  position: absolute;
+  right: 7vw;
+  bottom: 7vw;
+
+  width: min(390px, 80vw);
+  padding: 42px;
+
+  background: rgba(249,247,237,.94);
+}
+
+.gulfcore-statement-card > span {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  color: var(--gc-gold-dark);
+}
+
+.gulfcore-statement-card h3 {
+  margin-top: 24px;
+
+  font-size: 48px;
+  line-height: .92;
+  letter-spacing: -.06em;
+}
+
+.gulfcore-statement-card p {
+  margin-top: 25px;
+
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--gc-grey);
+}
+
+/* =========================================================
+   SECTORS
+   ========================================================= */
+
+.gulfcore-sectors {
+  padding: 130px 7vw;
+  background: var(--gc-cream);
+}
+
+.gulfcore-section-heading {
+  display: grid;
+  grid-template-columns: 1fr .5fr;
+  gap: 8vw;
+
+  margin-top: 75px;
+}
+
+.gulfcore-section-heading p {
+  max-width: 330px;
+  align-self: end;
+
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--gc-grey);
+}
+
+.gulfcore-products {
+  margin-top: 90px;
+  border-top: 1px solid var(--gc-border);
+}
+
+.gulfcore-product {
+  display: grid;
+  grid-template-columns: 100px 1fr 40px;
+  gap: 30px;
+  align-items: center;
+
+  padding: 35px 0;
+  border-bottom: 1px solid var(--gc-border);
+
+  transition:
+    padding .3s ease,
+    background .3s ease;
+}
+
+.gulfcore-product:hover {
+  padding-left: 20px;
+  padding-right: 20px;
+  background: rgba(255,255,255,.6);
+}
+
+.gulfcore-product-number {
+  font-size: 10px;
+  letter-spacing: .15em;
+  color: var(--gc-gold-dark);
+}
+
+.gulfcore-product h3 {
+  font-size: 25px;
+  letter-spacing: -.04em;
+}
+
+.gulfcore-product p {
+  max-width: 550px;
+  margin-top: 8px;
+
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--gc-grey);
+}
+
+.gulfcore-product-arrow {
+  font-size: 20px;
+  color: var(--gc-gold-dark);
+}
+
+/* =========================================================
+   SOURCING
+   ========================================================= */
+
+.gulfcore-sourcing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 850px;
+  background: var(--gc-dark);
+  color: #fff;
+}
+
+.gulfcore-sourcing-image {
+  min-height: 600px;
+
+  background:
+    url("https://images.unsplash.com/photo-1565610222536-ef125c59da2e?auto=format&fit=crop&w=1800&q=90")
+    center / cover no-repeat;
+}
+
+.gulfcore-sourcing-content {
+  padding: 9vw 8vw;
+}
+
+.gulfcore-dark-label {
+  color: var(--gc-gold-light);
+}
+
+.gulfcore-sourcing h2 {
+  margin-top: 70px;
+
+  font-size: clamp(55px, 6vw, 95px);
+  line-height: .86;
+  letter-spacing: -.07em;
+}
+
+.gulfcore-sourcing h2 em {
+  color: var(--gc-gold-light);
+  font-style: normal;
+}
+
+.gulfcore-sourcing-content > p {
+  max-width: 430px;
+  margin-top: 50px;
+
+  font-size: 13px;
+  line-height: 1.8;
+  color: rgba(255,255,255,.6);
+}
+
+.gulfcore-sourcing-list {
+  margin-top: 55px;
+  border-top: 1px solid rgba(255,255,255,.15);
+}
+
+.gulfcore-sourcing-list div {
+  display: flex;
+  gap: 30px;
+  padding: 17px 0;
+
+  border-bottom: 1px solid rgba(255,255,255,.15);
+}
+
+.gulfcore-sourcing-list span {
+  width: 30px;
+  color: var(--gc-gold-light);
+  font-size: 9px;
+}
+
+.gulfcore-sourcing-list strong {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   LOGISTICS
+   ========================================================= */
+
+.gulfcore-logistics {
+  padding: 130px 7vw;
+}
+
+.gulfcore-logistics-grid {
+  display: grid;
+  grid-template-columns: 1fr .8fr;
+  gap: 10vw;
+
+  margin-top: 80px;
+}
+
+.gulfcore-logistics-copy {
+  padding-top: 10px;
+}
+
+.gulfcore-logistics-copy > p {
+  max-width: 430px;
+
+  font-size: 19px;
+  line-height: 1.55;
+}
+
+.gulfcore-logistics-points {
+  margin-top: 55px;
+}
+
+.gulfcore-logistics-points div {
+  display: flex;
+  gap: 25px;
+  padding: 18px 0;
+
+  border-bottom: 1px solid var(--gc-border);
+}
+
+.gulfcore-logistics-points span {
+  color: var(--gc-gold-dark);
+  font-size: 9px;
+}
+
+.gulfcore-logistics-points strong {
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   PROCESS
+   ========================================================= */
+
+.gulfcore-process {
+  padding: 130px 7vw;
+  background: var(--gc-cream);
+}
+
+.gulfcore-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  margin-top: 100px;
+  border-top: 1px solid var(--gc-border);
+}
+
+.gulfcore-process-grid article {
+  min-height: 300px;
+  padding: 30px 25px 30px 0;
+
+  border-right: 1px solid var(--gc-border);
+}
+
+.gulfcore-process-grid article:not(:first-child) {
+  padding-left: 25px;
+}
+
+.gulfcore-process-grid article:last-child {
+  border-right: 0;
+}
+
+.gulfcore-process-grid span {
+  font-size: 9px;
+  color: var(--gc-gold-dark);
+}
+
+.gulfcore-process-grid h3 {
+  margin-top: 70px;
+
+  font-size: 28px;
+  letter-spacing: -.05em;
+}
+
+.gulfcore-process-grid p {
+  margin-top: 18px;
+
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--gc-grey);
+}
+
+/* =========================================================
+   NETWORK
+   ========================================================= */
+
+.gulfcore-network {
+  position: relative;
+  min-height: 750px;
+  overflow: hidden;
+
+  background: #e8e1ce;
+}
+
+.gulfcore-network-map {
+  position: absolute;
+  inset: 0;
+
+  background:
+    url("https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=2200&q=90")
+    center / cover no-repeat;
+
+  filter: grayscale(1);
+  opacity: .18;
+}
+
+.gulfcore-network-content {
+  position: relative;
+  z-index: 2;
+
+  padding: 120px 7vw;
+}
+
+.gulfcore-network-content > span {
+  color: var(--gc-gold-dark);
+}
+
+.gulfcore-network-content h2 {
+  margin-top: 55px;
+
+  font-size: clamp(65px, 8vw, 120px);
+  line-height: .82;
+  letter-spacing: -.075em;
+}
+
+.gulfcore-network-content h2 em {
+  color: var(--gc-gold-dark);
+  font-style: normal;
+}
+
+.gulfcore-network-content p {
+  max-width: 420px;
+  margin-top: 45px;
+
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--gc-grey);
+}
+
+.gulfcore-network-markers i {
+  position: absolute;
+  z-index: 3;
+
+  width: 14px;
+  height: 14px;
+
+  background: var(--gc-gold-dark);
+  border: 3px solid rgba(255,255,255,.8);
+  border-radius: 50%;
+
+  box-shadow: 0 0 0 8px rgba(182,138,53,.15);
+}
+
+.marker-one {
+  top: 42%;
+  left: 55%;
+}
+
+.marker-two {
+  top: 55%;
+  left: 69%;
+}
+
+.marker-three {
+  top: 34%;
+  left: 78%;
+}
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.gulfcore-contact {
+  padding: 150px 7vw;
+
+  background:
+    linear-gradient(
+      120deg,
+      #f9f7ed 0%,
+      #fff 45%,
+      #f2eccf 100%
+    );
+}
+
+.gulfcore-contact-inner {
+  max-width: 1000px;
+}
+
+.gulfcore-contact-inner > span {
+  color: var(--gc-gold-dark);
+}
+
+.gulfcore-contact h2 {
+  margin-top: 50px;
+
+  font-size: clamp(65px, 9vw, 135px);
+  line-height: .82;
+  letter-spacing: -.08em;
+}
+
+.gulfcore-contact p {
+  max-width: 430px;
+  margin-top: 45px;
+
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--gc-grey);
+}
+
+.gulfcore-contact-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 45px;
+}
+
+.gulfcore-contact-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+
+  padding: 17px 22px;
+
+  background: var(--gc-gold-dark);
+  color: #fff;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+
+  transition:
+    transform .25s ease,
+    background .25s ease;
+}
+
+.gulfcore-contact-actions a:hover {
+  background: var(--gc-black);
+  transform: translateY(-3px);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.gulfcore-footer {
+  padding: 75px 5vw 25px;
+
+  background: var(--gc-black);
+  color: #fff;
+}
+
+.gulfcore-footer-main {
+  display: grid;
+  grid-template-columns: 1.2fr .7fr .8fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.gulfcore-footer-logo {
+  display: inline-block;
+}
+
+.gulfcore-footer p {
+  max-width: 220px;
+  margin-top: 20px;
+
+  font-size: 10px;
+  line-height: 1.7;
+  color: rgba(255,255,255,.45);
+}
+
+.gulfcore-footer-links {
+  display: grid;
+  gap: 13px;
+}
+
+.gulfcore-footer-links a {
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.65);
+}
+
+.gulfcore-back-home {
+  justify-self: end;
+
+  padding: 12px 16px;
+  border: 1px solid rgba(255,255,255,.22);
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+
+.gulfcore-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 80px;
+  padding-top: 20px;
+
+  border-top: 1px solid rgba(255,255,255,.13);
+
+  font-size: 7px;
+  letter-spacing: .13em;
+  color: rgba(255,255,255,.35);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .gulfcore-nav {
+    height: 70px;
+    padding: 0 5vw;
+  }
+
+  .gulfcore-nav nav {
+    display: none;
+  }
+
+  .gulfcore-nav-cta {
+    padding: 10px 12px;
+    font-size: 7px;
+  }
+
+  .gulfcore-hero {
+    min-height: 760px;
+    height: 100svh;
+  }
+
+  .gulfcore-hero-content {
+    padding-top: 150px;
+  }
+
+  .gulfcore-hero h1 {
+    font-size: clamp(58px, 16vw, 100px);
+  }
+
+  .gulfcore-hero-bottom {
+    bottom: 35px;
+  }
+
+  .gulfcore-circle-link {
+    width: 50px;
+    height: 50px;
+  }
+
+  .gulfcore-intro,
+  .gulfcore-sectors,
+  .gulfcore-logistics,
+  .gulfcore-process,
+  .gulfcore-contact {
+    padding: 90px 6vw;
+  }
+
+  .gulfcore-intro-grid,
+  .gulfcore-section-heading,
+  .gulfcore-logistics-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .gulfcore-intro-grid {
+    margin-top: 55px;
+  }
+
+  .gulfcore-section-heading {
+    margin-top: 50px;
+  }
+
+  .gulfcore-large-copy {
+    font-size: 19px;
+  }
+
+  .gulfcore-statement {
+    min-height: 650px;
+  }
+
+  .gulfcore-statement-card {
+    right: 5vw;
+    left: 5vw;
+    bottom: 5vw;
+    width: auto;
+  }
+
+  .gulfcore-sourcing {
+    grid-template-columns: 1fr;
+  }
+
+  .gulfcore-sourcing-image {
+    min-height: 420px;
+  }
+
+  .gulfcore-sourcing-content {
+    padding: 80px 7vw;
+  }
+
+  .gulfcore-sourcing h2 {
+    margin-top: 50px;
+  }
+
+  .gulfcore-process-grid {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 65px;
+  }
+
+  .gulfcore-process-grid article {
+    min-height: 240px;
+    border-bottom: 1px solid var(--gc-border);
+  }
+
+  .gulfcore-process-grid article:nth-child(2) {
+    border-right: 0;
+  }
+
+  .gulfcore-network {
+    min-height: 650px;
+  }
+
+  .gulfcore-network-content {
+    padding: 90px 6vw;
+  }
+
+  .gulfcore-contact-actions {
+    flex-wrap: wrap;
+  }
+
+  .gulfcore-footer-main {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gulfcore-back-home {
+    justify-self: start;
+  }
+
+  .gulfcore-footer-bottom {
+    display: grid;
+    gap: 10px;
+    margin-top: 55px;
+  }
+}
+
+@media (max-width: 500px) {
+  .gulfcore-hero-bottom p {
+    max-width: 240px;
+    font-size: 11px;
+  }
+
+  .gulfcore-hero-code {
+    display: none;
+  }
+
+  .gulfcore-product {
+    grid-template-columns: 35px 1fr 20px;
+    gap: 10px;
+  }
+
+  .gulfcore-product h3 {
+    font-size: 19px;
+  }
+
+  .gulfcore-product p {
+    font-size: 10px;
+  }
+
+  .gulfcore-process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gulfcore-process-grid article,
+  .gulfcore-process-grid article:not(:first-child) {
+    min-height: auto;
+    padding: 25px 0;
+    border-right: 0;
+  }
+
+  .gulfcore-process-grid article h3 {
+    margin-top: 40px;
+  }
+
+  .gulfcore-footer-main {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .gulfcore-contact h2 {
+    font-size: 62px;
+  }
+}

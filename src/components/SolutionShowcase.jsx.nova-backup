@@ -1,0 +1,211 @@
+import { useState } from 'react'
+import './SolutionShowcase.css'
+
+const solutions = [
+  {
+    title: 'NOVA DEVELOPMENTS',
+    category: 'Property & Development',
+    description:
+      'A premium digital presence for property developers, real estate companies and development projects. Built to present properties clearly and guide prospective buyers towards enquiries.',
+  },
+  {
+    title: 'ATLAS INTERIORS',
+    category: 'Interior & Fit-out',
+    description:
+      'An image-led experience for interior designers, fit-out companies and architecture studios. Designed to showcase projects, services and completed work with clarity.',
+  },
+  {
+    title: 'ALPHA CONTRACTING',
+    category: 'Construction & Engineering',
+    description:
+      'A professional digital platform for contractors and engineering businesses. Structured around services, capabilities, projects and business enquiries.',
+  },
+  {
+    title: 'MEDORA CLINIC',
+    category: 'Healthcare & Clinics',
+    description:
+      'A clear and trustworthy website experience for clinics and specialist healthcare providers. Focused on services, specialists, facilities and patient enquiries.',
+  },
+  {
+    title: 'MAJLIS HOSPITALITY',
+    category: 'Restaurants & Hospitality',
+    description:
+      'A refined customer experience for restaurants, cafés and hospitality businesses. Designed around menus, atmosphere, services, reservations and customer discovery.',
+  },
+  {
+    title: 'LUMI EVENTS',
+    category: 'Events & Venues',
+    description:
+      'A visual-first digital presence for event companies, venues and wedding businesses. Built to present spaces, services, packages and enquiries.',
+  },
+  {
+    title: 'MOTION AUTO',
+    category: 'Automotive Services',
+    description:
+      'A conversion-focused experience for automotive workshops, detailing studios and vehicle service businesses. Customers can quickly understand services and request a visit.',
+  },
+  {
+    title: 'ORBIT BUSINESS',
+    category: 'Professional Services',
+    description:
+      'A sophisticated corporate website for consultants, advisory firms and professional service businesses. Built around credibility, expertise and business enquiries.',
+  },
+  {
+    title: 'GULFCORE TRADING',
+    category: 'Trading & B2B',
+    description:
+      'A structured digital presence for suppliers, distributors and B2B companies. Designed to communicate capabilities, product categories and business information.',
+  },
+  {
+    title: 'SANDS TOURISM',
+    category: 'Travel & Experiences',
+    description:
+      'An immersive digital experience for tourism operators and travel businesses. Designed to showcase destinations, experiences and enquiry journeys.',
+  },
+]
+
+function DemoPreview() {
+  return (
+    <div className="showcase-preview">
+      <div className="showcase-preview-top">
+        <strong>VRLS</strong>
+
+        <div className="showcase-preview-menu">
+          <span />
+          <span />
+          <span />
+        </div>
+      </div>
+
+      <div className="showcase-preview-content">
+        <small>BUSINESS DIGITAL EXPERIENCE</small>
+
+        <h4>
+          Built around
+          <br />
+          your business.
+        </h4>
+
+        <span className="showcase-preview-button">
+          Explore <b>↗</b>
+        </span>
+
+        <div className="showcase-preview-lines">
+          <span />
+          <span />
+          <span />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default function SolutionShowcase() {
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const previous = () => {
+    setActiveIndex(
+      (current) => (current - 1 + solutions.length) % solutions.length,
+    )
+  }
+
+  const next = () => {
+    setActiveIndex((current) => (current + 1) % solutions.length)
+  }
+
+  const getOffset = (index) => {
+    let offset = index - activeIndex
+
+    if (offset > solutions.length / 2) {
+      offset -= solutions.length
+    }
+
+    if (offset < -solutions.length / 2) {
+      offset += solutions.length
+    }
+
+    return offset
+  }
+
+  return (
+    <section className="solution-showcase" id="showcase">
+      <div className="showcase-heading">
+        <div className="showcase-eyebrow">
+          <span />
+          SELECTED SOLUTIONS
+        </div>
+
+        <div className="showcase-heading-grid">
+          <h2>
+            Digital experiences
+            <em> built around business.</em>
+          </h2>
+
+          <p>
+            A selection of digital concepts showing how VRLS can shape modern
+            websites around different business requirements, customer journeys
+            and industries.
+          </p>
+        </div>
+      </div>
+
+      <div className="showcase-carousel">
+        <button
+          type="button"
+          className="showcase-arrow showcase-arrow-left"
+          onClick={previous}
+          aria-label="Previous solution"
+        >
+          <span>←</span>
+        </button>
+
+        <div className="showcase-viewport">
+          <div className="showcase-track">
+            {solutions.map((solution, index) => {
+              const offset = getOffset(index)
+
+              return (
+                <article
+                  className={`showcase-card ${
+                    offset === 0 ? 'is-active' : ''
+                  }`}
+                  key={solution.title}
+                  style={{
+                    '--card-offset': offset,
+                  }}
+                >
+                  <div className="showcase-card-body">
+                    <DemoPreview />
+
+                    <div className="showcase-card-content">
+                      <span className="showcase-category">
+                        {solution.category}
+                      </span>
+
+                      <h3>{solution.title}</h3>
+
+                      <p>{solution.description}</p>
+
+                      <span className="showcase-card-action">
+                        View concept <b>↗</b>
+                      </span>
+                    </div>
+                  </div>
+                </article>
+              )
+            })}
+          </div>
+        </div>
+
+        <button
+          type="button"
+          className="showcase-arrow showcase-arrow-right"
+          onClick={next}
+          aria-label="Next solution"
+        >
+          <span>→</span>
+        </button>
+      </div>
+</section>
+  )
+}
