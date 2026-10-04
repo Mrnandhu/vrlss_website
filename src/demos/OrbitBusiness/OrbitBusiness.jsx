@@ -36,7 +36,7 @@ export default function OrbitBusiness() {
 
       <section className="orbit-hero">
         <img
-          src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=2200&q=90"
+          src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1400&q=70"
           alt="Beauty portrait"
         />
 
@@ -102,7 +102,7 @@ export default function OrbitBusiness() {
 
       <section className="orbit-feature-image">
         <img
-          src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=2200&q=90"
+          src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1400&q=70"
           alt="Hair styling"
         />
 
@@ -209,14 +209,14 @@ export default function OrbitBusiness() {
       <section className="orbit-gallery">
         <div className="orbit-gallery-large">
           <img
-            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1800&q=90"
+            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1400&q=70"
             alt="Modern beauty salon"
           />
         </div>
 
         <div className="orbit-gallery-small">
           <img
-            src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1200&q=90"
+            src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1200&q=70"
             alt="Beauty salon interior"
           />
         </div>
@@ -246,7 +246,7 @@ export default function OrbitBusiness() {
               <div>
                 <span>STARTING POINT</span>
                 <img
-                  src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=1200&q=90"
+                  src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=1200&q=70"
                   alt="Hair before styling"
                 />
               </div>
@@ -254,7 +254,7 @@ export default function OrbitBusiness() {
               <div>
                 <span>FINISHED LOOK</span>
                 <img
-                  src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1200&q=90"
+                  src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1200&q=70"
                   alt="Styled hair"
                 />
               </div>
@@ -271,7 +271,7 @@ export default function OrbitBusiness() {
               <div>
                 <span>STARTING POINT</span>
                 <img
-                  src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=90"
+                  src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=70"
                   alt="Hair preparation"
                 />
               </div>
@@ -279,7 +279,7 @@ export default function OrbitBusiness() {
               <div>
                 <span>FINISHED LOOK</span>
                 <img
-                  src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1200&q=90"
+                  src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1200&q=70"
                   alt="Finished salon style"
                 />
               </div>
@@ -296,7 +296,7 @@ export default function OrbitBusiness() {
               <div>
                 <span>STARTING POINT</span>
                 <img
-                  src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1200&q=90"
+                  src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1200&q=70"
                   alt="Salon styling preparation"
                 />
               </div>
@@ -304,7 +304,7 @@ export default function OrbitBusiness() {
               <div>
                 <span>FINISHED LOOK</span>
                 <img
-                  src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=90"
+                  src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=70"
                   alt="Finished beauty look"
                 />
               </div>

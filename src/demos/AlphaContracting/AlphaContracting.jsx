@@ -21,7 +21,7 @@ const projects = [
     title: 'Civic Frame',
     text: 'A contemporary commercial structure shaped around efficient planning, durable materials and precise detailing.',
     image:
-      'https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=2000&q=90',
+      'https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1400&q=70',
   },
   {
     number: '02',
@@ -29,7 +29,7 @@ const projects = [
     title: 'Terrace House',
     text: 'A residential project balancing structural clarity, natural light and carefully considered outdoor spaces.',
     image:
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=90',
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=70',
   },
   {
     number: '03',
@@ -37,7 +37,7 @@ const projects = [
     title: 'Concrete & Light',
     text: 'A material-led architectural concept where concrete, glass and daylight define the character of the space.',
     image:
-      'https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=2000&q=90',
+      'https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=70',
   },
 ]
 

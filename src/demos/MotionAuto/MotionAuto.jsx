@@ -36,7 +36,7 @@ export default function MotionAuto() {
 
       <section className="motion-hero">
         <img
-          src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=90"
+          src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=70"
           alt="Performance sports car"
         />
 
@@ -110,7 +110,7 @@ export default function MotionAuto() {
 
       <section className="motion-image-break">
         <img
-          src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2200&q=90"
+          src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1400&q=70"
           alt="Automotive detail"
         />
 
@@ -178,7 +178,7 @@ export default function MotionAuto() {
         <div className="motion-work-grid">
           <div className="motion-work-large">
             <img
-              src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=1800&q=90"
+              src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=1400&q=70"
               alt="Automotive workshop"
             />
             <span>03 / DETAIL</span>
@@ -186,7 +186,7 @@ export default function MotionAuto() {
 
           <div className="motion-work-small">
             <img
-              src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1400&q=90"
+              src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1400&q=70"
               alt="Performance vehicle"
             />
             <span>04 / PERFORMANCE</span>
@@ -211,7 +211,7 @@ export default function MotionAuto() {
       <section className="motion-contact" id="contact">
         <div className="motion-contact-image">
           <img
-            src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=2200&q=90"
+            src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=1400&q=70"
             alt="Luxury automotive interior"
           />
         </div>

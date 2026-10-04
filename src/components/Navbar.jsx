@@ -14,9 +14,12 @@ export default function Navbar() {
         onClick={closeMenu}
       >
         <img
-          src="/vrls-logo.png"
+          src="/vrls-logo.webp"
           alt="VRLS Solutions"
           className="navbar-logo-image"
+          width="150"
+          height="60"
+          decoding="async"
         />
       </a>
 

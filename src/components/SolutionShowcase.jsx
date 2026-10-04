@@ -9,7 +9,7 @@ const solutions = [
     description:
       'A premium digital experience designed for property developers, real estate companies and development projects.',
     image:
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2200&q=90',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=70',
     href: '/demos/nova-developments',
     accent: '#F29F0E',
     accentLight: '#FDF4C8',
@@ -22,7 +22,7 @@ const solutions = [
     description:
       'An image-led digital experience for interior studios, fit-out companies and design-led businesses.',
     image:
-      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2200&q=90',
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=70',
     href: '/demos/atlas-interiors',
     accent: '#B68A35',
     accentLight: '#E6D7A2',
@@ -35,7 +35,7 @@ const solutions = [
     description:
       'A strong corporate digital experience for contracting companies, construction firms and infrastructure businesses.',
     image:
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=2200&q=90',
+      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=70',
     href: '/demos/alpha-contracting',
     accent: '#087F5B',
     accentLight: '#D7F1E8',
@@ -48,7 +48,7 @@ const solutions = [
     description:
       'A clear, trustworthy digital experience for clinics, medical centres and specialist practices.',
     image:
-      'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=2200&q=90',
+      'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=70',
     href: '/demos/medora-clinic',
     accent: '#1677A8',
     accentLight: '#D9F0FA',
@@ -61,7 +61,7 @@ const solutions = [
     description:
       'A refined customer experience for restaurants, cafés, catering companies and hospitality brands.',
     image:
-      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2200&q=90',
+      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=70',
     href: '/demos/majlis-hospitality',
     accent: '#1677A8',
     accentLight: '#D9F0FA',
@@ -74,7 +74,7 @@ const solutions = [
     description:
       'A visual-first platform for event companies, venues, wedding planners and private functions.',
     image:
-      'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=2200&q=90',
+      'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=70',
     href: '/demos/lumi-events',
     accent: '#D946A6',
     accentLight: '#FBE0F2',
@@ -87,7 +87,7 @@ const solutions = [
     description:
       'A conversion-focused experience for automotive workshops, detailing studios and vehicle services.',
     image:
-      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2200&q=90',
+      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=70',
     href: '/demos/motion-auto',
     accent: '#64748B',
     accentLight: '#E2E8F0',
@@ -100,7 +100,7 @@ const solutions = [
     description:
       'A vibrant, image-led digital experience for salons, beauty studios and modern personal-care brands.',
     image:
-      'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=2200&q=90',
+      'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=70',
     href: '/demos/orbit-beauty-studio',
     accent: '#F43F8C',
     accentLight: '#FDE2EF',
@@ -113,7 +113,7 @@ const solutions = [
     description:
       'A structured digital platform for suppliers, distributors, manufacturers and B2B businesses.',
     image:
-      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=2200&q=90',
+      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=70',
     href: '/demos/gulfcore-trading',
     accent: '#B68A35',
     accentLight: '#E6D7A2',
@@ -126,7 +126,7 @@ const solutions = [
     description:
       'An immersive digital experience for tourism operators, travel companies and destination experiences.',
     image:
-      'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2200&q=90',
+      'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=70',
     href: '/demos/sands-tourism',
     accent: '#B42318',
     accentLight: '#FBE0DC',
@@ -397,8 +397,13 @@ export default function SolutionShowcase() {
                   >
                     <img
                       src={solution.image}
+                      srcSet={`${solution.image.replace('w=800', 'w=500')} 500w, ${solution.image} 800w`}
+                      sizes="(max-width: 760px) 82vw, 410px"
+                      width="800"
+                      height="500"
                       alt={`${solution.title} concept`}
                       loading="lazy"
+                      decoding="async"
                     />
 
                     <div className="showcase-image-overlay" />

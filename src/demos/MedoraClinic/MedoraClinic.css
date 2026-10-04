@@ -142,7 +142,7 @@
   inset: 0;
   z-index: -3;
   background:
-    url("https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=2200&q=85")
+    url("https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1400&q=70")
     center / cover;
 }
 
@@ -328,7 +328,7 @@
   position: relative;
   min-height: 650px;
   background:
-    url("https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1400&q=85")
+    url("https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1400&q=70")
     center / cover;
 }
 
@@ -553,7 +553,7 @@
   inset: 0;
   z-index: -2;
   background:
-    url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=2200&q=85")
+    url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1400&q=70")
     center / cover;
 }
 
@@ -662,7 +662,7 @@
 .medora-environment-image {
   min-height: 600px;
   background:
-    url("https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1800&q=85")
+    url("https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1400&q=70")
     center / cover;
 }
 
@@ -681,7 +681,7 @@
   inset: 0;
   z-index: -2;
   background:
-    url("https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=2200&q=85")
+    url("https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1400&q=70")
     center / cover;
 }
 

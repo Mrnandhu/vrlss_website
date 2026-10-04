@@ -5,19 +5,19 @@ const projects = [
     title: 'The Grand Evening',
     category: 'Private Celebration',
     image:
-      'https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1800&q=85',
+      'https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1400&q=70',
   },
   {
     title: 'Golden Hour',
     category: 'Corporate Event',
     image:
-      'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1800&q=85',
+      'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1400&q=70',
   },
   {
     title: 'After Dark',
     category: 'Live Experience',
     image:
-      'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1800&q=85',
+      'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1400&q=70',
   },
 ]
 
@@ -50,7 +50,7 @@ export default function LumiEvents() {
       <section className="lumi-hero">
         <div className="lumi-hero-image">
           <img
-            src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?auto=format&fit=crop&w=2200&q=90"
+            src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?auto=format&fit=crop&w=1400&q=70"
             alt="Elegant event venue"
           />
         </div>
@@ -109,7 +109,7 @@ export default function LumiEvents() {
 
       <section className="lumi-feature">
         <img
-          src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=2200&q=90"
+          src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1400&q=70"
           alt="Event tables and lighting"
         />
 
@@ -193,7 +193,7 @@ export default function LumiEvents() {
 
       <section className="lumi-closing">
         <img
-          src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=2200&q=90"
+          src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1400&q=70"
           alt="People enjoying an event"
         />
 

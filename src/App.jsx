@@ -1,60 +1,32 @@
+import { lazy, Suspense } from 'react'
 import SEO from './components/SEO'
 import HomePage from './components/HomePage'
 
-import NovaDevelopments from './demos/NovaDevelopments/NovaDevelopments'
-import AtlasInteriors from './demos/AtlasInteriors/AtlasInteriors'
-import AlphaContracting from './demos/AlphaContracting/AlphaContracting'
-import MedoraClinic from './demos/MedoraClinic/MedoraClinic'
-import MajlisHospitality from './demos/MajlisHospitality/MajlisHospitality'
-import LumiEvents from './demos/LumiEvents/LumiEvents'
-import MotionAuto from './demos/MotionAuto/MotionAuto'
-import OrbitBusiness from './demos/OrbitBusiness/OrbitBusiness'
-import GulfCoreTrading from './demos/GulfCoreTrading/GulfCoreTrading'
-import SandsTourism from './demos/SandsTourism/SandsTourism'
-
 import './royal-theme.css'
 
+const demos = {
+  '/demos/nova-developments': lazy(() => import('./demos/NovaDevelopments/NovaDevelopments')),
+  '/demos/atlas-interiors': lazy(() => import('./demos/AtlasInteriors/AtlasInteriors')),
+  '/demos/alpha-contracting': lazy(() => import('./demos/AlphaContracting/AlphaContracting')),
+  '/demos/medora-clinic': lazy(() => import('./demos/MedoraClinic/MedoraClinic')),
+  '/demos/majlis-hospitality': lazy(() => import('./demos/MajlisHospitality/MajlisHospitality')),
+  '/demos/lumi-events': lazy(() => import('./demos/LumiEvents/LumiEvents')),
+  '/demos/motion-auto': lazy(() => import('./demos/MotionAuto/MotionAuto')),
+  '/demos/orbit-beauty-studio': lazy(() => import('./demos/OrbitBusiness/OrbitBusiness')),
+  '/demos/gulfcore-trading': lazy(() => import('./demos/GulfCoreTrading/GulfCoreTrading')),
+  '/demos/sands-tourism': lazy(() => import('./demos/SandsTourism/SandsTourism')),
+}
+
 function App() {
-  const path = window.location.pathname
+  const path = window.location.pathname.replace(/\/+$/, '') || '/'
+  const Demo = demos[path]
 
-  if (path === '/demos/nova-developments') {
-    return <NovaDevelopments />
-  }
-
-  if (path === '/demos/atlas-interiors') {
-    return <AtlasInteriors />
-  }
-
-  if (path === '/demos/alpha-contracting') {
-    return <AlphaContracting />
-  }
-
-  if (path === '/demos/medora-clinic') {
-    return <MedoraClinic />
-  }
-
-  if (path === '/demos/majlis-hospitality') {
-    return <MajlisHospitality />
-  }
-
-  if (path === '/demos/lumi-events') {
-    return <LumiEvents />
-  }
-
-  if (path === '/demos/motion-auto') {
-    return <MotionAuto />
-  }
-
-  if (path === '/demos/orbit-beauty-studio') {
-    return <OrbitBusiness />
-  }
-
-  if (path === '/demos/gulfcore-trading') {
-    return <GulfCoreTrading />
-  }
-
-  if (path === '/demos/sands-tourism') {
-    return <SandsTourism />
+  if (Demo) {
+    return (
+      <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>
+        <Demo />
+      </Suspense>
+    )
   }
 
   return (

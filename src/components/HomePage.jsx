@@ -66,6 +66,9 @@ const capabilityItems = [
 
 function HomePage() {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const isSmallScreen = window.matchMedia('(max-width: 760px)').matches
+  const saveData = Boolean(navigator.connection && navigator.connection.saveData)
+  const playHeroVideo = !prefersReducedMotion && !isSmallScreen && !saveData
 
   return (
     <div className="modern-site" id="top">
@@ -126,16 +129,16 @@ function HomePage() {
 
             <div className="modern-hero-visual">
               <video
-                autoPlay={!prefersReducedMotion}
+                autoPlay={playHeroVideo}
                 muted
                 loop
                 playsInline
-                preload={prefersReducedMotion ? 'none' : 'metadata'}
+                preload={playHeroVideo ? 'metadata' : 'none'}
                 poster="/assets/hero-redesign.webp"
                 aria-hidden="true"
                 tabIndex={-1}
               >
-                <source src="/assets/hero.mp4" type="video/mp4" />
+                {playHeroVideo && <source src="/assets/hero.mp4" type="video/mp4" />}
               </video>
 
               <div className="hero-note">

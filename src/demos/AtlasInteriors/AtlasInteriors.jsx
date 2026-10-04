@@ -7,7 +7,7 @@ const projects = [
     title: 'Quiet Geometry',
     text: 'A considered interior language built around natural materials, restrained tones and generous light.',
     image:
-      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=85',
+      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=70',
   },
   {
     number: '02',
@@ -15,7 +15,7 @@ const projects = [
     title: 'Warm Minimalism',
     text: 'Layered textures and sculptural details create an atmosphere designed to feel calm, refined and welcoming.',
     image:
-      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1800&q=85',
+      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=70',
   },
   {
     number: '03',
@@ -23,7 +23,7 @@ const projects = [
     title: 'Material & Light',
     text: 'A tactile composition where stone, timber and soft furnishings shape the experience of everyday living.',
     image:
-      'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1800&q=85',
+      'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=70',
   },
 ]
 
@@ -63,7 +63,7 @@ export default function AtlasInteriors() {
       <main id="top">
         <section className="atlas-hero">
           <img
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=90"
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=70"
             alt="Contemporary interior"
           />
 
@@ -127,7 +127,7 @@ export default function AtlasInteriors() {
         <section className="atlas-feature">
           <div className="atlas-feature-image">
             <img
-              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=85"
+              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=70"
               alt="Minimal residential interior"
             />
           </div>
@@ -209,7 +209,7 @@ export default function AtlasInteriors() {
         <section className="atlas-materials">
           <div className="atlas-materials-image">
             <img
-              src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1800&q=85"
+              src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=70"
               alt="Architectural interior detail"
             />
           </div>
@@ -263,7 +263,7 @@ export default function AtlasInteriors() {
 
         <section className="atlas-lifestyle">
           <img
-            src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=2400&q=90"
+            src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1400&q=70"
             alt="Contemporary architecture"
           />
 
