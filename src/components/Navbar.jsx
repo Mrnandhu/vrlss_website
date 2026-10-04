@@ -25,6 +25,7 @@ export default function Navbar() {
 
       <nav className="navbar-links">
         <a href="#services" onClick={closeMenu}>Services</a>
+        <a href="#showcase" onClick={closeMenu}>Showcase</a>
         <a href="#process" onClick={closeMenu}>Our Process</a>
         <a href="#technology" onClick={closeMenu}>Technology</a>
         <a href="#contact" onClick={closeMenu}>Contact</a>
@@ -53,6 +54,7 @@ export default function Navbar() {
 
       <div className="navbar-mobile-menu">
         <a href="#services" onClick={closeMenu}>Services</a>
+        <a href="#showcase" onClick={closeMenu}>Showcase</a>
         <a href="#process" onClick={closeMenu}>Our Process</a>
         <a href="#technology" onClick={closeMenu}>Technology</a>
         <a href="#contact" onClick={closeMenu}>Contact</a>

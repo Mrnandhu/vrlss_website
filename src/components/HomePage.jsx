@@ -436,6 +436,7 @@ function HomePage() {
             <div className="modern-footer-column">
               <b>EXPLORE</b>
               <a href="#services">Services</a>
+              <a href="#showcase">Showcase</a>
               <a href="#process">Our Process</a>
               <a href="#technology">Technology</a>
               <a href="#contact">Contact</a>
