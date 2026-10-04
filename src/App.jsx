@@ -11,6 +11,9 @@ const OrbitBeautyStudio = lazy(() => import('./demos/gulf/OrbitBeautyStudio'))
 const MotionAuto = lazy(() => import('./demos/gulf/MotionAuto'))
 const NadeefHomeServices = lazy(() => import('./demos/gulf/NadeefHomeServices'))
 
+// Private client previews (not listed, noindex)
+const PearlOfMuscat = lazy(() => import('./demos/gulf/PearlOfMuscat'))
+
 const demos = {
   '/demos/medora-clinic': MedoraClinic,
   '/demos/majlis-kitchen': MajlisKitchen,
@@ -18,6 +21,7 @@ const demos = {
   '/demos/orbit-beauty-studio': OrbitBeautyStudio,
   '/demos/motion-auto': MotionAuto,
   '/demos/nadeef-home-services': NadeefHomeServices,
+  '/preview/pearl-of-muscat': PearlOfMuscat,
 
   // Premium concept demos
   '/demos/nova-developments': lazy(() => import('./demos/NovaDevelopments/NovaDevelopments')),

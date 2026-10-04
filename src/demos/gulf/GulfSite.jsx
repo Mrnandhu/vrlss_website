@@ -35,6 +35,10 @@ const UI = {
     mapTitle: (name) => `Map showing ${name}`,
     conceptNote:
       'This is a sample website designed by VRLS Solutions. Prices, reviews and contact details are for demonstration only.',
+    previewNote: (name) =>
+      `This is a free preview prepared by VRLS Solutions for ${name}. Prices and photos are placeholders until you send us yours.`,
+    previewCta: 'Reply to VRLS on WhatsApp',
+    previewMessage: (name) => `Hi VRLS, I saw the website preview for ${name}.`,
     conceptCta: 'Get a website like this',
     back: 'Back to VRLS Solutions',
     demoMessage: (name) =>
@@ -71,6 +75,10 @@ const UI = {
     mapTitle: (name) => `خريطة موقع ${name}`,
     conceptNote:
       'هذا موقع تجريبي من تصميم VRLS Solutions. الأسعار والتقييمات وبيانات التواصل للعرض فقط.',
+    previewNote: (name) =>
+      `هذه معاينة مجانية أعدتها VRLS Solutions لـ ${name}. الأسعار والصور مؤقتة حتى ترسلوا لنا بياناتكم.`,
+    previewCta: 'راسل VRLS عبر واتساب',
+    previewMessage: (name) => `مرحبًا VRLS، شاهدت معاينة الموقع الخاصة بـ ${name}.`,
     conceptCta: 'احصل على موقع مثل هذا',
     back: 'العودة إلى VRLS Solutions',
     demoMessage: (name) =>
@@ -241,6 +249,15 @@ export default function GulfSite({ config }) {
   useFonts(theme.displayFont)
 
   useEffect(() => {
+    if (!config.preview) return undefined
+    const meta = document.createElement('meta')
+    meta.name = 'robots'
+    meta.content = 'noindex, nofollow'
+    document.head.appendChild(meta)
+    return () => meta.remove()
+  }, [config.preview])
+
+  useEffect(() => {
     const id = window.setInterval(() => setTick((n) => n + 1), 60000)
     return () => window.clearInterval(id)
   }, [])
@@ -274,9 +291,9 @@ export default function GulfSite({ config }) {
   }
 
   const waNumber = contact.whatsapp || VRLS_WHATSAPP
-  const waText = config.demo ? ui.demoMessage(name) : t(contact.message)
+  const waText = config.preview ? ui.previewMessage(name) : config.demo ? ui.demoMessage(name) : t(contact.message)
   const waLink = `https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`
-  const vrlsLink = `https://wa.me/${VRLS_WHATSAPP}?text=${encodeURIComponent(ui.demoMessage(name))}`
+  const vrlsLink = `https://wa.me/${VRLS_WHATSAPP}?text=${encodeURIComponent(config.preview ? ui.previewMessage(name) : ui.demoMessage(name))}`
   const directions = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location.mapQuery)}`
   const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(location.mapQuery)}&hl=${lang}&z=14&output=embed`
   const currency = t(config.currency || { en: 'AED', ar: 'درهم' })
@@ -358,7 +375,7 @@ export default function GulfSite({ config }) {
 
           <nav className="gs-nav" aria-label={name}>
             <a href="#services">{servicesLabel}</a>
-            <a href="#reviews">{ui.reviews}</a>
+            {config.reviews?.length > 0 && <a href="#reviews">{ui.reviews}</a>}
             <a href="#visit">{ui.visit}</a>
           </nav>
 
@@ -466,6 +483,7 @@ export default function GulfSite({ config }) {
           </section>
         )}
 
+        {config.reviews?.length > 0 && (
         <section className="gs-section gs-reviews" id="reviews">
           <div className="gs-wrap">
             <div className="gs-reviews-head">
@@ -483,6 +501,7 @@ export default function GulfSite({ config }) {
             </div>
           </div>
         </section>
+        )}
 
         <section className="gs-section gs-visit" id="visit">
           <div className="gs-wrap gs-visit-grid">
@@ -563,12 +582,12 @@ export default function GulfSite({ config }) {
             </div>
           </div>
 
-          {config.demo && (
+          {(config.demo || config.preview) && (
             <div className="gs-concept">
-              <p>{ui.conceptNote}</p>
+              <p>{config.preview ? ui.previewNote(name) : ui.conceptNote}</p>
               <div className="gs-concept-actions">
                 <a className="gs-btn gs-btn-primary" href={vrlsLink} target="_blank" rel="noreferrer">
-                  <Icon name="chat" /> {ui.conceptCta}
+                  <Icon name="chat" /> {config.preview ? ui.previewCta : ui.conceptCta}
                 </a>
                 <a className="gs-back" href="/">{ui.back}</a>
               </div>
