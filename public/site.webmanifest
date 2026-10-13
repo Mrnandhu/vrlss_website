@@ -1,16 +1,13 @@
 {
-  "name": "VRLS Solutions",
-  "short_name": "VRLS",
-  "description": "Websites, web applications, mobile applications, custom business software and AI automation.",
+  "name": "Vrlss",
+  "short_name": "Vrlss",
+  "description": "Website design and digital marketing",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f8faf9",
-  "theme_color": "#f8faf9",
+  "background_color": "#ffffff",
+  "theme_color": "#2b50e6",
   "icons": [
-    {
-      "src": "/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
-    }
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/logo-512.png", "sizes": "512x512", "type": "image/png" }
   ]
 }
