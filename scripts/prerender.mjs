@@ -15,9 +15,36 @@ const { render, routes } = await import(pathToFileURL(resolve(ssrDir, entry)).hr
 const template = readFileSync(resolve(dist, 'index.html'), 'utf8')
 const SITE = 'https://vrlss.in'
 
+// The site styles live in a lazily loaded chunk. Link them in the HTML so the
+// prerendered page is styled on first paint instead of flashing unstyled.
+let cssLinks = ''
+try {
+  let manifest = {}
+  try { manifest = JSON.parse(readFileSync(resolve(dist, '.vite', 'manifest.json'), 'utf8')) } catch {}
+  const key = Object.keys(manifest).find((k) => k.endsWith('src/site/App.jsx'))
+  const files = new Set()
+  const walk = (k) => {
+    const m = manifest[k]
+    if (!m) return
+    ;(m.css || []).forEach((f) => files.add(f))
+    ;(m.imports || []).forEach(walk)
+  }
+  if (key) walk(key)
+  // Safety net: also include any built CSS file that holds the site's own styles.
+  for (const f of readdirSync(resolve(dist, 'assets'))) {
+    if (!f.endsWith('.css')) continue
+    const css = readFileSync(resolve(dist, 'assets', f), 'utf8')
+    if (css.includes('.nx-header') && css.includes('.nx-hv')) files.add('assets/' + f)
+  }
+  cssLinks = [...files].map((f) => `<link rel="stylesheet" href="/${f}">`).join('\n    ')
+} catch (e) {
+  console.warn('CSS lookup failed, CSS not linked in HTML:', e.message)
+}
+
+console.log('css linked in HTML:', cssLinks.replace(/\s+/g, ' ') || 'NONE')
 for (const r of routes) {
   const { html, head } = render(r.path)
-  const page = template.replace('<!--app-head-->', head).replace('<!--app-html-->', html)
+  const page = template.replace('<!--app-head-->', cssLinks + '\n    ' + head).replace('<!--app-html-->', html)
   const out = r.path === '/' ? resolve(dist, 'index.html') : resolve(dist, r.path.slice(1), 'index.html')
   mkdirSync(dirname(out), { recursive: true })
   writeFileSync(out, page)
