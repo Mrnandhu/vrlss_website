@@ -36,12 +36,18 @@ try {
     const css = readFileSync(resolve(dist, 'assets', f), 'utf8')
     if (css.includes('.nx-header') && css.includes('.nx-hv')) files.add('assets/' + f)
   }
-  cssLinks = [...files].map((f) => `<link rel="stylesheet" href="/${f}">`).join('\n    ')
+  // Inline the CSS: one request fewer before first paint (big win on slow mobile networks).
+  cssLinks = [...files]
+    .map((f) => {
+      const css = readFileSync(resolve(dist, f), 'utf8')
+      return css.length < 400000 && !/<\/style/i.test(css) ? `<style data-inline="${f}">${css}</style>` : `<link rel="stylesheet" href="/${f}">`
+    })
+    .join('\n    ')
 } catch (e) {
   console.warn('CSS lookup failed, CSS not linked in HTML:', e.message)
 }
 
-console.log('css linked in HTML:', cssLinks.replace(/\s+/g, ' ') || 'NONE')
+console.log('css linked in HTML:', [...cssLinks.matchAll(/data-inline="([^"]+)"|href="([^"]+\.css)"/g)].map((m) => m[1] || m[2]).join(', ') || 'NONE')
 for (const r of routes) {
   const { html, head } = render(r.path)
   const page = template.replace('<!--app-head-->', cssLinks + '\n    ' + head).replace('<!--app-html-->', html)
