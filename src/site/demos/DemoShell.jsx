@@ -1,10 +1,12 @@
 import { Link } from '../router'
-import { Button } from '../components/Bits'
-import { IconArrow } from '../icons'
+import { Button, Words } from '../components/Bits'
+import { IconArrow, IconWhatsApp } from '../icons'
+import { waLink } from '../brand'
 import { demos } from './demoData'
 
-export default function DemoShell({ demo, children, wide = false }) {
-  const others = demos.filter((d) => d.slug !== demo.slug).slice(0, 6)
+export default function DemoShell({ demo, children, wide = false, more }) {
+  const others = more || demos.filter((d) => d.slug !== demo.slug).slice(0, 4)
+  const ask = waLink(`Hi Sai, I saw the ${demo.name.toLowerCase()} demo (${demo.brand}). I'd like a website like this for my business.`)
   return (
     <>
       <section className="nx-pagehero dm-hero">
@@ -16,55 +18,46 @@ export default function DemoShell({ demo, children, wide = false }) {
             <span aria-hidden="true">/</span>
             <span aria-current="page">{demo.category}</span>
           </nav>
-          <h1 className="nx-h1">{demo.name} demo</h1>
+          <h1 className="nx-h1 ph-h1"><Words text={`${demo.name} demo`} /></h1>
           <p className="nx-lead">{demo.blurb}</p>
-          <ul className="dm-feats">
-            {demo.features.map((f) => (
-              <li key={f}>{f}</li>
-            ))}
-          </ul>
+          <div className="dm-actions">
+            <a className="nx-btn nx-btn-primary" href={ask} target="_blank" rel="noopener noreferrer">
+              <IconWhatsApp width={20} height={20} /><span>Get this website</span>
+            </a>
+            <ul className="dm-feats">
+              {demo.features.map((f) => <li key={f}>{f}</li>)}
+            </ul>
+          </div>
         </div>
       </section>
 
       <section className="dm-stage">
         <div className={`nx-wrap${wide ? ' dm-wide' : ''}`}>
-          <div className="dm-note">
-            <strong>Live demo.</strong> Everything below is clickable. {demo.brand} is a fictional brand and all data is
-            sample data.
-          </div>
+          <p className="dm-note">
+            <strong>Live demo.</strong> Everything is clickable. {demo.brand} is a fictional business with sample data.
+          </p>
           {children}
         </div>
       </section>
 
-      <section className="nx-section nx-tone-white">
+      <section className="nx-section dm-next">
         <div className="nx-wrap dm-cta">
           <div>
-            <h2 className="nx-h2">Want a {demo.name.toLowerCase()} for your business?</h2>
-            <p className="nx-lead">
-              This is a starting point. We build it around your brand, your data and the way you work. Projects like
-              this are quoted after a short call.
-            </p>
+            <h2 className="nx-h2"><Words text={`Want a ${demo.name.toLowerCase()} like this?`} /></h2>
+            <p className="nx-lead">We build it with your name, photos and prices. See your own version free before you pay.</p>
           </div>
           <div className="dm-cta-actions">
-            <Button to={`/contact?plan=custom`}>Get a quote</Button>
-            <Button to="/work" variant="outline" icon={false}>
-              See all demos
-            </Button>
+            <Button to="/contact?plan=demo">Get a free demo</Button>
+            <Button to="/work" variant="outline">See all demos</Button>
           </div>
         </div>
-      </section>
-
-      <section className="nx-section nx-tone-paper">
         <div className="nx-wrap">
-          <h2 className="nx-h2" style={{ marginBottom: 24 }}>More live demos</h2>
           <div className="dm-more">
             {others.map((d) => (
               <Link key={d.slug} to={d.path} className="dm-more-card">
                 <span className="nx-work-tag">{d.category}</span>
                 <strong>{d.name}</strong>
-                <em>
-                  Try it <IconArrow width={16} height={16} />
-                </em>
+                <em>Open <IconArrow width={16} height={16} /></em>
               </Link>
             ))}
           </div>

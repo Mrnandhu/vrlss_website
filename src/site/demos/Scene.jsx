@@ -39,6 +39,16 @@ const glyphs = {
   sofa: (<><rect x="18" y="52" width="84" height="32" rx="10" fill={W} /><rect x="26" y="38" width="68" height="24" rx="10" fill={S} /><rect x="24" y="84" width="8" height="12" rx="3" fill={W} /><rect x="88" y="84" width="8" height="12" rx="3" fill={W} /></>),
   rings: (<><circle cx="46" cy="66" r="24" fill="none" stroke={W} strokeWidth="8" /><circle cx="74" cy="66" r="24" fill="none" stroke={S} strokeWidth="8" /></>),
   bread: (<><path d="M24 86c-12-4-12-30 6-38 8-14 52-14 60 0 18 8 18 34 6 38z" fill={W} /><path d="M44 52l-6 14M60 50l-6 16M76 52l-6 14" stroke={S} strokeWidth="5" strokeLinecap="round" /></>),
+  cup: (<><path d="M24 44h62v22a28 28 0 01-28 28h-6a28 28 0 01-28-28z" fill={W} /><path d="M86 50h6a12 12 0 010 24h-8" stroke={W} strokeWidth="7" fill="none" /><path d="M44 22c-4 6 4 10 0 16M58 20c-4 6 4 10 0 16M72 22c-4 6 4 10 0 16" stroke={S} strokeWidth="4" strokeLinecap="round" fill="none" /><rect x="20" y="98" width="70" height="6" rx="3" fill={S} /></>),
+  eye: (<><path d="M10 60c22-34 78-34 100 0-22 34-78 34-100 0z" fill={W} /><circle cx="60" cy="60" r="20" fill={S} /><circle cx="60" cy="60" r="9" fill={D} /><circle cx="66" cy="54" r="4" fill={W} /></>),
+  pill: (<><rect x="18" y="44" width="84" height="32" rx="16" fill={W} transform="rotate(-35 60 60)" /><path d="M60 60l-14 20" stroke={S} strokeWidth="0" /><rect x="60" y="44" width="42" height="32" rx="16" fill={S} transform="rotate(-35 60 60)" /></>),
+  flask: (<><path d="M48 18h24v26l26 46a8 8 0 01-7 12H29a8 8 0 01-7-12l26-46z" fill={W} /><path d="M32 76h56l9 16H23z" fill={S} /><rect x="44" y="14" width="32" height="8" rx="4" fill={S} /></>),
+  bolt: (<path d="M68 12L28 66h28l-8 42 44-58H62z" fill={W} />),
+  sun: (<><circle cx="60" cy="60" r="22" fill={W} />{[0, 45, 90, 135, 180, 225, 270, 315].map((a) => <rect key={a} x="57" y="12" width="6" height="16" rx="3" fill={S} transform={`rotate(${a} 60 60)`} />)}</>),
+  shield: (<><path d="M60 14l38 14v28c0 26-16 42-38 50-22-8-38-24-38-50V28z" fill={W} /><path d="M42 60l12 12 24-26" stroke={S} strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" fill="none" /></>),
+  gear: (<><g fill={W}>{[0, 45, 90, 135, 180, 225, 270, 315].map((a) => <rect key={a} x="53" y="12" width="14" height="20" rx="3" transform={`rotate(${a} 60 60)`} />)}</g><circle cx="60" cy="60" r="32" fill={W} /><circle cx="60" cy="60" r="13" fill={S} /></>),
+  thread: (<><rect x="34" y="16" width="52" height="10" rx="4" fill={W} /><rect x="34" y="94" width="52" height="10" rx="4" fill={W} /><rect x="40" y="26" width="40" height="68" fill={S} /><path d="M40 36h40M40 48h40M40 60h40M40 72h40M40 84h40" stroke={W} strokeWidth="4" /><path d="M80 70c14 6 22 18 20 30" stroke={W} strokeWidth="4" fill="none" strokeLinecap="round" /></>),
+  fish: (<><path d="M14 60c18-26 56-30 76-8l16-14v44L90 68c-20 22-58 18-76-8z" fill={W} /><circle cx="36" cy="56" r="5" fill={D} /><path d="M54 46c6 8 6 20 0 28" stroke={S} strokeWidth="4" strokeLinecap="round" fill="none" /></>),
 }
 
 const aliases = { bakery: 'bread', salon: 'scissors', fashion: 'bag', pets: 'paw', supermarket: 'cart' }

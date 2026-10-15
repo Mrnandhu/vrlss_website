@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from '../router'
 import Logo, { LogoMark } from './Logo'
 import { IconMenu, IconClose, IconWhatsApp, IconMail } from '../icons'
-import { brand, waLink } from '../brand'
+import { brand, waLink, registration } from '../brand'
 import { CurrencySelect } from '../currency'
 
 const nav = [
@@ -19,6 +19,13 @@ export default function Layout({ path, children }) {
 
   useEffect(() => setOpen(false), [path])
   useEffect(() => {
+    const foot = document.querySelector('.nx-footer')
+    if (!foot || !('IntersectionObserver' in window)) return
+    const io = new IntersectionObserver(([e]) => document.documentElement.classList.toggle('at-foot', e.isIntersecting), { threshold: 0.05 })
+    io.observe(foot)
+    return () => { io.disconnect(); document.documentElement.classList.remove('at-foot') }
+  }, [path])
+  useEffect(() => {
     document.documentElement.classList.toggle('nx-lock', open)
     return () => document.documentElement.classList.remove('nx-lock')
   }, [open])
@@ -30,6 +37,7 @@ export default function Layout({ path, children }) {
 
   return (
     <div className="nx-app">
+      <div className="pt" aria-hidden="true"><LogoMark size={56} /></div>
       <a className="nx-skip" href="#main">
         Skip to content
       </a>
@@ -46,9 +54,9 @@ export default function Layout({ path, children }) {
             ))}
           </nav>
           <div className="nx-header-actions">
-            <CurrencySelect id="nx-cur-head" label="Currency" compact />
-            <Link to="/contact" className="nx-btn nx-btn-primary nx-btn-sm">
-              <span>Get a free quote</span>
+            <span className="nx-head-cur"><CurrencySelect id="nx-cur-head" label="Currency" compact /></span>
+            <Link to="/contact?plan=demo" className="nx-btn nx-btn-primary nx-btn-sm">
+              <span>Get a free demo</span>
             </Link>
             <button
               type="button"
@@ -71,6 +79,9 @@ export default function Layout({ path, children }) {
             </Link>
           ))}
         </nav>
+        <div className="nx-sheet-row">
+          <CurrencySelect id="nx-cur-sheet" label="Show prices in" />
+        </div>
         <a className="nx-btn nx-btn-primary" href={waLink()} target="_blank" rel="noopener noreferrer">
           <IconWhatsApp width={20} height={20} />
           <span>Chat on WhatsApp</span>
@@ -81,54 +92,62 @@ export default function Layout({ path, children }) {
         {children}
       </main>
 
+      {path !== '/contact' && (
+        <nav className="nx-mbar" aria-label="Quick contact">
+          <a href={waLink()} target="_blank" rel="noopener noreferrer" className="nx-mbar-wa">
+            <IconWhatsApp width={20} height={20} />
+            <span>WhatsApp</span>
+          </a>
+          <Link to="/contact?plan=demo" className="nx-mbar-demo">Get a free demo</Link>
+        </nav>
+      )}
+
       <footer className="nx-footer">
-        <div className="nx-wrap nx-footer-grid">
-          <div className="nx-footer-brand">
+        <div className="nx-wrap nx-foot-top">
+          <div className="nx-foot-brand">
             <Link to="/" className="nx-brand" aria-label={`${brand.name} home`}>
-              <LogoMark size={34} />
+              <LogoMark size={32} />
               <span className="nx-logo-text">{brand.name}</span>
             </Link>
-            <p>
-              Websites and digital marketing for businesses worldwide. Founder-led, remote-first and priced
-              clearly.
-            </p>
+            <p>Websites and marketing for small businesses.</p>
           </div>
-          <nav aria-label="Services">
-            <h2 className="nx-foot-h">Services</h2>
-            <ul>
-              <li><Link to="/websites">Website design</Link></li>
-              <li><Link to="/digital-marketing">Digital marketing</Link></li>
-              <li><Link to="/pricing">Pricing</Link></li>
-              <li><Link to="/work">Our work</Link></li>
-            </ul>
-          </nav>
-          <nav aria-label="Company">
-            <h2 className="nx-foot-h">Company</h2>
-            <ul>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
-            </ul>
-          </nav>
-          <div>
-            <h2 className="nx-foot-h">Talk to us</h2>
-            <ul>
-              <li>
-                <a href={waLink()} target="_blank" rel="noopener noreferrer">
-                  <IconWhatsApp width={18} height={18} /> {brand.phoneDisplay}
-                </a>
-              </li>
-              <li>
-                <a href={`mailto:${brand.email}`}>
-                  <IconMail width={18} height={18} /> {brand.email}
-                </a>
-              </li>
-              <li className="nx-foot-note">{brand.location} · Serving clients worldwide</li>
-            </ul>
+          <div className="nx-foot-contact">
+            <a className="nx-foot-btn is-main" href={waLink()} target="_blank" rel="noopener noreferrer">
+              <IconWhatsApp width={18} height={18} /> WhatsApp
+            </a>
+            <a className="nx-foot-btn" href={`mailto:${brand.email}`}>
+              <IconMail width={18} height={18} /> Email
+            </a>
+          </div>
+        </div>
+        <nav className="nx-wrap nx-foot-links" aria-label="Footer">
+          {[...nav.slice(1), { to: '/contact', label: 'Contact' }].map((n) => (
+            <Link key={n.to} to={n.to}>{n.label}</Link>
+          ))}
+          {Object.entries(brand.social).filter(([, u]) => u).map(([k, u]) => (
+            <a key={k} href={u} target="_blank" rel="noopener noreferrer">{k.charAt(0).toUpperCase() + k.slice(1)}</a>
+          ))}
+        </nav>
+        <div className="nx-wordmark" aria-hidden="true">
+          <div className="nx-wm-track" data-marquee="-1" data-speed="0.6">
+            {[0, 1].map((k) => (
+              <span key={k}>
+                <b>VRLS Solutions</b><i /><b>Websites</b><i /><b>Marketing</b><i />
+              </span>
+            ))}
           </div>
         </div>
         <div className="nx-wrap nx-footer-base">
-          <p>© {new Date().getFullYear()} {brand.name}. All rights reserved.</p>
-          <p>Prices in USD · Replies within one business day</p>
+          <p>
+            © {new Date().getFullYear()} {brand.name}, {brand.location}
+            {registration.udyam && <>. Udyam {registration.udyam}</>}
+            {registration.gstin && <>. GSTIN {registration.gstin}</>}
+          </p>
+          <p className="nx-foot-legal">
+            <Link to="/privacy">Privacy</Link>
+            <Link to="/terms">Terms</Link>
+            <Link to="/refunds">Refunds</Link>
+          </p>
         </div>
       </footer>
     </div>

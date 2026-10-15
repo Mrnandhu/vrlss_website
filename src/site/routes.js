@@ -8,8 +8,16 @@ export const SITE = brand.url
 export const faqs = {
   general: [
     {
+      q: 'You are new. Why should I trust you with my business?',
+      a: 'Because you do not have to trust us first. We build a working demo of your homepage for free. You only pay the 50% deposit if you like it, the price is fixed in writing, and you own the finished site and every account.',
+    },
+    {
+      q: 'Is it really just one person?',
+      a: 'Yes. Sai designs, builds and runs the marketing himself, so you always talk to the person doing the work. For bigger jobs, trusted freelancers may help, but Sai stays your single point of contact.',
+    },
+    {
       q: 'Do you work with clients outside India?',
-      a: 'Yes. Most of our work is remote. We schedule calls around your time zone and keep everything in writing, so projects run smoothly whether you are in the Gulf, Europe, the UK, the US or Asia.',
+      a: 'Yes. Our work is done remotely. We schedule calls around your time zone and keep everything in writing, so projects run smoothly whether you are in the Gulf, Europe, the UK, the US or Asia.',
     },
     {
       q: 'How long does a website take?',
@@ -17,7 +25,7 @@ export const faqs = {
     },
     {
       q: 'How does payment work?',
-      a: 'Website projects are paid 50% to start and 50% before launch. Monthly marketing plans are billed monthly and you can stop at the end of any month.',
+      a: 'The demo is free. Website projects are then paid 50% to start and 50% before launch, by UPI or bank transfer. Monthly marketing plans are billed monthly and you can stop at the end of any month.',
     },
     {
       q: 'Do I own the website?',
@@ -66,6 +74,10 @@ export const faqs = {
   ],
   pricing: [
     {
+      q: 'Do you add GST?',
+      a: 'Not at the moment. We are a new sole proprietorship and not registered for GST, so the price you see is the price you pay. If that changes, new quotes will say so.',
+    },
+    {
       q: 'Are there any hidden costs?',
       a: 'No. The price you agree is the price you pay. Domain names, hosting and advertising spend are paid at cost to the providers and we tell you the amounts up front.',
     },
@@ -82,9 +94,9 @@ export const faqs = {
 
 const home = {
   path: '/',
-  title: `${brand.name} | Website Design & Digital Marketing Agency`,
+  title: `${brand.name} | Website Design & Digital Marketing in Andhra Pradesh`,
   description:
-    'We design fast, search-ready websites and run digital marketing that brings customers in. Clear fixed prices, remote service for clients worldwide.',
+    'Websites and digital marketing for small businesses in India and abroad. See a free demo of your homepage before you pay. Fixed prices, you own everything.',
   h1: 'Websites, apps and digital marketing that help your business grow',
   nav: 'Home',
 }
@@ -123,29 +135,50 @@ const baseRoutes = [
   },
   {
     path: '/work',
-    title: `Our Work: Website Concepts & Case Studies | ${brand.name}`,
+    title: `Website Demos for ${industries.length} Industries | ${brand.name}`,
     description:
-      'Explore live concept websites we have designed for clinics, restaurants, contractors, studios and more. See how we design and build.',
+      `Live demo websites for ${industries.length} industries, from restaurants, clinics and schools to factories, exporters and law firms. Try them on your phone.`,
     h1: 'Our work',
     nav: 'Work',
     crumb: 'Work',
   },
   {
     path: '/about',
-    title: `About ${brand.name} | Web & Marketing Studio`,
-    description: `${brand.name} is a small, founder-led studio building websites and running digital marketing for clients worldwide.`,
+    title: `About ${brand.name} | One-Person Web & Marketing Studio`,
+    description: `${brand.name} is a one-person studio in ${brand.location} run by ${brand.founder}, building websites and running digital marketing for small businesses.`,
     h1: `About ${brand.name}`,
     nav: 'About',
     crumb: 'About',
   },
   {
     path: '/contact',
-    title: `Contact ${brand.name} | Get a Free Quote`,
+    title: `Contact ${brand.name} | Get a Free Website Demo`,
     description:
-      'Tell us about your project and get a free, no-obligation quote within one business day. Reach us on WhatsApp, email or the form.',
-    h1: 'Tell us about your project',
+      'Ask for a free demo homepage, a free website check or a fixed-price quote. Replies within one business day on WhatsApp or email.',
+    h1: 'Tell us about your business',
     nav: 'Contact',
     crumb: 'Contact',
+  },
+  {
+    path: '/privacy',
+    title: `Privacy Policy | ${brand.name}`,
+    description: `How ${brand.name} collects, uses and protects the information you share when you contact us or hire us.`,
+    h1: 'Privacy policy',
+    crumb: 'Privacy policy',
+  },
+  {
+    path: '/terms',
+    title: `Terms of Service | ${brand.name}`,
+    description: `The plain-language terms for website projects and marketing plans with ${brand.name}: quotes, payment, ownership and support.`,
+    h1: 'Terms of service',
+    crumb: 'Terms of service',
+  },
+  {
+    path: '/refunds',
+    title: `Refunds and Cancellations | ${brand.name}`,
+    description: `What happens to your payment if you cancel a website project or marketing plan with ${brand.name}.`,
+    h1: 'Refunds and cancellations',
+    crumb: 'Refunds and cancellations',
   },
 ]
 
@@ -159,8 +192,8 @@ const demoRoutes = demos.map((d) => ({
 }))
 const industryRoutes = industries.map((s) => ({
   path: s.path,
-  title: `${s.cat} Website Design Example | ${brand.name}`,
-  description: `Example ${s.cat.toLowerCase()} website: ${s.tagline.toLowerCase()}. See how a fast, mobile-friendly site can attract and convert customers for your business.`,
+  title: `${s.cat} Website Design: Live Demo | ${brand.name}`,
+  description: `Try a live ${s.cat.toLowerCase()} website demo with services, prices and WhatsApp enquiries. Get a fast, mobile-friendly ${s.cat.toLowerCase()} website, with a free demo before you pay.`,
   h1: `${s.cat} website demo`,
   crumb: s.cat,
   parent: { path: '/work', name: 'Work' },
@@ -190,15 +223,21 @@ export const ogImage = `${SITE}/og-image.jpg`
 
 export function jsonLd(r) {
   const org = {
-    '@type': 'Organization',
+    '@type': 'ProfessionalService',
     '@id': `${SITE}/#organization`,
     name: brand.name,
+    alternateName: brand.shortName,
+    founder: { '@type': 'Person', name: brand.founder },
+    address: { '@type': 'PostalAddress', addressRegion: brand.region, addressCountry: brand.country },
+    priceRange: '$$',
+    sameAs: Object.values(brand.social).filter(Boolean),
     url: `${SITE}/`,
     logo: `${SITE}/logo-512.png`,
     image: ogImage,
     email: brand.email,
     telephone: brand.phoneDisplay,
-    areaServed: 'Worldwide',
+    areaServed: ['India', 'United Arab Emirates', 'Saudi Arabia', 'Qatar', 'Oman', 'Kuwait', 'Bahrain', 'United Kingdom', 'United States', 'Canada', 'Australia', 'Singapore'],
+    knowsAbout: ['Website design', 'Web development', 'E-commerce websites', 'Booking systems', 'Local SEO', 'Google Business Profile', 'Social media marketing', 'Google Ads', 'Meta Ads'],
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'sales',
@@ -274,6 +313,18 @@ export function jsonLd(r) {
         position: i + 1,
         name: p.name,
       })),
+    })
+  }
+  const ind = industries.find((x) => x.path === r.path)
+  if (ind) {
+    graph.push({
+      '@type': 'Service',
+      name: `${ind.cat} website design`,
+      serviceType: 'Web design',
+      audience: { '@type': 'BusinessAudience', audienceType: ind.cat },
+      provider: { '@id': `${SITE}/#organization` },
+      areaServed: 'Worldwide',
+      url: canonical(r),
     })
   }
   if (r.faq) {

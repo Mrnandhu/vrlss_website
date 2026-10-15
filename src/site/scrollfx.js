@@ -1,19 +1,25 @@
-// Scroll-driven motion engine. No dependencies. Runs only in the browser, after hydration.
+// Motion engine. No dependencies. Runs only in the browser, after hydration.
 // Everything is progressive: with no JS, or with "reduce motion" on, the page is a normal static page.
 import { useEffect } from 'react'
 
 const REVEAL = [
-  '.nx-head', '.nx-panel', '.nx-feature', '.nx-plan', '.nx-faq-item', '.nx-work-card', '.nx-fine.wk-count',
-  '.nx-cta-inner', '.nx-card-founder', '.nx-contact-side', '.hm-stat', '.nx-center-note',
+  '.nx-head', '.nx-plan', '.nx-faq-item', '.nx-work-card', '.nx-fine.wk-count', '.nx-feature',
+  '.nx-cta-inner', '.nx-card-founder', '.nx-contact-side', '.hm-stat', '.nx-center-note', '.hm-steps li', '.lo-copy',
 ].join(',')
 
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v))
+const lerp = (a, b, t) => a + (b - a) * t
 
 export function useScrollFx(path) {
   useEffect(() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches
     const root = document.documentElement
     const cleanups = []
+    const on = (t, ev, fn, opt) => {
+      t.addEventListener(ev, fn, opt)
+      cleanups.push(() => t.removeEventListener(ev, fn, opt))
+    }
 
     // top progress bar
     const bar = document.createElement('div')
@@ -22,43 +28,30 @@ export function useScrollFx(path) {
     document.body.appendChild(bar)
     cleanups.push(() => bar.remove())
 
-    if (reduce) {
-      return () => cleanups.forEach((f) => f())
-    }
-
-    // remember where the visitor clicked, so page changes open outward from that point
-    const mark = (e) => {
-      root.style.setProperty('--vx', `${e.clientX}px`)
-      root.style.setProperty('--vy', `${e.clientY}px`)
-    }
-    document.addEventListener('pointerdown', mark, { passive: true })
-    cleanups.push(() => document.removeEventListener('pointerdown', mark))
+    if (reduce) return () => cleanups.forEach((f) => f())
 
     root.classList.add('fx')
     cleanups.push(() => root.classList.remove('fx'))
+    const vh0 = window.innerHeight
 
     // ---- reveal on scroll (only below-the-fold elements start hidden, so nothing flashes) ----
-    const vh = window.innerHeight
     const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('rv-in')
-            io.unobserve(e.target)
-          }
-        })
-      },
-      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 },
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('rv-in')
+          io.unobserve(e.target)
+        }
+      }),
+      { rootMargin: '0px 0px -10% 0px', threshold: 0.08 },
     )
     const groups = new Map()
     document.querySelectorAll(REVEAL).forEach((el) => {
-      if (el.closest('.ind, .hs-on, .sy-on')) return
-      const r = el.getBoundingClientRect()
-      if (r.top < vh * 0.92) return
+      if (el.closest('.ind, .dm-stage')) return
+      if (el.getBoundingClientRect().top < vh0 * 0.92) return
       const p = el.parentElement
       const i = groups.get(p) || 0
       groups.set(p, i + 1)
-      el.style.setProperty('--rd', `${Math.min(i, 6) * 70}ms`)
+      el.style.setProperty('--rd', `${Math.min(i, 6) * 80}ms`)
       el.classList.add('rv')
       io.observe(el)
     })
@@ -66,81 +59,119 @@ export function useScrollFx(path) {
 
     // ---- count-up numbers ----
     const cio = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (!e.isIntersecting) return
-          cio.unobserve(e.target)
-          const el = e.target
-          const to = Number(el.dataset.count)
-          const suffix = el.dataset.suffix || ''
-          const t0 = performance.now()
-          const tick = (t) => {
-            const k = clamp((t - t0) / 1400)
-            el.textContent = `${Math.round(to * (1 - Math.pow(1 - k, 3)))}${suffix}`
-            if (k < 1) requestAnimationFrame(tick)
-          }
-          requestAnimationFrame(tick)
-        })
-      },
+      (entries) => entries.forEach((e) => {
+        if (!e.isIntersecting) return
+        cio.unobserve(e.target)
+        const el = e.target
+        const to = Number(el.dataset.count)
+        const t0 = performance.now()
+        const tick = (t) => {
+          const k = clamp((t - t0) / 1400)
+          el.textContent = `${Math.round(to * (1 - Math.pow(1 - k, 3)))}`
+          if (k < 1) requestAnimationFrame(tick)
+        }
+        requestAnimationFrame(tick)
+      }),
       { threshold: 0.6 },
     )
     document.querySelectorAll('[data-count]').forEach((el) => {
-      el.textContent = `0${el.dataset.suffix || ''}`
+      el.textContent = '0'
       cio.observe(el)
     })
     cleanups.push(() => cio.disconnect())
 
-    // ---- cursor spotlight on cards, magnetic buttons, hero tilt (mouse devices only) ----
-    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      const SPOT = '.hm-demo, .nx-plan, .nx-panel, .nx-feature, .nx-work-card, .hm-stat, .nx-faq-item'
+    // ---- weighted smooth scrolling (mouse/trackpad on desktop only; touch keeps native scrolling) ----
+    let target = window.scrollY
+    let current = window.scrollY
+    let gliding = false
+    let raf = 0
+    const kick = () => { if (!raf) raf = requestAnimationFrame(frame) }
+    if (fine) {
+      root.classList.add('glide')
+      cleanups.push(() => root.classList.remove('glide'))
+      const maxY = () => root.scrollHeight - window.innerHeight
+      const onWheel = (e) => {
+        if (e.ctrlKey || e.defaultPrevented) return
+        if (e.target.closest?.('textarea, select, .nx-sheet, [data-native-scroll]')) return
+        // let inner scroll areas (demo frames, tables, menus) scroll on their own
+        for (let el = e.target; el && el !== document.body && el.nodeType === 1; el = el.parentElement) {
+          const st = getComputedStyle(el)
+          if (/(auto|scroll)/.test(st.overflowY) && el.scrollHeight > el.clientHeight + 1) {
+            const up = e.deltaY < 0
+            if ((up && el.scrollTop > 0) || (!up && el.scrollTop + el.clientHeight < el.scrollHeight - 1)) return
+          }
+        }
+        if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return
+        e.preventDefault()
+        if (!gliding) current = target = window.scrollY
+        target = clamp(target + e.deltaY * (e.deltaMode === 1 ? 36 : 1), 0, maxY())
+        gliding = true
+        kick()
+      }
+      on(window, 'wheel', onWheel, { passive: false })
+    }
+
+    const hero = document.querySelector('.hm-hero')
+
+    // ---- "View" bubble + magnetic buttons (desktop) ----
+    let cur = null
+    const mouse = { x: -100, y: -100 }
+    const ring = { x: -100, y: -100 }
+    if (fine) {
+      cur = document.createElement('div')
+      cur.className = 'cx is-out'
+      cur.setAttribute('aria-hidden', 'true')
+      cur.innerHTML = '<i class="cx-ring"><b class="cx-label"></b></i><i class="cx-dot"></i>'
+      document.body.appendChild(cur)
+      cleanups.push(() => cur.remove())
+      const label = cur.querySelector('.cx-label')
       let hot = null
       const move = (e) => {
-        const c = e.target.closest?.(SPOT)
-        if (c) {
-          const r = c.getBoundingClientRect()
-          c.style.setProperty('--mx', `${e.clientX - r.left}px`)
-          c.style.setProperty('--my', `${e.clientY - r.top}px`)
+        mouse.x = e.clientX
+        mouse.y = e.clientY
+        cur.classList.remove('is-out')
+        const t = e.target
+        const view = t.closest?.('[data-cursor]')
+        const link = t.closest?.('a, button, summary, label, select, [role="tab"]')
+        cur.classList.toggle('is-link', !!link && !view)
+        cur.classList.toggle('is-view', !!view)
+        label.textContent = view ? view.dataset.cursor : ''
+        cur.classList.toggle('is-text', !!t.closest?.('input, textarea'))
+        if (hero && t.closest?.('.hm-hero')) {
+          const r = hero.getBoundingClientRect()
+          hero.style.setProperty('--px', ((e.clientX - r.left) / r.width - 0.5).toFixed(3))
+          hero.style.setProperty('--py', (0.5 - (e.clientY - r.top) / r.height).toFixed(3))
         }
-        const b = e.target.closest?.('.nx-btn-primary')
+        const b = t.closest?.('.nx-btn-primary, .nx-btn-light')
         if (b !== hot) {
-          if (hot) hot.style.transform = ''
+          if (hot) hot.style.translate = ''
           hot = b
         }
         if (b) {
           const r = b.getBoundingClientRect()
-          const dx = (e.clientX - (r.left + r.width / 2)) / r.width
-          const dy = (e.clientY - (r.top + r.height / 2)) / r.height
-          b.style.transform = `translate(${(dx * 8).toFixed(1)}px, ${(dy * 6).toFixed(1)}px)`
+          b.style.translate = `${(((e.clientX - r.left) / r.width - 0.5) * 10).toFixed(1)}px ${(((e.clientY - r.top) / r.height - 0.5) * 8).toFixed(1)}px`
         }
-        const hv = document.querySelector('.nx-hvwrap')
-        if (hv && e.target.closest?.('.nx-hero')) {
-          const r = hv.getBoundingClientRect()
-          hv.style.setProperty('--tx', (((e.clientX - r.left) / r.width - 0.5) * 8).toFixed(2) + 'deg')
-          hv.style.setProperty('--ty', ((0.5 - (e.clientY - r.top) / r.height) * 6).toFixed(2) + 'deg')
-        }
+        kick()
       }
-      document.addEventListener('pointermove', move, { passive: true })
-      cleanups.push(() => document.removeEventListener('pointermove', move))
+      on(document, 'pointermove', move, { passive: true })
+      on(document, 'pointerdown', () => cur.classList.add('is-down'))
+      on(document, 'pointerup', () => cur.classList.remove('is-down'))
+      on(document.documentElement, 'mouseleave', () => cur.classList.add('is-out'))
     }
 
-    // ---- scroll-filled text ----
+    // ---- elements driven every frame ----
     const fills = [...document.querySelectorAll('[data-fill]')].map((el) => ({ el, words: [...el.querySelectorAll('.mf-w')] }))
-
-    // ---- pinned scenes: story (vertical) and demo track (horizontal) ----
-    const story = document.querySelector('[data-story]')
+    const sps = [...document.querySelectorAll('[data-sp]')]
+    const stepSets = [...document.querySelectorAll('[data-steps]')].map((el) => [...el.querySelectorAll('li')])
+    const stacks = [...document.querySelectorAll('[data-stack]')].map((el) => [...el.children])
+    const marquees = [...document.querySelectorAll('[data-marquee]')].map((el) => ({ el, x: 0, dir: Number(el.dataset.marquee) || -1, speed: Number(el.dataset.speed) || 0.5, w: 0 }))
     const hs = document.querySelector('[data-hscroll]')
-    const hero = document.querySelector('.nx-hero')
-    const cin = document.querySelector('[data-cin]')
-    const cinSteps = cin ? [...cin.querySelectorAll('.cin-steps li')] : []
-    let cinTab = -1
-    const labels = story ? [...story.querySelectorAll('.sy-list li')] : []
     let hsMax = 0
 
-    const setup = () => {
-      const wide = window.innerWidth >= 900 && window.innerHeight >= 560
-      root.classList.toggle('cin-wide', wide)
-      if (story) story.classList.toggle('sy-on', wide)
+    const measure = () => {
+      marquees.forEach((m) => { m.w = m.el.scrollWidth / 2 })
       if (hs) {
+        const wide = window.innerWidth >= 900 && window.innerHeight >= 560
         const track = hs.querySelector('.hs-track')
         const view = hs.querySelector('.hs-viewport')
         hs.classList.toggle('hs-on', wide)
@@ -153,84 +184,95 @@ export function useScrollFx(path) {
         }
       }
     }
-    setup()
+    measure()
 
-    let raf = 0
-    const sm = {}
-    let more = false
-    // ease the displayed progress toward the real scroll position, so wheel steps feel like glide
-    const ease = (key, target) => {
-      const cur = sm[key] === undefined ? target : sm[key]
-      let n = cur + (target - cur) * 0.13
-      if (Math.abs(target - n) < 0.0006) n = target
-      sm[key] = n
-      if (n !== target) more = true
-      return n
-    }
+    let lastY = window.scrollY
+    let vel = 0
     const frame = () => {
       raf = 0
-      more = false
+      let more = marquees.length > 0 || gliding
+
+      if (gliding) {
+        current = lerp(current, target, 0.11)
+        if (Math.abs(target - current) < 0.4) { current = target; gliding = false }
+        window.scrollTo(0, current)
+      }
+
       const y = window.scrollY
-      const max = root.scrollHeight - window.innerHeight
+      const vh = window.innerHeight
+      vel = lerp(vel, y - lastY, 0.2)
+      lastY = y
+      const max = root.scrollHeight - vh
       bar.style.transform = `scaleX(${max > 0 ? clamp(y / max) : 0})`
 
-      if (cin && root.classList.contains('cin-wide')) {
-        const r = cin.getBoundingClientRect()
-        const p = ease('cin', clamp(-r.top / Math.max(1, r.height - window.innerHeight)))
-        cin.style.setProperty('--cp', p.toFixed(4))
-        const t = Math.min(4, Math.floor(clamp((p - 0.4) / 0.4) * 4.999))
-        if (t !== cinTab) {
-          cinTab = t
-          window.dispatchEvent(new CustomEvent('vrlss:tab', { detail: t }))
-          cinSteps.forEach((li, k) => li.toggleAttribute('data-on', k === t))
-        }
-      } else if (hero) hero.style.setProperty('--hp', clamp(y / Math.max(1, hero.offsetHeight * 0.9)).toFixed(3))
+      if (hero) hero.style.setProperty('--hp', clamp(y / Math.max(1, hero.offsetHeight * 0.9)).toFixed(3))
+
+      sps.forEach((el) => {
+        const r = el.getBoundingClientRect()
+        if (r.bottom < -vh || r.top > vh * 2) return
+        el.style.setProperty('--sp', clamp((vh - r.top) / (vh * 0.7)).toFixed(3))
+        el.style.setProperty('--sq', clamp((vh * 0.62 - r.top) / Math.max(1, r.height)).toFixed(3))
+        el.style.setProperty('--so', clamp((vh - r.top) / (vh + r.height)).toFixed(3))
+      })
+      stepSets.forEach((items) => items.forEach((li) => li.toggleAttribute('data-on', li.getBoundingClientRect().top < vh * 0.62)))
+
+      // stacked cards: each card shrinks and dims as the next one slides over it
+      stacks.forEach((cards) => cards.forEach((c, i) => {
+        const next = cards[i + 1]
+        if (!next) return
+        const a = c.getBoundingClientRect()
+        const b = next.getBoundingClientRect()
+        c.style.setProperty('--cover', clamp(1 - (b.top - a.top) / Math.max(1, a.height)).toFixed(3))
+      }))
 
       fills.forEach(({ el, words }) => {
         const r = el.getBoundingClientRect()
-        const p = clamp((window.innerHeight * 0.85 - r.top) / (window.innerHeight * 0.55 + r.height * 0.6))
+        const p = clamp((vh * 0.85 - r.top) / (vh * 0.55 + r.height * 0.6))
         const n = Math.round(p * words.length)
         words.forEach((w, i) => w.classList.toggle('on', i < n))
       })
 
-      if (story && story.classList.contains('sy-on')) {
-        const r = story.getBoundingClientRect()
-        const p = ease('story', clamp(-r.top / Math.max(1, r.height - window.innerHeight)))
-        const n = Math.min(3, Math.floor(p * 4))
-        story.style.setProperty('--p', p.toFixed(3))
-        story.style.setProperty('--lp', (p * 4 - n).toFixed(3))
-        if (story.dataset.step !== String(n)) {
-          story.dataset.step = String(n)
-          labels.forEach((li, k) => li.toggleAttribute('data-on', k === n))
-        }
-      }
-
       if (hs && hs.classList.contains('hs-on')) {
         const r = hs.getBoundingClientRect()
-        const p = ease('hs', clamp(-r.top / Math.max(1, r.height - window.innerHeight)))
+        const p = clamp(-r.top / Math.max(1, r.height - vh))
         hs.querySelector('.hs-track').style.transform = `translate3d(${(-p * hsMax).toFixed(1)}px,0,0)`
         hs.style.setProperty('--p', p.toFixed(3))
       }
-      if (more) req()
+
+      // marquees run continuously and speed up with scroll velocity
+      marquees.forEach((m) => {
+        if (!m.w) return
+        m.x += m.dir * (m.speed + Math.min(8, Math.abs(vel) * 0.4))
+        if (m.x <= -m.w) m.x += m.w
+        if (m.x > 0) m.x -= m.w
+        m.el.style.transform = `translate3d(${m.x.toFixed(2)}px,0,0)`
+      })
+
+      if (cur) {
+        ring.x = lerp(ring.x, mouse.x, 0.2)
+        ring.y = lerp(ring.y, mouse.y, 0.2)
+        cur.style.setProperty('--mx', `${mouse.x}px`)
+        cur.style.setProperty('--my', `${mouse.y}px`)
+        cur.style.setProperty('--rx', `${ring.x.toFixed(1)}px`)
+        cur.style.setProperty('--ry', `${ring.y.toFixed(1)}px`)
+        if (Math.abs(ring.x - mouse.x) + Math.abs(ring.y - mouse.y) > 0.5) more = true
+      }
+      if (Math.abs(vel) > 0.05) more = true
+      if (more) kick()
     }
-    const req = () => {
-      if (!raf) raf = requestAnimationFrame(frame)
+
+    const onScroll = () => {
+      if (!gliding) target = current = window.scrollY
+      kick()
     }
-    const onResize = () => {
-      setup()
-      req()
-    }
-    window.addEventListener('scroll', req, { passive: true })
-    window.addEventListener('resize', onResize)
-    // images change layout widths after load
-    window.addEventListener('load', onResize)
+    const onResize = () => { measure(); kick() }
+    on(window, 'scroll', onScroll, { passive: true })
+    on(window, 'resize', onResize)
+    on(window, 'load', onResize)
+    // fonts and images change widths after first paint
+    const late = window.setTimeout(onResize, 900)
+    cleanups.push(() => { window.clearTimeout(late); if (raf) cancelAnimationFrame(raf) })
     frame()
-    cleanups.push(() => {
-      window.removeEventListener('scroll', req)
-      window.removeEventListener('resize', onResize)
-      window.removeEventListener('load', onResize)
-      if (raf) cancelAnimationFrame(raf)
-    })
 
     return () => cleanups.forEach((f) => f())
   }, [path])

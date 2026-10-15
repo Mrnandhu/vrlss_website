@@ -1,235 +1,161 @@
-import { Section, Head, Button, FAQ, CtaBand, LaunchOffer } from '../components/Bits'
+import { Section, Head, Button, FAQ, CtaBand, LaunchOffer, Words } from '../components/Bits'
 import HeroVisual from '../components/HeroVisual'
 import { Link } from '../router'
 import { Glyph } from '../demos/Scene'
-import { demos } from '../demos/demoData'
-import { currencies } from '../prices'
-import { industries } from '../demos/industries'
-
-const manifesto = 'Your customers decide in seconds. We make sure they find you, trust what they see, and know exactly how to get in touch.'.split(' ')
+import { industries, industryByPath } from '../demos/industries'
 import { faqs } from '../routes'
-import { IconGlobe, IconMegaphone, IconBolt, IconSearch, IconPhone, IconShield, IconArrow } from '../icons'
+import { IconArrow } from '../icons'
 
-const steps = [
-  ['Discover', 'A short call to understand your business, customers and goals. You get a written scope and a fixed price.'],
-  ['Design', 'We design your pages around how your customers decide, and you approve the look before we build.'],
-  ['Build and launch', 'We build, test on every device size, set up SEO and analytics, then launch on your domain.'],
-  ['Grow', 'Add monthly marketing to bring in visitors, track results and keep improving.'],
+const headline = 'Websites that bring you customers'
+const statement = 'Your customers decide in seconds. We make sure they choose you.'.split(' ')
+
+const showcase = ['/work/websites/restaurant', '/work/websites/salon-spa', '/work/websites/real-estate', '/work/websites/school-coaching']
+  .map((p) => industryByPath[p])
+  .filter(Boolean)
+
+const services = [
+  ['Websites', 'Fast, mobile-first sites that turn visitors into enquiries.', '/websites'],
+  ['Online stores and bookings', 'Sell and take bookings online, without paying commission.', '/websites'],
+  ['Google and local SEO', 'Be the business people find when they search nearby.', '/digital-marketing'],
+  ['Social media and ads', 'Posts and ads that bring the right people to your door.', '/digital-marketing'],
+  ['Care and growth', 'Monthly updates, so your site keeps working for you.', '/pricing'],
 ]
 
-const glyphFor = { 'online-store': 'bag', 'booking-system': 'calendar', 'sales-dashboard': 'chart', 'customer-portal': 'user', 'mobile-app': 'phone', 'sales-crm': 'kanban', 'invoice-generator': 'invoice' }
+const steps = [
+  ['Message us', 'Send your business name and city on WhatsApp.'],
+  ['See your free demo', 'Get a working homepage for your business in 3 days.'],
+  ['Approve and launch', 'Like it? Pay 50% and we launch the full site.'],
+]
+
+const pad = (n) => String(n).padStart(2, '0')
+const ringSlugs = ['restaurant', 'hospital', 'salon-spa', 'school', 'supermarket', 'real-estate', 'chartered-accountant', 'it-company', 'travel-agency', 'car-service', 'manufacturing', 'seafood-export', 'dental-clinic', 'gym-fitness', 'jewellery', 'logistics']
+const ringItems = ringSlugs.map((k) => industries.find((x) => x.slug === k)).filter(Boolean)
 
 export default function Home() {
   return (
     <>
-      <section className="nx-hero cin" data-cin>
-        <div className="cin-pin">
-        <div className="cin-bg" aria-hidden="true"><i className="g1" /><i className="g2" /><i className="g3" /></div>
+      <section className="nx-hero hm-hero">
         <div className="nx-wrap nx-hero-grid">
           <div className="nx-hero-copy">
-            <p className="nx-pill">Websites · Apps · Digital marketing</p>
-            <h1 className="nx-h1" aria-label="Websites, apps and digital marketing that help your business grow">
-              {'Websites, apps and digital marketing that help your business grow'.split(' ').map((w, i) => (
-                <span key={i} className={`w-in${w === 'grow' ? ' w-hl' : ''}`} aria-hidden="true" style={{ '--i': i }}>{w}</span>
-              ))}
+            <p className="nx-pill">Web design studio, Andhra Pradesh</p>
+            <h1 className="nx-h1 hm-h1" aria-label={headline}>
+              <span aria-hidden="true"><Words text={headline} /></span>
             </h1>
-            <p className="nx-lead nx-hero-lead">
-              From a simple business website to online stores, booking systems, dashboards and mobile apps. We build it,
-              launch it and help the right customers find it.
-            </p>
+            <p className="nx-lead nx-hero-lead">See a free demo of your new homepage before you pay anything.</p>
             <div className="nx-hero-actions">
-              <Button to="/contact">Get a free quote</Button>
-              <Button to="/work" variant="outline" icon={false}>
-                Try live demos
-              </Button>
+              <Button to="/contact?plan=demo">Get a free demo</Button>
+              <Button to="/work" variant="outline">See our work</Button>
             </div>
-            <ul className="nx-hero-points">
-              <li>Fixed prices, shown in your currency</li>
-              <li>Works on every screen</li>
-              <li>Clients in any country</li>
-            </ul>
           </div>
           <HeroVisual />
         </div>
-        <p className="cin-end" aria-hidden="true"><span>See it working</span> before you decide</p>
-        <ol className="cin-steps" aria-hidden="true">{['Website', 'Online store', 'Booking', 'Dashboard', 'Client portal'].map((t) => <li key={t}>{t}</li>)}</ol>
-        <div className="cin-cue" aria-hidden="true"><i /><span>Scroll</span></div>
-        </div>
       </section>
 
-      <section className="hm-stats" aria-label="At a glance">
-        <div className="nx-wrap hm-stats-grid">
-          <div className="hm-stat"><b data-count={industries.length + 9}>{industries.length + 9}</b><span>industry website demos</span></div>
-          <div className="hm-stat"><b data-count={demos.length}>{demos.length}</b><span>working apps and tools</span></div>
-          <div className="hm-stat"><b data-count={currencies.length}>{currencies.length}</b><span>currencies for your prices</span></div>
-          <div className="hm-stat"><b>Free</b><span>demo before you pay</span></div>
+      <section className="hm-ring" data-sp aria-labelledby="ring-h">
+        <div className="nx-wrap hm-ring-head">
+          <h2 className="nx-h2" id="ring-h"><Words text={`Built for ${industries.length} industries`} /></h2>
+          <Button to="/work" variant="outline">Find yours</Button>
         </div>
-      </section>
-
-      <section className="mq" aria-label="Industries we build for">
-        <div className="mq-track" aria-hidden="true">
-          {[0, 1].map((k) => (
-            <ul key={k}>
-              {industries.map((x) => (
-                <li key={x.slug + k}><Glyph name={x.glyph} className="mq-g" />{x.cat}</li>
-              ))}
-            </ul>
-          ))}
+        <div className="ring-stage" aria-hidden="true">
+          <div className="ring" style={{ '--n': ringItems.length }}>
+            {ringItems.map((x, i) => (
+              <span key={x.slug} className="ring-tile" style={{ '--k': i, '--c1': x.pal[2], '--c2': x.pal[3] }}>
+                <Glyph name={x.glyph} className="ring-g" />
+                <b>{x.cat}</b>
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="mf" aria-label="Our approach">
         <div className="nx-wrap">
-          <p className="mf-text" data-fill aria-label={manifesto.join(' ')}>
-            {manifesto.map((w, i) => (
+          <p className="mf-text" data-fill aria-label={statement.join(' ')}>
+            {statement.map((w, i) => (
               <span key={i} className="mf-w" aria-hidden="true">{w}{' '}</span>
             ))}
           </p>
         </div>
       </section>
 
-      <Section tone="white">
-        <Head
-          title="Two services that work better together"
-          lead="A great website with no visitors does nothing, and ads sent to a weak website waste money. We do both, so each supports the other."
-        />
-        <div className="nx-duo">
-          <article className="nx-panel nx-panel-blue">
-            <IconGlobe width={34} height={34} />
-            <h3>Website design and development</h3>
-            <p>
-              Business websites, online stores, web apps and custom software, built mobile-first and tuned for speed
-              and search.
-            </p>
-            <Link to="/websites" className="nx-more">
-              Explore websites <IconArrow width={18} height={18} />
-            </Link>
-          </article>
-          <article className="nx-panel nx-panel-ink">
-            <IconMegaphone width={34} height={34} />
-            <h3>Digital marketing</h3>
-            <p>
-              Local SEO, Google Business Profile, social media and paid ads, managed monthly with a plain-English
-              report.
-            </p>
-            <Link to="/digital-marketing" className="nx-more">
-              Explore marketing <IconArrow width={18} height={18} />
-            </Link>
-          </article>
-        </div>
-      </Section>
-
-      <Section tone="paper">
-        <Head title="Built to be *found*, fast on any device" />
-        <div className="nx-features">
-          <div className="nx-feature">
-            <IconSearch width={26} height={26} />
-            <h3>Search-ready from day one</h3>
-            <p>Clean structure, page titles, structured data and a sitemap, so Google understands your business.</p>
-          </div>
-          <div className="nx-feature">
-            <IconPhone width={26} height={26} />
-            <h3>Designed for every screen</h3>
-            <p>Phones, tablets, laptops and wide desktops all get a layout made for them, not a shrunken copy.</p>
-          </div>
-          <div className="nx-feature">
-            <IconBolt width={26} height={26} />
-            <h3>Quick to load</h3>
-            <p>Optimised images and lean code, because slow sites lose visitors before they read a word.</p>
-          </div>
-          <div className="nx-feature">
-            <IconShield width={26} height={26} />
-            <h3>You own everything</h3>
-            <p>Your domain, your code, your accounts. We hand it all over when the project is paid.</p>
-          </div>
-        </div>
-      </Section>
-
-      <section className="nx-section nx-tone-white hs" data-hscroll>
-        <div className="hs-sticky">
-          <div className="nx-wrap">
-            <Head
-              title="See it *working* before you decide"
-              lead="Every demo is clickable. Try the store, book an appointment, open the dashboard or tap through the app, then imagine it with your brand."
-            />
-          </div>
-          <div className="hs-viewport">
-            <div className="hs-track">
-              {demos.map((d) => (
-                <Link key={d.slug} to={d.path} className={`hm-demo tone-${d.tone}`}>
-                  <span className="hm-chip"><Glyph name={glyphFor[d.slug]} className="hm-glyph" /></span>
-                  <span className="nx-work-tag">{d.category}</span>
-                  <strong>{d.name}</strong>
-                  <span>{d.blurb}</span>
-                  <em>Try the demo <IconArrow width={16} height={16} /></em>
-                </Link>
-              ))}
-              <Link to="/work" className="hm-demo hm-demo-all">
-                <span className="nx-work-tag">And more</span>
-                <strong>Industry websites</strong>
-                <span>Restaurants, clinics, hotels, gyms, law firms, function halls and dozens more.</span>
-                <em>Browse all demos <IconArrow width={16} height={16} /></em>
+      <section className="nx-section hm-cases" aria-labelledby="cases-h">
+        <div className="nx-wrap">
+          <header className="nx-head hm-cases-head">
+            <h2 className="nx-h2" id="cases-h"><Words text="Demo sites to explore" /></h2>
+          </header>
+          <div className="hm-case-grid">
+            {showcase.map((s, i) => (
+              <Link key={s.slug} to={s.path} className={`hm-case hm-case-${i}`} data-sp data-cursor="View">
+                <span className="hm-case-media">
+                  <img src={`/assets/photos/${s.img}.webp`} alt="" loading="lazy" decoding="async" width="1000" height="667" />
+                </span>
+                <span className="hm-case-meta">
+                  <strong>{s.name}</strong>
+                  <span className="hm-case-cat">{s.cat}</span>
+                </span>
               </Link>
-            </div>
+            ))}
           </div>
-          <div className="hs-bar" aria-hidden="true"><i /></div>
-        </div>
-      </section>
-
-      <section className="sy" data-story data-step="0" aria-label="How a project runs">
-        <div className="sy-pin">
-          <div className="nx-wrap sy-grid">
-            <div className="sy-left">
-              <header className="nx-head">
-                <h2 className="nx-h2">How a project runs</h2>
-                <p className="nx-lead">Four clear steps, with a fixed price agreed before we start.</p>
-              </header>
-              <ol className="sy-list">
-                {steps.map(([t, d], i) => (
-                  <li key={t} {...(i === 0 ? { 'data-on': '' } : {})}>
-                    <span className="nx-step-n">{i + 1}</span>
-                    <div><h3>{t}</h3><p>{d}</p></div>
-                  </li>
-                ))}
-              </ol>
-              <div className="sy-rail" aria-hidden="true"><i /></div>
-            </div>
-            <div className="sy-stage" aria-hidden="true">
-              <div className="sy-p p0">
-                <div className="bub b1">What does your business need online?</div>
-                <div className="bub b2">More customers from Google and WhatsApp.</div>
-                <div className="bub b3">Got it. Here is your scope and a fixed price.</div>
-                <div className="sy-quote"><b>Project scope</b><span>Pages · features · timeline</span><em>Fixed price</em></div>
-              </div>
-              <div className="sy-p p1">
-                <div className="sy-wire"><u /><u /><u /><u /></div>
-                <div className="sy-sw"><i style={{ background: '#2b50e6' }} /><i style={{ background: '#0fa58c' }} /><i style={{ background: '#f5b544' }} /><i style={{ background: '#0f2230' }} /></div>
-                <div className="sy-aa">Aa</div>
-              </div>
-              <div className="sy-p p2">
-                <div className="sy-dev"><div className="sy-lap"><i /><i /><i /></div><div className="sy-ph"><i /><i /></div></div>
-                <div className="sy-prog"><span>Building and testing</span><div><i /></div></div>
-              </div>
-              <div className="sy-p p3">
-                <div className="sy-bars"><i style={{ '--h': '30%' }} /><i style={{ '--h': '48%' }} /><i style={{ '--h': '42%' }} /><i style={{ '--h': '68%' }} /><i style={{ '--h': '84%' }} /></div>
-                <div className="sy-tags"><span>More visitors</span><span>More enquiries</span><em>Sample data</em></div>
-              </div>
-            </div>
+          <div className="hm-cases-more">
+            <Button to="/work" variant="outline">See all {industries.length} demos</Button>
           </div>
         </div>
       </section>
 
-      <Section tone="paper">
-        <LaunchOffer />
-      </Section>
+      <section className="nx-section hm-svc" aria-label="Services">
+        <div className="nx-wrap">
+          <Head title="What we do" />
+          <div className="hm-svc-stack" data-stack>
+            {services.map(([name, text, to], i) => (
+              <Link key={name} to={to} className={`hm-svc-card c${i}`} style={{ '--i': i }}>
+                <span className="hm-svc-n">{pad(i + 1)}</span>
+                <span className="hm-svc-body">
+                  <strong>{name}</strong>
+                  <span>{text}</span>
+                </span>
+                <span className="hm-svc-go" aria-hidden="true"><IconArrow width={22} height={22} /></span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="nx-section hm-flow" aria-labelledby="flow-h">
+        <div className="nx-wrap hm-flow-grid">
+          <header className="nx-head hm-flow-head">
+            <h2 className="nx-h2" id="flow-h"><Words text="How it works" /></h2>
+          </header>
+          <div className="hm-steps-wrap" data-sp data-steps>
+            <span className="hm-rail" aria-hidden="true"><i /></span>
+            <ol className="hm-steps">
+              {steps.map(([t, d], i) => (
+                <li key={t}>
+                  <span className="hm-step-n" aria-hidden="true">{i + 1}</span>
+                  <div>
+                    <h3>{t}</h3>
+                    <p>{d}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section className="hm-offer" data-sp aria-label="Founding client offer">
+        <div className="hm-offer-card">
+          <div className="nx-wrap">
+            <LaunchOffer />
+          </div>
+        </div>
+      </section>
 
       <Section tone="white">
-        <Head title="Questions we often *hear*" align="center" />
-        <FAQ items={faqs.general} />
+        <Head title="Questions" align="center" />
+        <FAQ items={faqs.general.slice(0, 4)} />
       </Section>
 
-      <CtaBand title={`Let's build something people can find`} />
+      <CtaBand title="Ready to see your new website?" lead="Send your business name on WhatsApp. The first demo is free." />
     </>
   )
 }
-

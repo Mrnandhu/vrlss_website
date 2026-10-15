@@ -1,400 +1,4 @@
-/* ==========================================================================
-   Liquid-glass layer. Delete the `import './glass.css'` line in App.jsx to go
-   back to the flat design.
-   ========================================================================== */
-.nx-app {
-  --glass: rgba(255, 255, 255, 0.5);
-  --glass-strong: rgba(255, 255, 255, 0.7);
-  --glass-edge: rgba(255, 255, 255, 0.75);
-  --glass-shadow: 0 10px 34px -10px rgba(30, 48, 120, 0.22), 0 2px 6px rgba(30, 48, 120, 0.06);
-  --glass-hi: inset 0 1.5px 0 rgba(255, 255, 255, 0.95), inset 0 -1px 0 rgba(255, 255, 255, 0.35),
-    inset 1px 0 0 rgba(255, 255, 255, 0.4), inset -1px 0 0 rgba(255, 255, 255, 0.4);
-  --blur: blur(22px) saturate(185%);
-  isolation: isolate;
-  position: relative;
-  background: #eaf0fb;
-}
-
-/* Ambient colour field: this is what the glass refracts */
-.nx-app::before {
-  content: '';
-  position: absolute; /* flows with the page, so the colour never stops mid-page */
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image:
-    radial-gradient(640px 640px at 8% 6%, rgba(43, 80, 230, 0.3), transparent 62%),
-    radial-gradient(540px 540px at 94% 22%, rgba(15, 165, 140, 0.26), transparent 62%),
-    radial-gradient(600px 600px at 84% 68%, rgba(245, 181, 68, 0.3), transparent 62%),
-    radial-gradient(680px 680px at 4% 92%, rgba(150, 96, 255, 0.2), transparent 62%);
-  background-size: 100% 1700px;
-  background-repeat: repeat-y;
-}
-
-/* Sections become see-through so the colour field shows */
-.nx-tone-white,
-.nx-tone-paper,
-.nx-hero,
-.nx-pagehero {
-  background: transparent;
-  border: 0;
-}
-.nx-tone-paper {
-  background: rgba(255, 255, 255, 0.28);
-}
-
-/* ---- Glass surfaces ---- */
-.nx-plan,
-.nx-steps li,
-.nx-faq-item,
-.nx-work-card,
-.nx-contact-side,
-.nx-card-founder,
-.nx-feature,
-.nx-curbar,
-.nx-nav a:hover,
-.nx-pill,
-.nx-burger,
-.nx-cur select,
-.nx-list-ico {
-  background-color: var(--glass);
-  -webkit-backdrop-filter: var(--blur);
-  backdrop-filter: var(--blur);
-  border: 1px solid var(--glass-edge);
-  box-shadow: var(--glass-shadow), var(--glass-hi);
-}
-.nx-plan,
-.nx-steps li,
-.nx-faq-item,
-.nx-work-card,
-.nx-contact-side,
-.nx-card-founder {
-  border-radius: 26px;
-  /* soft light sweep across the top, like a lit glass edge */
-  background-image: linear-gradient(165deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 38%);
-}
-.nx-faq-item {
-  border-radius: 20px;
-}
-.nx-feature {
-  padding: 22px 22px 24px;
-  border-radius: 24px;
-}
-.nx-plan.is-featured {
-  background-color: rgba(255, 255, 255, 0.66);
-  border: 1.5px solid rgba(43, 80, 230, 0.55);
-  box-shadow: 0 24px 60px -22px rgba(43, 80, 230, 0.55), var(--glass-hi);
-}
-.nx-plan,
-.nx-work-card,
-.nx-steps li {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-@media (hover: hover) {
-  .nx-plan:hover,
-  .nx-work-card:hover,
-  .nx-steps li:hover {
-    transform: translateY(-4px);
-  }
-}
-.nx-list-item {
-  border-color: rgba(15, 34, 48, 0.1);
-}
-.nx-list-ico {
-  border-radius: 16px;
-  color: var(--blue);
-}
-.nx-list,
-.nx-addons,
-.nx-addons > div {
-  border-color: rgba(15, 34, 48, 0.12);
-}
-.nx-pill {
-  color: var(--blue-d);
-}
-.nx-feature {
-  border-top-width: 1px;
-}
-
-/* ---- Floating glass header ---- */
-.nx-header {
-  background: transparent;
-  border: 0;
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
-  padding: 12px var(--gutter) 0;
-  pointer-events: none;
-}
-.nx-header .nx-wrap {
-  pointer-events: auto;
-  max-width: 1200px;
-  padding: 0 10px 0 20px;
-  border-radius: 999px;
-  min-height: 64px;
-  background-color: rgba(255, 255, 255, 0.55);
-  -webkit-backdrop-filter: blur(26px) saturate(190%);
-  backdrop-filter: blur(26px) saturate(190%);
-  border: 1px solid var(--glass-edge);
-  box-shadow: 0 14px 40px -14px rgba(30, 48, 120, 0.3), var(--glass-hi);
-}
-.nx-header-inner {
-  min-height: 64px;
-}
-.nx-nav a:hover {
-  box-shadow: var(--glass-hi);
-  border: 1px solid var(--glass-edge);
-  padding: 9px 13px;
-}
-.nx-nav a[aria-current='page'] {
-  background: rgba(43, 80, 230, 0.14);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
-}
-.nx-burger {
-  border-radius: 50%;
-  width: 46px;
-  height: 46px;
-}
-.nx-cur select {
-  border-radius: 999px;
-}
-
-/* Mobile menu sheet: full-screen glass under the floating header */
-.nx-sheet {
-  inset: 0;
-  z-index: 40;
-  padding: 100px var(--gutter) 32px;
-  background: rgba(240, 245, 255, 0.95);
-  -webkit-backdrop-filter: blur(30px) saturate(190%);
-  backdrop-filter: blur(30px) saturate(190%);
-}
-.nx-sheet-nav a {
-  border-bottom-color: rgba(15, 34, 48, 0.1);
-}
-.nx-header {
-  z-index: 50;
-}
-
-/* ---- Buttons ---- */
-.nx-btn-primary {
-  background: linear-gradient(180deg, #4a6dff 0%, #2b50e6 55%, #2344c9 100%);
-  box-shadow: 0 10px 24px -8px rgba(43, 80, 230, 0.65), inset 0 1.5px 0 rgba(255, 255, 255, 0.55),
-    inset 0 -2px 0 rgba(0, 0, 0, 0.12);
-  border-color: rgba(255, 255, 255, 0.25);
-}
-.nx-btn-primary:hover {
-  background: linear-gradient(180deg, #5a7aff 0%, #3558ee 55%, #2749d4 100%);
-}
-.nx-btn-outline {
-  background: var(--glass);
-  -webkit-backdrop-filter: var(--blur);
-  backdrop-filter: var(--blur);
-  border: 1px solid var(--glass-edge);
-  box-shadow: var(--glass-shadow), var(--glass-hi);
-  color: var(--ink);
-}
-.nx-btn-outline:hover {
-  background: var(--glass-strong);
-  color: var(--ink);
-}
-.nx-btn-light {
-  background: rgba(255, 255, 255, 0.88);
-  box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.35), inset 0 1.5px 0 #fff;
-}
-.nx-btn-ghost {
-  background: rgba(255, 255, 255, 0.14);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
-}
-
-/* ---- Hero visual: glass devices over a coloured glow ---- */
-.nx-hv::before {
-  content: '';
-  position: absolute;
-  inset: 8% 6% 4% 10%;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 30% 30%, rgba(43, 80, 230, 0.55), transparent 60%),
-    radial-gradient(circle at 75% 70%, rgba(245, 181, 68, 0.6), transparent 60%);
-  filter: blur(40px);
-  z-index: 0;
-}
-.nx-hv > * {
-  z-index: 1;
-}
-.nx-hv-laptop,
-.nx-hv-report,
-.nx-hv-pin,
-.nx-hv-phone {
-  -webkit-backdrop-filter: var(--blur);
-  backdrop-filter: var(--blur);
-  box-shadow: var(--glass-shadow), var(--glass-hi);
-}
-.nx-hv-laptop {
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid var(--glass-edge);
-}
-.nx-hv-bar {
-  background: rgba(255, 255, 255, 0.45);
-  border-bottom-color: rgba(255, 255, 255, 0.7);
-}
-.nx-mock-cards i {
-  background: rgba(255, 255, 255, 0.6);
-  border-color: rgba(255, 255, 255, 0.85);
-}
-.nx-hv-phone {
-  background: rgba(255, 255, 255, 0.62);
-  border: 4px solid rgba(15, 34, 48, 0.92);
-}
-.nx-hv-report {
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid var(--glass-edge);
-}
-.nx-hv-pin {
-  background: rgba(15, 34, 48, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-/* ---- Coloured panels: tinted glass ---- */
-.nx-panel {
-  position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  box-shadow: 0 24px 50px -22px rgba(20, 30, 90, 0.5), inset 0 1.5px 0 rgba(255, 255, 255, 0.55);
-  overflow: hidden;
-}
-.nx-panel::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0) 42%);
-}
-.nx-panel-blue {
-  background: linear-gradient(145deg, rgba(60, 96, 245, 0.95), rgba(31, 55, 190, 0.92));
-}
-.nx-panel-ink {
-  background: linear-gradient(145deg, rgba(24, 52, 74, 0.94), rgba(10, 24, 36, 0.94));
-}
-.nx-tone-ink {
-  background: linear-gradient(145deg, rgba(20, 44, 64, 0.96), rgba(9, 22, 33, 0.96));
-}
-.nx-step-n {
-  background: linear-gradient(180deg, #2b3f55, #0f2230);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
-}
-
-/* ---- Notices ---- */
-.nx-launch {
-  background: rgba(245, 181, 68, 0.55);
-  -webkit-backdrop-filter: var(--blur);
-  backdrop-filter: var(--blur);
-  border-block: 1px solid rgba(255, 255, 255, 0.6);
-}
-.nx-curbar {
-  top: 88px;
-  border-radius: 0;
-  border-inline: 0;
-  box-shadow: none;
-  z-index: 30;
-  background-image: none;
-}
-.nx-pagehero {
-  border-bottom: 0;
-}
-
-/* ---- Forms ---- */
-.nx-form input,
-.nx-form select,
-.nx-form textarea {
-  background: rgba(255, 255, 255, 0.62);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-  border: 1px solid var(--glass-edge);
-  box-shadow: inset 0 1px 2px rgba(30, 48, 120, 0.08), inset 0 1.5px 0 rgba(255, 255, 255, 0.8);
-  border-radius: 16px;
-}
-
-/* ---- CTA band + footer ---- */
-.nx-cta {
-  position: relative;
-  margin: 0 var(--gutter);
-  border-radius: 32px;
-  overflow: hidden;
-  max-width: 1200px;
-  margin-inline: auto;
-  width: calc(100% - 2 * var(--gutter));
-  box-shadow: 0 30px 60px -28px rgba(30, 48, 160, 0.7), inset 0 1.5px 0 rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-}
-.nx-cta::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 45%);
-}
-.nx-cta-inner {
-  position: relative;
-  z-index: 1;
-}
-.nx-footer {
-  margin-top: clamp(48px, 8vw, 96px);
-  border-radius: 36px 36px 0 0;
-  background: linear-gradient(180deg, rgba(20, 44, 64, 0.97), rgba(9, 22, 33, 0.99));
-  box-shadow: inset 0 1.5px 0 rgba(255, 255, 255, 0.25);
-}
-
-/* ---- Fallbacks ---- */
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .nx-app {
-    --glass: rgba(255, 255, 255, 0.9);
-    --glass-strong: #fff;
-  }
-  .nx-header .nx-wrap,
-  .nx-sheet {
-    background-color: rgba(255, 255, 255, 0.96);
-  }
-}
-@media (prefers-reduced-transparency: reduce) {
-  .nx-app {
-    --glass: #fff;
-    --glass-strong: #fff;
-  }
-  .nx-header .nx-wrap,
-  .nx-sheet {
-    background-color: #fff;
-  }
-}
-/* lighter blur on phones: smoother scrolling */
-@media (max-width: 719px) {
-  .nx-app {
-    --blur: blur(14px) saturate(170%);
-  }
-  .nx-cta {
-    border-radius: 26px;
-  }
-  .nx-footer {
-    border-radius: 28px 28px 0 0;
-  }
-  .nx-header {
-    padding-top: 8px;
-  }
-  .nx-header .nx-wrap {
-    min-height: 58px;
-    padding: 0 8px 0 14px;
-  }
-  .nx-header-inner {
-    min-height: 58px;
-  }
-  .nx-sheet {
-    padding-top: 88px;
-  }
-  .nx-curbar {
-    top: 74px;
-  }
-}
-
+/* Layout helpers for grids, the Work page toolbar, hero tabs and demo cards. (The old liquid-glass look was removed in the 2026 redesign; colours now come from brand.css.) */
 /* ---- Balanced grids: no lonely last card ---- */
 .nx-features,
 .nx-steps {
@@ -441,7 +45,7 @@
 .wk-bar { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; }
 .wk-chips { display: flex; gap: 8px; flex-wrap: wrap; }
 .wk-chips button { min-height: 44px; padding: 0 18px; border-radius: 999px; font-weight: 650; cursor: pointer; background: var(--glass); border: 1px solid var(--glass-edge); box-shadow: var(--glass-hi); }
-.wk-chips button.is-on { background: var(--ink); color: #fff; }
+.wk-chips button.is-on { background: var(--night); color: #fff; }
 .wk-search { display: flex; align-items: center; gap: 8px; min-height: 46px; padding: 0 16px; border-radius: 999px; background: var(--glass); border: 1px solid var(--glass-edge); box-shadow: var(--glass-hi); flex: 1 1 260px; max-width: 420px; }
 .wk-search input { border: 0; background: transparent; outline: 0; width: 100%; font-size: 1rem; min-height: 42px; }
 .wk-count { margin: 14px 0 18px; }
@@ -458,7 +62,7 @@
 .nx-hvwrap .nx-hv { margin-inline: 0; }
 .hv-tabs { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
 .hv-tabs button { min-height: 40px; padding: 0 14px; border-radius: 999px; font-weight: 650; font-size: .88rem; cursor: pointer; background: var(--glass); border: 1px solid var(--glass-edge); box-shadow: var(--glass-hi); transition: background-color .2s, color .2s; }
-.hv-tabs button.on { background: var(--ink); color: #fff; }
+.hv-tabs button.on { background: var(--night); color: #fff; }
 .nx-hv-screen { animation: hvIn .45s ease both; min-height: 150px; }
 @keyframes hvIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 .nx-mock-nav em.cart { width: 16px; height: 16px; border-radius: 50%; background: var(--sun); }
@@ -479,7 +83,7 @@
 .hv-kpis i { height: 34px; border-radius: 8px; background: rgba(255,255,255,.75); border: 1px solid #dfe6ed; }
 .hv-line { width: 100%; height: 64px; display: block; }
 .hv-bars { display: flex; gap: 6px; align-items: end; height: 36px; }
-.hv-bars i { flex: 1; border-radius: 4px 4px 0 0; background: linear-gradient(180deg, var(--blue), #8ea5ff); }
+.hv-bars i { flex: 1; border-radius: 4px 4px 0 0; background: linear-gradient(180deg, var(--blue), #c4d8cf); }
 .hv-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
 .hv-steps i { height: 8px; border-radius: 99px; background: #dbe3ea; }
 .hv-steps i.on { background: var(--mint); }
@@ -491,11 +95,11 @@
 .hm-build-title { text-align: center; font-weight: 650; color: var(--ink-2); margin-bottom: 14px; }
 .hm-build-list { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
 .hm-build-list a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border-radius: 999px; font-weight: 650; font-size: .92rem; background: var(--glass); border: 1px solid var(--glass-edge); box-shadow: var(--glass-hi); }
-.hm-build-list a:hover { background: var(--ink); color: #fff; }
+.hm-build-list a:hover { background: var(--night); color: #fff; }
 .hm-demos { display: grid; gap: 14px; grid-template-columns: 1fr; }
 @media (min-width: 640px) { .hm-demos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1000px) { .hm-demos { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-.hm-demo-all { background: linear-gradient(145deg, rgba(43,80,230,.95), rgba(26,47,158,.95)); color: #fff; }
+.hm-demo-all { background: linear-gradient(145deg, rgba(13,92,82,.95), rgba(26,47,158,.95)); color: #fff; }
 .hm-demo-all strong, .hm-demo-all > span:not(.nx-work-tag), .hm-demo-all em, .hm-demo-all .nx-work-tag { color: #fff; }
 .hm-demo { position: relative; display: grid; gap: 6px; padding: 22px; border-radius: 24px; overflow: hidden; background-color: var(--glass); border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow), var(--glass-hi); transition: transform .25s; }
 .hm-demo::before { content: ''; position: absolute; right: -40px; top: -40px; width: 140px; height: 140px; border-radius: 50%; background: linear-gradient(135deg, var(--c1), var(--c2)); opacity: .35; }
@@ -531,7 +135,7 @@
 .hr-hero img, .hr-store img { width: 100%; aspect-ratio: 1.3; object-fit: cover; border-radius: 9px; display: block; }
 .hr-copy small { color: var(--blue); font-weight: 700; }
 .hr-copy h4 { margin: 3px 0 7px; font-family: var(--font-head); font-size: clamp(.82rem, 2.2vw, 1.05rem); line-height: 1.1; letter-spacing: -.02em; }
-.hr-btn { display: inline-block; background: var(--ink); color: #fff; font-weight: 700; padding: 4px 10px; border-radius: 99px; }
+.hr-btn { display: inline-block; background: var(--night); color: #fff; font-weight: 700; padding: 4px 10px; border-radius: 99px; }
 .hr-btn.wide { display: block; text-align: center; padding: 6px; background: var(--blue); }
 .hr-store { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 .hr-store p { margin: 4px 0 0; font-weight: 600; }

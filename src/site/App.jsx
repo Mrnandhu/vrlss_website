@@ -3,6 +3,7 @@ import Layout from './components/Layout'
 import { NavContext } from './router'
 import { CurrencyProvider } from './currency'
 import { routeFor, normalize, notFound, applyHead } from './routes'
+import { useScrollFx } from './scrollfx'
 import Home from './pages/Home'
 import Websites from './pages/Websites'
 import Marketing from './pages/Marketing'
@@ -11,6 +12,7 @@ import Work from './pages/Work'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
+import Legal from './pages/Legal'
 import Store from './demos/Store'
 import Booking from './demos/Booking'
 import Dashboard from './demos/Dashboard'
@@ -23,7 +25,9 @@ import { industryByPath } from './demos/industries'
 import './site.css'
 import './glass.css'
 import './demos.css'
+import './demosite.css'
 import './motion.css'
+import './brand.css'
 
 const pages = {
   '/': Home,
@@ -33,6 +37,9 @@ const pages = {
   '/work': Work,
   '/about': About,
   '/contact': Contact,
+  '/privacy': () => <Legal path="/privacy" />,
+  '/terms': () => <Legal path="/terms" />,
+  '/refunds': () => <Legal path="/refunds" />,
   '/work/online-store': Store,
   '/work/booking-system': Booking,
   '/work/sales-dashboard': Dashboard,
@@ -47,16 +54,28 @@ export default function SiteApp({ initialPath = '/' }) {
 
   const navigate = useCallback((to) => {
     const [pathAndQuery, hash] = to.split('#')
+    const root = document.documentElement
+    const same = normalize(pathAndQuery) === normalize(window.location.pathname)
     const swap = () => {
       window.history.pushState({}, '', to)
       setPath(normalize(pathAndQuery))
       if (!hash) window.scrollTo(0, 0)
+      else requestAnimationFrame(() => document.getElementById(hash)?.scrollIntoView())
     }
-    const after = () => {
-      if (hash) requestAnimationFrame(() => document.getElementById(hash)?.scrollIntoView())
+    const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (calm || same || root.dataset.pt) {
+      swap()
+      return
     }
-    swap()
-    after()
+    // curtain wipe: cover the page, swap it underneath, then lift the curtain away
+    root.dataset.pt = 'in'
+    window.setTimeout(() => {
+      swap()
+      window.setTimeout(() => {
+        root.dataset.pt = 'out'
+        window.setTimeout(() => delete root.dataset.pt, 560)
+      }, 60)
+    }, 430)
   }, [])
 
   useEffect(() => {
@@ -72,6 +91,7 @@ export default function SiteApp({ initialPath = '/' }) {
   useEffect(() => {
     applyHead(route)
   }, [route])
+  useScrollFx(route.path)
 
 
   return (

@@ -4,6 +4,8 @@ import { IconWhatsApp, IconMail, IconPin } from '../icons'
 import { brand, waLink, mailLink } from '../brand'
 
 const services = [
+  ['demo', 'A free demo homepage for my business'],
+  ['audit', 'A free check of my website and Google listing'],
   ['website', 'A new website'],
   ['redesign', 'Redesign of my current website'],
   ['marketing', 'Digital marketing'],
@@ -13,6 +15,8 @@ const services = [
 ]
 
 const planToService = {
+  demo: 'demo',
+  audit: 'audit',
   starter: 'website',
   business: 'website',
   custom: 'website',
@@ -22,7 +26,7 @@ const planToService = {
 }
 
 export default function Contact() {
-  const [f, setF] = useState({ name: '', contact: '', service: 'website', message: '', plan: '' })
+  const [f, setF] = useState({ name: '', contact: '', service: 'demo', message: '', plan: '' })
   const [sent, setSent] = useState('')
 
   useEffect(() => {
@@ -36,10 +40,10 @@ export default function Contact() {
   const label = services.find((s) => s[0] === f.service)?.[1]
   const text = () =>
     [
-      `Hi ${brand.name}, I'd like a quote.`,
+      `Hi ${brand.founderShort}, I found ${brand.name} on your website.`,
       `Name: ${f.name || '-'}`,
       `Email / phone: ${f.contact || '-'}`,
-      `Interested in: ${label}${f.plan ? ` (${f.plan} plan)` : ''}`,
+      `Interested in: ${label}${f.plan && !['demo', 'audit'].includes(f.plan) ? ` (${f.plan} plan)` : ''}`,
       `About my project: ${f.message || '-'}`,
     ].join('\n')
 
@@ -60,8 +64,8 @@ export default function Contact() {
     <>
       <PageHero
         crumb="Contact"
-        title="Tell us about your project"
-        lead="Share a few details and we will reply with a clear, no-obligation quote within one business day."
+        title="Tell us about your business"
+        lead="Ask for a free demo homepage, a free check of your current site, or a fixed-price quote. You get a reply within one business day."
       />
       <Section tone="white">
         <div className="nx-contact">
@@ -85,7 +89,7 @@ export default function Contact() {
               </select>
             </label>
             <label>
-              <span>About your business and goals</span>
+              <span>Business name, city and what you want more of</span>
               <textarea name="message" rows="5" value={f.message} onChange={set('message')} />
             </label>
             <div className="nx-form-actions">
@@ -104,6 +108,12 @@ export default function Contact() {
           </form>
 
           <aside className="nx-contact-side">
+            <h2 className="nx-h3">What happens next</h2>
+            <ol className="nx-next">
+              <li>You send this message on WhatsApp or email.</li>
+              <li>{brand.founderShort} replies within one business day with a few questions.</li>
+              <li>For a demo, you get a link to your homepage within 3 working days. No payment, no obligation.</li>
+            </ol>
             <h2 className="nx-h3">Prefer to talk?</h2>
             <ul>
               <li>
