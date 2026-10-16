@@ -6,6 +6,7 @@ import HeroVisual from '../components/HeroVisual'
 import { Link } from '../router'
 import { industries, industryByPath, sectors } from '../demos/industries'
 import { LANGS } from '../demos/locales'
+import { markets } from '../places'
 import { faqs } from '../routes'
 import { brand, waLink } from '../brand'
 import {
@@ -17,10 +18,6 @@ import {
 // Rotates in step with the live device mockup on the right (HeroVisual tabs).
 const words = ['websites', 'online stores', 'booking apps', 'dashboards', 'client portals']
 
-const markets = [
-  ['IN', 'India'], ['AE', 'UAE'], ['SA', 'Saudi Arabia'], ['GB', 'United Kingdom'], ['US', 'United States'],
-  ['AU', 'Australia'], ['SG', 'Singapore'], ['CA', 'Canada'], ['DE', 'Germany'], ['FR', 'France'], ['MY', 'Malaysia'], ['QA', 'Qatar'],
-]
 
 const services = [
   [IconLayout, 'Web design & development', ['Corporate', 'Landing pages', 'Multilingual'], '/websites'],

@@ -120,3 +120,10 @@ export const countries = [
 export const placePath = (p) => `/web-design/${p.slug}`
 export const places = [...cities.map((c) => ({ ...c, kind: 'city' })), ...countries.map((c) => ({ ...c, kind: 'country' }))]
 export const placeByPath = Object.fromEntries(places.map((p) => [placePath(p), p]))
+
+// Countries shown in the home page strip and the footer. `page` links to a country landing page when one exists.
+export const markets = [
+  ['IN', 'India', '/web-design/vijayawada'], ['AE', 'UAE', '/web-design/uae'], ['SA', 'Saudi Arabia'], ['QA', 'Qatar'],
+  ['GB', 'United Kingdom', '/web-design/uk'], ['US', 'United States', '/web-design/usa'], ['CA', 'Canada'],
+  ['AU', 'Australia', '/web-design/australia'], ['SG', 'Singapore'], ['MY', 'Malaysia'], ['DE', 'Germany'], ['FR', 'France'],
+]

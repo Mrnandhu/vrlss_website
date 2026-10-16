@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link } from '../router'
 import Logo, { LogoMark } from './Logo'
-import { IconMenu, IconClose, IconWhatsApp, IconMail } from '../icons'
+import { IconMenu, IconClose, IconWhatsApp, IconMail, IconGlobe, IconLanguage } from '../icons'
+import { LANGS } from '../demos/locales'
 import { brand, waLink, registration } from '../brand'
 import { CurrencySelect } from '../currency'
-import { cities, countries, placePath } from '../places'
+import { markets } from '../places'
 
 const nav = [
   { to: '/', label: 'Home' },
@@ -137,17 +138,25 @@ export default function Layout({ path, children }) {
               <a key={k} href={u} target="_blank" rel="noopener noreferrer">{k.charAt(0).toUpperCase() + k.slice(1)}</a>
             ))}
           </nav>
-          <nav className="st-foot-col" aria-label="Markets">
-            <h3>Markets</h3>
-            {countries.map((c) => <Link key={c.slug} to={placePath(c)}>{c.short}</Link>)}
-            <Link to={placePath(cities[0])}>India</Link>
-          </nav>
         </div>
-        <nav className="nx-wrap nx-foot-places" aria-label="Cities in India">
-          <span>India</span>
-          {cities.map((c) => <Link key={c.slug} to={placePath(c)}>{c.name}</Link>)}
-          <Link to="/te" lang="te">తెలుగు</Link>
-        </nav>
+        <div className="nx-wrap st-foot-reach">
+          <div>
+            <h3><IconGlobe width={16} height={16} /> Countries we serve</h3>
+            <ul className="st-foot-tags">
+              {markets.map(([cc, n, to]) => (
+                <li key={cc}>{to ? <Link to={to}><b>{cc}</b>{n}</Link> : <span><b>{cc}</b>{n}</span>}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3><IconLanguage width={16} height={16} /> Languages we build in</h3>
+            <ul className="st-foot-tags">
+              {Object.entries(LANGS).map(([code, l]) => (
+                <li key={code}><Link to={code === 'en' ? '/work' : `/work?lang=${code}`}>{l.name}{l.dir === 'rtl' && <small>RTL</small>}</Link></li>
+              ))}
+            </ul>
+          </div>
+        </div>
         <div className="nx-wrap nx-footer-base">
           <p>
             © {new Date().getFullYear()} {brand.name}. {brand.location}
