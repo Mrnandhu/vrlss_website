@@ -5,7 +5,7 @@ export const brand = {
   tagline: 'Websites & digital marketing',
   url: 'https://vrlss.in',
   // Free upgrade later: set up hello@vrlss.in with Cloudflare Email Routing (free) and change this one line.
-  email: 'sai.v.7079@gmail.com',
+  email: 'sai@vrlss.in',
   whatsapp: '919515294733',
   phoneDisplay: '+91 95152 94733',
   location: 'Andhra Pradesh, India',
