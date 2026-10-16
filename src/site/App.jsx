@@ -31,6 +31,7 @@ import './demos.css'
 import './demosite.css'
 import './motion.css'
 import './brand.css'
+import './studio.css'
 
 const pages = {
   '/': Home,

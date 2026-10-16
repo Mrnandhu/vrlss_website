@@ -2,14 +2,16 @@ import { Section, Head, FAQ, CtaBand, PlanCard, PageHero, LaunchOffer, Included 
 import { websitePlans, marketingPlans, addons, currencyNote, monthlyPlans, monthlyNote, marketPrices } from '../prices'
 import { faqs } from '../routes'
 import { CurrencySelect, Price } from '../currency'
+import { IconCoins, IconClock, IconKey, IconGlobe } from '../icons'
 
 export default function Pricing() {
   return (
     <>
       <PageHero
         crumb="Pricing"
-        title="Simple, fixed pricing"
-        lead="Know the cost before we start. Website projects have a fixed price, and marketing plans are a flat monthly fee."
+        title="Transparent pricing"
+        lead="Fixed project prices. Flat monthly plans."
+        chips={[[IconCoins, 'Fixed in writing'], [IconClock, 'Pay monthly option'], [IconKey, 'You own everything'], [IconGlobe, '14 currencies']]}
       />
 
       <div className="nx-curbar">

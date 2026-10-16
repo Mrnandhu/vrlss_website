@@ -8,11 +8,11 @@ import { cities, countries, placePath } from '../places'
 
 const nav = [
   { to: '/', label: 'Home' },
-  { to: '/websites', label: 'Websites' },
-  { to: '/digital-marketing', label: 'Digital marketing' },
-  { to: '/pricing', label: 'Pricing' },
+  { to: '/websites', label: 'Development' },
+  { to: '/digital-marketing', label: 'Marketing' },
   { to: '/work', label: 'Work' },
-  { to: '/about', label: 'About' },
+  { to: '/pricing', label: 'Pricing' },
+  { to: '/about', label: 'Studio' },
 ]
 
 export default function Layout({ path, children }) {
@@ -57,7 +57,7 @@ export default function Layout({ path, children }) {
           <div className="nx-header-actions">
             <span className="nx-head-cur"><CurrencySelect id="nx-cur-head" label="Currency" compact /></span>
             <Link to="/contact?plan=demo" className="nx-btn nx-btn-primary nx-btn-sm">
-              <span>Get a free demo</span>
+              <span>Start a project</span>
             </Link>
             <button
               type="button"
@@ -99,54 +99,58 @@ export default function Layout({ path, children }) {
             <IconWhatsApp width={20} height={20} />
             <span>WhatsApp</span>
           </a>
-          <Link to="/contact?plan=demo" className="nx-mbar-demo">Get a free demo</Link>
+          <Link to="/contact?plan=demo" className="nx-mbar-demo">Start a project</Link>
         </nav>
       )}
 
-      <footer className="nx-footer">
-        <div className="nx-wrap nx-foot-top">
-          <div className="nx-foot-brand">
+      <footer className="nx-footer st-foot">
+        <div className="nx-wrap st-foot-grid">
+          <div className="st-foot-brand">
             <Link to="/" className="nx-brand" aria-label={`${brand.name} home`}>
-              <LogoMark size={32} />
-              <span className="nx-logo-text">{brand.name}</span>
+              <Logo height={44} />
             </Link>
-            <p>Websites and marketing for small businesses.</p>
+            <p>Design, engineering and growth for brands worldwide.</p>
+            <div className="st-foot-contact">
+              <a className="nx-foot-btn is-main" href={waLink()} target="_blank" rel="noopener noreferrer">
+                <IconWhatsApp width={18} height={18} /> WhatsApp
+              </a>
+              <a className="nx-foot-btn" href={`mailto:${brand.email}`}>
+                <IconMail width={18} height={18} /> {brand.email}
+              </a>
+            </div>
           </div>
-          <div className="nx-foot-contact">
-            <a className="nx-foot-btn is-main" href={waLink()} target="_blank" rel="noopener noreferrer">
-              <IconWhatsApp width={18} height={18} /> WhatsApp
-            </a>
-            <a className="nx-foot-btn" href={`mailto:${brand.email}`}>
-              <IconMail width={18} height={18} /> Email
-            </a>
-          </div>
+          <nav className="st-foot-col" aria-label="Services">
+            <h3>Services</h3>
+            <Link to="/websites">Web development</Link>
+            <Link to="/websites">E-commerce</Link>
+            <Link to="/work">Web apps &amp; portals</Link>
+            <Link to="/digital-marketing">SEO &amp; marketing</Link>
+            <Link to="/pricing">Care &amp; hosting</Link>
+          </nav>
+          <nav className="st-foot-col" aria-label="Company">
+            <h3>Company</h3>
+            <Link to="/about">Studio</Link>
+            <Link to="/work">Work</Link>
+            <Link to="/pricing">Pricing</Link>
+            <Link to="/contact">Contact</Link>
+            {Object.entries(brand.social).filter(([, u]) => u).map(([k, u]) => (
+              <a key={k} href={u} target="_blank" rel="noopener noreferrer">{k.charAt(0).toUpperCase() + k.slice(1)}</a>
+            ))}
+          </nav>
+          <nav className="st-foot-col" aria-label="Markets">
+            <h3>Markets</h3>
+            {countries.map((c) => <Link key={c.slug} to={placePath(c)}>{c.short}</Link>)}
+            <Link to={placePath(cities[0])}>India</Link>
+          </nav>
         </div>
-        <nav className="nx-wrap nx-foot-links" aria-label="Footer">
-          {[...nav.slice(1), { to: '/contact', label: 'Contact' }].map((n) => (
-            <Link key={n.to} to={n.to}>{n.label}</Link>
-          ))}
-          {Object.entries(brand.social).filter(([, u]) => u).map(([k, u]) => (
-            <a key={k} href={u} target="_blank" rel="noopener noreferrer">{k.charAt(0).toUpperCase() + k.slice(1)}</a>
-          ))}
-        </nav>
-        <nav className="nx-wrap nx-foot-places" aria-label="Areas we serve">
-          <span>Web design in</span>
+        <nav className="nx-wrap nx-foot-places" aria-label="Cities in India">
+          <span>India</span>
           {cities.map((c) => <Link key={c.slug} to={placePath(c)}>{c.name}</Link>)}
-          {countries.map((c) => <Link key={c.slug} to={placePath(c)}>{c.short}</Link>)}
           <Link to="/te" lang="te">తెలుగు</Link>
         </nav>
-        <div className="nx-wordmark" aria-hidden="true">
-          <div className="nx-wm-track" data-marquee="-1" data-speed="0.6">
-            {[0, 1].map((k) => (
-              <span key={k}>
-                <b>VRLS Solutions</b><i /><b>Websites</b><i /><b>Marketing</b><i />
-              </span>
-            ))}
-          </div>
-        </div>
         <div className="nx-wrap nx-footer-base">
           <p>
-            © {new Date().getFullYear()} {brand.name}, {brand.location}
+            © {new Date().getFullYear()} {brand.name}. {brand.location}
             {registration.udyam && <>. Udyam {registration.udyam}</>}
             {registration.gstin && <>. GSTIN {registration.gstin}</>}
           </p>

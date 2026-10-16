@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Section, PageHero } from '../components/Bits'
-import { IconWhatsApp, IconMail, IconPin } from '../icons'
+import { IconWhatsApp, IconMail, IconPin, IconGift, IconClock, IconGlobe } from '../icons'
 import { brand, waLink, mailLink } from '../brand'
 import { industries } from '../demos/industries'
 import { useCurrency, Price } from '../currency'
@@ -77,8 +77,9 @@ export default function Contact() {
     <>
       <PageHero
         crumb="Contact"
-        title="Tell us about your business"
-        lead={`Ask for a free demo homepage, a free check of your current site, or a fixed-price quote. We reply ${brand.reply}, ${brand.hoursShort}.`}
+        title="Start a project"
+        lead={`Free demo, site audit or fixed quote. We reply ${brand.reply}.`}
+        chips={[[IconGift, 'Free first demo'], [IconClock, brand.hoursShort], [IconGlobe, 'Worldwide, remote']]}
       />
       <Section tone="white">
         <div className="nx-contact">

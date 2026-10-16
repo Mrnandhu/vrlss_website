@@ -1,18 +1,18 @@
 import { Section, Head, FAQ, CtaBand, PlanCard, PageHero } from '../components/Bits'
 import { websitePlans } from '../prices'
 import { faqs } from '../routes'
-import { IconCheck, IconCode, IconPhone, IconGlobe } from '../icons'
+import { IconCode, IconPhone, IconGlobe, IconDevices, IconGauge, IconSearch, IconChart, IconWhatsApp, IconLock, IconShield, IconWrench, IconLayout, IconCart, IconLayers, IconLanguage } from '../icons'
 import { Link } from '../router'
 
 const included = [
-  'Mobile-first, responsive design',
-  'Fast loading, optimised images',
-  'SEO foundations and structured data',
-  'Google Analytics and Search Console',
-  'Contact form and WhatsApp button',
-  'Secure HTTPS and clean URLs',
-  'Accessible, readable typography',
-  '30 days of free fixes after launch',
+  [IconDevices, 'Mobile-first design'],
+  [IconGauge, 'Fast loading'],
+  [IconSearch, 'SEO & schema'],
+  [IconChart, 'GA4 & Search Console'],
+  [IconWhatsApp, 'Forms & WhatsApp'],
+  [IconLock, 'HTTPS & clean URLs'],
+  [IconShield, 'Accessible'],
+  [IconWrench, '30 days of fixes'],
 ]
 
 export default function Websites() {
@@ -20,24 +20,25 @@ export default function Websites() {
     <>
       <PageHero
         crumb="Websites"
-        title="Website design and development"
-        lead="A website is your busiest salesperson. We build ones that load quickly, look right on every screen and are set up so search engines can understand them."
+        title="Web development"
+        lead="Fast, secure websites and web apps, built to convert."
+        chips={[[IconLayout, 'Websites'], [IconCart, 'E-commerce'], [IconLayers, 'Web apps'], [IconLanguage, 'Multilingual & RTL']]}
       />
 
       <Section tone="white">
-        <Head title="Included in *every* website" />
-        <ul className="nx-ticks nx-ticks-grid">
-          {included.map((f) => (
-            <li key={f}>
-              <IconCheck width={20} height={20} />
-              <span>{f}</span>
+        <Head title="In every build" />
+        <ul className="ic-grid">
+          {included.map(([Ico, t]) => (
+            <li key={t}>
+              <Ico width={26} height={26} />
+              <span>{t}</span>
             </li>
           ))}
         </ul>
       </Section>
 
       <Section tone="paper">
-        <Head title="Choose a *package*" lead="Fixed prices in US dollars. Final payment is due only when you are happy with the site." />
+        <Head title="Packages" lead="Fixed price. Final payment only when you are happy." />
         <div className="nx-plans">
           {websitePlans.map((p) => (
             <PlanCard key={p.id} plan={p} />
@@ -48,36 +49,36 @@ export default function Websites() {
       <Section tone="white">
         <Head
           title="Beyond websites"
-          lead="Some businesses need more than pages. We also build the software behind them, quoted after a short call."
+          lead="Custom software, quoted after a short call."
         />
         <div className="nx-features nx-features-3">
           <div className="nx-feature">
             <IconGlobe width={26} height={26} />
             <h3>Web applications</h3>
-            <p>Booking systems, customer portals, dashboards and online stores built to your workflow.</p>
+            <p>Bookings, portals, dashboards.</p>
           </div>
           <div className="nx-feature">
             <IconPhone width={26} height={26} />
             <h3>Mobile apps</h3>
-            <p>Apps for iPhone and Android that connect to your business systems.</p>
+            <p>iPhone and Android.</p>
           </div>
           <div className="nx-feature">
             <IconCode width={26} height={26} />
             <h3>Custom software</h3>
-            <p>Internal tools, automation and integrations that save your team time.</p>
+            <p>Internal tools and integrations.</p>
           </div>
         </div>
       </Section>
 
       <Section tone="paper">
-        <Head title="Website questions" align="center" />
+        <Head title="Questions" align="center" />
         <FAQ items={faqs.websites} />
         <p className="nx-center-note">
           Want traffic as well? Add <Link to="/digital-marketing">digital marketing</Link>.
         </p>
       </Section>
 
-      <CtaBand title="Get a quote for your website" />
+      <CtaBand />
     </>
   )
 }

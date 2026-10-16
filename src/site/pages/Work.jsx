@@ -157,7 +157,7 @@ export default function Work() {
             <Link to="/contact?plan=demo" className="wx-start">Start a project <IconArrow width={16} height={16} /></Link>
           </div>
           <h1 className="wx-h1">Demos built for <em>your</em> industry.</h1>
-          <p className="wx-lead">{industries.length} working demo websites across {sectors.length} industries and {langGroups.length + 1} languages, plus {demos.length} apps. Pick your industry or your language, and open any demo on your phone.</p>
+          <p className="wx-lead">{industries.length} live websites · {sectors.length} sectors · {langGroups.length + 1} languages · {demos.length} apps</p>
 
           <div className="wx-mode" role="group" aria-label="Browse demos">
             <button type="button" className={mode === 'ind' ? 'is-on' : ''} aria-pressed={mode === 'ind'} onClick={() => mode !== 'ind' && pickGroup(industryGroups[0].key)}>By industry</button>
@@ -214,7 +214,7 @@ export default function Work() {
           </div>
         </div>
       </section>
-      <CtaBand title="Don’t see your industry?" lead="Tell us about your business and we will build a free demo of your idea before you decide." />
+      <CtaBand title="Don’t see your industry?" lead="We will build a free demo for yours." />
     </>
   )
 }

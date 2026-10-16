@@ -1,11 +1,11 @@
 {
   "name": "VRLS Solutions",
   "short_name": "VRLS",
-  "description": "Websites and digital marketing for small businesses",
+  "description": "Design, engineering and growth for brands worldwide",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#202e53",
-  "theme_color": "#202e53",
+  "background_color": "#0e1628",
+  "theme_color": "#0e1628",
   "icons": [
     { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
     { "src": "/logo-512.png", "sizes": "512x512", "type": "image/png" }

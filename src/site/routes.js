@@ -112,10 +112,10 @@ export const faqs = {
 
 const home = {
   path: '/',
-  title: `${brand.name} | Website Design & Digital Marketing in Andhra Pradesh`,
+  title: `${brand.name} | Web Design, Development & Digital Marketing Studio`,
   description:
-    'Websites and digital marketing for small businesses in India and abroad. See a free demo of your homepage before you pay. Fixed prices, you own everything.',
-  h1: 'Websites, apps and digital marketing that help your business grow',
+    'Design and engineering studio building websites, online stores and web apps for brands worldwide. Free first demo, fixed prices, and you own everything.',
+  h1: 'We build websites, online stores and web apps that grow.',
   nav: 'Home',
 }
 
@@ -126,7 +126,7 @@ const baseRoutes = [
     title: `Website Design & Development Services | ${brand.name}`,
     description:
       'Responsive, fast, SEO-ready websites built for small and growing businesses. Business sites, online stores, web apps and custom software with fixed pricing.',
-    h1: 'Website design and development',
+    h1: 'Web development',
     nav: 'Websites',
     faq: faqs.websites,
     crumb: 'Websites',
@@ -136,7 +136,7 @@ const baseRoutes = [
     title: `Digital Marketing Services for Small Business | ${brand.name}`,
     description:
       'Local SEO, Google Business Profile, social media and paid ads managed for you. Monthly plans with clear reporting and no long contracts.',
-    h1: 'Digital marketing for small and growing businesses',
+    h1: 'Digital marketing',
     nav: 'Digital marketing',
     faq: faqs.marketing,
     crumb: 'Digital marketing',
@@ -146,7 +146,7 @@ const baseRoutes = [
     title: `Pricing: Website & Digital Marketing Packages | ${brand.name}`,
     description:
       `Website packages from $${websitePlans[0].price} and monthly digital marketing plans from $${marketingPlans[0].price}. Transparent fixed prices with no hidden costs.`,
-    h1: 'Simple, fixed pricing',
+    h1: 'Transparent pricing',
     nav: 'Pricing',
     faq: faqs.pricing,
     crumb: 'Pricing',
@@ -162,18 +162,18 @@ const baseRoutes = [
   },
   {
     path: '/about',
-    title: `About ${brand.name} | Web Design & Marketing Studio in Andhra Pradesh`,
-    description: `${brand.name} is a small web design and digital marketing studio in ${brand.location}, founded by ${brand.founder}. Free demo first, fixed prices, and you work directly with the people doing the work.`,
-    h1: `About ${brand.name}`,
-    nav: 'About',
-    crumb: 'About',
+    title: `Studio | ${brand.name}: Design, Engineering & Growth`,
+    description: `${brand.name} is a design and engineering studio based in ${brand.location}, working with clients worldwide. Founded by ${brand.founder}. Free demo first, fixed prices, no hand-offs.`,
+    h1: 'A focused studio for the web.',
+    nav: 'Studio',
+    crumb: 'Studio',
   },
   {
     path: '/contact',
-    title: `Contact ${brand.name} | Get a Free Website Demo`,
+    title: `Start a Project | ${brand.name}`,
     description:
       'Ask for a free demo homepage, a free website check or a fixed-price quote. Replies within 2 hours (9 am to 9 pm IST) on WhatsApp or email.',
-    h1: 'Tell us about your business',
+    h1: 'Start a project',
     nav: 'Contact',
     crumb: 'Contact',
   },

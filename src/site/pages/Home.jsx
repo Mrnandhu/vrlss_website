@@ -1,199 +1,300 @@
-import { Section, Head, Button, FAQ, CtaBand, LaunchOffer, Words, ProofLine, Included, Reviews, CaseStudies } from '../components/Bits'
+import { useEffect, useState } from 'react'
+import { FAQ, Reviews, CaseStudies } from '../components/Bits'
 import { Price } from '../currency'
-import { websitePlans } from '../prices'
+import { websitePlans, monthlyPlans, currencies } from '../prices'
 import HeroVisual from '../components/HeroVisual'
 import { Link } from '../router'
-import { Glyph } from '../demos/Scene'
 import { industries, industryByPath, sectors } from '../demos/industries'
+import { LANGS } from '../demos/locales'
 import { faqs } from '../routes'
-import { IconArrow } from '../icons'
+import { brand, waLink } from '../brand'
+import {
+  IconArrow, IconWhatsApp, IconLayout, IconCart, IconLayers, IconSearch, IconMegaphone, IconWrench, IconGift, IconCoins, IconKey,
+  IconClock, IconCompass, IconPalette, IconCode, IconRocket, IconGauge, IconShield, IconLock, IconLanguage, IconDevices, IconChart,
+  IconFood, IconHeart, IconSparkle, IconCap, IconBag, IconHome, IconBriefcase, IconBuilding, IconPlane, IconCar, IconFactory, IconLeaf, IconUsers, IconGlobe,
+} from '../icons'
 
-const headline = 'Websites that bring you customers'
-const statement = 'Your customers decide in seconds. We make sure they choose you.'.split(' ')
+// Rotates in step with the live device mockup on the right (HeroVisual tabs).
+const words = ['websites', 'online stores', 'booking apps', 'dashboards', 'client portals']
 
-const showcase = ['/work/websites/restaurant', '/work/websites/salon-spa', '/work/websites/real-estate', '/work/websites/school-coaching']
-  .map((p) => industryByPath[p])
-  .filter(Boolean)
+const markets = [
+  ['IN', 'India'], ['AE', 'UAE'], ['SA', 'Saudi Arabia'], ['GB', 'United Kingdom'], ['US', 'United States'],
+  ['AU', 'Australia'], ['SG', 'Singapore'], ['CA', 'Canada'], ['DE', 'Germany'], ['FR', 'France'], ['MY', 'Malaysia'], ['QA', 'Qatar'],
+]
 
 const services = [
-  ['Websites', 'Fast, mobile-first sites that turn visitors into enquiries.', '/websites'],
-  ['Online stores and bookings', 'Sell and take bookings online, without paying commission.', '/websites'],
-  ['Google and local SEO', 'Be the business people find when they search nearby.', '/digital-marketing'],
-  ['Social media and ads', 'Posts and ads that bring the right people to your door.', '/digital-marketing'],
-  ['Care and growth', 'Monthly updates, so your site keeps working for you.', '/pricing'],
+  [IconLayout, 'Web design & development', ['Corporate', 'Landing pages', 'Multilingual'], '/websites'],
+  [IconCart, 'E-commerce', ['Stores', 'Payments', 'Catalogues'], '/websites'],
+  [IconLayers, 'Web apps & portals', ['Bookings', 'Dashboards', 'CRM'], '/work'],
+  [IconSearch, 'SEO & performance', ['Technical SEO', 'Core Web Vitals', 'Local'], '/digital-marketing'],
+  [IconMegaphone, 'Digital marketing', ['Google Ads', 'Meta Ads', 'Social'], '/digital-marketing'],
+  [IconWrench, 'Care & hosting', ['Updates', 'Backups', 'Uptime'], '/pricing'],
 ]
 
-const steps = [
-  ['Message us', 'Send your business name and city on WhatsApp.'],
-  ['See your free demo', 'Get a working homepage for your business in 3 days. Free, no obligation.'],
-  ['Approve and launch', 'Like it? Pay 50% and we launch the full site.'],
+const promises = [
+  [IconGift, 'Free demo first'],
+  [IconCoins, 'Fixed price'],
+  [IconKey, 'You own the code'],
+  [IconClock, `Replies ${brand.reply}`],
 ]
 
-const pad = (n) => String(n).padStart(2, '0')
-const half = Math.ceil(industries.length / 2)
-const streams = [industries.slice(0, half), industries.slice(half)]
+const process = [
+  [IconCompass, 'Discover', 'Goals, audience, scope'],
+  [IconPalette, 'Design', 'A free homepage demo'],
+  [IconCode, 'Build', 'Fast, secure, tested'],
+  [IconRocket, 'Launch & grow', 'SEO, ads, care'],
+]
 
-function Capsule({ x, hidden }) {
+const standards = [
+  [IconGauge, '90+', 'PageSpeed target'],
+  [IconDevices, 'Mobile-first', 'Every screen size'],
+  [IconShield, 'WCAG', 'Accessible by design'],
+  [IconLock, 'HTTPS', 'Security headers'],
+  [IconLanguage, 'RTL ready', 'Arabic & multilingual'],
+  [IconChart, 'Analytics', 'GA4 & Search Console'],
+]
+
+const sectorIcon = {
+  food: IconFood, health: IconHeart, beauty: IconSparkle, education: IconCap, retail: IconBag, home: IconHome, pro: IconBriefcase,
+  property: IconBuilding, travel: IconPlane, auto: IconCar, industry: IconFactory, agri: IconLeaf, community: IconUsers,
+}
+
+const showcase = ['/work/websites/restaurant', '/work/websites/real-estate', '/work/websites/salon-spa', '/work/websites/interior-design']
+  .map((p) => industryByPath[p])
+  .filter((x) => x && x.img)
+  .slice(0, 4)
+
+function RotatingWord() {
+  const [i, setI] = useState(0)
+  useEffect(() => {
+    const on = (e) => setI(e.detail % words.length)
+    window.addEventListener('vrlss:shown', on)
+    return () => window.removeEventListener('vrlss:shown', on)
+  }, [])
   return (
-    <Link to={x.path} className="is-cap" {...(hidden ? { tabIndex: -1, 'aria-hidden': 'true' } : {})}>
-      <span className="is-ico"><Glyph name={x.glyph} /></span>
-      <span className="is-txt"><b>{x.cat}</b><small>Live demo</small></span>
-      <span className="is-go" aria-hidden="true"><IconArrow width={16} height={16} /></span>
-    </Link>
+    <span className="st-rot" aria-hidden="true">
+      {words.map((w, k) => <span key={w} className={k === i ? 'on' : ''}>{w}</span>)}
+      <span className="st-rot-size">{words[i]}</span>
+    </span>
   )
 }
 
+function Eyebrow({ children }) {
+  return <p className="st-eyebrow"><i aria-hidden="true" />{children}</p>
+}
+
 export default function Home() {
+  const nLangs = Object.keys(LANGS).length
   return (
     <>
-      <section className="nx-hero hm-hero">
-        <div className="nx-wrap nx-hero-grid">
-          <div className="nx-hero-copy">
-            <p className="nx-pill">Web design studio, Andhra Pradesh</p>
-            <h1 className="nx-h1 hm-h1" aria-label={headline}>
-              <span aria-hidden="true"><Words text={headline} /></span>
+      {/* ---------- Hero ---------- */}
+      <section className="st-hero hm-hero">
+        <div className="nx-wrap st-hero-grid">
+          <div className="st-hero-copy">
+            <p className="st-badge"><span className="st-dot" aria-hidden="true" />Design &amp; engineering studio <b>·</b> Worldwide</p>
+            <h1 className="st-h1" aria-label="We build websites, online stores and web apps that grow.">
+              <span className="st-l1">We build</span>
+              <RotatingWord />
+              <span className="st-l3">that grow.</span>
             </h1>
-            <p className="nx-lead nx-hero-lead">
-              See a free demo of your new homepage before you pay anything. Websites from <strong className="hm-from"><Price usd={websitePlans[0].price} inr={websitePlans[0].inr} /></strong>.
-            </p>
-            <div className="nx-hero-actions">
-              <Button to="/contact?plan=demo">Get a free demo</Button>
-              <Button to="/work" variant="outline">See our work</Button>
+            <p className="st-lead">Design, engineering and marketing for ambitious brands worldwide.</p>
+            <div className="st-actions">
+              <Link to="/contact?plan=demo" className="nx-btn nx-btn-primary st-btn-xl"><span>Start a project</span><IconArrow width={18} height={18} /></Link>
+              <Link to="/work" className="nx-btn nx-btn-outline st-btn-xl"><span>View our work</span></Link>
             </div>
-            <ProofLine demos={industries.length} />
+            <ul className="st-promise">
+              {promises.map(([Ico, t]) => <li key={t}><Ico width={18} height={18} /><span>{t}</span></li>)}
+            </ul>
           </div>
-          <HeroVisual />
+          <div className="st-hero-visual"><HeroVisual /></div>
         </div>
-      </section>
-
-      <section className="hm-ring hm-stream" aria-labelledby="ring-h">
-        <div className="nx-wrap hm-ring-head">
-          <h2 className="nx-h2" id="ring-h"><Words text={`Built for ${industries.length} industries`} /></h2>
-          <Button to="/work" variant="outline">Find yours</Button>
-        </div>
-        <div className="is-stream">
-          {streams.map((row, r) => (
-            <div className="is-row" key={r}>
-              <div className="is-track" data-marquee={r ? '1' : '-1'} data-speed="0.35">
-                {[0, 1].map((copy) => (
-                  <span className="is-set" key={copy}>
-                    {row.map((x) => <Capsule key={x.slug} x={x} hidden={copy === 1} />)}
-                  </span>
-                ))}
-              </div>
+        <div className="st-markets" aria-label="Where we work">
+          <span className="st-markets-label"><IconGlobe width={16} height={16} /> Available in</span>
+          <div className="st-mq">
+            <div className="st-mq-track" data-marquee="-1" data-speed="0.4">
+              {[0, 1].map((k) => (
+                <span key={k} className="st-mq-set" {...(k ? { 'aria-hidden': 'true' } : {})}>
+                  {markets.map(([cc, n]) => <span key={cc} className="st-mk"><span className="st-cc" aria-hidden="true">{cc}</span>{n}</span>)}
+                </span>
+              ))}
             </div>
-          ))}
-        </div>
-        <p className="nx-wrap is-note"><span>{industries.length} industries</span><i /><span>{sectors.length} sectors</span><i /><span>A live demo for each</span></p>
-        <div className="nx-wrap sx-grid">
-          {sectors.map(([k, label]) => {
-            const n = industries.filter((x) => x.sector === k).length
-            return (
-              <Link key={k} to={`/work?sector=${k}`} className="sx-tile">
-                <strong>{label}</strong>
-                <span>{n} demo{n === 1 ? '' : 's'}</span>
-                <IconArrow width={16} height={16} />
-              </Link>
-            )
-          })}
+          </div>
         </div>
       </section>
 
-      <section className="mf" aria-label="Our approach">
-        <div className="nx-wrap">
-          <p className="mf-text" data-fill aria-label={statement.join(' ')}>
-            {statement.map((w, i) => (
-              <span key={i} className="mf-w" aria-hidden="true">{w}{' '}</span>
-            ))}
-          </p>
+      {/* ---------- Numbers ---------- */}
+      <section className="st-stats" aria-label="At a glance">
+        <div className="nx-wrap st-stats-grid">
+          <div><b><span data-count={industries.length}>{industries.length}</span></b><span>Industry demos</span></div>
+          <div><b><span data-count={nLangs}>{nLangs}</span></b><span>Languages, incl. Arabic</span></div>
+          <div><b><span data-count={currencies.length}>{currencies.length}</span></b><span>Currencies</span></div>
+          <div><b><span data-count="3">3</span><small>days</small></b><span>To your first demo</span></div>
         </div>
       </section>
 
-      <section className="nx-section hm-cases" aria-labelledby="cases-h">
+      {/* ---------- Services ---------- */}
+      <section className="st-sec" aria-labelledby="svc-h">
         <div className="nx-wrap">
-          <header className="nx-head hm-cases-head">
-            <h2 className="nx-h2" id="cases-h"><Words text="Demo sites to explore" /></h2>
+          <header className="st-head">
+            <Eyebrow>Capabilities</Eyebrow>
+            <h2 className="st-h2" id="svc-h">One team, end to end.</h2>
           </header>
-          <div className="hm-case-grid">
-            {showcase.map((s, i) => (
-              <Link key={s.slug} to={s.path} className={`hm-case hm-case-${i}`} data-sp>
-                <span className="hm-case-media">
-                  <img src={`/assets/photos/${s.img}.webp`} alt="" loading="lazy" decoding="async" width="1000" height="667" />
-                </span>
-                <span className="hm-case-meta">
-                  <strong>{s.name}</strong>
-                  <span className="hm-case-cat">{s.cat}</span>
-                </span>
+          <div className="st-svc">
+            {services.map(([Ico, t, tags, to], i) => (
+              <Link key={t} to={to} className="st-card st-svc-card" style={{ '--k': i }}>
+                <span className="st-ico"><Ico width={26} height={26} /></span>
+                <strong>{t}</strong>
+                <span className="st-tags">{tags.map((g) => <i key={g}>{g}</i>)}</span>
+                <span className="st-go" aria-hidden="true"><IconArrow width={18} height={18} /></span>
               </Link>
             ))}
-          </div>
-          <div className="hm-cases-more">
-            <Button to="/work" variant="outline">See all {industries.length} demos</Button>
           </div>
         </div>
       </section>
 
-      <section className="nx-section hm-svc" aria-label="Services">
+      {/* ---------- Work ---------- */}
+      <section className="st-sec st-dark" aria-labelledby="work-h">
         <div className="nx-wrap">
-          <Head title="What we do" />
-          <div className="hm-svc-stack" data-stack>
-            {services.map(([name, text, to], i) => (
-              <Link key={name} to={to} className={`hm-svc-card c${i}`} style={{ '--i': i }}>
-                <span className="hm-svc-n">{pad(i + 1)}</span>
-                <span className="hm-svc-body">
-                  <strong>{name}</strong>
-                  <span>{text}</span>
+          <header className="st-head st-head-row">
+            <div>
+              <Eyebrow>Selected work</Eyebrow>
+              <h2 className="st-h2" id="work-h">See it live. Not in slides.</h2>
+            </div>
+            <Link to="/work" className="nx-btn nx-btn-outline"><span>All {industries.length} demos</span><IconArrow width={18} height={18} /></Link>
+          </header>
+          <div className="st-work">
+            {showcase.map((s, i) => (
+              <Link key={s.slug} to={s.path} className={`st-shot st-shot-${i}`}>
+                <img src={`/assets/photos/${s.img}.webp`} alt="" loading="lazy" decoding="async" width="1000" height="667" />
+                <span className="st-shot-meta">
+                  <i>{s.cat}</i>
+                  <strong>{s.name}</strong>
                 </span>
-                <span className="hm-svc-go" aria-hidden="true"><IconArrow width={22} height={22} /></span>
+                <span className="st-shot-go" aria-hidden="true"><IconArrow width={20} height={20} /></span>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <Section tone="white" className="hm-inc">
-        <Included />
-      </Section>
+      {/* ---------- Industries ---------- */}
+      <section className="st-sec" aria-labelledby="ind-h">
+        <div className="nx-wrap">
+          <header className="st-head st-head-center">
+            <Eyebrow>Industries</Eyebrow>
+            <h2 className="st-h2" id="ind-h">Built for {sectors.length} sectors.</h2>
+          </header>
+          <div className="st-ind">
+            {sectors.map(([k, label]) => {
+              const Ico = sectorIcon[k] || IconBriefcase
+              const n = industries.filter((x) => x.sector === k).length
+              return (
+                <Link key={k} to={`/work?sector=${k}`} className="st-ind-tile">
+                  <Ico width={24} height={24} />
+                  <strong>{label}</strong>
+                  <span>{n} demo{n === 1 ? '' : 's'}</span>
+                </Link>
+              )
+            })}
+            <Link to="/work" className="st-ind-tile st-ind-all">
+              <IconArrow width={24} height={24} />
+              <strong>All {industries.length} demos</strong>
+              <span>Open the gallery</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- Process ---------- */}
+      <section className="st-sec st-soft" aria-labelledby="flow-h">
+        <div className="nx-wrap">
+          <header className="st-head st-head-center">
+            <Eyebrow>How we work</Eyebrow>
+            <h2 className="st-h2" id="flow-h">Four steps to launch.</h2>
+          </header>
+          <ol className="st-flow">
+            {process.map(([Ico, t, d], i) => (
+              <li key={t}>
+                <span className="st-flow-ico"><Ico width={26} height={26} /><b>{String(i + 1).padStart(2, '0')}</b></span>
+                <strong>{t}</strong>
+                <span>{d}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* ---------- Standards ---------- */}
+      <section className="st-sec st-dark st-std" aria-labelledby="std-h">
+        <div className="nx-wrap st-std-grid">
+          <header className="st-head">
+            <Eyebrow>Engineering standards</Eyebrow>
+            <h2 className="st-h2" id="std-h">Built to global standards.</h2>
+            <p className="st-sub">Every project, every budget.</p>
+          </header>
+          <ul className="st-std-list">
+            {standards.map(([Ico, b, s]) => (
+              <li key={b}><Ico width={24} height={24} /><b>{b}</b><span>{s}</span></li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* ---------- Engagement ---------- */}
+      <section className="st-sec" aria-labelledby="eng-h">
+        <div className="nx-wrap">
+          <header className="st-head st-head-center">
+            <Eyebrow>Engagement</Eyebrow>
+            <h2 className="st-h2" id="eng-h">Transparent pricing.</h2>
+          </header>
+          <div className="st-eng">
+            <Link to="/pricing" className="st-card st-eng-card">
+              <span className="st-ico"><IconRocket width={24} height={24} /></span>
+              <strong>Project</strong>
+              <span className="st-eng-price"><small>from</small> <Price usd={websitePlans[0].price} inr={websitePlans[0].inr} /></span>
+              <span className="st-eng-note">One-time, fixed price</span>
+            </Link>
+            <Link to="/pricing#monthly" className="st-card st-eng-card is-hot">
+              <span className="st-ico"><IconClock width={24} height={24} /></span>
+              <strong>Monthly</strong>
+              <span className="st-eng-price"><small>from</small> <Price usd={monthlyPlans[0].price} /><small>/mo</small></span>
+              <span className="st-eng-note">Build, hosting and care</span>
+            </Link>
+            <Link to="/contact?plan=custom" className="st-card st-eng-card">
+              <span className="st-ico"><IconLayers width={24} height={24} /></span>
+              <strong>Custom</strong>
+              <span className="st-eng-price"><small>from</small> <Price usd={websitePlans[2].price} inr={websitePlans[2].inr} /></span>
+              <span className="st-eng-note">Stores, apps and portals</span>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <CaseStudies />
       <Reviews />
 
-      <section className="nx-section hm-flow" aria-labelledby="flow-h">
-        <div className="nx-wrap hm-flow-grid">
-          <header className="nx-head hm-flow-head">
-            <h2 className="nx-h2" id="flow-h"><Words text="How it works" /></h2>
+      {/* ---------- FAQ ---------- */}
+      <section className="st-sec st-soft" aria-labelledby="faq-h">
+        <div className="nx-wrap st-faq">
+          <header className="st-head">
+            <Eyebrow>FAQ</Eyebrow>
+            <h2 className="st-h2" id="faq-h">Questions, answered.</h2>
           </header>
-          <div className="hm-steps-wrap" data-sp data-steps>
-            <span className="hm-rail" aria-hidden="true"><i /></span>
-            <ol className="hm-steps">
-              {steps.map(([t, d], i) => (
-                <li key={t}>
-                  <span className="hm-step-n" aria-hidden="true">{i + 1}</span>
-                  <div>
-                    <h3>{t}</h3>
-                    <p>{d}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
+          <FAQ items={[6, 2, 3, 4, 5, 1].map((i) => faqs.general[i]).filter(Boolean)} />
         </div>
       </section>
 
-      <section className="hm-offer" data-sp aria-label="Founding client offer">
-        <div className="hm-offer-card">
-          <div className="nx-wrap">
-            <LaunchOffer />
+      {/* ---------- Final CTA ---------- */}
+      <section className="st-final" aria-labelledby="go-h">
+        <div className="nx-wrap st-final-inner">
+          <h2 className="st-final-h" id="go-h">Let's build what's next.</h2>
+          <p className="st-lead">Your first demo is free.</p>
+          <div className="st-actions">
+            <Link to="/contact?plan=demo" className="nx-btn nx-btn-primary st-btn-xl"><span>Start a project</span><IconArrow width={18} height={18} /></Link>
+            <a className="nx-btn nx-btn-outline st-btn-xl" href={waLink()} target="_blank" rel="noopener noreferrer"><IconWhatsApp width={20} height={20} /><span>WhatsApp</span></a>
           </div>
         </div>
       </section>
-
-      <Section tone="white">
-        <Head title="Questions" align="center" />
-        <FAQ items={faqs.general.slice(0, 8)} />
-      </Section>
-
-      <CtaBand title="Ready to see your new website?" lead="Send your business name on WhatsApp. The first demo is free." />
     </>
   )
 }

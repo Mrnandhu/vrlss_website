@@ -105,7 +105,7 @@ export function PlanCard({ plan, cta = 'Get started', unit }) {
   )
 }
 
-export function CtaBand({ title = 'See your business online before you decide', lead = 'Send your business name and city. We reply within one business day, and the first demo is free.' }) {
+export function CtaBand({ title = "Let's build what's next.", lead = 'Your first demo is free. We reply ' + brand.reply + '.' }) {
   return (
     <section className="nx-cta">
       <div className="nx-wrap nx-cta-inner">
@@ -114,12 +114,12 @@ export function CtaBand({ title = 'See your business online before you decide', 
           <p className="nx-lead">{lead}</p>
         </div>
         <div className="nx-cta-actions">
-          <Button to="/contact?plan=demo" variant="light">
-            Get a free demo
+          <Button to="/contact?plan=demo" icon>
+            Start a project
           </Button>
-          <a className="nx-btn nx-btn-ghost" href={waLink()} target="_blank" rel="noopener noreferrer">
+          <a className="nx-btn nx-btn-outline" href={waLink()} target="_blank" rel="noopener noreferrer">
             <IconWhatsApp width={20} height={20} />
-            <span>Chat on WhatsApp</span>
+            <span>WhatsApp</span>
           </a>
         </div>
       </div>
@@ -130,7 +130,7 @@ export function CtaBand({ title = 'See your business online before you decide', 
 export const contactName = brand.name
 
 
-export function PageHero({ crumb, title, lead }) {
+export function PageHero({ crumb, title, lead, chips }) {
   return (
     <section className="nx-pagehero">
       <div className="nx-wrap">
@@ -143,6 +143,11 @@ export function PageHero({ crumb, title, lead }) {
         )}
         <h1 className="nx-h1 ph-h1"><Words text={title} /></h1>
         {lead && <p className="nx-lead">{lead}</p>}
+        {chips && (
+          <ul className="ph-chips">
+            {chips.map(([Ico, t]) => <li key={t}><Ico width={18} height={18} /><span>{t}</span></li>)}
+          </ul>
+        )}
       </div>
     </section>
   )
@@ -155,12 +160,12 @@ export function LaunchOffer({ compact = false }) {
   const promises = [
     'Free demo before you pay',
     `${launch.discount}% off for our first ${launch.total} clients`,
-    `Talk directly to ${brand.founderShort}, who builds your site`,
+    'Direct line to the people building it',
   ]
   return (
     <div className={`lo${compact ? ' lo-compact' : ''}`}>
       <div className="lo-copy">
-        <h2 className="lo-h"><Words text={full ? 'Our founding spots are taken' : 'We are new, so we take the risk'} /></h2>
+        <h2 className="lo-h"><Words text={full ? 'Our founding spots are taken' : 'Founding client offer'} /></h2>
         {full && <p>Thank you to our founding clients. Ask us about current rates.</p>}
         {showCount && !full && <p className="lo-count">{left} of {launch.total} founding spots left</p>}
         {!full && (
@@ -170,7 +175,7 @@ export function LaunchOffer({ compact = false }) {
         )}
         {!compact && (
           <div className="lo-actions">
-            <Button to="/contact?plan=demo">Get a free demo</Button>
+            <Button to="/contact?plan=demo" icon>Start a project</Button>
           </div>
         )}
       </div>

@@ -1,72 +1,72 @@
-import { Section, Head, CtaBand, PageHero, LaunchOffer, Team, Reviews } from '../components/Bits'
-import { LogoMark } from '../components/Logo'
+import { Section, Head, CtaBand, PageHero, Team, Reviews } from '../components/Bits'
 import { brand, registration } from '../brand'
+import { industries } from '../demos/industries'
+import { IconCoins, IconChat, IconTarget, IconKey, IconPin, IconGlobe, IconClock, IconLayers, IconUsers, IconEye } from '../icons'
 
-const promises = [
-  ['Clear prices', 'You agree the cost in writing before any work starts. No surprises later.'],
-  ['Plain language', 'We explain what we are doing and why, without jargon.'],
-  ['Honest results', 'We never promise rankings or sales we cannot control.'],
-  ['Your ownership', 'Your domain, accounts, code and content are in your name from day one.'],
+const values = [
+  [IconCoins, 'Clear prices', 'Agreed in writing first.'],
+  [IconChat, 'Plain language', 'No jargon, ever.'],
+  [IconTarget, 'Honest results', 'No promises we cannot keep.'],
+  [IconKey, 'Your ownership', 'Domain, code and accounts.'],
+]
+
+const facts = [
+  [IconPin, 'Based in', brand.location],
+  [IconGlobe, 'Working', 'Remote, worldwide'],
+  [IconClock, 'Replies', brand.reply.charAt(0).toUpperCase() + brand.reply.slice(1)],
+  [IconLayers, 'Live demos', `${industries.length} industries`],
 ]
 
 const oneVsAgency = [
-  ['Who you talk to', 'The people building and marketing your site', 'An account manager who passes messages on'],
-  ['What it costs', 'Fixed price, no office overheads', 'Higher fees that cover a larger team'],
-  ['How fast changes happen', 'Usually the same or next day', 'Queued behind other clients'],
-  ['What you should check', 'Our demos and the free demo of your own site', 'Their portfolio and reviews'],
+  ['Who you talk to', 'The people doing the work', 'An account manager'],
+  ['What it costs', 'Fixed, no overheads', 'Higher, covers a large team'],
+  ['Change requests', 'Same or next day', 'Queued'],
+  ['How to judge us', 'A free demo of your site', 'Portfolio and reviews'],
 ]
 
 export default function About() {
   return (
     <>
       <PageHero
-        crumb="About"
-        title={`About ${brand.name}`}
-        lead={`A small web design and marketing studio in ${brand.location}. We build your website, then help customers find it.`}
+        crumb="Studio"
+        title="A focused studio for the web."
+        lead="Design, engineering and marketing under one roof."
+        chips={[[IconUsers, 'Specialist team'], [IconEye, 'See work before you pay'], [IconGlobe, 'Clients worldwide welcome']]}
       />
-      <Section tone="white">
-        <div className="nx-about">
-          <div>
-            <h2 className="nx-h2">Why this studio exists</h2>
-            <p>
-              Most small businesses are sold packages they do not understand, by agencies they never hear from again.{' '}
-              {brand.name} offers the opposite: a small team that builds your website and markets it, with a fixed price
-              and a direct WhatsApp line.
-            </p>
-            <p>
-              {brand.name} was founded in 2026 by {brand.founder}, a developer in {brand.location}. Before taking a
-              single client, he built working demo websites for 46 industries, from restaurants and clinics to exporters
-              and law firms. You can try every one of them on the Work page.
-            </p>
-            <p>
-              We are new and our client list is still short. That is why every project starts with a free demo of your
-              own homepage. You judge the work itself, not a promise.
-            </p>
-          </div>
-          <aside className="nx-card-founder">
-            <LogoMark size={56} />
-            <strong>{brand.name}</strong>
-            <span>Web design and digital marketing</span>
-            <span className="nx-card-meta">{brand.location}</span>
-            <span className="nx-card-meta">Replies {brand.reply}, {brand.hoursShort}</span>
-            {registration.udyam && <span className="nx-card-meta">Udyam {registration.udyam}</span>}
-          </aside>
+
+      <section className="ab-facts" aria-label="Studio facts">
+        <div className="nx-wrap ab-facts-grid">
+          {facts.map(([Ico, k, v]) => (
+            <div key={k}><Ico width={22} height={22} /><span>{k}</span><b>{v}</b></div>
+          ))}
         </div>
-      </Section>
+      </section>
+
       <Section tone="white">
-        <Head title="Who you work with" lead="Two people, no hand-offs. You always talk to the person doing the work." />
+        <Head title="What we stand for" />
+        <ul className="ab-values">
+          {values.map(([Ico, t, d]) => (
+            <li key={t}>
+              <span className="st-ico"><Ico width={24} height={24} /></span>
+              <strong>{t}</strong>
+              <span>{d}</span>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <Section tone="paper">
+        <Head title="The team" lead="No hand-offs. You talk to the people doing the work." />
         <Team />
       </Section>
-      <Section tone="paper">
-        <Head
-          title="A small studio, compared with an agency"
-          lead="Neither is right for everyone. Here is the honest difference."
-        />
-        <div className="nx-compare" role="table" aria-label="A small studio compared with an agency">
+
+      <Section tone="white">
+        <Head title="Studio vs. agency" />
+        <div className="nx-compare" role="table" aria-label="Our studio compared with a typical agency">
           <div className="nx-compare-row nx-compare-head" role="row">
             <span role="columnheader"><span className="nx-sr">Question</span></span>
             <span role="columnheader">{brand.name}</span>
-            <span role="columnheader">A typical agency</span>
+            <span role="columnheader">Typical agency</span>
           </div>
           {oneVsAgency.map(([q, us, them]) => (
             <div className="nx-compare-row" role="row" key={q}>
@@ -76,23 +76,11 @@ export default function About() {
             </div>
           ))}
         </div>
+        {registration.udyam && <p className="nx-fine">Udyam {registration.udyam}</p>}
       </Section>
-      <Section tone="white">
-        <Head title="What we promise every client" />
-        <div className="nx-features">
-          {promises.map(([t, d]) => (
-            <div className="nx-feature" key={t}>
-              <h3>{t}</h3>
-              <p>{d}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
+
       <Reviews />
-      <Section tone="ink">
-        <LaunchOffer />
-      </Section>
-      <CtaBand title="Work with us" />
+      <CtaBand />
     </>
   )
 }

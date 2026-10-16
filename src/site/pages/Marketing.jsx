@@ -1,14 +1,14 @@
 import { Section, Head, FAQ, CtaBand, PlanCard, PageHero } from '../components/Bits'
 import { marketingPlans } from '../prices'
 import { faqs } from '../routes'
-import { IconPin, IconChat, IconSearch, IconMegaphone, IconChart } from '../icons'
+import { IconPin, IconChat, IconSearch, IconMegaphone, IconChart, IconTarget } from '../icons'
 
 const services = [
-  [IconPin, 'Google Business Profile', 'Keep your listing complete, accurate and active so local customers find and trust you.'],
-  [IconSearch, 'Search engine optimisation', 'Pages and articles that match what your customers actually search for.'],
-  [IconChat, 'Social media', 'Consistent, well-designed posts and replies on the channels your customers use.'],
-  [IconMegaphone, 'Paid advertising', 'Google and Meta campaigns with tracking, so every dollar of ad budget is accountable.'],
-  [IconChart, 'Reporting', 'A plain-English report each month: what we did, what happened and what comes next.'],
+  [IconPin, 'Google Business Profile', 'Found and trusted on Maps.'],
+  [IconSearch, 'Search engine optimisation', 'Rank for what buyers search.'],
+  [IconChat, 'Social media', 'Consistent, on-brand posts.'],
+  [IconMegaphone, 'Paid advertising', 'Google & Meta, fully tracked.'],
+  [IconChart, 'Reporting', 'Clear monthly numbers.'],
 ]
 
 export default function Marketing() {
@@ -16,8 +16,9 @@ export default function Marketing() {
     <>
       <PageHero
         crumb="Digital marketing"
-        title="Digital marketing for small and growing businesses"
-        lead="Get found when customers search, stay active where they look and know what your marketing is doing. Monthly plans, no long contracts."
+        title="Digital marketing"
+        lead="Be found. Get chosen. Measure everything."
+        chips={[[IconSearch, 'SEO'], [IconMegaphone, 'Google & Meta Ads'], [IconChat, 'Social'], [IconTarget, 'No long contracts']]}
       />
 
       <Section tone="white">
@@ -51,22 +52,22 @@ export default function Marketing() {
 
       <Section tone="ink">
         <div className="nx-promise">
-          <h2 className="nx-h2">What we promise, and what we do not</h2>
+          <h2 className="nx-h2">Straight talk</h2>
           <div className="nx-promise-cols">
             <div>
               <h3>We promise</h3>
               <ul>
-                <li>The agreed work done on time, every month</li>
-                <li>Honest reporting, including when something is not working</li>
-                <li>You keep ownership of every account</li>
+                <li>Work delivered on time</li>
+                <li>Honest reporting</li>
+                <li>You own every account</li>
               </ul>
             </div>
             <div>
               <h3>We do not promise</h3>
               <ul>
-                <li>Guaranteed rankings or a set number of sales</li>
-                <li>Overnight results from organic work</li>
-                <li>Anything we cannot control</li>
+                <li>Guaranteed rankings</li>
+                <li>Overnight results</li>
+                <li>What we cannot control</li>
               </ul>
             </div>
           </div>
@@ -74,11 +75,11 @@ export default function Marketing() {
       </Section>
 
       <Section tone="white">
-        <Head title="Marketing questions" align="center" />
+        <Head title="Questions" align="center" />
         <FAQ items={faqs.marketing} />
       </Section>
 
-      <CtaBand title="Start with a free marketing review" lead="Share your business and goals. We will tell you what we would do first, free of charge." />
+      <CtaBand title="Get a free growth review." lead="Tell us your goals. We'll show you where to start." />
     </>
   )
 }

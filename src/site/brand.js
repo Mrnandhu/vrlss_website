@@ -2,7 +2,7 @@
 export const brand = {
   name: 'VRLS Solutions',
   shortName: 'Vrlss',
-  tagline: 'Websites & digital marketing',
+  tagline: 'Design, engineering & growth',
   url: 'https://vrlss.in',
   email: 'sai@vrlss.in',
   whatsapp: '919515294733',
@@ -49,8 +49,8 @@ export const registration = {
 
 // The people clients work with. Add the marketing head's name in `name` when ready; until then only the role shows.
 export const team = [
-  { name: 'Sai Durga Prasad Velagaleti', short: 'Sai', role: 'Founder · Design and development', note: 'Designs and builds every website himself.' },
-  { name: '', short: '', role: 'Marketing Head · SEO, social media and ads', note: 'Runs Google Business Profiles, social media and ad campaigns.' },
+  { name: 'Sai Durga Prasad Velagaleti', short: 'Sai', role: 'Founder · Design & engineering', note: 'Leads design and engineering on every project.' },
+  { name: '', short: '', role: 'Marketing Head · SEO, social & paid media', note: 'Leads search, social and ad campaigns.' },
 ]
 
 // REAL reviews only. Paste each review exactly as the client wrote it (Google, WhatsApp with permission, email).

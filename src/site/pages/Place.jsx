@@ -94,7 +94,7 @@ export function CityPage({ place }) {
         <FAQ items={placeFaqs(place)} />
       </Section>
 
-      <CtaBand title={`Ready to see your ${place.name} business online?`} lead={`Send your business name on WhatsApp. We reply ${brand.reply}, and the first demo is free.`} />
+      <CtaBand />
     </>
   )
 }
@@ -107,7 +107,7 @@ export function CountryPage({ place }) {
       <PageHero
         crumb={`Web design in ${place.short}`}
         title={`Website design for small businesses in ${place.name}`}
-        lead={`Professional websites from ${formatPrice(websitePlans[0].price, cur)}, or ${formatPrice(monthlyPlans[0].price, cur)} a month with nothing big upfront. See a free demo of your homepage before you pay.`}
+        lead={`Websites from ${formatPrice(websitePlans[0].price, cur)}, or ${formatPrice(monthlyPlans[0].price, cur)} a month. Free demo first.`}
       />
       <section className="nx-section pl-top">
         <div className="nx-wrap pl-top-grid">
@@ -160,7 +160,7 @@ export function CountryPage({ place }) {
         <FAQ items={placeFaqs(place)} />
       </Section>
 
-      <CtaBand title="See your new website before you decide" lead={`Send your business name on WhatsApp. We reply ${brand.reply} (${brand.hoursShort}), and the first demo is free.`} />
+      <CtaBand />
     </>
   )
 }

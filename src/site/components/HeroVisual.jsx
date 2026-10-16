@@ -182,16 +182,17 @@ export default function HeroVisual() {
     return () => window.removeEventListener('vrlss:tab', on)
   }, [])
 
+  useEffect(() => { window.dispatchEvent(new CustomEvent('vrlss:shown', { detail: i })) }, [i])
+
   useEffect(() => {
     if (document.documentElement.classList.contains('cin-wide')) return
     if (hold || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const t = setInterval(() => setI((x) => (x + 1) % tabs.length), 4200)
+    const t = setInterval(() => setI((x) => (x + 1) % tabs.length), 3600)
     return () => clearInterval(t)
   }, [hold])
 
   return (
     <div className="nx-hvwrap" onMouseEnter={() => setHold(true)} onMouseLeave={() => setHold(false)} onFocus={() => setHold(true)} onBlur={() => setHold(false)}>
-      <Prompt i={i} />
       <div className="nx-hv" aria-hidden="true">
         <div className="nx-hv-laptop">
           <div className="nx-hv-bar"><i /><i /><i /><span>{['saffrontable.com', 'hearthandco.com', 'asterstudio.com', 'app.vrlss.in/overview', 'portal.vrlss.in'][i]}</span></div>

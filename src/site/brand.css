@@ -1224,3 +1224,10 @@ html:has(.nx-sheet.is-open) main, html:has(.nx-sheet.is-open) .nx-footer { visib
 .wx-desc:lang(te), .wx-feats:lang(te) { font-family: 'Noto Sans Telugu', sans-serif; }
 .wx-desc:lang(ta), .wx-feats:lang(ta) { font-family: 'Noto Sans Tamil', sans-serif; }
 @media (max-width: 560px) { .wx-mode { display: flex; } .wx-mode button { flex: 1; padding: 0 10px; font-size: 0.84rem; } }
+
+/* Wordmark: VRLS (grotesque) + Solutions (italic serif) */
+.nx-app .nx-wordmark-name { display: inline-flex; align-items: baseline; gap: 0.32em; font-size: 1.28rem; line-height: 1; letter-spacing: 0; color: #fff; }
+.nx-app .nx-wordmark-name b { font-family: 'Bricolage Grotesque', 'Figtree', system-ui, sans-serif; font-weight: 700; font-size: 1.06em; letter-spacing: -0.045em; }
+.nx-app .nx-wordmark-name i { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 500; letter-spacing: -0.01em; color: #f6d3cc; }
+.nx-app .nx-foot-brand .nx-wordmark-name { font-size: 1.22rem; }
+@media (max-width: 420px) { .nx-app .nx-wordmark-name { font-size: 1.14rem; } }
