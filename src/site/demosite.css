@@ -116,3 +116,101 @@
   .sd-logo span { width: 30px; height: 30px; flex: none; }
   .sd-nav nav a.sd-navcta { padding: 8px 12px; font-size: 0.8rem; white-space: nowrap; }
 }
+
+/* ---------- Professional hero artwork: a real-looking UI card instead of clip art ---------- */
+.sd-ui { display: grid; place-items: center; padding: 8% 7%; overflow: hidden;
+  background:
+    linear-gradient(color-mix(in srgb, var(--ia) 9%, transparent) 1px, transparent 1px) 0 0 / 28px 28px,
+    linear-gradient(90deg, color-mix(in srgb, var(--ia) 9%, transparent) 1px, transparent 1px) 0 0 / 28px 28px,
+    linear-gradient(160deg, color-mix(in srgb, var(--ia) 16%, var(--ib)), color-mix(in srgb, var(--ia2) 22%, var(--ib))); }
+.sd.is-dark .sd-ui { background:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px) 0 0 / 28px 28px,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px) 0 0 / 28px 28px,
+    linear-gradient(160deg, color-mix(in srgb, var(--ia) 30%, var(--ib)), var(--ib)); }
+.sd-ui-card { position: relative; z-index: 1; width: min(100%, 380px); display: grid; gap: 12px; padding: 20px; border-radius: 18px; background: #fff; color: #1d1f24;
+  box-shadow: 0 30px 60px -28px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(0, 0, 0, 0.04); text-align: left; }
+.sd-ui-head { display: flex; align-items: center; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid #eef0f2; }
+.sd-ui-head b { display: block; font-size: 0.98rem; color: #15171b; }
+.sd-ui-head small { display: block; font-size: 0.78rem; color: #6b7280; }
+.sd-ui-ico { width: 38px; height: 38px; flex: none; border-radius: 10px; display: grid; place-items: center; background: var(--ia); color: #fff; }
+.sd-ui-ico svg { width: 22px; height: 22px; }
+.sd-ui-title { margin: 0; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ia); }
+.sd.is-dark .sd-ui-title { color: color-mix(in srgb, var(--ia) 85%, #000); }
+.sd-ui-card ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.sd-ui-card li { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 0; border-bottom: 1px dashed #e5e7eb; }
+.sd-ui-card li:last-child { border-bottom: 0; }
+.sd-ui-card li span { display: grid; min-width: 0; }
+.sd-ui-card li b { font-size: 0.86rem; color: #15171b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sd-ui-card li small { font-size: 0.72rem; color: #6b7280; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sd-ui-card li em { flex: none; font-style: normal; font-weight: 700; font-size: 0.84rem; color: #15171b; }
+.sd-ui-btn { display: grid; place-items: center; min-height: 40px; border-radius: 10px; background: var(--ia); color: #fff; font-weight: 700; font-size: 0.86rem; }
+.sd-ui-chip { position: absolute; z-index: 2; display: inline-flex; align-items: baseline; gap: 6px; padding: 9px 13px; border-radius: 12px; font-size: 0.78rem; color: #4b5563;
+  background: #fff; box-shadow: 0 16px 30px -16px rgba(0, 0, 0, 0.45); }
+.sd-ui-chip b { font-size: 1rem; color: #15171b; }
+.sd-ui-chip.c1 { left: 5%; top: 9%; }
+.sd-ui-chip.c2 { right: 5%; bottom: 8%; }
+@container (max-width: 520px) { .sd-ui { padding: 14% 6% 16%; } .sd-ui-chip.c1 { top: 4%; } .sd-ui-chip.c2 { bottom: 3%; } }
+.sd-center .sd-ui { aspect-ratio: auto; }
+@container (min-width: 760px) { .sd-center .sd-ui { aspect-ratio: 21 / 8; padding: 3% 6%; } .sd-center .sd-ui-card { width: min(100%, 420px); } }
+
+/* ---------- Scaled device canvas + full screen ---------- */
+.ind-frame { container-type: normal; }
+.ind-canvas { container-type: inline-size; transform-origin: 0 0; }
+.ind-browser { width: 100%; margin-inline: auto; transition: max-width 0.45s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.ind-chrome em { margin-left: auto; font-style: normal; font-size: 0.72rem; font-weight: 600; color: #8a93a0; white-space: nowrap; }
+.ind-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
+.ind-bar .ind-devices { margin: 0; }
+.ind-full { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; font: inherit; font-weight: 600; font-size: 0.92rem; cursor: pointer;
+  color: #202e53; background: #fff; border: 1px solid rgba(32, 46, 83, 0.14); box-shadow: 0 8px 18px -12px rgba(32, 46, 83, 0.4); transition: background-color 0.2s, color 0.2s; }
+.ind-full:hover { background: #202e53; color: #fff; }
+.ind-stage.is-full { position: fixed; inset: 0; z-index: 200; display: flex; flex-direction: column; padding: 14px clamp(10px, 2vw, 24px) 16px; background: #0d1426; }
+.ind-stage.is-full .ind-bar { margin-bottom: 10px; }
+.ind-stage.is-full .ind-browser { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.ind-stage.is-full .ind-frame { flex: 1; max-height: none !important; }
+.ind-stage.is-full .ind-full { background: #ecaca2; border-color: #ecaca2; color: #151f3a; }
+.ind-stage.is-full .ind-devices button:not(.is-on) { background: rgba(255, 255, 255, 0.1); color: #fff; border-color: rgba(255, 255, 255, 0.2); }
+html.ind-full-on, html.ind-full-on body { overflow: hidden; }
+html.ind-full-on .nx-mbar, html.ind-full-on .cx { display: none !important; }
+@media (max-width: 560px) {
+  .ind-bar { gap: 8px; }
+  .ind-bar .ind-devices button { padding: 0 12px; min-height: 40px; font-size: 0.86rem; }
+  .ind-full span { display: none; }
+  .ind-full { padding: 0; width: 44px; justify-content: center; }
+}
+
+/* ---------- Monogram thumbnails (demos without a photo) ---------- */
+.mono { width: 100%; height: 100%; display: grid; place-items: center; align-content: center; gap: 4px; position: relative; overflow: hidden;
+  background: radial-gradient(90% 90% at 80% 10%, color-mix(in srgb, var(--ma) 26%, transparent), transparent 70%), var(--mb); color: var(--mi); }
+.mono b { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: clamp(1.1rem, 32cqw, 3.4rem); letter-spacing: -0.02em; line-height: 1; color: var(--ma); }
+.mono.is-dark b { color: color-mix(in srgb, var(--ma) 70%, #fff); }
+.mono small { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; }
+.mono::after { content: ''; position: absolute; inset: 10px; border: 1px solid color-mix(in srgb, var(--ma) 30%, transparent); border-radius: 8px; pointer-events: none; }
+.wx-thumb, .pl-demo-media { container-type: inline-size; }
+.wx-thumb .mono::after { inset: 5px; border-radius: 6px; }
+.pl-demo-media .mono b { font-size: 2.6rem; }
+
+/* ---------- Work stage browser bar ---------- */
+.wx-chrome { position: absolute; left: 0; right: 0; top: 0; z-index: 3; height: 50px; display: flex; align-items: center; gap: 7px; padding: 0 14px; background: #f1f3f6; border-bottom: 1px solid #e3e6eb; }
+.wx-chrome > i { width: 10px; height: 10px; border-radius: 50%; background: #d4d8de; }
+.wx-chrome > i:first-child { background: #f28b82; }
+.wx-chrome > i:nth-child(2) { background: #f6c86b; }
+.wx-chrome > i:nth-child(3) { background: #8fd18a; }
+.wx-chrome .wx-tag, .wx-chrome .wx-live { position: static; }
+.wx-chrome .wx-tag { margin-left: 10px; box-shadow: none; border: 1px solid #e3e6eb; }
+.wx-chrome .wx-live { margin-left: auto; }
+.wx-preview, .wx-appscreen { top: 50px !important; }
+.sd-ui { padding: 15% 7% 12%; }
+.sd-ui-chip.c1 { left: auto; right: 5%; top: 4%; }
+.sd-ui-chip.c2 { right: auto; left: 5%; bottom: 4%; }
+
+/* ---------- Language versions ---------- */
+.sd:lang(ar), .sd:lang(ar) :is(h2, h3, .sd-logo, strong, b, p, span, a, button, input) { font-family: 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif !important; letter-spacing: 0 !important; }
+.sd:lang(hi), .sd:lang(hi) :is(h2, h3, strong, b, p, span, a, button, input) { font-family: 'Noto Sans Devanagari', 'Figtree', sans-serif !important; letter-spacing: 0 !important; }
+.sd:lang(te), .sd:lang(te) :is(h2, h3, strong, b, p, span, a, button, input) { font-family: 'Noto Sans Telugu', 'Figtree', sans-serif !important; letter-spacing: 0 !important; }
+.sd:lang(ta), .sd:lang(ta) :is(h2, h3, strong, b, p, span, a, button, input) { font-family: 'Noto Sans Tamil', 'Figtree', sans-serif !important; letter-spacing: 0 !important; }
+.sd:lang(ar) .sd-logo, .sd:lang(hi) .sd-logo, .sd:lang(te) .sd-logo, .sd:lang(ta) .sd-logo { font-family: 'Figtree', system-ui, sans-serif !important; }
+.sd:is(:lang(ar), :lang(hi), :lang(te), :lang(ta)) h2 { line-height: 1.25; font-size: clamp(1.8rem, 1rem + 3.6cqw, 3.4rem); }
+.sd:is(:lang(ar), :lang(hi), :lang(te), :lang(ta)) h3 { line-height: 1.3; }
+.sd[dir='rtl'] .sd-ui-card { text-align: right; }
+.sd[dir='rtl'] .sd-badge { left: auto; right: 14px; }
+.sd[dir='rtl'] .sd-stats div + div { border-left: 0; border-right: 1px solid var(--line2); }

@@ -1,7 +1,9 @@
 import { brand } from './brand'
-import { websitePlans, marketingPlans } from './prices'
+import { websitePlans, marketingPlans, monthlyPlans, formatPrice } from './prices'
+import { places, placePath, placeByPath } from './places'
 import { demos } from './demos/demoData'
 import { industries } from './demos/industries'
+import { localized, LANGS, versionsOf } from './demos/locales'
 
 export const SITE = brand.url
 
@@ -12,24 +14,36 @@ export const faqs = {
       a: 'Because you do not have to trust us first. We build a working demo of your homepage for free. You only pay the 50% deposit if you like it, the price is fixed in writing, and you own the finished site and every account.',
     },
     {
-      q: 'Is it really just one person?',
-      a: 'Yes. Sai designs, builds and runs the marketing himself, so you always talk to the person doing the work. For bigger jobs, trusted freelancers may help, but Sai stays your single point of contact.',
+      q: 'Who will work on my project?',
+      a: 'A small team you talk to directly. Sai, the founder, designs and builds every website himself, and our Marketing Head runs Google Business Profiles, social media and ads. No account managers in between.',
     },
     {
-      q: 'Do you work with clients outside India?',
-      a: 'Yes. Our work is done remotely. We schedule calls around your time zone and keep everything in writing, so projects run smoothly whether you are in the Gulf, Europe, the UK, the US or Asia.',
+      q: 'What exactly do I get?',
+      a: 'A custom design you approve, a mobile-first website, the domain in your name, hosting set up, Google Search Console and a sitemap, WhatsApp and contact forms, a short training call and 30 days of free fixes after launch. You own the code, content and every login.',
     },
     {
       q: 'How long does a website take?',
-      a: 'A Starter site is usually ready in 5–7 days and a Business site in 10–14 days once we have your content. Custom projects are scheduled after we agree the scope.',
+      a: 'Your free demo homepage is ready in about 3 working days. A Starter site is usually live in 5–7 days and a Business site in 10–14 days once we have your content. Custom projects are scheduled after we agree the scope.',
     },
     {
       q: 'How does payment work?',
-      a: 'The demo is free. Website projects are then paid 50% to start and 50% before launch, by UPI or bank transfer. Monthly marketing plans are billed monthly and you can stop at the end of any month.',
+      a: 'The demo is free. Website projects are paid 50% to start and 50% before launch, by UPI, bank transfer or an international payment link. Outside India you can also choose a pay-monthly plan with nothing big to pay upfront.',
     },
     {
       q: 'Do I own the website?',
-      a: 'Yes. When the final payment is made, you own the design, the code and the content. We hand everything over in full.',
+      a: 'Yes. When the final payment is made, you own the design, the code and the content. On pay-monthly plans, everything is yours after 12 months. Your domain is registered in your name from day one.',
+    },
+    {
+      q: 'Do you work with clients outside India?',
+      a: `Yes. We work with clients in the Gulf, the UK, the US, Australia and Asia. We reply ${'within 2 hours'} between 9 am and 9 pm IST and schedule calls in your time zone. Prices can be shown in your currency.`,
+    },
+    {
+      q: 'What happens after launch?',
+      a: 'You get 30 days of free fixes and small changes. After that you can send changes when you need them, or add the Website care plan for monthly updates, backups and uptime checks.',
+    },
+    {
+      q: 'What if I am not happy?',
+      a: 'If you do not like the free demo, you pay nothing and walk away. During a project you get 2–3 rounds of revisions included, and our refund policy explains what happens if you cancel.',
     },
     {
       q: 'Can you guarantee first-page rankings or a number of sales?',
@@ -84,6 +98,10 @@ export const faqs = {
     {
       q: 'What if I need something that is not listed?',
       a: 'Tell us what you need. Custom projects, web apps and mobile apps are quoted after a short call, usually within one business day.',
+    },
+    {
+      q: 'Do you offer pay-monthly websites?',
+      a: 'Yes, for clients outside India. You pay a fixed monthly fee with no big upfront cost, for a 12-month minimum. Hosting, backups and monthly changes are included, and the site is yours after 12 months.',
     },
     {
       q: 'Can I upgrade a plan later?',
@@ -144,8 +162,8 @@ const baseRoutes = [
   },
   {
     path: '/about',
-    title: `About ${brand.name} | One-Person Web & Marketing Studio`,
-    description: `${brand.name} is a one-person studio in ${brand.location} run by ${brand.founder}, building websites and running digital marketing for small businesses.`,
+    title: `About ${brand.name} | Web Design & Marketing Studio in Andhra Pradesh`,
+    description: `${brand.name} is a small web design and digital marketing studio in ${brand.location}, founded by ${brand.founder}. Free demo first, fixed prices, and you work directly with the people doing the work.`,
     h1: `About ${brand.name}`,
     nav: 'About',
     crumb: 'About',
@@ -154,7 +172,7 @@ const baseRoutes = [
     path: '/contact',
     title: `Contact ${brand.name} | Get a Free Website Demo`,
     description:
-      'Ask for a free demo homepage, a free website check or a fixed-price quote. Replies within one business day on WhatsApp or email.',
+      'Ask for a free demo homepage, a free website check or a fixed-price quote. Replies within 2 hours (9 am to 9 pm IST) on WhatsApp or email.',
     h1: 'Tell us about your business',
     nav: 'Contact',
     crumb: 'Contact',
@@ -191,6 +209,7 @@ const demoRoutes = demos.map((d) => ({
   parent: { path: '/work', name: 'Work' },
 }))
 const industryRoutes = industries.map((s) => ({
+  alternates: versionsOf(s.slug).length > 1 ? versionsOf(s.slug) : undefined,
   path: s.path,
   title: `${s.cat} Website Design: Live Demo | ${brand.name}`,
   description: `Try a live ${s.cat.toLowerCase()} website demo with services, prices and WhatsApp enquiries. Get a fast, mobile-friendly ${s.cat.toLowerCase()} website, with a free demo before you pay.`,
@@ -199,7 +218,80 @@ const industryRoutes = industries.map((s) => ({
   parent: { path: '/work', name: 'Work' },
 }))
 
-export const routes = [...baseRoutes, ...demoRoutes, ...industryRoutes]
+export function placeFaqs(p) {
+  const s = websitePlans[0]
+  const b = websitePlans[1]
+  if (p.kind === 'city')
+    return [
+      {
+        q: `How much does a website cost in ${p.name}?`,
+        a: `With us, a website for a ${p.name} business starts at ${formatPrice(s.price, 'INR', s.inr)} for up to 3 pages, and ${formatPrice(b.price, 'INR', b.inr)} for a complete 8-page business site. Many agencies quote ₹20,000 to ₹80,000 for a similar site. Our price is fixed in writing before we start.`,
+      },
+      {
+        q: 'Can my website be in Telugu?',
+        a: 'Yes. We build websites in English, Telugu or both, and we can talk to you in Telugu, English or Hindi.',
+      },
+      {
+        q: `Do you work with businesses in ${p.name} in person?`,
+        a: `We are based in Andhra Pradesh. Most projects run smoothly on WhatsApp and phone calls, which keeps prices low. If you would prefer to meet, ask us.`,
+      },
+      {
+        q: 'How fast can my website be ready?',
+        a: 'Your free demo homepage is ready in about 3 working days. A Starter site is usually live in 5–7 days and a Business site in 10–14 days once we have your content.',
+      },
+    ]
+  return [
+    {
+      q: `How much does a website cost in ${p.short}?`,
+      a: `${p.local} With us, a professional website starts at ${formatPrice(s.price, p.currency)} one-time, or ${formatPrice(monthlyPlans[0].price, p.currency)} a month on a pay-monthly plan with hosting included.`,
+    },
+    { q: 'How do we work across time zones?', a: `${p.zone} We reply ${brand.reply} between ${brand.hoursShort}, and schedule calls at a time that suits you.` },
+    { q: `How do I pay from ${p.short}?`, a: 'By international bank transfer or a card payment link. We confirm the method and the exact amount in your currency in your written quote.' },
+    { q: 'Do I really own the website?', a: 'Yes. Your domain is registered in your name. One-time projects are fully yours once paid, and pay-monthly sites become yours after 12 months, even if you leave.' },
+  ]
+}
+
+const placeRoutes = places.map((p) =>
+  p.kind === 'city'
+    ? {
+        path: placePath(p),
+        title: `Website Design in ${p.name} | From ${formatPrice(websitePlans[0].price, 'INR', websitePlans[0].inr)} | ${brand.name}`,
+        description: `Website design for ${p.name} businesses: fast, mobile-friendly sites from ${formatPrice(websitePlans[0].price, 'INR', websitePlans[0].inr)}, in English or Telugu. See a free demo of your homepage before you pay.`,
+        h1: `Website design in ${p.name}`,
+        crumb: `Web design in ${p.name}`,
+        faq: placeFaqs(p),
+      }
+    : {
+        path: placePath(p),
+        title: `Website Design for Small Businesses in ${p.short} | ${brand.name}`,
+        description: `Professional websites for small businesses in ${p.name} from ${formatPrice(websitePlans[0].price, p.currency)}, or ${formatPrice(monthlyPlans[0].price, p.currency)}/month. Free homepage demo before you pay. You own everything.`,
+        h1: `Website design for small businesses in ${p.name}`,
+        crumb: `Web design in ${p.short}`,
+        faq: placeFaqs(p),
+      },
+)
+
+const teluguRoute = {
+  path: '/te',
+  title: `వెబ్‌సైట్ డిజైన్ | ఉచిత డెమో | ${brand.name}`,
+  description: 'ఆంధ్రప్రదేశ్ మరియు తెలంగాణ వ్యాపారాల కోసం వెబ్‌సైట్లు. డబ్బు చెల్లించే ముందే మీ వెబ్‌సైట్ డెమోను ఉచితంగా చూడండి.',
+  h1: 'మీ వ్యాపారానికి కస్టమర్లను తెచ్చే వెబ్‌సైట్లు',
+  crumb: 'తెలుగు',
+  lang: 'te',
+}
+
+const localizedRoutes = localized.map((s) => ({
+  path: s.path,
+  lang: s.lang,
+  alternates: versionsOf(s.baseSlug),
+  title: `${LANGS[s.lang].name} ${s.baseCat} Website Demo (${LANGS[s.lang].native}) | ${brand.name}`,
+  description: `A live ${s.baseCat.toLowerCase()} website demo in ${LANGS[s.lang].name} for businesses in ${LANGS[s.lang].regions}. ${s.head}. Get a website like this in ${LANGS[s.lang].name}, with a free demo first.`,
+  h1: `${s.cat}: ${s.name}`,
+  crumb: `${s.baseCat} (${LANGS[s.lang].native})`,
+  parent: { path: '/work', name: 'Work' },
+}))
+
+export const routes = [...baseRoutes, ...placeRoutes, teluguRoute, ...demoRoutes, ...industryRoutes, ...localizedRoutes]
 
 export const notFound = {
   path: '/404',
@@ -243,7 +335,7 @@ export function jsonLd(r) {
       contactType: 'sales',
       email: brand.email,
       telephone: brand.phoneDisplay,
-      availableLanguage: 'English',
+      availableLanguage: ['English', 'Telugu', 'Hindi'],
     },
   }
   const site = {
@@ -260,7 +352,7 @@ export function jsonLd(r) {
     url: canonical(r),
     name: r.title,
     description: r.description,
-    inLanguage: 'en',
+    inLanguage: r.lang || 'en',
     isPartOf: { '@id': `${SITE}/#website` },
   }
   const graph = [org, site, page]
@@ -315,7 +407,7 @@ export function jsonLd(r) {
       })),
     })
   }
-  const ind = industries.find((x) => x.path === r.path)
+  const ind = industries.find((x) => x.path === r.path) || localized.find((x) => x.path === r.path)
   if (ind) {
     graph.push({
       '@type': 'Service',
@@ -324,6 +416,20 @@ export function jsonLd(r) {
       audience: { '@type': 'BusinessAudience', audienceType: ind.cat },
       provider: { '@id': `${SITE}/#organization` },
       areaServed: 'Worldwide',
+      url: canonical(r),
+    })
+  }
+  const place = placeByPath[r.path]
+  if (place) {
+    graph.push({
+      '@type': 'Service',
+      name: place.kind === 'city' ? `Website design in ${place.name}` : `Website design for small businesses in ${place.short}`,
+      serviceType: 'Web design',
+      provider: { '@id': `${SITE}/#organization` },
+      areaServed: place.kind === 'city'
+        ? { '@type': 'City', name: place.name, containedInPlace: { '@type': 'State', name: place.state } }
+        : { '@type': 'Country', name: place.short },
+      offers: websitePlans.map((p) => ({ '@type': 'Offer', name: `${p.name} website`, price: String(place.kind === 'city' ? p.inr : p.price), priceCurrency: place.kind === 'city' ? 'INR' : 'USD' })),
       url: canonical(r),
     })
   }
@@ -355,8 +461,9 @@ export function headHtml(r) {
     `<link rel="canonical" href="${url}" />`,
     ...(brand.googleVerification ? [`<meta name="google-site-verification" content="${esc(brand.googleVerification)}" />`] : []),
     ...(brand.bingVerification ? [`<meta name="msvalidate.01" content="${esc(brand.bingVerification)}" />`] : []),
-    `<link rel="alternate" hreflang="en" href="${url}" />`,
-    `<link rel="alternate" hreflang="x-default" href="${url}" />`,
+    ...(r.alternates
+      ? [...r.alternates.map((a) => `<link rel="alternate" hreflang="${a.lang}" href="${abs(a.path)}" />`), `<link rel="alternate" hreflang="x-default" href="${abs(r.alternates[0].path)}" />`]
+      : [`<link rel="alternate" hreflang="${r.lang || 'en'}" href="${url}" />`, ...(r.lang ? [] : [`<link rel="alternate" hreflang="x-default" href="${url}" />`])]),
     `<meta property="og:type" content="website" />`,
     `<meta property="og:site_name" content="${esc(brand.name)}" />`,
     `<meta property="og:locale" content="en_US" />`,

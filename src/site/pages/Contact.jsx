@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import { Section, PageHero } from '../components/Bits'
 import { IconWhatsApp, IconMail, IconPin } from '../icons'
 import { brand, waLink, mailLink } from '../brand'
+import { industries } from '../demos/industries'
+import { useCurrency, Price } from '../currency'
+import { formatPrice, websitePlans } from '../prices'
 
 const services = [
   ['demo', 'A free demo homepage for my business'],
@@ -25,8 +28,15 @@ const planToService = {
   ads: 'marketing',
 }
 
+const budgets = [[0, 99], [99, 249], [249, 549], [549, 1500], [1500, null]]
+const timelines = ['As soon as possible', 'Within a month', 'In 1–3 months', 'Just exploring']
+const cats = [...new Set(industries.map((x) => x.cat))].sort()
+
 export default function Contact() {
-  const [f, setF] = useState({ name: '', contact: '', service: 'demo', message: '', plan: '' })
+  const { code } = useCurrency()
+  const fp = (v) => formatPrice(v, code)
+  const budgetLabel = ([lo, hi]) => (hi == null ? `${fp(lo)}+` : lo === 0 ? `Under ${fp(hi)}` : `${fp(lo)} – ${fp(hi)}`)
+  const [f, setF] = useState({ name: '', contact: '', service: 'demo', message: '', plan: '', industry: '', budget: '', timeline: timelines[0] })
   const [sent, setSent] = useState('')
 
   useEffect(() => {
@@ -44,6 +54,9 @@ export default function Contact() {
       `Name: ${f.name || '-'}`,
       `Email / phone: ${f.contact || '-'}`,
       `Interested in: ${label}${f.plan && !['demo', 'audit'].includes(f.plan) ? ` (${f.plan} plan)` : ''}`,
+      `Business type: ${f.industry || '-'}`,
+      `Budget: ${f.budget || 'Not sure yet'}`,
+      `Timeline: ${f.timeline}`,
       `About my project: ${f.message || '-'}`,
     ].join('\n')
 
@@ -65,7 +78,7 @@ export default function Contact() {
       <PageHero
         crumb="Contact"
         title="Tell us about your business"
-        lead="Ask for a free demo homepage, a free check of your current site, or a fixed-price quote. You get a reply within one business day."
+        lead={`Ask for a free demo homepage, a free check of your current site, or a fixed-price quote. We reply ${brand.reply}, ${brand.hoursShort}.`}
       />
       <Section tone="white">
         <div className="nx-contact">
@@ -88,6 +101,35 @@ export default function Contact() {
                 ))}
               </select>
             </label>
+            <div className="nx-form-row">
+              <label>
+                <span>Type of business</span>
+                <select name="industry" value={f.industry} onChange={set('industry')}>
+                  <option value="">Choose your industry</option>
+                  {cats.map((c) => <option key={c} value={c}>{c}</option>)}
+                  <option value="Other">Other</option>
+                </select>
+              </label>
+              <label>
+                <span>When do you need it?</span>
+                <select name="timeline" value={f.timeline} onChange={set('timeline')}>
+                  {timelines.map((t) => <option key={t} value={t}>{t}</option>)}
+                </select>
+              </label>
+            </div>
+            <fieldset className="nx-budget">
+              <legend>Budget (optional)</legend>
+              <div className="nx-chips" role="radiogroup">
+                {budgets.map((b) => {
+                  const l = budgetLabel(b)
+                  return (
+                    <button type="button" key={l} role="radio" aria-checked={f.budget === l} className={f.budget === l ? 'is-on' : ''} onClick={() => setF((s2) => ({ ...s2, budget: s2.budget === l ? '' : l }))}>
+                      {l}
+                    </button>
+                  )
+                })}
+              </div>
+            </fieldset>
             <label>
               <span>Business name, city and what you want more of</span>
               <textarea name="message" rows="5" value={f.message} onChange={set('message')} />
@@ -111,8 +153,9 @@ export default function Contact() {
             <h2 className="nx-h3">What happens next</h2>
             <ol className="nx-next">
               <li>You send this message on WhatsApp or email.</li>
-              <li>{brand.founderShort} replies within one business day with a few questions.</li>
-              <li>For a demo, you get a link to your homepage within 3 working days. No payment, no obligation.</li>
+              <li>We reply {brand.reply} ({brand.hoursShort}) with a few questions.</li>
+              <li>Within 3 working days you get a link to your demo homepage, a design normally priced from <Price usd={websitePlans[0].price} inr={websitePlans[0].inr} />. Free, no obligation.</li>
+              <li>Like it? Pay 50% and we build the full site. Not for you? Walk away, nothing to pay.</li>
             </ol>
             <h2 className="nx-h3">Prefer to talk?</h2>
             <ul>
@@ -138,9 +181,14 @@ export default function Contact() {
                 </div>
               </li>
             </ul>
-            <p className="nx-fine">
-              We work in Indian Standard Time (UTC+5:30) and schedule calls at times that suit your region.
-            </p>
+            <h2 className="nx-h3">Our hours in your time zone</h2>
+            <dl className="nx-hours">
+              <div><dt>India</dt><dd>9 am – 9 pm</dd></div>
+              <div><dt>UAE, Oman</dt><dd>7:30 am – 7:30 pm</dd></div>
+              <div><dt>Saudi, Qatar, Kuwait</dt><dd>6:30 am – 6:30 pm</dd></div>
+              <div><dt>Singapore, Malaysia</dt><dd>11:30 am – 11:30 pm</dd></div>
+            </dl>
+            <p className="nx-fine">Monday to Saturday. Calls with the UK, US and Australia are scheduled at a time that suits you.</p>
           </aside>
         </div>
       </Section>

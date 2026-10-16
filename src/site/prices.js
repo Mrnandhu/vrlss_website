@@ -126,6 +126,8 @@ export const currencies = [
   { code: 'BHD', label: 'Bahraini Dinar', rate: 0.377, symbol: 'BHD ' },
   { code: 'INR', label: 'Indian Rupee', rate: 88, symbol: '₹' },
   { code: 'CAD', label: 'Canadian Dollar', rate: 1.38, symbol: 'CA$' },
+  { code: 'SGD', label: 'Singapore Dollar', rate: 1.3, symbol: 'S$' },
+  { code: 'MYR', label: 'Malaysian Ringgit', rate: 4.25, symbol: 'RM ' },
   { code: 'AUD', label: 'Australian Dollar', rate: 1.52, symbol: 'A$' },
 ]
 
@@ -144,3 +146,54 @@ export function formatPrice(usd, code = 'USD', inr) {
 
 export const launchNote =
   'Special rates for our first clients. Prices will increase as we grow, and early clients keep the price they signed at.'
+
+// Pay-monthly websites for clients outside India: no big upfront payment.
+// 12-month minimum, then month to month. The client owns the site, domain and content.
+export const monthlyPlans = [
+  {
+    id: 'monthly-starter',
+    name: 'Starter monthly',
+    price: 39,
+    blurb: 'A professional small business site with nothing big to pay upfront.',
+    features: ['Up to 5 pages', 'Hosting, SSL and backups included', 'Up to 1 hour of changes every month', 'Google Business Profile set up', 'You own the site after 12 months'],
+  },
+  {
+    id: 'monthly-business',
+    name: 'Business monthly',
+    price: 59,
+    featured: true,
+    blurb: 'A bigger site, kept fresh every month.',
+    features: ['Up to 10 pages with a custom design', 'Hosting, SSL and backups included', 'Up to 2 hours of changes every month', 'Local SEO setup and a monthly report', 'You own the site after 12 months'],
+  },
+]
+export const monthlyNote = 'For clients outside India. $0 to start for the build, 12-month minimum, then month to month with 30 days notice. After 12 months the site, domain and content are fully yours, even if you leave.'
+
+// Typical prices elsewhere, for honest comparison (2026 market guides; see /pricing).
+export const marketPrices = [
+  ['United States', '$2,000 – $8,000'],
+  ['United Kingdom', '£1,500 – £5,000'],
+  ['UAE (Dubai)', 'AED 8,000 – 15,000'],
+  ['Australia', 'A$2,000 – 6,000'],
+  ['Canada', 'CA$3,000 – 8,000'],
+  ['India (agencies)', '₹50,000 – ₹1,50,000'],
+]
+
+// Demo prices are written in rupees (₹). This converts every ₹ amount inside a piece of text
+// into the visitor's chosen currency, e.g. "from ₹40,000" -> "from AED 1,670". INR stays as written.
+const niceRound = (v) => (v >= 100000 ? Math.round(v / 1000) * 1000 : v >= 10000 ? Math.round(v / 100) * 100 : v >= 1000 ? Math.round(v / 10) * 10 : v >= 100 ? Math.round(v / 5) * 5 : v >= 10 ? Math.round(v) : Math.max(1, Math.round(v * 10) / 10))
+export function fromInr(inr, code = 'INR') {
+  if (code === 'INR') return `₹${inr.toLocaleString('en-IN')}`
+  const inrRate = currencies.find((x) => x.code === 'INR').rate
+  const c = currencies.find((x) => x.code === code) || currencies[0]
+  const raw = (inr / inrRate) * c.rate
+  if (raw < 100) return `${c.symbol}${raw.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+  const v = niceRound(raw)
+  return `${c.symbol}${v.toLocaleString('en-US')}`
+}
+export function convertInrText(text, code = 'INR') {
+  if (typeof text !== 'string' || code === 'INR' || !text.includes('₹')) return text
+  return text.replace(/₹\s?([\d,]+(?:\.\d+)?)(\s*(lakh|crore))?/g, (m, n, _u, unit) => {
+    const inr = parseFloat(n.replace(/,/g, '')) * (unit === 'lakh' ? 1e5 : unit === 'crore' ? 1e7 : 1)
+    return Number.isFinite(inr) ? fromInr(inr, code) : m
+  })
+}

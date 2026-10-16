@@ -343,50 +343,55 @@ export const industries = [
     offer: ['Ways to give', [['Feed a child', '₹600 / month', 'Daily meals'], ['Sponsor schooling', '₹1,500 / month', 'Books and fees'], ['Health camp', '₹25,000', 'One village'], ['Any amount', 'Donate', '80G receipt']]] }),
 ]
 
-// ---- Palettes taken from the VRLS mood board (October 2026) ----
-// [background, ink, accent (buttons / labels), second accent]; accents checked for readable contrast.
-const BOARD = {
-  tangerineDark: { pal: ['#1d2027', '#f4efe6', '#c4561a', '#f39a2e'], dark: true },
-  tangerine: { pal: ['#f8f4ee', '#262a33', '#b04c15', '#f39a2e'] },
-  coffee: { pal: ['#f4f0e0', '#1c140e', '#3b2a20', '#c9bd86'] },
-  coffeeDark: { pal: ['#1c140e', '#efe9d2', '#b6a35c', '#d4cb9a'], dark: true },
-  forest: { pal: ['#f2f5f1', '#1f2328', '#4a6b57', '#c0541a'] },
-  dusk: { pal: ['#fbf6f4', '#1b1931', '#a34054', '#ed9e59'] },
-  duskDark: { pal: ['#1b1931', '#f6eef0', '#c2556a', '#ed9e59'], dark: true },
-  iceSlate: { pal: ['#f4f8fd', '#33353f', '#3e5268', '#7e4462'] },
-  rosePlum: { pal: ['#fbf3f3', '#1e1e33', '#8b4a7a', '#e8a4a4'] },
-  coralNavy: { pal: ['#f5f5fb', '#050554', '#4a3366', '#ff5e5b'] },
-  coralNavyDark: { pal: ['#07073a', '#f3f3fb', '#e2474a', '#ff8a7a'], dark: true },
-  violet: { pal: ['#f6f3fa', '#1e1e2c', '#4e3a73', '#b79ccb'] },
-  violetDark: { pal: ['#1e1e2c', '#f1eef6', '#8a72b8', '#b79ccb'], dark: true },
-  slateViolet: { pal: ['#f5f4fa', '#1c1a2e', '#45416b', '#f09848'] },
-  slateVioletDark: { pal: ['#1c1a2e', '#ecebf7', '#7b74c9', '#f09848'], dark: true },
-  taupePlum: { pal: ['#f6f1f0', '#2b1a24', '#6b3e68', '#a99c98'] },
-  wine: { pal: ['#f8f2f3', '#2a0610', '#720137', '#590054'] },
-  wineDark: { pal: ['#2a0610', '#f6e9ec', '#a3124f', '#d05a8c'], dark: true },
-  brick: { pal: ['#f7f3ef', '#1c1a28', '#a84b47', '#f09848'] },
-  brickDark: { pal: ['#1c1a28', '#f2f0f4', '#c4563f', '#f09848'], dark: true },
+// ---- Professional palettes (October 2026) ----
+// [background, ink, accent (buttons / labels), second accent]. Calm, industry-appropriate, readable.
+const PRO = {
+  ember: { pal: ['#17140f', '#f3ece2', '#b4532a', '#d9a86c'], dark: true },
+  espresso: { pal: ['#f7f3ec', '#231a13', '#6b4a32', '#c8a27a'] },
+  terracotta: { pal: ['#faf6f1', '#2a1d18', '#9a4a33', '#d8b08c'] },
+  harbour: { pal: ['#f6f4ef', '#14213d', '#1f3a63', '#c6a15b'] },
+  clinicTeal: { pal: ['#f4f8f8', '#0f2a33', '#0e6b77', '#7fbcc0'] },
+  clinicBlue: { pal: ['#f4f7fb', '#0f2236', '#1d5f9e', '#8fb8de'] },
+  blush: { pal: ['#faf6f4', '#2a1f24', '#8a4d5f', '#d9b6aa'] },
+  sage: { pal: ['#f5f6f1', '#1f261f', '#4d6b52', '#c3b48a'] },
+  forge: { pal: ['#121315', '#f2f2f0', '#c23b2e', '#e0a35a'], dark: true },
+  academy: { pal: ['#f5f6fa', '#141b33', '#253f80', '#e0a73c'] },
+  market: { pal: ['#f5f7f2', '#1a2418', '#2f6a3f', '#c9a23a'] },
+  atelier: { pal: ['#f8f5f2', '#211b19', '#5e4a42', '#c7aa98'] },
+  gold: { pal: ['#121010', '#f3ece0', '#b8954e', '#e2c98f'], dark: true },
+  graphite: { pal: ['#0e1116', '#e9edf3', '#3b6fd8', '#8fb0ff'], dark: true },
+  cobalt: { pal: ['#f4f6f9', '#111827', '#2b59c3', '#9db4e8'] },
+  trade: { pal: ['#f6f6f3', '#1b1f24', '#b4541c', '#e5a54b'] },
+  slate: { pal: ['#f5f6f7', '#151c26', '#2d4b6b', '#b8975c'] },
+  burgundy: { pal: ['#f7f4f1', '#1b1515', '#6e2430', '#b8955a'] },
+  ocean: { pal: ['#f3f8fa', '#0d2733', '#0e5f78', '#e3a35b'] },
+  studio: { pal: ['#111111', '#efece6', '#b89a63', '#8c8c8c'], dark: true },
+  showroom: { pal: ['#0f1115', '#eef0f3', '#c1272d', '#9aa3ad'], dark: true },
+  warm: { pal: ['#fbf8f3', '#2a1f17', '#a24a24', '#3f7d5a'] },
 }
 const LOOK = {
-  restaurant: 'tangerineDark', 'cafe-bakery': 'coffee', catering: 'dusk', 'hotel-resort': 'forest', 'function-hall': 'duskDark',
-  hospital: 'forest', 'dental-clinic': 'iceSlate', 'eye-clinic': 'iceSlate', pharmacy: 'tangerine', 'diagnostic-lab': 'violet', physiotherapy: 'forest', 'pet-clinic': 'forest',
-  'salon-spa': 'rosePlum', 'gym-fitness': 'coralNavyDark', 'yoga-studio': 'violet',
-  school: 'slateViolet', 'coaching-institute': 'slateViolet', 'study-abroad': 'coralNavy',
-  supermarket: 'forest', 'fashion-boutique': 'taupePlum', jewellery: 'coffeeDark', 'furniture-store': 'coffee', 'electronics-store': 'coralNavy', 'pet-shop': 'tangerine',
-  'electrician-plumber': 'tangerine', 'interior-design': 'taupePlum', 'cleaning-pest-control': 'coralNavy', 'solar-installer': 'forest',
-  'chartered-accountant': 'slateViolet', 'law-firm': 'wine', 'insurance-finance': 'iceSlate', 'it-company': 'slateVioletDark',
-  'real-estate': 'iceSlate', 'builders-construction': 'brick', architect: 'coffee',
-  'travel-agency': 'coralNavy', 'wedding-planner': 'dusk', 'photography-studio': 'violetDark',
-  'car-service': 'brickDark', 'vehicle-showroom': 'coralNavyDark',
-  manufacturing: 'iceSlate', logistics: 'tangerine', textile: 'wineDark',
-  'seafood-export': 'iceSlate', 'organic-farm': 'forest', ngo: 'tangerine',
+  restaurant: 'ember', 'cafe-bakery': 'espresso', catering: 'terracotta', 'hotel-resort': 'harbour', 'function-hall': 'terracotta',
+  hospital: 'clinicTeal', 'dental-clinic': 'clinicBlue', 'eye-clinic': 'clinicBlue', pharmacy: 'clinicTeal', 'diagnostic-lab': 'clinicBlue', physiotherapy: 'clinicTeal', 'pet-clinic': 'sage',
+  'salon-spa': 'blush', 'gym-fitness': 'forge', 'yoga-studio': 'sage',
+  school: 'academy', 'coaching-institute': 'academy', 'study-abroad': 'harbour',
+  supermarket: 'market', 'fashion-boutique': 'atelier', jewellery: 'gold', 'furniture-store': 'espresso', 'electronics-store': 'cobalt', 'pet-shop': 'market',
+  'electrician-plumber': 'trade', 'interior-design': 'atelier', 'cleaning-pest-control': 'ocean', 'solar-installer': 'market',
+  'chartered-accountant': 'slate', 'law-firm': 'burgundy', 'insurance-finance': 'slate', 'it-company': 'graphite',
+  'real-estate': 'harbour', 'builders-construction': 'trade', architect: 'atelier',
+  'travel-agency': 'ocean', 'wedding-planner': 'blush', 'photography-studio': 'studio',
+  'car-service': 'forge', 'vehicle-showroom': 'showroom',
+  manufacturing: 'slate', logistics: 'trade', textile: 'burgundy',
+  'seafood-export': 'ocean', 'organic-farm': 'market', ngo: 'warm',
 }
 industries.forEach((x) => {
-  const look = BOARD[LOOK[x.slug]]
+  const look = PRO[LOOK[x.slug]]
   if (!look) return
   x.pal = look.pal
   x.dark = !!look.dark
 })
+
+// Monogram for thumbnails: "Saffron Table" -> "ST"
+export const monogram = (name) => name.replace(/&/g, ' ').split(/\s+/).filter((w) => /^[A-Za-z]/.test(w)).slice(0, 2).map((w) => w[0].toUpperCase()).join('')
 
 export const industryByPath = Object.fromEntries(industries.map((d) => [d.path, d]))
 export const sectorName = Object.fromEntries(sectors)

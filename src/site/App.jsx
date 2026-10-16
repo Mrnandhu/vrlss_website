@@ -21,7 +21,10 @@ import MobileApp from './demos/MobileApp'
 import Crm from './demos/Crm'
 import Invoice from './demos/Invoice'
 import IndustrySite from './demos/IndustrySite'
+import { CityPage, CountryPage, TeluguPage } from './pages/Place'
+import { placeByPath } from './places'
 import { industryByPath } from './demos/industries'
+import { localizedByPath } from './demos/locales'
 import './site.css'
 import './glass.css'
 import './demos.css'
@@ -40,6 +43,7 @@ const pages = {
   '/privacy': () => <Legal path="/privacy" />,
   '/terms': () => <Legal path="/terms" />,
   '/refunds': () => <Legal path="/refunds" />,
+  '/te': TeluguPage,
   '/work/online-store': Store,
   '/work/booking-system': Booking,
   '/work/sales-dashboard': Dashboard,
@@ -85,7 +89,7 @@ export default function SiteApp({ initialPath = '/' }) {
   }, [])
 
   const route = routeFor(path) || notFound
-  const site = industryByPath[route.path]
+  const site = industryByPath[route.path] || localizedByPath[route.path]
   const Page = pages[route.path] || NotFound
 
   useEffect(() => {
@@ -98,7 +102,11 @@ export default function SiteApp({ initialPath = '/' }) {
     <NavContext.Provider value={navigate}>
       <CurrencyProvider>
         <Layout path={route.path}>
-          {site ? <IndustrySite key={site.slug} site={site} /> : <Page key={route.path} />}
+          {site ? <IndustrySite key={site.slug} site={site} />
+            : placeByPath[route.path] ? (placeByPath[route.path].kind === 'city'
+              ? <CityPage key={route.path} place={placeByPath[route.path]} />
+              : <CountryPage key={route.path} place={placeByPath[route.path]} />)
+            : <Page key={route.path} />}
         </Layout>
       </CurrencyProvider>
     </NavContext.Provider>

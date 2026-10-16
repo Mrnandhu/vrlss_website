@@ -4,6 +4,7 @@ import Logo, { LogoMark } from './Logo'
 import { IconMenu, IconClose, IconWhatsApp, IconMail } from '../icons'
 import { brand, waLink, registration } from '../brand'
 import { CurrencySelect } from '../currency'
+import { cities, countries, placePath } from '../places'
 
 const nav = [
   { to: '/', label: 'Home' },
@@ -127,6 +128,12 @@ export default function Layout({ path, children }) {
           {Object.entries(brand.social).filter(([, u]) => u).map(([k, u]) => (
             <a key={k} href={u} target="_blank" rel="noopener noreferrer">{k.charAt(0).toUpperCase() + k.slice(1)}</a>
           ))}
+        </nav>
+        <nav className="nx-wrap nx-foot-places" aria-label="Areas we serve">
+          <span>Web design in</span>
+          {cities.map((c) => <Link key={c.slug} to={placePath(c)}>{c.name}</Link>)}
+          {countries.map((c) => <Link key={c.slug} to={placePath(c)}>{c.short}</Link>)}
+          <Link to="/te" lang="te">తెలుగు</Link>
         </nav>
         <div className="nx-wordmark" aria-hidden="true">
           <div className="nx-wm-track" data-marquee="-1" data-speed="0.6">

@@ -43,7 +43,7 @@ export default function DemoShell({ demo, children, wide = false, more }) {
       <section className="nx-section dm-next">
         <div className="nx-wrap dm-cta">
           <div>
-            <h2 className="nx-h2"><Words text={`Want a ${demo.name.toLowerCase()} like this?`} /></h2>
+            <h2 className="nx-h2"><Words text={`Want ${/^[aeiou]/i.test(demo.name) ? 'an' : 'a'} ${demo.name.toLowerCase()} like this?`} /></h2>
             <p className="nx-lead">We build it with your name, photos and prices. See your own version free before you pay.</p>
           </div>
           <div className="dm-cta-actions">
