@@ -6,11 +6,11 @@
   --paper: #f3f6f9;
   --white: #ffffff;
   --line: #dde5ec;
-  --blue: #0d5c52;
+  --blue: #2e6e79;
   --blue-d: #1d38b3;
   --blue-l: #e8edff;
-  --mint: #0d5c52;
-  --mint-d: #0a7a68;
+  --mint: #2e6e79;
+  --mint-d: #2e6e79;
   --sun: #f5b544;
   --radius: 18px;
   --radius-s: 12px;
@@ -338,7 +338,7 @@ html {
 /* ===== Hero ===== */
 .nx-hero {
   background:
-    radial-gradient(1000px 520px at 85% -10%, rgba(13, 92, 82, 0.12), transparent 60%),
+    radial-gradient(1000px 520px at 85% -10%, rgba(73, 145, 157, 0.12), transparent 60%),
     radial-gradient(700px 400px at -10% 100%, rgba(15, 165, 140, 0.1), transparent 60%),
     var(--white);
   padding-block: clamp(36px, 7vw, 96px) clamp(48px, 8vw, 104px);
@@ -418,7 +418,7 @@ html {
   background: var(--surface);
   border-radius: 14px;
   border: 1px solid var(--line);
-  box-shadow: var(--shadow), 0 40px 80px -30px rgba(13, 92, 82, 0.35);
+  box-shadow: var(--shadow), 0 40px 80px -30px rgba(73, 145, 157, 0.35);
   overflow: hidden;
 }
 .nx-hv-bar {
@@ -518,7 +518,7 @@ html {
   border-radius: 12px;
   background:
     radial-gradient(60% 60% at 70% 30%, rgba(245, 181, 68, 0.9), transparent 62%),
-    linear-gradient(135deg, #0d5c52, #0d5c52);
+    linear-gradient(135deg, #2e6e79, #2e6e79);
 }
 .nx-mock-cards {
   display: grid;
@@ -795,7 +795,7 @@ html {
 }
 .nx-plan.is-featured {
   border: 2px solid var(--blue);
-  box-shadow: 0 24px 60px -24px rgba(13, 92, 82, 0.45);
+  box-shadow: 0 24px 60px -24px rgba(73, 145, 157, 0.45);
 }
 .nx-plan-flag {
   position: absolute;
@@ -1026,7 +1026,7 @@ html {
 .nx-cta {
   background:
     radial-gradient(700px 300px at 100% 0%, rgba(245, 181, 68, 0.22), transparent 60%),
-    linear-gradient(135deg, var(--blue), #0e3d3a);
+    linear-gradient(135deg, var(--blue), #151f3a);
   color: #fff;
   padding-block: clamp(48px, 8vw, 88px);
 }
@@ -1062,7 +1062,7 @@ html {
 .nx-pagehero {
   padding-block: clamp(40px, 7vw, 88px) clamp(32px, 5vw, 56px);
   background:
-    radial-gradient(800px 320px at 90% -20%, rgba(13, 92, 82, 0.12), transparent 60%),
+    radial-gradient(800px 320px at 90% -20%, rgba(73, 145, 157, 0.12), transparent 60%),
     var(--paper);
   border-bottom: 1px solid var(--line);
 }
@@ -1115,12 +1115,12 @@ html {
   letter-spacing: -0.05em;
 }
 .tone-blue {
-  --c1: #0d5c52;
+  --c1: #2e6e79;
   --c2: #5f7dff;
 }
 .tone-teal {
-  --c1: #0a7a68;
-  --c2: #5e7a4f;
+  --c1: #2e6e79;
+  --c2: #bed3c4;
 }
 .tone-ink {
   --c1: #0f2230;
@@ -1244,7 +1244,7 @@ html {
 .nx-form input:focus,
 .nx-form select:focus,
 .nx-form textarea:focus {
-  outline: 3px solid rgba(13, 92, 82, 0.25);
+  outline: 3px solid rgba(73, 145, 157, 0.25);
   border-color: var(--link);
 }
 .nx-form-actions {

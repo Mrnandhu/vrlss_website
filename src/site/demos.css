@@ -12,7 +12,7 @@
 .dm-more-card strong { font-family: var(--font-head); font-size: 1.1rem; }
 .dm-more-card em { font-style: normal; display: inline-flex; gap: 6px; align-items: center; color: var(--blue); font-weight: 700; margin-top: 6px; }
 
-.dm-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; border-radius: 999px; font-weight: 650; cursor: pointer; border: 1px solid rgba(255,255,255,.3); color: #fff; background: linear-gradient(180deg, #13705f, #0d5c52 60%, #0e3d3a); box-shadow: 0 8px 18px -8px rgba(13,92,82,.7), inset 0 1.5px 0 rgba(255,255,255,.5); }
+.dm-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; border-radius: 999px; font-weight: 650; cursor: pointer; border: 1px solid rgba(255,255,255,.3); color: #fff; background: linear-gradient(180deg, #3c7f8a, #2e6e79 60%, #151f3a); box-shadow: 0 8px 18px -8px rgba(73, 145, 157,.7), inset 0 1.5px 0 rgba(255,255,255,.5); }
 .dm-btn:disabled { opacity: .5; cursor: not-allowed; }
 .dm-btn-lg { min-height: 52px; padding: 0 26px; width: 100%; }
 .dm-btn-ghost { background: var(--glass-strong); color: var(--ink); border-color: var(--glass-edge); box-shadow: var(--glass-hi); }
@@ -148,7 +148,7 @@
 .pt-steps li { display: grid; justify-items: center; gap: 6px; font-size: .82rem; color: var(--ink-3); text-align: center; position: relative; }
 .pt-steps b { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: rgba(15,34,48,.1); }
 .pt-steps li.done b { background: var(--mint); color: #fff; }
-.pt-steps li.now b { background: var(--blue); color: #fff; box-shadow: 0 0 0 5px rgba(13,92,82,.2); }
+.pt-steps li.now b { background: var(--blue); color: #fff; box-shadow: 0 0 0 5px rgba(73, 145, 157,.2); }
 .pt-steps li.now, .pt-steps li.done { color: var(--ink); font-weight: 650; }
 .pt-list { display: grid; gap: 4px; }
 .pt-list li { display: grid; grid-template-columns: 1fr auto auto auto; gap: 12px; align-items: center; padding: 12px 4px; border-bottom: 1px solid rgba(15,34,48,.08); }

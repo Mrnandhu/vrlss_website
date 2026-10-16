@@ -9,7 +9,7 @@ import { IconArrow, IconSearch } from '../icons'
 const glyphFor = { 'online-store': 'bag', 'booking-system': 'calendar', 'sales-dashboard': 'chart', 'customer-portal': 'user', 'mobile-app': 'phone', 'sales-crm': 'kanban', 'invoice-generator': 'invoice' }
 
 const sites = industries.map((s) => ({ key: s.slug, group: s.sector, tag: s.cat, name: s.name, href: s.path, pal: s.pal, img: s.img, glyph: s.glyph }))
-const apps = demos.map((d) => ({ key: d.slug, group: 'apps', tag: d.category, name: d.name, href: d.path, pal: ['#0b1414', '#fff', '#0d5c52', '#5e7a4f'], glyph: glyphFor[d.slug], app: true }))
+const apps = demos.map((d) => ({ key: d.slug, group: 'apps', tag: d.category, name: d.name, href: d.path, pal: ['#202e53', '#fff', '#2e6e79', '#bed3c4'], glyph: glyphFor[d.slug], app: true }))
 const groups = [...sectors, ['apps', 'Working apps and tools']]
 
 function Card({ x }) {

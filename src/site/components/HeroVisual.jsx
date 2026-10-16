@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react'
 
 const tabs = ['Website', 'Online store', 'Booking', 'Dashboard', 'Client portal']
+const prompts = [
+  'A restaurant website with table booking',
+  'An online store for a furniture shop',
+  'Appointment booking for a salon',
+  'A sales dashboard for a retail chain',
+  'A client portal for a design agency',
+]
 const ph = (k, sm) => `/assets/photos/${k}${sm ? '-sm' : ''}.webp`
 
 const chips = [
@@ -145,6 +152,26 @@ function Phone({ i }) {
   )
 }
 
+function Prompt({ i }) {
+  const text = prompts[i]
+  const [n, setN] = useState(text.length)
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { setN(text.length); return }
+    setN(0)
+    let k = 0
+    const t = setInterval(() => { k += 1; setN(k); if (k >= text.length) clearInterval(t) }, 32)
+    return () => clearInterval(t)
+  }, [text])
+  const done = n >= text.length
+  return (
+    <div className={`hv-prompt${done ? ' is-done' : ''}`} aria-hidden="true">
+      <span className="hv-spark">✦</span>
+      <span className="hv-ptext">{text.slice(0, n)}<i className="hv-caret" /></span>
+      <span className="hv-status">{done ? 'Live in 3 days' : 'Designing…'}</span>
+    </div>
+  )
+}
+
 export default function HeroVisual() {
   const [i, setI] = useState(0)
   const [hold, setHold] = useState(false)
@@ -164,6 +191,7 @@ export default function HeroVisual() {
 
   return (
     <div className="nx-hvwrap" onMouseEnter={() => setHold(true)} onMouseLeave={() => setHold(false)} onFocus={() => setHold(true)} onBlur={() => setHold(false)}>
+      <Prompt i={i} />
       <div className="nx-hv" aria-hidden="true">
         <div className="nx-hv-laptop">
           <div className="nx-hv-bar"><i /><i /><i /><span>{['saffrontable.com', 'hearthandco.com', 'asterstudio.com', 'app.vrlss.in/overview', 'portal.vrlss.in'][i]}</span></div>

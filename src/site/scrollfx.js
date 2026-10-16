@@ -7,6 +7,9 @@ const REVEAL = [
   '.nx-cta-inner', '.nx-card-founder', '.nx-contact-side', '.hm-stat', '.nx-center-note', '.hm-steps li', '.lo-copy',
 ].join(',')
 
+// glass surfaces that get the pointer-following light and holographic edge
+const HOLO = '.nx-faq-item, .hm-steps li, .nx-plan, .wk-card, .nx-feature, .nx-card-founder, .nx-contact-side, .hm-svc-card'
+
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v))
 const lerp = (a, b, t) => a + (b - a) * t
 
@@ -141,6 +144,12 @@ export function useScrollFx(path) {
           const r = hero.getBoundingClientRect()
           hero.style.setProperty('--px', ((e.clientX - r.left) / r.width - 0.5).toFixed(3))
           hero.style.setProperty('--py', (0.5 - (e.clientY - r.top) / r.height).toFixed(3))
+        }
+        const g = t.closest?.(HOLO)
+        if (g) {
+          const r = g.getBoundingClientRect()
+          g.style.setProperty('--gx', `${(((e.clientX - r.left) / r.width) * 100).toFixed(1)}%`)
+          g.style.setProperty('--gy', `${(((e.clientY - r.top) / r.height) * 100).toFixed(1)}%`)
         }
         const b = t.closest?.('.nx-btn-primary, .nx-btn-light')
         if (b !== hot) {

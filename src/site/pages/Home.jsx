@@ -2,7 +2,7 @@ import { Section, Head, Button, FAQ, CtaBand, LaunchOffer, Words } from '../comp
 import HeroVisual from '../components/HeroVisual'
 import { Link } from '../router'
 import { Glyph } from '../demos/Scene'
-import { industries, industryByPath } from '../demos/industries'
+import { industries, industryByPath, sectors } from '../demos/industries'
 import { faqs } from '../routes'
 import { IconArrow } from '../icons'
 
@@ -28,8 +28,18 @@ const steps = [
 ]
 
 const pad = (n) => String(n).padStart(2, '0')
-const ringSlugs = ['restaurant', 'hospital', 'salon-spa', 'school', 'supermarket', 'real-estate', 'chartered-accountant', 'it-company', 'travel-agency', 'car-service', 'manufacturing', 'seafood-export', 'dental-clinic', 'gym-fitness', 'jewellery', 'logistics']
-const ringItems = ringSlugs.map((k) => industries.find((x) => x.slug === k)).filter(Boolean)
+const half = Math.ceil(industries.length / 2)
+const streams = [industries.slice(0, half), industries.slice(half)]
+
+function Capsule({ x, hidden }) {
+  return (
+    <Link to={x.path} className="is-cap" data-cursor="Open" {...(hidden ? { tabIndex: -1, 'aria-hidden': 'true' } : {})}>
+      <span className="is-ico"><Glyph name={x.glyph} /></span>
+      <span className="is-txt"><b>{x.cat}</b><small>Live demo</small></span>
+      <span className="is-go" aria-hidden="true"><IconArrow width={16} height={16} /></span>
+    </Link>
+  )
+}
 
 export default function Home() {
   return (
@@ -51,21 +61,25 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="hm-ring" data-sp aria-labelledby="ring-h">
+      <section className="hm-ring hm-stream" aria-labelledby="ring-h">
         <div className="nx-wrap hm-ring-head">
           <h2 className="nx-h2" id="ring-h"><Words text={`Built for ${industries.length} industries`} /></h2>
           <Button to="/work" variant="outline">Find yours</Button>
         </div>
-        <div className="ring-stage" aria-hidden="true">
-          <div className="ring" style={{ '--n': ringItems.length }}>
-            {ringItems.map((x, i) => (
-              <span key={x.slug} className="ring-tile" style={{ '--k': i, '--c1': x.pal[2], '--c2': x.pal[3] }}>
-                <Glyph name={x.glyph} className="ring-g" />
-                <b>{x.cat}</b>
-              </span>
-            ))}
-          </div>
+        <div className="is-stream">
+          {streams.map((row, r) => (
+            <div className="is-row" key={r}>
+              <div className="is-track" data-marquee={r ? '1' : '-1'} data-speed="0.35">
+                {[0, 1].map((copy) => (
+                  <span className="is-set" key={copy}>
+                    {row.map((x) => <Capsule key={x.slug} x={x} hidden={copy === 1} />)}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
+        <p className="nx-wrap is-note"><span>{industries.length} industries</span><i /><span>{sectors.length} sectors</span><i /><span>A live demo for each</span></p>
       </section>
 
       <section className="mf" aria-label="Our approach">
