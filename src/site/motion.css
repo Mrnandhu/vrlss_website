@@ -325,7 +325,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 .sc-btn.wide { display: block; text-align: center; background: var(--blue); }
 .sc-split { display: grid; grid-template-columns: 1.05fr 1fr; gap: 2.4cqw; flex: 1; min-height: 0; align-items: center; }
 .sc-copy small { color: var(--blue); font-weight: 700; }
-.sc-copy h4 { margin: .3em 0 .35em; font-family: var(--font-head); font-size: 2.6em; line-height: 1.02; letter-spacing: -.03em; }
+.sc-copy :is(h4, .sc-h) { display: block; margin: .3em 0 .35em; font-family: var(--font-head); font-size: 2.6em; line-height: 1.02; letter-spacing: -.03em; }
 .sc-copy p { margin: 0 0 .9em; color: var(--ink-2); line-height: 1.4; }
 .sc-row { display: flex; gap: 1cqw; }
 .sc-photo { position: relative; height: 100%; border-radius: 1.8cqw; overflow: hidden; }

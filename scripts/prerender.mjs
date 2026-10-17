@@ -50,7 +50,8 @@ try {
 console.log('css linked in HTML:', [...cssLinks.matchAll(/data-inline="([^"]+)"|href="([^"]+\.css)"/g)].map((m) => m[1] || m[2]).join(', ') || 'NONE')
 for (const r of routes) {
   const { html, head } = render(r.path)
-  const page = template.replace('<!--app-head-->', cssLinks + '\n    ' + head).replace('<!--app-html-->', html)
+  const lang = r.lang || 'en'
+  const page = template.replace('<html lang="en">', `<html lang="${lang}">`).replace('<!--app-head-->', cssLinks + '\n    ' + head).replace('<!--app-html-->', html)
   const out = r.path === '/' ? resolve(dist, 'index.html') : resolve(dist, r.path.slice(1), 'index.html')
   mkdirSync(dirname(out), { recursive: true })
   writeFileSync(out, page)
@@ -58,15 +59,41 @@ for (const r of routes) {
 }
 
 const today = new Date().toISOString().slice(0, 10)
+const PRIORITY = { '/': '1.0', '/websites': '0.9', '/digital-marketing': '0.9', '/pricing': '0.9', '/start': '0.9', '/work': '0.8', '/about': '0.7', '/contact': '0.7' }
+const xmlEsc = (v) => String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+const loc = (p) => `${SITE}${p === '/' ? '/' : p}`
+// photo for a page, if the page is an industry demo that has one
+const photoFor = (r) => {
+  const m = r.path.match(/^\/work\/websites\/([^/]+)$/)
+  if (!m) return null
+  try {
+    const src = readFileSync(resolve(root, 'src/site/demos/industries.js'), 'utf8')
+    const hit = src.match(new RegExp(`slug: '${m[1]}'[^}]*?img: '([a-z-]+)'`))
+    return hit ? `${SITE}/assets/photos/${hit[1]}.webp` : null
+  } catch { return null }
+}
 const sitemap =
   `<?xml version="1.0" encoding="UTF-8"?>\n` +
   `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n` +
   routes
     .filter((r) => !r.noindex)
     .map((r) => {
-      const url = `${SITE}${r.path === '/' ? '/' : r.path}`
-      const pri = r.path === '/' ? '1.0' : ['/websites', '/digital-marketing', '/pricing'].includes(r.path) ? '0.9' : '0.7'
-      return `  <url>\n    <loc>${url}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${pri}</priority>\n    <xhtml:link rel="alternate" hreflang="en" href="${url}"/>${r.path === '/' ? `\n    <image:image><image:loc>${SITE}/og-image.jpg</image:loc></image:image>` : ''}\n  </url>`
+      const url = loc(r.path)
+      const pri = PRIORITY[r.path] || (r.path.startsWith('/web-design/') ? '0.8' : r.path === '/sitemap' || ['/privacy', '/terms', '/refunds'].includes(r.path) ? '0.3' : '0.6')
+      const alts = r.alternates
+        ? [...r.alternates.map((a) => `    <xhtml:link rel="alternate" hreflang="${a.lang}" href="${loc(a.path)}"/>`), `    <xhtml:link rel="alternate" hreflang="x-default" href="${loc(r.alternates[0].path)}"/>`]
+        : [`    <xhtml:link rel="alternate" hreflang="${r.lang || 'en'}" href="${url}"/>`]
+      const img = r.path === '/' ? `${SITE}/og-image.jpg` : photoFor(r)
+      return [
+        '  <url>',
+        `    <loc>${xmlEsc(url)}</loc>`,
+        `    <lastmod>${today}</lastmod>`,
+        `    <changefreq>${r.path === '/' || r.path === '/work' ? 'weekly' : 'monthly'}</changefreq>`,
+        `    <priority>${pri}</priority>`,
+        ...alts,
+        ...(img ? [`    <image:image><image:loc>${img}</image:loc><image:title>${xmlEsc(r.h1 || r.title)}</image:title></image:image>`] : []),
+        '  </url>',
+      ].join('\n')
     })
     .join('\n') +
   `\n</urlset>\n`

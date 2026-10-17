@@ -5,6 +5,9 @@ import { demos } from './demos/demoData'
 import { industries } from './demos/industries'
 import { localized, LANGS, versionsOf } from './demos/locales'
 
+const SMALL = new Set(['and', 'or', 'of', 'the', 'for', 'in', 'to', 'a'])
+export const titleCase = (t) => t.split(' ').map((w, i) => (i && SMALL.has(w.toLowerCase()) ? w.toLowerCase() : w.charAt(0).toUpperCase() + w.slice(1))).join(' ')
+
 export const SITE = brand.url
 
 export const faqs = {
@@ -112,9 +115,9 @@ export const faqs = {
 
 const home = {
   path: '/',
-  title: `${brand.name} | Web Design, Development & Digital Marketing Studio`,
+  title: `${brand.name} | Web Design & Development Studio`,
   description:
-    'Design and engineering studio building websites, online stores and web apps for brands worldwide. Free first demo, fixed prices, and you own everything.',
+    'Web design and development studio building websites, online stores and web apps for businesses worldwide. Free homepage demo, fixed prices, you own it all.',
   h1: 'We build websites, online stores and web apps that grow.',
   nav: 'Home',
 }
@@ -133,7 +136,7 @@ const baseRoutes = [
   },
   {
     path: '/digital-marketing',
-    title: `Digital Marketing Services for Small Business | ${brand.name}`,
+    title: `Digital Marketing: SEO, Social & Ads | ${brand.name}`,
     description:
       'Local SEO, Google Business Profile, social media and paid ads managed for you. Monthly plans with clear reporting and no long contracts.',
     h1: 'Digital marketing',
@@ -143,7 +146,7 @@ const baseRoutes = [
   },
   {
     path: '/pricing',
-    title: `Pricing: Website & Digital Marketing Packages | ${brand.name}`,
+    title: `Website & Marketing Pricing | ${brand.name}`,
     description:
       `Website packages from $${websitePlans[0].price} and monthly digital marketing plans from $${marketingPlans[0].price}. Transparent fixed prices with no hidden costs.`,
     h1: 'Transparent pricing',
@@ -163,7 +166,7 @@ const baseRoutes = [
   {
     path: '/about',
     title: `Studio | ${brand.name}: Design, Engineering & Growth`,
-    description: `${brand.name} is a design and engineering studio based in ${brand.location}, working with clients worldwide. Founded by ${brand.founder}. Free demo first, fixed prices, no hand-offs.`,
+    description: `${brand.name} is a web design and development studio in ${brand.location}, working with clients worldwide. Free demo first, fixed prices, no hand-offs.`,
     h1: 'A focused studio for the web.',
     nav: 'Studio',
     crumb: 'Studio',
@@ -179,8 +182,8 @@ const baseRoutes = [
   },
   {
     path: '/start',
-    title: `Start a Project: Instant Website & App Estimate | ${brand.name}`,
-    description: 'Plan your website, online store, web app or marketing in 3 minutes. See an instant price estimate in your currency, our current offers, and get a ready project brief.',
+    title: `Website Cost Calculator & Project Planner | ${brand.name}`,
+    description: 'Plan your website, online store, web app or marketing in 3 minutes. Get an instant price estimate in your currency and a ready project brief.',
     h1: 'Plan your project.',
     nav: 'Start a project',
     crumb: 'Start a project',
@@ -194,9 +197,16 @@ const baseRoutes = [
     noindex: true,
   },
   {
+    path: '/sitemap',
+    title: `Site Map: All Pages and Demos | ${brand.name}`,
+    description: `Every page on ${brand.name}: services, pricing, 46 industry website demos, demos in 7 languages, the countries and cities we serve, and our policies.`,
+    h1: 'Site map',
+    crumb: 'Site map',
+  },
+  {
     path: '/privacy',
     title: `Privacy Policy | ${brand.name}`,
-    description: `How ${brand.name} collects, uses and protects the information you share when you contact us or hire us.`,
+    description: `How ${brand.name} collects, uses and protects the information you share when you contact us, use our project planner or hire us for a project.`,
     h1: 'Privacy policy',
     crumb: 'Privacy policy',
   },
@@ -210,7 +220,7 @@ const baseRoutes = [
   {
     path: '/refunds',
     title: `Refunds and Cancellations | ${brand.name}`,
-    description: `What happens to your payment if you cancel a website project or marketing plan with ${brand.name}.`,
+    description: `What happens to your payment if you cancel a website project or marketing plan with ${brand.name}, and how refunds are calculated and paid.`,
     h1: 'Refunds and cancellations',
     crumb: 'Refunds and cancellations',
   },
@@ -227,8 +237,8 @@ const demoRoutes = demos.map((d) => ({
 const industryRoutes = industries.map((s) => ({
   alternates: versionsOf(s.slug).length > 1 ? versionsOf(s.slug) : undefined,
   path: s.path,
-  title: `${s.cat} Website Design: Live Demo | ${brand.name}`,
-  description: `Try a live ${s.cat.toLowerCase()} website demo with services, prices and WhatsApp enquiries. Get a fast, mobile-friendly ${s.cat.toLowerCase()} website, with a free demo before you pay.`,
+  title: `${titleCase(s.cat)} Website Design Demo | ${brand.name}`,
+  description: `Live ${s.cat.toLowerCase()} website demo with services, prices and WhatsApp enquiries. Get a fast, mobile-friendly site, with a free demo first.`,
   h1: `${s.cat} website demo`,
   crumb: s.cat,
   parent: { path: '/work', name: 'Work' },
@@ -271,7 +281,7 @@ const placeRoutes = places.map((p) =>
   p.kind === 'city'
     ? {
         path: placePath(p),
-        title: `Website Design in ${p.name} | From ${formatPrice(websitePlans[0].price, 'INR', websitePlans[0].inr)} | ${brand.name}`,
+        title: `Website Design in ${p.name} from ${formatPrice(websitePlans[0].price, 'INR', websitePlans[0].inr)} | ${brand.name}`,
         description: `Website design for ${p.name} businesses: fast, mobile-friendly sites from ${formatPrice(websitePlans[0].price, 'INR', websitePlans[0].inr)}, in English or Telugu. See a free demo of your homepage before you pay.`,
         h1: `Website design in ${p.name}`,
         crumb: `Web design in ${p.name}`,
@@ -279,7 +289,7 @@ const placeRoutes = places.map((p) =>
       }
     : {
         path: placePath(p),
-        title: `Website Design for Small Businesses in ${p.short} | ${brand.name}`,
+        title: `Small Business Website Design in ${p.short} | ${brand.name}`,
         description: `Professional websites for small businesses in ${p.name} from ${formatPrice(websitePlans[0].price, p.currency)}, or ${formatPrice(monthlyPlans[0].price, p.currency)}/month. Free homepage demo before you pay. You own everything.`,
         h1: `Website design for small businesses in ${p.name}`,
         crumb: `Web design in ${p.short}`,
@@ -300,14 +310,34 @@ const localizedRoutes = localized.map((s) => ({
   path: s.path,
   lang: s.lang,
   alternates: versionsOf(s.baseSlug),
-  title: `${LANGS[s.lang].name} ${s.baseCat} Website Demo (${LANGS[s.lang].native}) | ${brand.name}`,
-  description: `A live ${s.baseCat.toLowerCase()} website demo in ${LANGS[s.lang].name} for businesses in ${LANGS[s.lang].regions}. ${s.head}. Get a website like this in ${LANGS[s.lang].name}, with a free demo first.`,
+  title: `${LANGS[s.lang].name} ${titleCase(s.baseCat)} Website Demo | ${brand.name}`,
+  description: `Live ${s.baseCat.toLowerCase()} website demo in ${LANGS[s.lang].name} (${LANGS[s.lang].native}) for ${LANGS[s.lang].regions.split(' · ').slice(0, 3).join(', ')}. Get a site like this, with a free demo first.`,
   h1: `${s.cat}: ${s.name}`,
   crumb: `${s.baseCat} (${LANGS[s.lang].native})`,
   parent: { path: '/work', name: 'Work' },
 }))
 
-export const routes = [...baseRoutes, ...placeRoutes, teluguRoute, ...demoRoutes, ...industryRoutes, ...localizedRoutes]
+// ---------- On-page SEO guard rails ----------
+// Titles: keep within ~60 characters (Google cuts longer ones). Descriptions: within 160.
+function fitTitle(t) {
+  if (t.length <= 60) return t
+  let parts = t.split(' | ')
+  while (parts.length > 2 && parts.join(' | ').length > 60) parts.splice(parts.length - 2, 1)
+  let out = parts.join(' | ')
+  if (out.length > 60) out = out.replace(` | ${brand.name}`, ' | VRLS')
+  if (out.length > 60) out = out.replace(/:[^|]*\|/, ' |')
+  return out
+}
+function fitDesc(d) {
+  if (d.length <= 160) return d
+  const cut = d.slice(0, 160)
+  const end = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('! '))
+  if (end > 90) return cut.slice(0, end + 1)
+  return cut.slice(0, cut.lastIndexOf(' ')).replace(/[,;:]$/, '') + '…'
+}
+const tidy = (r) => (r.noindex ? r : { ...r, title: fitTitle(r.title), description: fitDesc(r.description) })
+
+export const routes = [...baseRoutes, ...placeRoutes, teluguRoute, ...demoRoutes, ...industryRoutes, ...localizedRoutes].map(tidy)
 
 export const notFound = {
   path: '/404',
@@ -482,7 +512,7 @@ export function headHtml(r) {
       : [`<link rel="alternate" hreflang="${r.lang || 'en'}" href="${url}" />`, ...(r.lang ? [] : [`<link rel="alternate" hreflang="x-default" href="${url}" />`])]),
     `<meta property="og:type" content="website" />`,
     `<meta property="og:site_name" content="${esc(brand.name)}" />`,
-    `<meta property="og:locale" content="en_US" />`,
+    `<meta property="og:locale" content="${({ ar: 'ar_AE', hi: 'hi_IN', te: 'te_IN', ta: 'ta_IN', fr: 'fr_FR', de: 'de_DE' })[r.lang] || 'en_US'}" />`,
     `<meta property="og:title" content="${esc(r.title)}" />`,
     `<meta property="og:description" content="${esc(r.description)}" />`,
     `<meta property="og:url" content="${url}" />`,

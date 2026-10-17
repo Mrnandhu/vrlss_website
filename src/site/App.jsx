@@ -13,6 +13,7 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Start from './pages/Start'
 import StudioDocs from './pages/StudioDocs'
+import SiteMap from './pages/SiteMap'
 import NotFound from './pages/NotFound'
 import Legal from './pages/Legal'
 import Store from './demos/Store'
@@ -46,6 +47,7 @@ const pages = {
   '/contact': Contact,
   '/start': Start,
   '/studio/docs': StudioDocs,
+  '/sitemap': SiteMap,
   '/privacy': () => <Legal path="/privacy" />,
   '/terms': () => <Legal path="/terms" />,
   '/refunds': () => <Legal path="/refunds" />,

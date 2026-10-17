@@ -26,7 +26,7 @@ function Laptop({ i }) {
         <div className="sc-split">
           <div className="sc-copy">
             <small>Modern Indian dining</small>
-            <h4>Slow-cooked flavours, served with care</h4>
+            <strong className="sc-h">Slow-cooked flavours, served with care</strong>
             <p>Fresh spices, open kitchen, and a table waiting for you.</p>
             <div className="sc-row"><i className="sc-btn">Reserve a table</i><i className="sc-btn ghost">View menu</i></div>
           </div>

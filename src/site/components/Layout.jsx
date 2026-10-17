@@ -167,6 +167,7 @@ export default function Layout({ path, children }) {
             <Link to="/privacy">Privacy</Link>
             <Link to="/terms">Terms</Link>
             <Link to="/refunds">Refunds</Link>
+            <Link to="/sitemap">Site map</Link>
           </p>
         </div>
       </footer>
