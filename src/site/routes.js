@@ -178,6 +178,22 @@ const baseRoutes = [
     crumb: 'Contact',
   },
   {
+    path: '/start',
+    title: `Start a Project: Instant Website & App Estimate | ${brand.name}`,
+    description: 'Plan your website, online store, web app or marketing in 3 minutes. See an instant price estimate in your currency, our current offers, and get a ready project brief.',
+    h1: 'Plan your project.',
+    nav: 'Start a project',
+    crumb: 'Start a project',
+  },
+  {
+    path: '/studio/docs',
+    title: `Document studio | ${brand.name}`,
+    description: 'Private tool.',
+    h1: 'Document studio',
+    crumb: 'Document studio',
+    noindex: true,
+  },
+  {
     path: '/privacy',
     title: `Privacy Policy | ${brand.name}`,
     description: `How ${brand.name} collects, uses and protects the information you share when you contact us or hire us.`,

@@ -62,6 +62,7 @@ const sitemap =
   `<?xml version="1.0" encoding="UTF-8"?>\n` +
   `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n` +
   routes
+    .filter((r) => !r.noindex)
     .map((r) => {
       const url = `${SITE}${r.path === '/' ? '/' : r.path}`
       const pri = r.path === '/' ? '1.0' : ['/websites', '/digital-marketing', '/pricing'].includes(r.path) ? '0.9' : '0.7'
@@ -76,6 +77,7 @@ writeFileSync(
     'User-agent: *',
     'Allow: /',
     'Disallow: /preview/',
+    'Disallow: /studio/',
     '',
     '# AI and answer-engine crawlers are welcome to read the public pages',
     ...['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'PerplexityBot', 'Google-Extended', 'Applebot-Extended', 'CCBot'].flatMap((b) => [`User-agent: ${b}`, 'Allow: /', '']),
@@ -86,7 +88,7 @@ writeFileSync(
 
 // llms.txt: a plain summary for AI search tools
 const section = (title, test) =>
-  `## ${title}\n` + routes.filter(test).map((r) => `- [${r.crumb || 'Home'}](${SITE}${r.path === '/' ? '/' : r.path}): ${r.description}`).join('\n') + '\n'
+  `## ${title}\n` + routes.filter((r) => !r.noindex).filter(test).map((r) => `- [${r.crumb || 'Home'}](${SITE}${r.path === '/' ? '/' : r.path}): ${r.description}`).join('\n') + '\n'
 writeFileSync(
   resolve(dist, 'llms.txt'),
   `# Vrlss\n\n> Vrlss is a founder-led web studio in Andhra Pradesh, India, building websites, web apps, mobile apps and digital marketing for businesses worldwide, with fixed prices shown in the visitor's currency.\n\n` +

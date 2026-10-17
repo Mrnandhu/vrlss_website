@@ -114,7 +114,7 @@ export function CtaBand({ title = "Let's build what's next.", lead = 'Your first
           <p className="nx-lead">{lead}</p>
         </div>
         <div className="nx-cta-actions">
-          <Button to="/contact?plan=demo" icon>
+          <Button to="/start" icon>
             Start a project
           </Button>
           <a className="nx-btn nx-btn-outline" href={waLink()} target="_blank" rel="noopener noreferrer">
@@ -175,7 +175,7 @@ export function LaunchOffer({ compact = false }) {
         )}
         {!compact && (
           <div className="lo-actions">
-            <Button to="/contact?plan=demo" icon>Start a project</Button>
+            <Button to="/start" icon>Start a project</Button>
           </div>
         )}
       </div>

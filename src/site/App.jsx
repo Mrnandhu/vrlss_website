@@ -11,6 +11,8 @@ import Pricing from './pages/Pricing'
 import Work from './pages/Work'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import Start from './pages/Start'
+import StudioDocs from './pages/StudioDocs'
 import NotFound from './pages/NotFound'
 import Legal from './pages/Legal'
 import Store from './demos/Store'
@@ -32,6 +34,7 @@ import './demosite.css'
 import './motion.css'
 import './brand.css'
 import './studio.css'
+import './tools.css'
 
 const pages = {
   '/': Home,
@@ -41,6 +44,8 @@ const pages = {
   '/work': Work,
   '/about': About,
   '/contact': Contact,
+  '/start': Start,
+  '/studio/docs': StudioDocs,
   '/privacy': () => <Legal path="/privacy" />,
   '/terms': () => <Legal path="/terms" />,
   '/refunds': () => <Legal path="/refunds" />,

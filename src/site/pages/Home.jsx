@@ -96,7 +96,7 @@ export default function Home() {
             </h1>
             <p className="st-lead">Design, engineering and marketing for ambitious brands worldwide.</p>
             <div className="st-actions">
-              <Link to="/contact?plan=demo" className="nx-btn nx-btn-primary st-btn-xl"><span>Start a project</span><IconArrow width={18} height={18} /></Link>
+              <Link to="/start" className="nx-btn nx-btn-primary st-btn-xl"><span>Start a project</span><IconArrow width={18} height={18} /></Link>
               <Link to="/work" className="nx-btn nx-btn-outline st-btn-xl"><span>View our work</span></Link>
             </div>
             <ul className="st-promise">
@@ -287,7 +287,7 @@ export default function Home() {
           <h2 className="st-final-h" id="go-h">Let's build what's next.</h2>
           <p className="st-lead">Your first demo is free.</p>
           <div className="st-actions">
-            <Link to="/contact?plan=demo" className="nx-btn nx-btn-primary st-btn-xl"><span>Start a project</span><IconArrow width={18} height={18} /></Link>
+            <Link to="/start" className="nx-btn nx-btn-primary st-btn-xl"><span>Start a project</span><IconArrow width={18} height={18} /></Link>
             <a className="nx-btn nx-btn-outline st-btn-xl" href={waLink()} target="_blank" rel="noopener noreferrer"><IconWhatsApp width={20} height={20} /><span>WhatsApp</span></a>
           </div>
         </div>

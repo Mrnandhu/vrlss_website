@@ -57,7 +57,7 @@ export default function Layout({ path, children }) {
           </nav>
           <div className="nx-header-actions">
             <span className="nx-head-cur"><CurrencySelect id="nx-cur-head" label="Currency" compact /></span>
-            <Link to="/contact?plan=demo" className="nx-btn nx-btn-primary nx-btn-sm">
+            <Link to="/start" className="nx-btn nx-btn-primary nx-btn-sm">
               <span>Start a project</span>
             </Link>
             <button
@@ -94,13 +94,13 @@ export default function Layout({ path, children }) {
         {children}
       </main>
 
-      {path !== '/contact' && (
+      {!['/contact', '/start', '/studio/docs'].includes(path) && (
         <nav className="nx-mbar" aria-label="Quick contact">
           <a href={waLink()} target="_blank" rel="noopener noreferrer" className="nx-mbar-wa">
             <IconWhatsApp width={20} height={20} />
             <span>WhatsApp</span>
           </a>
-          <Link to="/contact?plan=demo" className="nx-mbar-demo">Start a project</Link>
+          <Link to="/start" className="nx-mbar-demo">Start a project</Link>
         </nav>
       )}
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Section, PageHero } from '../components/Bits'
-import { IconWhatsApp, IconMail, IconPin, IconGift, IconClock, IconGlobe } from '../icons'
+import { IconWhatsApp, IconMail, IconPin, IconGift, IconClock, IconGlobe, IconCoins, IconArrow } from '../icons'
+import { Link } from '../router'
 import { brand, waLink, mailLink } from '../brand'
 import { industries } from '../demos/industries'
 import { useCurrency, Price } from '../currency'
@@ -82,6 +83,11 @@ export default function Contact() {
         chips={[[IconGift, 'Free first demo'], [IconClock, brand.hoursShort], [IconGlobe, 'Worldwide, remote']]}
       />
       <Section tone="white">
+        <Link to="/start" className="ct-planner">
+          <span className="st-ico"><IconCoins width={24} height={24} /></span>
+          <span><b>Want a price first?</b><small>Plan your project in 3 minutes and see an instant estimate.</small></span>
+          <IconArrow width={20} height={20} />
+        </Link>
         <div className="nx-contact">
           <form className="nx-form" onSubmit={go('wa')} noValidate>
             <label>

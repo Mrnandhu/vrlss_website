@@ -29,3 +29,6 @@
 
 /llms.txt
   Content-Type: text/plain; charset=utf-8
+
+/studio/*
+  X-Robots-Tag: noindex, nofollow
