@@ -4,6 +4,7 @@ import { places, placePath, placeByPath } from './places'
 import { demos } from './demos/demoData'
 import { industries } from './demos/industries'
 import { localized, LANGS, versionsOf } from './demos/locales'
+import { posts, postPath } from './blog/posts'
 
 const SMALL = new Set(['and', 'or', 'of', 'the', 'for', 'in', 'to', 'a'])
 export const titleCase = (t) => t.split(' ').map((w, i) => (i && SMALL.has(w.toLowerCase()) ? w.toLowerCase() : w.charAt(0).toUpperCase() + w.slice(1))).join(' ')
@@ -226,6 +227,26 @@ const baseRoutes = [
   },
 ]
 
+const blogRoutes = [
+  {
+    path: '/blog',
+    title: `Blog: Website Guides for Small Businesses | ${brand.name}`,
+    description: 'Plain-English guides on websites, Google, Instagram and growing a small business online: costs, checklists and honest advice.',
+    h1: 'Blog',
+    crumb: 'Blog',
+  },
+  ...posts.map((p) => ({
+    path: postPath(p),
+    title: `${p.title} | ${brand.name}`,
+    description: p.description,
+    h1: p.title,
+    crumb: p.title,
+    parent: { path: '/blog', name: 'Blog' },
+    image: p.cover ? `${SITE}/blog/${p.slug}.jpg` : undefined,
+    article: p,
+  })),
+]
+
 const demoRoutes = demos.map((d) => ({
   path: d.path,
   title: `${d.title} | ${brand.name}`,
@@ -337,7 +358,7 @@ function fitDesc(d) {
 }
 const tidy = (r) => (r.noindex ? r : { ...r, title: fitTitle(r.title), description: fitDesc(r.description) })
 
-export const routes = [...baseRoutes, ...placeRoutes, teluguRoute, ...demoRoutes, ...industryRoutes, ...localizedRoutes].map(tidy)
+export const routes = [...baseRoutes, ...blogRoutes, ...placeRoutes, teluguRoute, ...demoRoutes, ...industryRoutes, ...localizedRoutes].map(tidy)
 
 export const notFound = {
   path: '/404',
@@ -402,6 +423,22 @@ export function jsonLd(r) {
     isPartOf: { '@id': `${SITE}/#website` },
   }
   const graph = [org, site, page]
+  if (r.article) {
+    graph.push({
+      '@type': 'BlogPosting',
+      '@id': `${canonical(r)}#article`,
+      headline: r.article.title,
+      description: r.article.description,
+      datePublished: r.article.date,
+      dateModified: r.article.updated || r.article.date,
+      inLanguage: 'en',
+      mainEntityOfPage: { '@id': `${canonical(r)}#webpage` },
+      image: r.image || ogImage,
+      author: { '@type': 'Person', name: brand.founder, url: `${SITE}/about` },
+      publisher: { '@id': `${SITE}/#organization` },
+      keywords: (r.article.tags || []).join(', '),
+    })
+  }
 
   if (r.path !== '/') {
     const trail = [{ name: 'Home', item: `${SITE}/` }]
@@ -510,20 +547,20 @@ export function headHtml(r) {
     ...(r.alternates
       ? [...r.alternates.map((a) => `<link rel="alternate" hreflang="${a.lang}" href="${abs(a.path)}" />`), `<link rel="alternate" hreflang="x-default" href="${abs(r.alternates[0].path)}" />`]
       : [`<link rel="alternate" hreflang="${r.lang || 'en'}" href="${url}" />`, ...(r.lang ? [] : [`<link rel="alternate" hreflang="x-default" href="${url}" />`])]),
-    `<meta property="og:type" content="website" />`,
+    `<meta property="og:type" content="${r.article ? 'article' : 'website'}" />`,
     `<meta property="og:site_name" content="${esc(brand.name)}" />`,
     `<meta property="og:locale" content="${({ ar: 'ar_AE', hi: 'hi_IN', te: 'te_IN', ta: 'ta_IN', fr: 'fr_FR', de: 'de_DE' })[r.lang] || 'en_US'}" />`,
     `<meta property="og:title" content="${esc(r.title)}" />`,
     `<meta property="og:description" content="${esc(r.description)}" />`,
     `<meta property="og:url" content="${url}" />`,
-    `<meta property="og:image" content="${ogImage}" />`,
+    `<meta property="og:image" content="${r.image || ogImage}" />`,
     `<meta property="og:image:width" content="1200" />`,
     `<meta property="og:image:height" content="630" />`,
     `<meta property="og:image:alt" content="${esc(brand.name)} — ${esc(brand.tagline)}" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:title" content="${esc(r.title)}" />`,
     `<meta name="twitter:description" content="${esc(r.description)}" />`,
-    `<meta name="twitter:image" content="${ogImage}" />`,
+    `<meta name="twitter:image" content="${r.image || ogImage}" />`,
     `<script type="application/ld+json">${JSON.stringify(jsonLd(r)).replace(/</g, '\\u003c')}</script>`,
   ].join('\n    ')
 }
@@ -551,6 +588,8 @@ export function applyHead(r) {
   set('meta[property="og:url"]', 'content', url)
   set('meta[name="twitter:title"]', 'content', r.title)
   set('meta[name="twitter:description"]', 'content', r.description)
+  set('meta[property="og:image"]', 'content', r.image || ogImage)
+  set('meta[name="twitter:image"]', 'content', r.image || ogImage)
   set(
     'meta[name="robots"]',
     'content',

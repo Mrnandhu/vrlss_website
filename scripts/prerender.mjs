@@ -59,7 +59,7 @@ for (const r of routes) {
 }
 
 const today = new Date().toISOString().slice(0, 10)
-const PRIORITY = { '/': '1.0', '/websites': '0.9', '/digital-marketing': '0.9', '/pricing': '0.9', '/start': '0.9', '/work': '0.8', '/about': '0.7', '/contact': '0.7' }
+const PRIORITY = { '/': '1.0', '/websites': '0.9', '/digital-marketing': '0.9', '/pricing': '0.9', '/start': '0.9', '/work': '0.8', '/about': '0.7', '/contact': '0.7', '/blog': '0.7' }
 const xmlEsc = (v) => String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 const loc = (p) => `${SITE}${p === '/' ? '/' : p}`
 // photo for a page, if the page is an industry demo that has one
@@ -83,12 +83,12 @@ const sitemap =
       const alts = r.alternates
         ? [...r.alternates.map((a) => `    <xhtml:link rel="alternate" hreflang="${a.lang}" href="${loc(a.path)}"/>`), `    <xhtml:link rel="alternate" hreflang="x-default" href="${loc(r.alternates[0].path)}"/>`]
         : [`    <xhtml:link rel="alternate" hreflang="${r.lang || 'en'}" href="${url}"/>`]
-      const img = r.path === '/' ? `${SITE}/og-image.jpg` : photoFor(r)
+      const img = r.path === '/' ? `${SITE}/og-image.jpg` : r.image || photoFor(r)
       return [
         '  <url>',
         `    <loc>${xmlEsc(url)}</loc>`,
         `    <lastmod>${today}</lastmod>`,
-        `    <changefreq>${r.path === '/' || r.path === '/work' ? 'weekly' : 'monthly'}</changefreq>`,
+        `    <changefreq>${r.path === '/' || r.path === '/work' || r.path === '/blog' ? 'weekly' : 'monthly'}</changefreq>`,
         `    <priority>${pri}</priority>`,
         ...alts,
         ...(img ? [`    <image:image><image:loc>${img}</image:loc><image:title>${xmlEsc(r.h1 || r.title)}</image:title></image:image>`] : []),

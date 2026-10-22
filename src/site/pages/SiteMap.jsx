@@ -4,11 +4,12 @@ import { industries, sectors } from '../demos/industries'
 import { demos } from '../demos/demoData'
 import { languageGroups } from '../demos/locales'
 import { cities, countries, placePath } from '../places'
+import { sortedPosts, postPath } from '../blog/posts'
 
 // A plain list of every public page. Helps visitors and gives every page at least one internal link.
 const main = [
   ['/', 'Home'], ['/websites', 'Web development'], ['/digital-marketing', 'Digital marketing'], ['/pricing', 'Pricing'],
-  ['/work', 'Work and demos'], ['/start', 'Project planner and cost estimate'], ['/about', 'Studio'], ['/contact', 'Contact'],
+  ['/work', 'Work and demos'], ['/start', 'Project planner and cost estimate'], ['/about', 'Studio'], ['/blog', 'Blog'], ['/contact', 'Contact'],
 ]
 const legal = [['/privacy', 'Privacy policy'], ['/terms', 'Terms of service'], ['/refunds', 'Refunds and cancellations']]
 
@@ -28,6 +29,7 @@ export default function SiteMap() {
       <section className="nx-section sm-wrap">
         <div className="nx-wrap sm-grid">
           <Col title="Main pages" items={main} />
+          <Col title="Blog" items={sortedPosts().map((p) => [postPath(p), p.title])} />
           <Col title="App and software demos" items={demos.map((d) => [d.path, d.name])} />
           <Col title="Countries" items={countries.map((c) => [placePath(c), `Website design in ${c.short}`])} />
           <Col title="India" items={[...cities.map((c) => [placePath(c), `Website design in ${c.name}`]), ['/te', 'తెలుగు (Telugu)', 'te']]} />

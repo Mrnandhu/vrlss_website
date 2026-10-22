@@ -16,6 +16,8 @@ import Contact from './pages/Contact'
 import Start from './pages/Start'
 import StudioDocs from './pages/StudioDocs'
 import SiteMap from './pages/SiteMap'
+import { Blog, BlogPost } from './pages/Blog'
+import { postByPath } from './blog/posts'
 import NotFound from './pages/NotFound'
 import Legal from './pages/Legal'
 import Store from './demos/Store'
@@ -50,6 +52,7 @@ const pages = {
   '/start': Start,
   '/studio/docs': StudioDocs,
   '/sitemap': SiteMap,
+  '/blog': Blog,
   '/privacy': () => <Legal path="/privacy" />,
   '/terms': () => <Legal path="/terms" />,
   '/refunds': () => <Legal path="/refunds" />,
@@ -121,6 +124,7 @@ export default function SiteApp({ initialPath = '/' }) {
             : placeByPath[route.path] ? (placeByPath[route.path].kind === 'city'
               ? <CityPage key={route.path} place={placeByPath[route.path]} />
               : <CountryPage key={route.path} place={placeByPath[route.path]} />)
+            : postByPath[route.path] ? <BlogPost key={route.path} path={route.path} />
             : <Page key={route.path} />}
         </Layout>
         <ConsentBanner />

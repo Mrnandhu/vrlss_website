@@ -32,7 +32,7 @@ export const brand = {
   },
   // Social profiles: paste full URLs once created. Empty ones are hidden.
   social: {
-    instagram: '',
+    instagram: 'https://www.instagram.com/vrls.solutions/',
     youtube: '',
     linkedin: '',
     facebook: '',

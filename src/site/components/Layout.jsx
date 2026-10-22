@@ -136,6 +136,7 @@ export default function Layout({ path, children }) {
             <Link to="/about">Studio</Link>
             <Link to="/work">Work</Link>
             <Link to="/pricing">Pricing</Link>
+            <Link to="/blog">Blog</Link>
             <Link to="/contact">Contact</Link>
             {Object.entries(brand.social).filter(([, u]) => u).map(([k, u]) => (
               <a key={k} href={u} target="_blank" rel="noopener noreferrer">{k.charAt(0).toUpperCase() + k.slice(1)}</a>
