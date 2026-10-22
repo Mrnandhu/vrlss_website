@@ -188,7 +188,7 @@ export function BriefDoc({ b, est, code, refNo, date }) {
         <li>Your free homepage demo, then 50% to start and 50% before launch.</li>
       </ol>
       <footer className="doc-foot">
-        <span>{brand.name} · {brand.url.replace('https://', '')} · {brand.email} · {brand.phoneDisplay}</span>
+        <span>{brand.name} · {brand.url.replace('https://', '')} · {brand.email} · Call {brand.phoneDisplay} · WhatsApp {brand.whatsappDisplay}</span>
         <span>This estimate is indicative. Final price confirmed in a written quote.</span>
       </footer>
     </article>

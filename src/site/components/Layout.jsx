@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from '../router'
 import Logo, { LogoMark } from './Logo'
-import { IconMenu, IconClose, IconWhatsApp, IconMail, IconGlobe, IconLanguage } from '../icons'
+import { IconMenu, IconClose, IconWhatsApp, IconMail, IconGlobe, IconLanguage, IconPhone } from '../icons'
 import { LANGS } from '../demos/locales'
 import { brand, waLink, registration } from '../brand'
 import { CurrencySelect } from '../currency'
@@ -114,6 +114,9 @@ export default function Layout({ path, children }) {
             <div className="st-foot-contact">
               <a className="nx-foot-btn is-main" href={waLink()} target="_blank" rel="noopener noreferrer">
                 <IconWhatsApp width={18} height={18} /> WhatsApp
+              </a>
+              <a className="nx-foot-btn" href={`tel:${brand.phone}`}>
+                <IconPhone width={18} height={18} /> {brand.phoneDisplay}
               </a>
               <a className="nx-foot-btn" href={`mailto:${brand.email}`}>
                 <IconMail width={18} height={18} /> {brand.email}

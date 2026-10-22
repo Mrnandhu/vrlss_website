@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Section, PageHero } from '../components/Bits'
-import { IconWhatsApp, IconMail, IconPin, IconGift, IconClock, IconGlobe, IconCoins, IconArrow } from '../icons'
+import { IconWhatsApp, IconMail, IconPin, IconPhone, IconGift, IconClock, IconGlobe, IconCoins, IconArrow } from '../icons'
 import { Link } from '../router'
 import { brand, waLink, mailLink } from '../brand'
 import { industries } from '../demos/industries'
@@ -170,7 +170,14 @@ export default function Contact() {
                 <IconWhatsApp width={22} height={22} />
                 <div>
                   <strong>WhatsApp</strong>
-                  <a href={waLink()} target="_blank" rel="noopener noreferrer">{brand.phoneDisplay}</a>
+                  <a href={waLink()} target="_blank" rel="noopener noreferrer">{brand.whatsappDisplay}</a>
+                </div>
+              </li>
+              <li>
+                <IconPhone width={22} height={22} />
+                <div>
+                  <strong>Call</strong>
+                  <a href={`tel:${brand.phone}`}>{brand.phoneDisplay}</a>
                 </div>
               </li>
               <li>

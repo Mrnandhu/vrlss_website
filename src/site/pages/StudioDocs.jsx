@@ -73,7 +73,7 @@ function DocSheet({ d, s }) {
           <small>From</small>
           <b>{brand.name}</b>
           <span>{brand.location}</span>
-          <span>{brand.email} · {brand.phoneDisplay}</span>
+          <span>{brand.email} · Call {brand.phoneDisplay} · WhatsApp {brand.whatsappDisplay}</span>
           {registration.udyam && <span>Udyam: {registration.udyam}</span>}
           {registration.gstin && <span>GSTIN: {registration.gstin}</span>}
         </div>
