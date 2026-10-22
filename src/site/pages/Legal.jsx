@@ -2,7 +2,7 @@ import { Section, PageHero } from '../components/Bits'
 import { Link } from '../router'
 import { brand } from '../brand'
 
-export const LEGAL_UPDATED = '15 October 2026'
+export const LEGAL_UPDATED = '22 October 2026'
 
 const who = `${brand.name} is a ${brand.legalForm} run by ${brand.founder} in ${brand.location}`
 
@@ -32,21 +32,29 @@ const pages = {
             <strong>Your currency choice.</strong> The site remembers the currency you pick in your own browser
             (local storage). It is not sent to us.
           </li>
+          <li>
+            <strong>Visit statistics.</strong> We use Google Analytics 4 and Microsoft Clarity to see how people use
+            this site: pages visited, approximate city and country, device type, how you arrived (for example from
+            Google or Instagram), and clicks on buttons such as WhatsApp or Call. Clarity also records anonymised
+            screen sessions and heatmaps so we can fix confusing pages; text you type into forms is masked.
+          </li>
         </ul>
         <p>
-          This site does not use advertising cookies or tracking pixels. If we add visitor statistics such as Google
-          Analytics in future, we will update this page first.
+          These tools use cookies. We do not use advertising cookies or ad pixels, and we never try to identify you
+          personally from these statistics. If you visit from Europe or the UK, statistics cookies are used only if
+          you accept them in the banner. You can also block them with your browser settings or an ad blocker.
         </p>
         <h2>How we use it</h2>
         <ul>
           <li>To reply to you, prepare a demo or quote, and deliver work you have paid for.</li>
           <li>To send invoices and keep the records the law requires.</li>
+          <li>To see which pages help visitors and fix the ones that confuse them (visit statistics).</li>
         </ul>
         <p>We never sell your information or share it for anyone else’s marketing.</p>
         <h2>Who else handles it</h2>
         <p>
           Messages pass through the services you choose to use: WhatsApp (Meta) or email (Google Gmail). Website
-          fonts load from Google Fonts. During a project we may use hosting, domain and design tools; we share only
+          fonts load from Google Fonts. Visit statistics are processed by Google (Analytics) and Microsoft (Clarity). During a project we may use hosting, domain and design tools; we share only
           what each one needs to do its job.
         </p>
         <h2>How long we keep it</h2>
@@ -62,7 +70,7 @@ const pages = {
         </p>
         <h2>Contact</h2>
         <p>
-          {brand.founder}, {brand.location}. WhatsApp {brand.phoneDisplay}, email{' '}
+          {brand.founder}, {brand.location}. WhatsApp {brand.whatsappDisplay}, phone {brand.phoneDisplay}, email{' '}
           <a href={`mailto:${brand.email}`}>{brand.email}</a>.
         </p>
       </>
@@ -178,7 +186,7 @@ const pages = {
         <h2>How refunds are paid</h2>
         <p>
           Approved refunds are paid within 7 working days to the account you paid from. Ask by WhatsApp on{' '}
-          {brand.phoneDisplay} or email <a href={`mailto:${brand.email}`}>{brand.email}</a>.
+          {brand.whatsappDisplay}, call {brand.phoneDisplay} or email <a href={`mailto:${brand.email}`}>{brand.email}</a>.
         </p>
       </>
     ),

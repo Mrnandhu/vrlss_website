@@ -6,7 +6,10 @@ export const brand = {
   url: 'https://vrlss.in',
   email: 'sai@vrlss.in',
   whatsapp: '919515294733',
-  phoneDisplay: '+91 95152 94733',
+  // Calls go to the call number; WhatsApp goes to the WhatsApp Business number.
+  phone: '+919390635033',
+  phoneDisplay: '+91 93906 35033',
+  whatsappDisplay: '+91 95152 94733',
   location: 'Andhra Pradesh, India',
   region: 'Andhra Pradesh',
   country: 'IN',
@@ -22,6 +25,11 @@ export const brand = {
   // Paste the codes from Google Search Console / Bing Webmaster Tools here (just the code, not the whole tag).
   googleVerification: '',
   bingVerification: '',
+  // Visitor statistics (free). Paste only the IDs: GA4 "G-XXXXXXXXXX" and the Clarity project ID.
+  analytics: {
+    ga4: 'G-9MVMGD0SVZ',
+    clarity: 'z1krfh03ky',
+  },
   // Social profiles: paste full URLs once created. Empty ones are hidden.
   social: {
     instagram: '',

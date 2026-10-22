@@ -4,6 +4,8 @@ import { NavContext } from './router'
 import { CurrencyProvider } from './currency'
 import { routeFor, normalize, notFound, applyHead } from './routes'
 import { useScrollFx } from './scrollfx'
+import { initAnalytics, trackPage } from './analytics'
+import ConsentBanner from './components/ConsentBanner'
 import Home from './pages/Home'
 import Websites from './pages/Websites'
 import Marketing from './pages/Marketing'
@@ -101,7 +103,12 @@ export default function SiteApp({ initialPath = '/' }) {
   const Page = pages[route.path] || NotFound
 
   useEffect(() => {
+    initAnalytics()
+  }, [])
+
+  useEffect(() => {
     applyHead(route)
+    trackPage(path, document.title)
   }, [route])
   useScrollFx(route.path)
 
@@ -116,6 +123,7 @@ export default function SiteApp({ initialPath = '/' }) {
               : <CountryPage key={route.path} place={placeByPath[route.path]} />)
             : <Page key={route.path} />}
         </Layout>
+        <ConsentBanner />
       </CurrencyProvider>
     </NavContext.Provider>
   )
