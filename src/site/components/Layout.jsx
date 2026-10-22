@@ -14,6 +14,7 @@ const nav = [
   { to: '/work', label: 'Work' },
   { to: '/pricing', label: 'Pricing' },
   { to: '/about', label: 'Studio' },
+  { to: '/blog', label: 'Blog' },
 ]
 
 export default function Layout({ path, children }) {
@@ -50,7 +51,7 @@ export default function Layout({ path, children }) {
           </Link>
           <nav className="nx-nav" aria-label="Main">
             {nav.map((n) => (
-              <Link key={n.to} to={n.to} aria-current={path === n.to ? 'page' : undefined}>
+              <Link key={n.to} to={n.to} aria-current={path === n.to || (n.to === '/blog' && path.startsWith('/blog/')) ? 'page' : undefined}>
                 {n.label}
               </Link>
             ))}
@@ -76,7 +77,7 @@ export default function Layout({ path, children }) {
       <div id="nx-sheet" className={`nx-sheet${open ? ' is-open' : ''}`} hidden={!open}>
         <nav className="nx-sheet-nav" aria-label="Mobile">
           {[...nav, { to: '/contact', label: 'Contact' }].map((n) => (
-            <Link key={n.to} to={n.to} aria-current={path === n.to ? 'page' : undefined}>
+            <Link key={n.to} to={n.to} aria-current={path === n.to || (n.to === '/blog' && path.startsWith('/blog/')) ? 'page' : undefined}>
               {n.label}
             </Link>
           ))}
