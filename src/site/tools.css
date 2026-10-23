@@ -310,3 +310,4 @@
 .bl-next h2 { font-family: var(--font-head); font-size: 1.3rem; margin: 0 0 12px; }
 .bl-next-item { display: flex; justify-content: space-between; gap: 16px; padding: 16px 0; border-top: 1px solid rgba(14, 22, 40, .1); text-decoration: none; color: var(--midnight, #0e1628); font-weight: 600; }
 .bl-next-item:hover span:first-child { color: var(--coral-d, #a9504e); }
+.bl-cta .nx-btn-primary { background: var(--coral, #cb6967); border-color: var(--coral, #cb6967); color: #fff; }

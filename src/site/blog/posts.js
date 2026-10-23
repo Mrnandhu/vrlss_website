@@ -8,6 +8,59 @@
 
 export const posts = [
   {
+    slug: 'what-is-seo',
+    title: 'What is SEO? A simple guide for small businesses',
+    description:
+      'What is SEO and how does it help a small business rank on Google? A simple guide to local SEO, with and without SEO, and 5 basics you can do today.',
+    date: '2026-10-23',
+    readMins: 3,
+    tags: ['SEO', 'Local SEO', 'Small business'],
+    cover: true,
+    body: `
+**SEO (Search Engine Optimization)** means helping Google understand your business, so it shows you when people search for what you sell.
+
+When someone types "dental clinic near me" or "website designer in Andhra Pradesh", Google picks a few businesses to show first. SEO is how you become one of them, without paying for ads.
+
+## Your business with and without SEO
+
+**Without SEO:**
+- People search for your service, but your competitors appear
+- Your website gets very few visitors
+- Your timings or address on Google Maps are missing or wrong
+- New customers come only from word of mouth or paid ads
+
+**With SEO:**
+- You show up on Google Search and Google Maps
+- Customers find you at the moment they need you
+- Your website brings enquiries every day, for free
+- Reviews and photos build trust before they even call
+
+## The 3 parts of SEO
+
+- **On-page SEO:** clear words on each page, saying what you do and where.
+- **Technical SEO:** a fast, mobile-friendly, secure website that Google can read easily.
+- **Local SEO:** your Google Business Profile, Google Maps and reviews. This matters most for "near me" searches.
+
+## 5 SEO basics for small businesses
+
+1. Create and complete your **Google Business Profile**.
+2. Make your website **fast on mobile phones**.
+3. Write clear page titles with your **service + city**, like "Dental Clinic in Bhimavaram".
+4. Add your website to **Google Search Console** and submit a sitemap.
+5. Ask happy customers for **Google reviews**, and reply to them.
+
+## How long does SEO take?
+
+Honest SEO usually takes a few months to show results. Be careful of anyone who promises "Rank #1 on Google in 7 days".
+
+## Need help with SEO?
+
+Every website we build at VRLS Solutions includes SEO basics: fast mobile design, page titles, sitemap, Google Search Console, Google Analytics and Google Business Profile setup. See our [SEO and marketing services](/digital-marketing), or read [how much a website costs in India](/blog/website-cost-india).
+
+Want to know how your business shows up on Google? [Message us on WhatsApp](https://wa.me/919515294733?text=Hi%20Sai%2C%20please%20check%20my%20business%20on%20Google) for a free check.
+`,
+  },
+  {
     slug: 'website-cost-india',
     title: 'How much does a website cost in India? A simple guide for small businesses',
     description:
