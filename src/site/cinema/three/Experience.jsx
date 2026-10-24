@@ -81,6 +81,14 @@ export default function Experience({ tier, onFail }) {
 
   const frameloop = !active ? 'never' : still ? 'demand' : 'always'
 
+  // Tell the page the 3D scene is showing, so the SVG stand-in orb fades out (cinema.css).
+  useEffect(() => {
+    if (!ready) return
+    const d = document.documentElement.dataset
+    d.cm3d = 'on'
+    return () => delete d.cm3d
+  }, [ready])
+
   return (
     <div ref={wrap} className={`cm-webgl ${ready ? 'is-ready' : ''}`} aria-hidden="true">
       <Canvas

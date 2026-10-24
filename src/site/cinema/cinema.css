@@ -100,8 +100,10 @@ html[data-cm-motion='on'] .cm-in { animation: cm-rise 1.5s var(--cm-ease) both; 
 html.intro[data-cm-motion='on'] .cm-in { animation-delay: calc(var(--d, 0) * 0.11s + 1.35s); }
 @keyframes cm-rise { from { opacity: 0; transform: translateY(28px); } }
 
-.cm-fallback-orb { display: none; }
-html[data-cm='none'] .cm-fallback-orb { display: block; position: absolute; right: -6vw; top: 46%; width: min(60vw, 700px); aspect-ratio: 1; translate: 0 -50%; pointer-events: none; }
+/* The SVG orb shows until the 3D scene is ready (it loads on first interaction), and stays when there is no WebGL. */
+.cm-fallback-orb { transition: opacity 1.4s var(--cm-ease, ease); }
+html[data-cm3d='on'] .cm-fallback-orb { opacity: 0; }
+html .cm-fallback-orb { display: block; position: absolute; right: -6vw; top: 46%; width: min(60vw, 700px); aspect-ratio: 1; translate: 0 -50%; pointer-events: none; }
 .cm-fallback-orb svg { position: relative; width: 100%; height: 100%; }
 .cm-fallback-glow { position: absolute; inset: 15%; border-radius: 50%; background: radial-gradient(circle, rgba(46, 196, 230, 0.35), transparent 65%); filter: blur(30px); }
 html[data-cm-motion='on'] .cm-fallback-orb svg { animation: cm-spin 60s linear infinite; }
@@ -115,7 +117,7 @@ html[data-cm-motion='on'] .cm-fallback-orb svg { animation: cm-spin 60s linear i
   .cm-hero { justify-content: flex-end; }
   .cm-hero-inner { gap: 20px; padding-top: 38vh; padding-bottom: 28px; }
   html[data-cm='static'] .cm-hero-inner, html[data-cm='none'] .cm-hero-inner { padding-top: 34vh; }
-  html[data-cm='none'] .cm-fallback-orb { right: 50%; top: 22%; width: 86vw; translate: 50% -50%; opacity: 0.85; }
+  html .cm-fallback-orb { right: 50%; top: 22%; width: 86vw; translate: 50% -50%; opacity: 0.85; }
   .cm-h1 { font-size: clamp(2.3rem, 1.2rem + 6vw, 3.2rem); }
   .cm .st-promise.cm-promise { display: none !important; } /* studio.css forces display with !important */
 }

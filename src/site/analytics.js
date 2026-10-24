@@ -46,6 +46,9 @@ export function initAnalytics() {
     window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: granted ? 'granted' : 'denied' })
   }
 
+  // Analytics start after the first interaction, so record the page the visitor is on now.
+  trackPage(location.pathname, document.title)
+
   // Count the clicks that matter: WhatsApp, call and email.
   document.addEventListener('click', (e) => {
     const a = e.target.closest && e.target.closest('a[href]')

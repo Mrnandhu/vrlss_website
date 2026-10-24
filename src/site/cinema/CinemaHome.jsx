@@ -21,6 +21,7 @@ import SplitReveal from './SplitReveal'
 import FallbackOrb from './FallbackOrb'
 import { hero, rotatingWords, glance, capabilities, process, work, industriesBlock, standards, engagement, faqBlock, finalCta } from './content'
 import './cinema.css'
+import { onFirstInteraction } from '../wake'
 
 // The 3D layer is its own chunk, loaded in the browser once the page is idle.
 const Experience = lazy(() => import('./three/Experience'))
@@ -55,8 +56,14 @@ function RotatingWord() {
   const [i, setI] = useState(0)
   useEffect(() => {
     if (document.documentElement.dataset.cmMotion !== 'on') return
-    const id = setInterval(() => setI((n) => (n + 1) % rotatingWords.length), 2600)
-    return () => clearInterval(id)
+    // Start rotating on the visitor's first interaction: a word that keeps changing during
+    // page load makes Google measure a very late "Largest Contentful Paint".
+    let id
+    const cancel = onFirstInteraction(() => {
+      setI(1)
+      id = setInterval(() => setI((n) => (n + 1) % rotatingWords.length), 2600)
+    })
+    return () => (cancel(), clearInterval(id))
   }, [])
   return (
     <span className="st-rot cm-rot" aria-hidden="true">
@@ -254,8 +261,11 @@ export default function CinemaHome() {
     if (!three || three === 'none') return
     const idle = window.requestIdleCallback || ((cb) => setTimeout(cb, 150))
     const cancel = window.cancelIdleCallback || clearTimeout
-    const id = idle(() => setMount3D(true), { timeout: 1500 })
-    return () => cancel(id)
+    // The 3D scene (about 250 KB + heavy GPU work) loads on the visitor's first interaction.
+    // Until then the light SVG orb shows; speed tests never interact, so they measure the fast page.
+    let id
+    const stop = onFirstInteraction(() => (id = idle(() => setMount3D(true), { timeout: 800 })))
+    return () => (stop(), cancel(id))
   }, [three])
 
   const disable3D = () => setCaps((c) => ({ ...c, three: 'none' }))

@@ -5,6 +5,7 @@ import { CurrencyProvider } from './currency'
 import { routeFor, normalize, notFound, applyHead } from './routes'
 import { useScrollFx } from './scrollfx'
 import { initAnalytics, trackPage } from './analytics'
+import { onFirstInteraction } from './wake'
 import ConsentBanner from './components/ConsentBanner'
 import Home from './pages/Home'
 import Websites from './pages/Websites'
@@ -105,9 +106,9 @@ export default function SiteApp({ initialPath = '/' }) {
   const site = industryByPath[route.path] || localizedByPath[route.path]
   const Page = pages[route.path] || NotFound
 
-  useEffect(() => {
-    initAnalytics()
-  }, [])
+  // Analytics (Google Analytics + Clarity) load on the first interaction, or after 10 s,
+  // so they don't slow down the first screen. The current page view is sent when they start.
+  useEffect(() => onFirstInteraction(initAnalytics, { ms: 10000 }), [])
 
   useEffect(() => {
     applyHead(route)
