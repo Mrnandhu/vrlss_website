@@ -1,7 +1,7 @@
 /* =====================================================================
    VRLS Solutions — Studio layer (Oct 2026 rebrand)
    Solid colours only (no gradients), taken from the logo:
-     Midnight #0E1628 · Navy #1D2B45 · Slate #2C3D5E · Coral #CB6967 · Coral light #E3998E
+     Midnight #0E1628 · Navy #1D2B45 · Slate #2C3D5E · Cyan #2EC4E6 · Cyan light #7FE3F5 (accent; logo keeps coral)
      Ivory #FBF7F2 · Sand #F3EDE4 · White #FFFFFF
    Fonts: World of Water (headings and buttons, self-hosted in /public/fonts),
           Lexend (body). Comfortaa stands in until the World of Water files are added.
@@ -14,9 +14,10 @@
   --midnight: #0e1628;
   --navy: #1d2b45;
   --slate: #2c3d5e;
-  --coral: #cb6967;
-  --coral-l: #e3998e;
-  --coral-d: #a9504e;
+  /* Accent is cyan (was coral #cb6967). Token names kept so nothing else has to change. The logo keeps its own colours. */
+  --coral: #2ec4e6;
+  --coral-l: #7fe3f5;
+  --coral-d: #0e6f86;
   --ivory: #fbf7f2;
   --sand: #f3ede4;
 
@@ -108,7 +109,7 @@
 .nx-app .nx-btn-ghost { background: transparent !important; color: #fff !important; border-color: rgba(255, 255, 255, 0.4) !important; }
 .nx-app .nx-btn-ghost:hover { border-color: #fff !important; }
 /* on dark surfaces: coral primary, white outline */
-.nx-app :is(.nx-header, .nx-sheet, .st-hero, .st-dark, .st-final, .nx-pagehero, .nx-cta, .nx-tone-ink, .nx-plan.is-featured, .lo, .hm-offer-card, .st-foot) .nx-btn-primary { background: var(--coral) !important; color: #fff !important; }
+.nx-app :is(.nx-header, .nx-sheet, .st-hero, .st-dark, .st-final, .nx-pagehero, .nx-cta, .nx-tone-ink, .nx-plan.is-featured, .lo, .hm-offer-card, .st-foot) .nx-btn-primary { background: var(--coral) !important; color: var(--midnight) !important; }
 .nx-app :is(.nx-header, .nx-sheet, .st-hero, .st-dark, .st-final, .nx-pagehero, .nx-cta, .nx-tone-ink, .nx-plan.is-featured, .lo, .hm-offer-card, .st-foot) .nx-btn-primary:hover { background: var(--coral-d) !important; }
 .nx-app :is(.st-hero, .st-dark, .st-final, .nx-pagehero, .nx-cta, .nx-tone-ink, .nx-plan.is-featured) .nx-btn-outline { color: #fff !important; border-color: rgba(255, 255, 255, 0.45) !important; background: transparent !important; }
 .nx-app :is(.st-hero, .st-dark, .st-final, .nx-pagehero, .nx-cta, .nx-tone-ink, .nx-plan.is-featured) .nx-btn-outline:hover { background: #fff !important; color: var(--midnight) !important; border-color: #fff !important; }
@@ -135,7 +136,7 @@
 @media (max-width: 759px) {
   .nx-app .nx-mbar { background: var(--midnight) !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 14px; box-shadow: 0 14px 30px -12px rgba(14, 22, 40, 0.5); }
   .nx-app .nx-mbar a { border-radius: 10px; font-family: var(--font-head); }
-  .nx-app .nx-mbar .nx-mbar-demo { background: var(--coral) !important; color: #fff !important; background-image: none !important; box-shadow: none !important; }
+  .nx-app .nx-mbar .nx-mbar-demo { background: var(--coral) !important; color: var(--midnight) !important; background-image: none !important; box-shadow: none !important; }
 }
 
 /* ---------- Shared studio pieces ---------- */
@@ -157,7 +158,7 @@
 .st-card { position: relative; display: grid; align-content: start; gap: 14px; padding: 28px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); color: var(--ink); text-decoration: none; transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s; }
 .st-card:hover { border-color: var(--navy); transform: translateY(-4px); box-shadow: 0 24px 40px -28px rgba(14, 22, 40, 0.45); }
 .st-ico { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 12px; background: var(--navy); color: var(--coral-l); }
-.st-card:hover .st-ico { background: var(--coral); color: #fff; }
+.st-card:hover .st-ico { background: var(--coral); color: var(--midnight); }
 .st-ico, .st-card .st-ico { transition: background-color 0.25s, color 0.25s; }
 
 /* ---------- Hero ---------- */
@@ -259,7 +260,7 @@
 .st-flow li { position: relative; display: grid; justify-items: center; text-align: center; gap: 8px; }
 .st-flow-ico { position: relative; width: 80px; height: 80px; display: grid; place-items: center; border-radius: 50%; background: #fff; border: 1px solid var(--line); color: var(--navy); margin-bottom: 10px; transition: background-color 0.3s, color 0.3s; }
 .st-flow li:hover .st-flow-ico { background: var(--navy); color: var(--coral-l); }
-.st-flow-ico b { position: absolute; top: -4px; right: -6px; min-width: 30px; height: 26px; padding: 0 6px; display: grid; place-items: center; border-radius: 999px; background: var(--coral); color: #fff; font-size: 0.72rem; font-weight: 700; }
+.st-flow-ico b { position: absolute; top: -4px; right: -6px; min-width: 30px; height: 26px; padding: 0 6px; display: grid; place-items: center; border-radius: 999px; background: var(--coral); color: var(--midnight); font-size: 0.72rem; font-weight: 700; }
 .st-flow strong { font-family: var(--font-head); font-size: 1.3rem; }
 .st-flow span { color: var(--ink-3); font-size: 0.95rem; }
 
@@ -282,7 +283,7 @@
 .st-eng-price small { font-family: var(--font-body); font-weight: 500; font-size: 0.9rem; color: var(--ink-3); }
 .st-eng-note { color: var(--ink-3); padding-top: 14px; border-top: 1px solid var(--line); }
 .st-eng-card.is-hot { background: var(--navy); border-color: var(--navy); color: #fff; }
-.st-eng-card.is-hot .st-ico { background: var(--coral); color: #fff; }
+.st-eng-card.is-hot .st-ico { background: var(--coral); color: var(--midnight); }
 .st-eng-card.is-hot .st-eng-price { color: #fff; }
 .st-eng-card.is-hot :is(.st-eng-price small, .st-eng-note) { color: #c3cbdc; border-color: rgba(255, 255, 255, 0.14); }
 
@@ -310,7 +311,7 @@
 .st-foot-brand p { margin: 0; max-width: 32ch; color: #aab4c8; }
 .st-foot-contact { display: flex; flex-wrap: wrap; gap: 10px; }
 .nx-app .st-foot .nx-foot-btn { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.18); background: transparent !important; color: #fff; text-decoration: none; font-size: 0.92rem; box-shadow: none !important; background-image: none !important; }
-.nx-app .st-foot .nx-foot-btn.is-main { background: var(--coral) !important; border-color: var(--coral); }
+.nx-app .st-foot .nx-foot-btn.is-main { background: var(--coral) !important; border-color: var(--coral); color: var(--midnight) !important; }
 .st-foot-col { display: grid; align-content: start; gap: 10px; }
 .st-foot-col h3 { margin: 0 0 6px; font-family: var(--font-body) !important; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #8d98b0; }
 .st-foot-col a { color: #e3e7ef; text-decoration: none; font-size: 0.96rem; }
@@ -334,7 +335,7 @@
 .nx-app .nx-cta .nx-lead { color: #aab4c8; }
 .nx-app .nx-plan { border-radius: var(--radius); }
 .nx-app .nx-plan.is-featured { background: var(--navy) !important; border-color: var(--navy); color: #fff; }
-.nx-app .nx-plan-flag { background: var(--coral) !important; color: #fff !important; font-family: var(--font-head); }
+.nx-app .nx-plan-flag { background: var(--coral) !important; color: var(--midnight) !important; font-family: var(--font-head); }
 .nx-app .nx-ticks svg, .nx-app .inc-ico { color: var(--coral-d); }
 .nx-app .inc-ico { background: var(--sand); }
 .nx-app .nx-plan.is-featured .nx-ticks svg { color: var(--coral-l); }
@@ -476,6 +477,13 @@ html.intro .st-hero-visual { --d: 0.2s; } html.intro .st-markets { --d: 0.7s; }
 .st-foot-tags :is(a, span) { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.12); color: #e3e7ef; font-size: 0.88rem; text-decoration: none; }
 .st-foot-tags a:hover { border-color: var(--coral-l); color: #fff; }
 .st-foot-tags b { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.04em; padding: 2px 5px; border-radius: 4px; background: var(--slate); color: #fff; }
-.st-foot-tags small { font-size: 0.66rem; font-weight: 700; padding: 2px 5px; border-radius: 4px; background: var(--coral); color: #fff; }
+.st-foot-tags small { font-size: 0.66rem; font-weight: 700; padding: 2px 5px; border-radius: 4px; background: var(--coral); color: var(--midnight); }
 @media (min-width: 860px) { .st-foot-grid { grid-template-columns: 2fr 1fr 1fr; } }
 .nx-app .st-foot .st-foot-tags { display: flex !important; flex-direction: row !important; flex-wrap: wrap !important; } .nx-app .st-foot .st-foot-tags li { width: auto !important; flex: none; margin: 0; }
+
+/* Footer: countries as flags */
+.nx-app .st-foot .st-foot-flags { gap: 10px !important; }
+.st-foot-flags :is(a, span[role="img"]) { padding: 6px !important; border-radius: 10px; line-height: 0; transition: transform .15s, border-color .15s; }
+.st-foot-flags :is(a, span[role="img"]):hover { transform: translateY(-2px); }
+.st-foot-flags .flag { display: block; width: 34px; height: auto; border-radius: 3px; box-shadow: 0 0 0 1px rgba(255, 255, 255, .15); }
+.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
