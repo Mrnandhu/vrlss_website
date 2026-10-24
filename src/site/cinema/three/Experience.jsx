@@ -6,6 +6,7 @@ import { FOG } from './world.js'
 import CameraRig from './CameraRig.jsx'
 import StudioEnvironment from './StudioEnvironment.jsx'
 import PanelSystem from './PanelSystem.jsx'
+import DeviceScreens from './DeviceScreens.jsx'
 import Particles from './Particles.jsx'
 import ServicesRings from './ServicesRings.jsx'
 import ProcessPath from './ProcessPath.jsx'
@@ -30,6 +31,7 @@ function World({ tier }) {
 
       <CameraRig still={still} />
       <PanelSystem still={still} />
+      <DeviceScreens still={still} />
       <Particles count={full ? 1700 : still ? 400 : 550} still={still} />
       {!still && (
         <>

@@ -268,7 +268,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 90px; }
   .cin-wide .cin .nx-hero-points { justify-content: center; color: rgba(255,255,255,.75); }
   .cin-wide .nx-app .cin .nx-btn-outline, .cin-wide .nx-app .cin .nx-btn-outline span { color: #fff; }
   .cin-wide .nx-app .cin .nx-btn-outline { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.4); }
-  .cin-wide .cin .w-hl::after { background: linear-gradient(90deg, rgba(108,140,255,.7), rgba(236, 172, 162,.8)); }
+  .cin-wide .cin .w-hl::after { background: linear-gradient(90deg, rgba(108,140,255,.7), rgba(127, 227, 245,.8)); }
 
   /* devices: rise in, centre, then the camera pushes into the laptop */
   .cin-wide .cin .nx-hvwrap { position: absolute; left: 50%; top: 50%; width: min(800px, 62vw, 118vh); max-width: none; margin: 0; z-index: 2; transform-origin: 34% 38%; will-change: transform, opacity;
