@@ -5,10 +5,12 @@
      data-cm = full | lite | static | none   · data-cm-cine = on | off   · data-cm-motion = on | off
    ===================================================================== */
 
-/* ---------- Page canvas: the home is a dark 3D space ---------- */
-.nx-app:has(.cm) { background: var(--midnight); }
-.nx-app:has(.cm)::before { background: var(--midnight); }
-.nx-app:has(.cm)::after { content: none; }
+/* ---------- Page canvas: the home is a dark 3D space ----------
+   The WebGL canvas is portalled into <body> at z-index −1, so the app's own backgrounds step aside here. */
+/* Lenis does the smoothing here; CSS smooth scrolling (motion.css) would fight it and GSAP would copy it inline. */
+html:has(.cm) { background: #0e1628; scroll-behavior: auto !important; }
+html:has(.cm) body, .nx-app:has(.cm) { background: transparent; }
+.nx-app:has(.cm)::before, .nx-app:has(.cm)::after { content: none; }
 .nx-app:has(.cm) .nx-footer { position: relative; z-index: 2; }
 
 .cm {
@@ -26,14 +28,14 @@
 @media (max-width: 759px) {
   .cm { --cm-head: 64px; --cm-bottom: 84px; } /* room for the fixed WhatsApp / Start bar */
 }
-.cm > section, .cm > div:not(.cm-webgl):not(.cm-grain) { position: relative; z-index: 1; }
+.cm > section, .cm > div:not(.cm-grain) { position: relative; z-index: 1; }
 
 /* ---------- 3D layer ---------- */
-.cm-webgl { position: fixed; inset: 0; z-index: 0; opacity: 0; transition: opacity 1.8s var(--cm-ease); pointer-events: none; }
+.cm-webgl { position: fixed; inset: 0; z-index: -1; opacity: 0; transition: opacity 1.8s var(--cm-ease); pointer-events: none; }
 .cm-webgl.is-ready { opacity: 1; }
 .cm-webgl canvas { display: block; }
 html[data-cm='static'] .cm-webgl {
-  position: absolute; height: calc(100svh - var(--cm-head)); min-height: 560px;
+  position: absolute; height: 100svh; min-height: 620px;
   -webkit-mask-image: linear-gradient(#000 75%, transparent); mask-image: linear-gradient(#000 75%, transparent);
 }
 
@@ -115,7 +117,7 @@ html[data-cm-motion='on'] .cm-fallback-orb svg { animation: cm-spin 60s linear i
   html[data-cm='static'] .cm-hero-inner, html[data-cm='none'] .cm-hero-inner { padding-top: 34vh; }
   html[data-cm='none'] .cm-fallback-orb { right: 50%; top: 22%; width: 86vw; translate: 50% -50%; opacity: 0.85; }
   .cm-h1 { font-size: clamp(2.3rem, 1.2rem + 6vw, 3.2rem); }
-  .cm .cm-promise { display: none; }
+  .cm .st-promise.cm-promise { display: none !important; } /* studio.css forces display with !important */
 }
 
 /* ================= 1 · At a glance ================= */
@@ -190,7 +192,7 @@ html[data-cm-cine='off'] .cm-fill { transform: none; }
 .cm-step.is-done:not(.is-active) { opacity: 0.68; }
 .cm-step-dot { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--navy); border: 1px solid rgba(255, 255, 255, 0.2); color: var(--coral-l); transition: background-color 0.6s var(--cm-ease), box-shadow 0.6s var(--cm-ease), color 0.6s; }
 .cm-step.is-active .cm-step-dot { background: var(--coral); border-color: var(--coral); color: var(--midnight); box-shadow: 0 0 24px rgba(203, 105, 103, 0.7); }
-.cm-step h3 { margin: 0; padding-top: 8px; font-family: var(--font-head); font-size: 1.25rem; color: #fff; }
+.cm .cm-step h3 { margin: 0; padding-top: 8px; font-family: var(--font-head); font-size: 1.25rem; color: #fff; }
 .cm-step-n { font-size: 0.8rem; color: var(--coral-l); margin-right: 4px; }
 .cm-step p { margin: 4px 0 0; color: var(--cm-ink-3); font-size: 0.97rem; }
 @media (max-width: 759px) {
@@ -199,7 +201,7 @@ html[data-cm-cine='off'] .cm-fill { transform: none; }
   html[data-cm-cine='on'] .cm-step p { overflow: hidden; max-height: 0; transition: max-height 0.6s var(--cm-ease); }
   html[data-cm-cine='on'] .cm-step.is-active p { max-height: 5em; }
   .cm-step { padding-block: 5px; }
-  .cm-step h3 { font-size: 1.05rem; }
+  .cm .cm-step h3 { font-size: 1.05rem; }
 }
 
 /* ================= 4 · Work ================= */
@@ -224,8 +226,12 @@ html[data-cm-cine='on'] .cm-work-meta i { font-size: 0.66rem; }
 html[data-cm-cine='on'] .cm-work-item:is(:hover, :focus-visible) { border-color: var(--coral); }
 @media (max-width: 1100px) { html[data-cm-cine='on'] .cm-work-list { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 759px) {
-  html[data-cm-cine='on'] .cm-work-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* one swipeable row of caption chips, so the 3D wall stays visible */
+  html[data-cm-cine='on'] .cm-work-list { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); }
+  html[data-cm-cine='on'] .cm-work-list::-webkit-scrollbar { display: none; }
+  html[data-cm-cine='on'] .cm-work-list li { flex: none; scroll-snap-align: start; }
   html[data-cm-cine='on'] .cm-work-meta i { display: none; }
+  html[data-cm-cine='on'] .cm-work-meta strong { white-space: nowrap; }
   .cm-head-row .cm-btn { display: none; }
 }
 

@@ -18,4 +18,10 @@ export default defineConfig([
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
   },
+  {
+    // three.js scene code mutates cameras, uniforms and instance buffers every frame inside useFrame — that's the
+    // intended @react-three/fiber pattern, not a React state mutation.
+    files: ['src/site/cinema/three/**/*.{js,jsx}'],
+    rules: { 'react-hooks/immutability': 'off' },
+  },
 ])

@@ -1,8 +1,8 @@
-import { useMemo, useRef } from 'react';
-import { useFrame } from '@react-three/fiber';
-import { AdditiveBlending, BufferGeometry, Color, Float32BufferAttribute } from 'three';
-import { colors } from '../palette.js';
-import { seeded } from './random.js';
+import { useMemo, useRef } from 'react'
+import { useFrame } from '@react-three/fiber'
+import { AdditiveBlending, BufferGeometry, Color, Float32BufferAttribute } from 'three'
+import { colors } from '../palette.js'
+import { seeded } from './random.js'
 
 const vertex = /* glsl */ `
   attribute float aSeed;
@@ -23,7 +23,7 @@ const vertex = /* glsl */ `
     gl_PointSize = uSize * uPixelRatio * (0.6 + aSeed) / max(depth, 0.1);
     gl_Position = projectionMatrix * mv;
   }
-`;
+`
 const fragment = /* glsl */ `
   uniform vec3 uColorA;
   uniform vec3 uColorB;
@@ -35,26 +35,26 @@ const fragment = /* glsl */ `
     vec3 col = mix(uColorA, uColorB, step(0.72, vSeed));
     gl_FragColor = vec4(col, a * vAlpha * 0.75);
   }
-`;
+`
 
 /** Dust drifting through the whole journey — gives depth & speed as the camera flies. */
 export default function Particles({ count = 1600, still = false }) {
-  const ref = useRef(null);
+  const ref = useRef(null)
   const geometry = useMemo(() => {
-    const rand = seeded(3);
-    const pos = new Float32Array(count * 3);
-    const seed = new Float32Array(count);
+    const rand = seeded(3)
+    const pos = new Float32Array(count * 3)
+    const seed = new Float32Array(count)
     for (let i = 0; i < count; i++) {
-      pos[i * 3] = (rand() - 0.5) * 26;
-      pos[i * 3 + 1] = (rand() - 0.5) * 15;
-      pos[i * 3 + 2] = 10 - rand() * 145;
-      seed[i] = rand();
+      pos[i * 3] = (rand() - 0.5) * 26
+      pos[i * 3 + 1] = (rand() - 0.5) * 15
+      pos[i * 3 + 2] = 10 - rand() * 145
+      seed[i] = rand()
     }
-    const g = new BufferGeometry();
-    g.setAttribute('position', new Float32BufferAttribute(pos, 3));
-    g.setAttribute('aSeed', new Float32BufferAttribute(seed, 1));
-    return g;
-  }, [count]);
+    const g = new BufferGeometry()
+    g.setAttribute('position', new Float32BufferAttribute(pos, 3))
+    g.setAttribute('aSeed', new Float32BufferAttribute(seed, 1))
+    return g
+  }, [count])
 
   const uniforms = useMemo(
     () => ({
@@ -64,12 +64,12 @@ export default function Particles({ count = 1600, still = false }) {
       uColorA: { value: new Color(colors.ivory).multiplyScalar(0.8) },
       uColorB: { value: new Color(colors.coral).multiplyScalar(1.8) },
     }),
-    []
-  );
+    [],
+  )
 
   useFrame((state) => {
-    if (!still) uniforms.uTime.value = state.clock.elapsedTime;
-  });
+    if (!still) uniforms.uTime.value = state.clock.elapsedTime
+  })
 
   return (
     <points ref={ref} geometry={geometry} frustumCulled={false}>
@@ -82,5 +82,5 @@ export default function Particles({ count = 1600, still = false }) {
         blending={AdditiveBlending}
       />
     </points>
-  );
+  )
 }

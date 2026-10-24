@@ -20,6 +20,8 @@ export function startSmoothScroll() {
   return () => {
     gsap.ticker.remove(raf)
     lenis.destroy()
+    // ScrollTrigger may have written an inline scroll-behavior; give the rest of the site its own CSS back.
+    root.style.removeProperty('scroll-behavior')
   }
 }
 

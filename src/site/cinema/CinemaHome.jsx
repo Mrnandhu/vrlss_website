@@ -1,4 +1,5 @@
 import { lazy, Suspense, useContext, useEffect, useRef, useState, Component } from 'react'
+import { createPortal } from 'react-dom'
 import { FAQ, Reviews, CaseStudies } from '../components/Bits'
 import { Price } from '../currency'
 import { websitePlans, monthlyPlans } from '../prices'
@@ -107,6 +108,8 @@ export default function CinemaHome() {
     const c = getCaps()
     store.snap = new URLSearchParams(window.location.search).has('snap')
     store.navigate = navigate
+    // Capabilities are only knowable in the browser; deciding after hydration keeps server and client markup identical.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setCaps(c)
   }, [navigate])
 
@@ -163,24 +166,27 @@ export default function CinemaHome() {
         })
       }
       if (!cinematic) return
+      const fillEl = processFill.current
       ScrollTrigger.create({
         trigger: processSection.current,
         start: 'top top',
         end: 'bottom bottom',
         onUpdate: (self) => {
           setActive(Math.min(process.steps.length - 1, Math.floor(self.progress * process.steps.length)))
-          if (processFill.current) processFill.current.style.transform = `scaleY(${self.progress})`
+          if (fillEl) fillEl.style.transform = `scaleY(${self.progress})`
         },
       })
       if (!caps.motion) return
       const mm = gsap.matchMedia()
+      // Capture the element now: React clears refs before effect cleanups run.
+      const ringEl = ring.current
       mm.add('(min-width: 761px)', () => {
-        const cards = ring.current.querySelectorAll('.cm-cap')
+        const cards = ringEl.querySelectorAll('.cm-cap')
         const n = cards.length
         const half = ((n - 1) / 2) * STEP
         const state = { rot: half }
         const apply = () => {
-          ring.current.style.setProperty('--rot', `${state.rot}deg`)
+          ringEl.style.setProperty('--rot', `${state.rot}deg`)
           cards.forEach((card, i) => {
             const angle = Math.abs((i - (n - 1) / 2) * STEP + state.rot)
             card.style.opacity = Math.max(0.2, 1 - angle / 120).toFixed(3)
@@ -195,7 +201,7 @@ export default function CinemaHome() {
           scrollTrigger: { trigger: capsSection.current, start: 'top top', end: 'bottom bottom', scrub: 1.2 },
         })
         return () => {
-          ring.current?.style.removeProperty('--rot')
+          ringEl.style.removeProperty('--rot')
           cards.forEach((c) => {
             c.style.opacity = ''
             c.classList.remove('is-front')
@@ -223,13 +229,17 @@ export default function CinemaHome() {
 
   return (
     <div className="cm" ref={page} data-own-scroll>
-      {mount3D && three !== 'none' && (
-        <WebGLBoundary onFail={disable3D}>
-          <Suspense fallback={null}>
-            <Experience tier={three} onFail={disable3D} />
-          </Suspense>
-        </WebGLBoundary>
-      )}
+      {/* The canvas lives in <body>: page transitions transform <main>, which would break position: fixed. */}
+      {mount3D &&
+        three !== 'none' &&
+        createPortal(
+          <WebGLBoundary onFail={disable3D}>
+            <Suspense fallback={null}>
+              <Experience tier={three} onFail={disable3D} />
+            </Suspense>
+          </WebGLBoundary>,
+          document.body,
+        )}
 
       {/* ---------- 0 · Hero ---------- */}
       <section className="cm-scene cm-hero" data-scene aria-labelledby="cm-h1">

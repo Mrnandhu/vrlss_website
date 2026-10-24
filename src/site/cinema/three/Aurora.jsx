@@ -1,23 +1,23 @@
-import { useRef } from 'react';
-import { useFrame } from '@react-three/fiber';
-import { colors } from '../palette.js';
-import { store } from '../lib/store.js';
-import { Z } from './world.js';
-import Glow from './Glow.jsx';
+import { useRef } from 'react'
+import { useFrame } from '@react-three/fiber'
+import { colors } from '../palette.js'
+import { store } from '../lib/store.js'
+import { Z } from './world.js'
+import Glow from './Glow.jsx'
 
 /** Calm space behind the pricing cards: drifting coral/slate light and a horizon ring. */
 export default function Aurora() {
-  const group = useRef(null);
+  const group = useRef(null)
   useFrame((state) => {
-    const g = group.current;
-    if (!g) return;
-    g.visible = store.s > 5.4 && store.s < 8.4;
-    if (!g.visible) return;
-    const t = state.clock.elapsedTime;
-    g.children[0].position.x = Math.sin(t * 0.07) * 3 - 3;
-    g.children[1].position.x = Math.cos(t * 0.05) * 3 + 3;
-    g.children[3].rotation.z = t * 0.02;
-  });
+    const g = group.current
+    if (!g) return
+    g.visible = store.s > 5.4 && store.s < 8.4
+    if (!g.visible) return
+    const t = state.clock.elapsedTime
+    g.children[0].position.x = Math.sin(t * 0.07) * 3 - 3
+    g.children[1].position.x = Math.cos(t * 0.05) * 3 + 3
+    g.children[3].rotation.z = t * 0.02
+  })
   return (
     <group ref={group} position={[0, 0, Z.pricing]}>
       <Glow color={colors.coral} scale={20} opacity={0.18} position={[-3, 1, 0]} />
@@ -28,5 +28,5 @@ export default function Aurora() {
         <meshBasicMaterial color={colors.lightCoral} transparent opacity={0.35} toneMapped={false} />
       </mesh>
     </group>
-  );
+  )
 }
