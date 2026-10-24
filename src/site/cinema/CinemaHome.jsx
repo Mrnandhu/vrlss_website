@@ -149,7 +149,8 @@ export default function CinemaHome() {
     d.cmCine = cinematic ? 'on' : 'off'
     d.cmMotion = caps.motion ? 'on' : 'off'
     const chromium = !!navigator.userAgentData?.brands?.some((b) => b.brand === 'Chromium')
-    if (chromium && caps.three !== 'none' && !window.matchMedia('(prefers-reduced-transparency: reduce)').matches) d.cmLg = 'refract'
+    const touch = window.matchMedia('(hover: none), (pointer: coarse), (max-width: 900px)').matches
+    if (chromium && !touch && caps.three !== 'none' && !window.matchMedia('(prefers-reduced-transparency: reduce)').matches) d.cmLg = 'refract'
     else delete d.cmLg
   }, [caps, cinematic])
 

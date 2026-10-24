@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
+import { PerformanceMonitor } from '@react-three/drei'
 import { colors } from '../palette.js'
 import { store } from '../lib/store.js'
 import { FOG } from './world.js'
@@ -32,7 +33,7 @@ function World({ tier }) {
       <CameraRig still={still} />
       <PanelSystem still={still} />
       <DeviceScreens still={still} />
-      <Particles count={full ? 1700 : still ? 400 : 550} still={still} />
+      <Particles count={full ? 1700 : still ? 400 : 300} still={still} />
       {!still && (
         <>
           <ServicesRings lite={!full} />
@@ -56,6 +57,10 @@ function World({ tier }) {
 export default function Experience({ tier, onFail }) {
   const wrap = useRef(null)
   const [ready, setReady] = useState(false)
+  // Render resolution. Phones start lower; if the frame rate drops, PerformanceMonitor lowers it further.
+  const lite = tier !== 'full'
+  const maxDpr = Math.min(window.devicePixelRatio || 1, lite ? 1 : 1.5)
+  const [dpr, setDpr] = useState(maxDpr)
   const still = tier === 'static'
   const [active, setActive] = useState(true)
 
@@ -93,8 +98,8 @@ export default function Experience({ tier, onFail }) {
     <div ref={wrap} className={`cm-webgl ${ready ? 'is-ready' : ''}`} aria-hidden="true">
       <Canvas
         frameloop={frameloop}
-        dpr={[1, tier === 'full' ? 1.5 : 1.25]}
-        gl={{ antialias: tier !== 'full', powerPreference: 'high-performance', alpha: false, stencil: false }}
+        dpr={dpr}
+        gl={{ antialias: false, powerPreference: 'high-performance', alpha: false, stencil: false }}
         camera={{ fov: 42, near: 0.1, far: 60, position: [0, 0, 7.5] }}
         eventSource={document.getElementById('root')}
         eventPrefix="client"
@@ -108,6 +113,12 @@ export default function Experience({ tier, onFail }) {
           requestAnimationFrame(() => requestAnimationFrame(() => setReady(true)))
         }}
       >
+        <PerformanceMonitor
+          flipflops={3}
+          onDecline={() => setDpr((d) => Math.max(lite ? 0.6 : 0.75, +(d - 0.2).toFixed(2)))}
+          onIncline={() => setDpr((d) => Math.min(maxDpr, +(d + 0.1).toFixed(2)))}
+          onFallback={() => setDpr(lite ? 0.6 : 0.75)}
+        />
         <World tier={tier} />
       </Canvas>
     </div>

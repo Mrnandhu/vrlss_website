@@ -81,10 +81,10 @@ function Screen({ group, spec, url, matRef }) {
           depthWrite={false}
         />
       </mesh>
-      {/* soft cyan screen glow behind the glass */}
+      {/* soft warm screen glow behind the glass */}
       <mesh position={[spec.pos[0], spec.pos[1], spec.pos[2] - 0.005]} renderOrder={1}>
         <planeGeometry args={[spec.size[0] + 0.08, spec.size[1] + 0.08]} />
-        <meshBasicMaterial color="#2EC4E6" transparent opacity={0} toneMapped={false} depthWrite={false} />
+        <meshBasicMaterial color="#d9b98c" transparent opacity={0} toneMapped={false} depthWrite={false} />
       </mesh>
     </group>
   )

@@ -1,7 +1,7 @@
 /* =====================================================================
    VRLS Solutions — Studio layer (Oct 2026 rebrand)
    Solid colours only (no gradients), taken from the logo:
-     Midnight #0E1628 · Navy #1D2B45 · Slate #2C3D5E · Cyan #2EC4E6 · Cyan light #7FE3F5 (accent; logo keeps coral)
+     Midnight #0E1628 · Navy #1D2B45 · Slate #2C3D5E · Beige #d9b98c · Beige light #eed9b8 (accent; logo keeps its own colours)
      Ivory #FBF7F2 · Sand #F3EDE4 · White #FFFFFF
    Fonts: World of Water (headings and buttons, self-hosted in /public/fonts),
           Lexend (body). Comfortaa stands in until the World of Water files are added.
@@ -14,10 +14,10 @@
   --midnight: #0e1628;
   --navy: #1d2b45;
   --slate: #2c3d5e;
-  /* Accent is cyan (was coral #cb6967). Token names kept so nothing else has to change. The logo keeps its own colours. */
-  --coral: #2ec4e6;
-  --coral-l: #7fe3f5;
-  --coral-d: #0e6f86;
+  /* Accent is beige (was red, cyan, coral #cb6967 before). Token names kept so nothing else has to change. The logo keeps its own colours. */
+  --coral: #d9b98c;
+  --coral-l: #eed9b8;
+  --coral-d: #7d5e35;
   --ivory: #fbf7f2;
   --sand: #f3ede4;
 
@@ -71,7 +71,7 @@
 .nx-app .nx-h1 { font-weight: 700; line-height: 1.06; }
 .nx-app .nx-h2 { font-weight: 700; line-height: 1.1; }
 .nx-progress { background: var(--coral); height: 2px; }
-.nx-app ::selection { background: var(--coral-l); color: var(--midnight); }
+.nx-app ::selection { background: var(--coral-l); color: #fff; }
 :focus-visible { outline: 3px solid var(--coral) !important; outline-offset: 3px; }
 .nx-tone-white { background: var(--ivory); }
 .nx-tone-paper { background: var(--sand); }
@@ -110,7 +110,7 @@
 .nx-app .nx-btn-ghost:hover { border-color: #fff !important; }
 /* on dark surfaces: coral primary, white outline */
 .nx-app :is(.nx-header, .nx-sheet, .st-hero, .st-dark, .st-final, .nx-pagehero, .nx-cta, .nx-tone-ink, .nx-plan.is-featured, .lo, .hm-offer-card, .st-foot) .nx-btn-primary { background: var(--coral) !important; color: var(--midnight) !important; }
-.nx-app :is(.nx-header, .nx-sheet, .st-hero, .st-dark, .st-final, .nx-pagehero, .nx-cta, .nx-tone-ink, .nx-plan.is-featured, .lo, .hm-offer-card, .st-foot) .nx-btn-primary:hover { background: var(--coral-d) !important; }
+.nx-app :is(.nx-header, .nx-sheet, .st-hero, .st-dark, .st-final, .nx-pagehero, .nx-cta, .nx-tone-ink, .nx-plan.is-featured, .lo, .hm-offer-card, .st-foot) .nx-btn-primary:hover { background: var(--coral-l) !important; }
 .nx-app :is(.st-hero, .st-dark, .st-final, .nx-pagehero, .nx-cta, .nx-tone-ink, .nx-plan.is-featured) .nx-btn-outline { color: #fff !important; border-color: rgba(255, 255, 255, 0.45) !important; background: transparent !important; }
 .nx-app :is(.st-hero, .st-dark, .st-final, .nx-pagehero, .nx-cta, .nx-tone-ink, .nx-plan.is-featured) .nx-btn-outline:hover { background: #fff !important; color: var(--midnight) !important; border-color: #fff !important; }
 .st-btn-xl { min-height: 56px !important; padding: 0 28px !important; font-size: 1.05rem; }
@@ -244,7 +244,7 @@
 .st-ind { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr)); gap: 12px; }
 @media (max-width: 480px) { .st-ind { grid-template-columns: 1fr 1fr; } }
 .st-ind-tile { display: grid; gap: 8px; padding: 20px; border-radius: 14px; background: #fff; border: 1px solid var(--line); color: var(--ink); text-decoration: none; transition: background-color 0.2s, color 0.2s, border-color 0.2s; }
-.st-ind-tile svg { color: var(--coral); }
+.st-ind-tile svg { color: var(--coral-d); }
 .st-ind-tile strong { font-weight: 600; font-size: 0.98rem; line-height: 1.25; }
 .st-ind-tile span { font-size: 0.82rem; color: var(--ink-3); }
 .st-ind-tile:hover { background: var(--navy); border-color: var(--navy); color: #fff; }
@@ -446,7 +446,7 @@ html.intro .st-hero-visual { --d: 0.2s; } html.intro .st-markets { --d: 0.7s; }
 .ic-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 @media (min-width: 760px) { .ic-grid { grid-template-columns: repeat(4, 1fr); } }
 .ic-grid li { display: grid; gap: 14px; padding: 22px; border-radius: 14px; background: #fff; border: 1px solid var(--line); font-weight: 600; }
-.ic-grid svg { color: var(--coral); }
+.ic-grid svg { color: var(--coral-d); }
 .ab-facts { background: var(--navy); color: #fff; }
 .ab-facts-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
 @media (min-width: 860px) { .ab-facts-grid { grid-template-columns: repeat(4, 1fr); } }
@@ -461,7 +461,7 @@ html.intro .st-hero-visual { --d: 0.2s; } html.intro .st-markets { --d: 0.7s; }
 .ab-values li > span:last-child { color: var(--ink-3); }
 .nx-app .nx-cta { padding-block: clamp(64px, 12vh, 120px); }
 .nx-app .nx-cta .nx-h2 { font-size: clamp(2.2rem, 1.2rem + 3.6vw, 4.2rem); }
-.nx-app .nx-feature svg { color: var(--coral); }
+.nx-app .nx-feature svg { color: var(--coral-d); }
 .nx-app .nx-list-ico { background: var(--navy) !important; color: var(--coral-l) !important; border-radius: 12px; }
 .nx-app .pr-own-card { background: var(--navy) !important; border: 0; box-shadow: none; align-self: start; }
 .nx-app .pr-cmp { background: #fff !important; border: 1px solid var(--line); box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
