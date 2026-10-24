@@ -71,17 +71,10 @@ function partsToTransforms(parts, group) {
   })
 }
 
-// Where the browser and the phone sit (also used by DeviceScreens to place the real screenshots).
-export function deviceGroups(narrow) {
-  return {
-    browser: narrow ? groupMatrix([0, 0.95, 0], 0.05, 0.9) : groupMatrix([-1.05, 0.12, 0], 0.14, 1),
-    phone: narrow ? groupMatrix([1.25, -1.05, 0.9], -0.25, 0.82) : groupMatrix([2.75, -0.15, 0.6], -0.32, 1),
-  }
-}
-
 export function buildLayouts(narrow) {
   const rand = seeded(7)
-  const { browser: browserGroup, phone: phoneGroup } = deviceGroups(narrow)
+  const browserGroup = narrow ? groupMatrix([0, 0.95, 0], 0.05, 0.9) : groupMatrix([-1.05, 0.12, 0], 0.14, 1)
+  const phoneGroup = narrow ? groupMatrix([1.25, -1.05, 0.9], -0.25, 0.82) : groupMatrix([2.75, -0.15, 0.6], -0.32, 1)
 
   const devices = [...partsToTransforms(BROWSER, browserGroup), ...partsToTransforms(PHONE, phoneGroup)]
 

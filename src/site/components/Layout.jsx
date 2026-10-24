@@ -6,7 +6,6 @@ import { LANGS } from '../demos/locales'
 import { brand, waLink, registration } from '../brand'
 import { CurrencySelect } from '../currency'
 import { markets } from '../places'
-import Flag from './Flag'
 
 const nav = [
   { to: '/', label: 'Home' },
@@ -148,15 +147,9 @@ export default function Layout({ path, children }) {
         <div className="nx-wrap st-foot-reach">
           <div>
             <h3><IconGlobe width={16} height={16} /> Countries we serve</h3>
-            <ul className="st-foot-tags st-foot-flags">
+            <ul className="st-foot-tags">
               {markets.map(([cc, n, to]) => (
-                <li key={cc}>
-                  {to ? (
-                    <Link to={to} title={`Website design in ${n}`} aria-label={`Website design in ${n}`}><Flag cc={cc} /><span className="sr-only">{n}</span></Link>
-                  ) : (
-                    <span title={n} role="img" aria-label={n}><Flag cc={cc} /></span>
-                  )}
-                </li>
+                <li key={cc}>{to ? <Link to={to}><b>{cc}</b>{n}</Link> : <span><b>{cc}</b>{n}</span>}</li>
               ))}
             </ul>
           </div>

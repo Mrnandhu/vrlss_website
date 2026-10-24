@@ -71,7 +71,7 @@ html[data-cm-motion='off'] .cm-grain { animation: none; }
 }
 .cm-btn:hover { transform: translateY(-2px); }
 /* Midnight on coral keeps WCAG AA contrast (≈5:1). */
-.cm .cm-btn-primary { background: var(--coral); color: var(--midnight) !important; box-shadow: 0 14px 40px -14px rgba(46, 196, 230, 0.8); }
+.cm .cm-btn-primary { background: var(--coral); color: var(--midnight) !important; box-shadow: 0 14px 40px -14px rgba(203, 105, 103, 0.8); }
 .cm .cm-btn-primary:hover { background: var(--coral-l); }
 .cm .cm-btn-ghost { background: rgba(14, 22, 40, 0.4); color: #fff !important; border-color: rgba(255, 255, 255, 0.24); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
 .cm .cm-btn-ghost:hover { border-color: var(--coral-l); }
@@ -82,7 +82,7 @@ html[data-cm-motion='off'] .cm-grain { animation: none; }
   border: 1px solid var(--cm-line); border-radius: 22px;
   -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
 }
-.cm-ico { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 14px; background: rgba(46, 196, 230, 0.12); border: 1px solid rgba(46, 196, 230, 0.32); color: var(--coral-l); flex: none; }
+.cm-ico { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 14px; background: rgba(203, 105, 103, 0.12); border: 1px solid rgba(203, 105, 103, 0.32); color: var(--coral-l); flex: none; }
 .cm-go { display: inline-flex; align-items: center; gap: 8px; font-size: 0.92rem; font-weight: 600; color: var(--coral-l); }
 
 /* ---------- Scene layout ---------- */
@@ -103,7 +103,7 @@ html.intro[data-cm-motion='on'] .cm-in { animation-delay: calc(var(--d, 0) * 0.1
 .cm-fallback-orb { display: none; }
 html[data-cm='none'] .cm-fallback-orb { display: block; position: absolute; right: -6vw; top: 46%; width: min(60vw, 700px); aspect-ratio: 1; translate: 0 -50%; pointer-events: none; }
 .cm-fallback-orb svg { position: relative; width: 100%; height: 100%; }
-.cm-fallback-glow { position: absolute; inset: 15%; border-radius: 50%; background: radial-gradient(circle, rgba(46, 196, 230, 0.35), transparent 65%); filter: blur(30px); }
+.cm-fallback-glow { position: absolute; inset: 15%; border-radius: 50%; background: radial-gradient(circle, rgba(203, 105, 103, 0.35), transparent 65%); filter: blur(30px); }
 html[data-cm-motion='on'] .cm-fallback-orb svg { animation: cm-spin 60s linear infinite; }
 @keyframes cm-spin { to { rotate: 360deg; } }
 
@@ -145,7 +145,7 @@ html[data-cm-cine='on'] .cm-caps-sticky { padding-top: calc(var(--cm-head) + 4vh
 .cm-cap-inner {
   position: relative; height: 100%; display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 22px; color: #fff; text-decoration: none;
   background:
-    radial-gradient(120% 80% at var(--glare-x, 50%) var(--glare-y, 0%), rgba(127, 227, 245, 0.14), transparent 60%),
+    radial-gradient(120% 80% at var(--glare-x, 50%) var(--glare-y, 0%), rgba(227, 153, 142, 0.14), transparent 60%),
     linear-gradient(165deg, rgba(44, 61, 94, 0.94), rgba(29, 43, 69, 0.96));
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.7);
@@ -153,8 +153,8 @@ html[data-cm-cine='on'] .cm-caps-sticky { padding-top: calc(var(--cm-head) + 4vh
   transition: transform 0.6s var(--cm-ease), border-color 0.6s var(--cm-ease), box-shadow 0.6s var(--cm-ease);
 }
 .cm-cap.is-front .cm-cap-inner, .cm-cap:hover .cm-cap-inner, .cm-cap:focus-within .cm-cap-inner {
-  border-color: rgba(46, 196, 230, 0.65);
-  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.7), 0 0 50px -10px rgba(46, 196, 230, 0.45);
+  border-color: rgba(203, 105, 103, 0.65);
+  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.7), 0 0 50px -10px rgba(203, 105, 103, 0.45);
 }
 .cm-cap-num { position: absolute; top: 24px; right: 26px; font-family: var(--font-head); font-size: 0.9rem; color: rgba(255, 255, 255, 0.35); }
 .cm-cap strong { font-family: var(--font-head); font-size: 1.45rem; line-height: 1.15; margin-top: 6px; }
@@ -191,7 +191,7 @@ html[data-cm-cine='off'] .cm-fill { transform: none; }
 .cm-step.is-active { opacity: 1; }
 .cm-step.is-done:not(.is-active) { opacity: 0.68; }
 .cm-step-dot { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--navy); border: 1px solid rgba(255, 255, 255, 0.2); color: var(--coral-l); transition: background-color 0.6s var(--cm-ease), box-shadow 0.6s var(--cm-ease), color 0.6s; }
-.cm-step.is-active .cm-step-dot { background: var(--coral); border-color: var(--coral); color: var(--midnight); box-shadow: 0 0 24px rgba(46, 196, 230, 0.7); }
+.cm-step.is-active .cm-step-dot { background: var(--coral); border-color: var(--coral); color: var(--midnight); box-shadow: 0 0 24px rgba(203, 105, 103, 0.7); }
 .cm .cm-step h3 { margin: 0; padding-top: 8px; font-family: var(--font-head); font-size: 1.25rem; color: #fff; }
 .cm-step-n { font-size: 0.8rem; color: var(--coral-l); margin-right: 4px; }
 .cm-step p { margin: 4px 0 0; color: var(--cm-ink-3); font-size: 0.97rem; }
@@ -267,7 +267,7 @@ html[data-cm-cine='on'] .cm-work-item:is(:hover, :focus-visible) { border-color:
 
 /* ================= 6 · Pricing ================= */
 .cm-pricing { padding-block: clamp(96px, 14vh, 150px) clamp(110px, 16vh, 170px); }
-.cm-free { display: flex; width: fit-content; margin: 26px auto 0; align-items: center; gap: 12px; padding: 10px 18px 10px 10px; border-radius: 999px; border: 1px solid rgba(46, 196, 230, 0.45); background: rgba(46, 196, 230, 0.12); color: #fff; }
+.cm-free { display: flex; width: fit-content; margin: 26px auto 0; align-items: center; gap: 12px; padding: 10px 18px 10px 10px; border-radius: 999px; border: 1px solid rgba(203, 105, 103, 0.45); background: rgba(203, 105, 103, 0.12); color: #fff; }
 .cm-free-badge { padding: 4px 12px; border-radius: 999px; background: var(--coral); color: var(--midnight); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; }
 .cm-eng { margin-top: 40px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .cm-eng-card {
@@ -276,8 +276,8 @@ html[data-cm-cine='on'] .cm-work-item:is(:hover, :focus-visible) { border-color:
   -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
   transition: transform 0.5s var(--cm-ease), border-color 0.4s, box-shadow 0.5s var(--cm-ease);
 }
-.cm-eng-card:hover { transform: translateY(-4px); border-color: rgba(46, 196, 230, 0.6); }
-.cm-eng-card.is-hot { border-color: rgba(46, 196, 230, 0.7); box-shadow: 0 0 70px -20px rgba(46, 196, 230, 0.55); }
+.cm-eng-card:hover { transform: translateY(-4px); border-color: rgba(203, 105, 103, 0.6); }
+.cm-eng-card.is-hot { border-color: rgba(203, 105, 103, 0.7); box-shadow: 0 0 70px -20px rgba(203, 105, 103, 0.55); }
 .cm-flag { position: absolute; top: -13px; left: 28px; padding: 4px 12px; border-radius: 999px; background: var(--coral); color: var(--midnight); font-size: 0.78rem; font-weight: 700; }
 .cm-eng-card > strong { font-family: var(--font-head); font-size: 1.45rem; margin-top: 6px; }
 .cm-eng-price { font-family: var(--font-head); font-weight: 700; font-size: clamp(2rem, 1.6rem + 1.4vw, 2.8rem); letter-spacing: -0.02em; line-height: 1.1; }
@@ -300,131 +300,3 @@ html[data-cm-cine='off'] .cm-final-inner { padding-bottom: 0; }
 @media (prefers-reduced-motion: reduce) {
   .cm *, .cm *::before, .cm *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
 }
-
-/* Home page accent: cyan instead of coral (same as the site accent). */
-.cm { --coral: #2EC4E6; --coral-l: #7FE3F5; --coral-d: #0E6F86; }
-
-/* =====================================================================
-   Liquid glass — At a glance panel, capability cards, standards tiles, pricing cards.
-   Layers: tinted frosted body · bright rim (::before) · specular highlight that follows the cursor (::after).
-   Chromium also gets real refraction (SVG displacement, see <LiquidGlassFilter/>) via html[data-cm-lg='refract'].
-   ===================================================================== */
-.cm .cm-glance-copy,
-.cm .cm-cap-inner,
-.cm .cm-std-list li,
-.cm .cm-eng-card {
-  --lg-blur: 22px;
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.05) 38%, rgba(255, 255, 255, 0.02) 62%, rgba(46, 196, 230, 0.10) 100%),
-    rgba(22, 34, 58, 0.42);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  -webkit-backdrop-filter: blur(var(--lg-blur)) saturate(185%) brightness(1.08);
-  backdrop-filter: blur(var(--lg-blur)) saturate(185%) brightness(1.08);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.45),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.08),
-    inset 0 22px 34px -26px rgba(255, 255, 255, 0.45),
-    inset 0 -26px 40px -30px rgba(46, 196, 230, 0.45),
-    0 30px 70px -32px rgba(0, 0, 0, 0.75);
-  transition: transform 0.6s var(--cm-ease), border-color 0.5s, box-shadow 0.6s var(--cm-ease), background-color 0.5s;
-}
-.cm .cm-std-list li, .cm .cm-eng-card { overflow: visible; } /* the "Most flexible" flag sits outside the card */
-
-/* rim light: a 1px gradient ring, brightest where the light hits */
-.cm .cm-glance-copy::before,
-.cm .cm-cap-inner::before,
-.cm .cm-std-list li::before,
-.cm .cm-eng-card::before {
-  content: '';
-  position: absolute; inset: 0; z-index: -1;
-  border-radius: inherit; padding: 1.2px;
-  background: conic-gradient(from var(--lg-a, 210deg) at var(--mx, 30%) var(--my, 0%),
-    rgba(255, 255, 255, 0.85), rgba(127, 227, 245, 0.25) 18%, rgba(255, 255, 255, 0.05) 35%,
-    rgba(255, 255, 255, 0.02) 60%, rgba(127, 227, 245, 0.55) 82%, rgba(255, 255, 255, 0.85));
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
-  pointer-events: none;
-}
-/* specular highlight + soft caustic that follow the cursor */
-.cm .cm-glance-copy::after,
-.cm .cm-cap-inner::after,
-.cm .cm-std-list li::after,
-.cm .cm-eng-card::after {
-  content: '';
-  position: absolute; inset: 0; z-index: -1;
-  border-radius: inherit;
-  background:
-    radial-gradient(220px 160px at var(--mx, 25%) var(--my, -10%), rgba(255, 255, 255, 0.22), transparent 70%),
-    radial-gradient(300px 220px at calc(100% - var(--mx, 25%)) calc(100% - var(--my, -10%) + 20%), rgba(46, 196, 230, 0.16), transparent 70%);
-  opacity: 0.75;
-  transition: opacity 0.5s;
-  pointer-events: none;
-  mix-blend-mode: screen;
-}
-.cm .cm-glance-copy:hover::after,
-.cm .cm-cap-inner:hover::after,
-.cm .cm-std-list li:hover::after,
-.cm .cm-eng-card:hover::after { opacity: 1; }
-
-/* hover / active: the glass catches more cyan light */
-.cm .cm-std-list li { transition: transform 0.5s var(--cm-ease), border-color 0.4s, box-shadow 0.5s var(--cm-ease); }
-.cm .cm-std-list li:hover,
-.cm .cm-eng-card:hover,
-.cm .cm-eng-card.is-hot,
-.cm .cm-cap.is-front .cm-cap-inner,
-.cm .cm-cap:hover .cm-cap-inner,
-.cm .cm-cap:focus-within .cm-cap-inner {
-  border-color: rgba(127, 227, 245, 0.55);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    inset 0 -1px 0 rgba(127, 227, 245, 0.25),
-    inset 0 22px 34px -24px rgba(255, 255, 255, 0.5),
-    inset 0 -30px 46px -30px rgba(46, 196, 230, 0.7),
-    0 30px 80px -30px rgba(0, 0, 0, 0.7),
-    0 0 60px -14px rgba(46, 196, 230, 0.5);
-}
-.cm .cm-std-list li:hover { transform: translateY(-4px); }
-.cm .cm-eng-card.is-hot { background-color: rgba(30, 60, 88, 0.5); }
-.cm .cm-ico, .cm .cm-std-list svg { filter: drop-shadow(0 0 10px rgba(46, 196, 230, 0.45)); }
-.cm .cm-ico { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.22); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35); }
-
-/* Engineering standards: a moving aurora behind the tiles so the glass has something to bend */
-.cm .cm-band-dark { position: relative; isolation: isolate; overflow: hidden; }
-.cm .cm-band-dark::before {
-  content: ''; position: absolute; inset: -20%; z-index: -1; pointer-events: none;
-  background:
-    radial-gradient(28% 34% at 62% 38%, rgba(46, 196, 230, 0.55), transparent 70%),
-    radial-gradient(24% 30% at 86% 70%, rgba(110, 92, 255, 0.45), transparent 70%),
-    radial-gradient(22% 26% at 72% 86%, rgba(127, 227, 245, 0.35), transparent 70%),
-    radial-gradient(30% 30% at 18% 20%, rgba(46, 196, 230, 0.18), transparent 70%);
-  filter: blur(30px);
-  animation: cm-aurora 18s ease-in-out infinite alternate;
-}
-@keyframes cm-aurora {
-  0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
-  50% { transform: translate3d(-4%, 3%, 0) rotate(8deg) scale(1.08); }
-  100% { transform: translate3d(3%, -3%, 0) rotate(-6deg) scale(1.02); }
-}
-
-/* Real refraction (Chromium): the backdrop is bent by an SVG displacement map before it is blurred */
-html[data-cm-lg='refract'] .cm .cm-glance-copy,
-html[data-cm-lg='refract'] .cm .cm-std-list li,
-html[data-cm-lg='refract'] .cm .cm-eng-card {
-  backdrop-filter: url(#cm-liquid) blur(var(--lg-blur)) saturate(185%) brightness(1.08);
-}
-
-/* Fallbacks */
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .cm .cm-glance-copy, .cm .cm-cap-inner, .cm .cm-std-list li, .cm .cm-eng-card { background-color: rgba(29, 43, 69, 0.94); }
-}
-@media (prefers-reduced-transparency: reduce) {
-  .cm .cm-glance-copy, .cm .cm-cap-inner, .cm .cm-std-list li, .cm .cm-eng-card {
-    background: rgba(29, 43, 69, 0.97); -webkit-backdrop-filter: none; backdrop-filter: none;
-  }
-}
-@media (prefers-reduced-motion: reduce) { .cm .cm-band-dark::before { animation: none; } }
-@media (max-width: 759px) { .cm .cm-glance-copy, .cm .cm-cap-inner, .cm .cm-std-list li, .cm .cm-eng-card { --lg-blur: 16px; } }

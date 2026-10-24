@@ -72,27 +72,6 @@ function Eyebrow({ children }) {
   return <p className="st-eyebrow cm-eyebrow"><i aria-hidden="true" />{children}</p>
 }
 
-// Liquid-glass surfaces (styles at the end of cinema.css).
-const GLASS = '.cm-glance-copy, .cm-cap-inner, .cm-std-list li, .cm-eng-card'
-function resetGlass(el) {
-  el.style.removeProperty('--mx')
-  el.style.removeProperty('--my')
-  el.style.removeProperty('--lg-a')
-}
-
-/** SVG filter used by the glass in Chromium: a soft noise field bends the backdrop like thick liquid glass. */
-function LiquidGlassFilter() {
-  return (
-    <svg width="0" height="0" aria-hidden="true" focusable="false" style={{ position: 'absolute' }}>
-      <filter id="cm-liquid" x="0" y="0" width="100%" height="100%" colorInterpolationFilters="sRGB">
-        <feTurbulence type="fractalNoise" baseFrequency="0.008 0.012" numOctaves="2" seed="11" result="noise" />
-        <feGaussianBlur in="noise" stdDeviation="2.5" result="soft" />
-        <feDisplacementMap in="SourceGraphic" in2="soft" scale="38" xChannelSelector="R" yChannelSelector="G" />
-      </filter>
-    </svg>
-  )
-}
-
 /** Tilt a card toward the cursor (mouse only). */
 function onTilt(e) {
   if (e.pointerType !== 'mouse') return
@@ -141,9 +120,6 @@ export default function CinemaHome() {
     d.cm = caps.three
     d.cmCine = cinematic ? 'on' : 'off'
     d.cmMotion = caps.motion ? 'on' : 'off'
-    const chromium = !!navigator.userAgentData?.brands?.some((b) => b.brand === 'Chromium')
-    if (chromium && caps.three !== 'none' && !window.matchMedia('(prefers-reduced-transparency: reduce)').matches) d.cmLg = 'refract'
-    else delete d.cmLg
   }, [caps, cinematic])
 
   // Smooth scrolling (skipped for reduced motion).
@@ -153,22 +129,9 @@ export default function CinemaHome() {
   useEffect(() => {
     if (!caps) return
     const onScroll = () => update(window.scrollY)
-    let glassEl = null
     const onMove = (e) => {
       store.pointer.x = (e.clientX / window.innerWidth) * 2 - 1
       store.pointer.y = -((e.clientY / window.innerHeight) * 2 - 1)
-      // Liquid glass: move the specular highlight and rim light with the cursor.
-      if (e.pointerType !== 'mouse') return
-      const el = e.target.closest?.(GLASS)
-      if (glassEl && glassEl !== el) resetGlass(glassEl)
-      glassEl = el
-      if (!el) return
-      const r = el.getBoundingClientRect()
-      const x = ((e.clientX - r.left) / r.width) * 100
-      const y = ((e.clientY - r.top) / r.height) * 100
-      el.style.setProperty('--mx', `${x.toFixed(1)}%`)
-      el.style.setProperty('--my', `${y.toFixed(1)}%`)
-      el.style.setProperty('--lg-a', `${(Math.atan2(y - 50, x - 50) * 180) / Math.PI + 90}deg`)
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('pointermove', onMove, { passive: true })
@@ -266,7 +229,6 @@ export default function CinemaHome() {
 
   return (
     <div className="cm" ref={page} data-own-scroll>
-      <LiquidGlassFilter />
       {/* The canvas lives in <body>: page transitions transform <main>, which would break position: fixed. */}
       {mount3D &&
         three !== 'none' &&
