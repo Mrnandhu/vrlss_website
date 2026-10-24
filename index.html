@@ -7,6 +7,8 @@
     <script>
       // Apply the saved light/dark choice before the page paints (light is the default).
       // Intro curtain: once per visit, and never for people who turn on "reduce motion".
+      // Cinematic home: first guess of the 3D tier before paint (the page confirms it after load). ?cinema= overrides.
+      try { var c = document.documentElement, q = new URLSearchParams(location.search).get('cinema'), rm = matchMedia('(prefers-reduced-motion: reduce)').matches, t = q || (rm ? 'static' : matchMedia('(max-width: 768px), (pointer: coarse)').matches ? 'lite' : 'full'); c.dataset.cm = t; c.dataset.cmCine = t === 'full' || t === 'lite' ? 'on' : 'off'; c.dataset.cmMotion = rm || q === 'static' ? 'off' : 'on' } catch (e) {}
       try { var h = document.documentElement; if (sessionStorage.getItem('vrlss-intro') || matchMedia('(prefers-reduced-motion: reduce)').matches) h.classList.add('seen'); else { sessionStorage.setItem('vrlss-intro', '1'); h.classList.add('intro') } } catch (e) { document.documentElement.classList.add('seen') }
     </script>
     <style>

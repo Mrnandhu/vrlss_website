@@ -89,7 +89,8 @@ export function useScrollFx(path) {
     let gliding = false
     let raf = 0
     const kick = () => { if (!raf) raf = requestAnimationFrame(frame) }
-    if (fine) {
+    // Pages that run their own smooth scroller (the cinematic home uses Lenis) opt out with [data-own-scroll].
+    if (fine && !document.querySelector('[data-own-scroll]')) {
       root.classList.add('glide')
       cleanups.push(() => root.classList.remove('glide'))
       const maxY = () => root.scrollHeight - window.innerHeight
