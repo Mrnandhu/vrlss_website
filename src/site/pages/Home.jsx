@@ -1,2 +1,2 @@
-// The home page: a fast, mobile-first layout with a live demo showcase (see src/site/home/).
-export { default } from '../home/HomePage'
+// The home page is the cinematic, scroll-driven 3D experience (see src/site/cinema/).
+export { default } from '../cinema/CinemaHome'

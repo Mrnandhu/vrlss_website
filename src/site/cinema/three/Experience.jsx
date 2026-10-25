@@ -13,6 +13,7 @@ import ServicesRings from './ServicesRings.jsx'
 import ProcessPath from './ProcessPath.jsx'
 import GalleryWall from './GalleryWall.jsx'
 import Aurora from './Aurora.jsx'
+import Ocean from './ocean/Ocean.jsx'
 
 // Post-processing is its own chunk and only ever loads on desktop.
 const Effects = lazy(() => import('./Effects.jsx'))
@@ -29,6 +30,8 @@ function World({ tier }) {
       <directionalLight position={[-6, -2, -4]} intensity={0.35} color={colors.coral} />
 
       <StudioEnvironment />
+      {/* The endless night ocean under everything (the moon lies ahead, the way the camera travels) */}
+      <Ocean tier={tier} still={still} />
 
       <CameraRig still={still} />
       <PanelSystem still={still} />

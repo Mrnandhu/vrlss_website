@@ -454,3 +454,57 @@ html[data-cm-lg='refract'] .cm .cm-eng-card {
   .cm .cm-band-dark::before { animation: none; filter: blur(24px); }
   .cm .cm-glance-copy::after, .cm .cm-cap-inner::after, .cm .cm-std-list li::after, .cm .cm-eng-card::after { mix-blend-mode: normal; }
 }
+
+/* =====================================================================
+   All screen shapes. The camera fits the 3D objects into the space the text leaves free
+   (lib/safe.js), so these rules only decide where the text goes:
+   - tall screens (portrait phones AND portrait tablets): words at the bottom, 3D above them
+   - short landscape screens (phones on their side): compact "At a glance" card that fits the height
+   ===================================================================== */
+@media (max-aspect-ratio: 17/20) and (min-width: 760px) {
+  .cm-hero { justify-content: flex-end; }
+  .cm-hero-inner { padding-top: 40vh; padding-bottom: 48px; }
+  html .cm-fallback-orb { right: 50%; top: 26%; width: min(70vw, 620px); translate: 50% -50%; }
+  html[data-cm-cine='on'] .cm-glance-inner { align-items: flex-end; padding-bottom: 48px; }
+  .cm-glance-copy { max-width: 36rem; }
+}
+@media (max-height: 560px) and (min-aspect-ratio: 1/1) {
+  .cm-hero-inner { gap: 16px; padding-block: 20px; }
+  .cm-h1 { font-size: clamp(2rem, 1rem + 4vh, 3rem); }
+  .cm .st-promise.cm-promise { display: none !important; }
+  html[data-cm-cine='on'] .cm-glance-inner { align-items: center; padding-top: calc(var(--cm-head) + 8px); padding-bottom: 8px; }
+  .cm-glance-copy { max-width: min(24rem, 46vw); padding: 16px 18px; gap: 8px; }
+  .cm-glance-copy .cm-h2 { font-size: clamp(1.4rem, 0.8rem + 3vh, 2rem); }
+  html[data-cm-cine='on'] .cm-glance-copy .cm-lead { display: none; }
+  .cm-glance-copy .cm-stats { gap: 8px 16px; padding-top: 10px; margin-top: 2px; }
+  .cm-glance-copy .cm-stats dt { font-size: 1.4rem; }
+  .cm-glance-copy .cm-stats dd { font-size: 0.8rem; }
+}
+@media (max-width: 759px) {
+  /* Phones: a compact card (one row of four numbers) leaves more of the screen for the 3D devices */
+  .cm-glance-copy { padding: 16px 18px; gap: 8px; }
+  .cm-glance-copy .cm-h2 { font-size: clamp(1.5rem, 1rem + 3vw, 2rem); }
+  .cm-glance-copy .cm-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px 10px; padding-top: 10px; margin-top: 2px; }
+  .cm-glance-copy .cm-stats dt { font-size: clamp(1.15rem, 0.9rem + 1.6vw, 1.5rem); }
+  .cm-glance-copy .cm-stats dt small { font-size: 0.6em; margin-left: 3px; }
+  .cm-glance-copy .cm-stats dd { font-size: 0.72rem; line-height: 1.25; }
+}
+@media (max-height: 560px) and (min-aspect-ratio: 1/1) {
+  /* phones on their side: room for the fixed bottom bar, and a one-line heading */
+  html[data-cm-cine='on'] .cm-glance-inner { padding-bottom: calc(var(--cm-bottom) + 8px); }
+  .cm-glance-copy .cm-eyebrow { display: none; }
+  .cm-glance-copy .cm-h2 { font-size: clamp(1.3rem, 0.7rem + 3vh, 1.7rem); white-space: nowrap; }
+}
+/* Flat SVG orb: centred in the measured free space beside / above the hero text (lib/safe.js) */
+html[style*='--cm-orb-x'] .cm-fallback-orb {
+  left: var(--cm-orb-x); top: var(--cm-orb-y); right: auto;
+  width: var(--cm-orb-s); translate: -50% -50%;
+}
+
+/* Night-sea backdrop shown before the live 3D ocean fades in (and when WebGL isn't available):
+   dark sky, a faint moon glow and a soft horizon glow. The 3D canvas covers it once ready. */
+html:has(.cm) {
+  background:
+    radial-gradient(38vmax 24vmax at 56% 34%, rgba(238, 217, 184, 0.1), transparent 70%),
+    linear-gradient(180deg, #060b17 0%, #0f1729 52%, #1b2640 70%, #0d1526 80%, #08101f 100%) fixed;
+}

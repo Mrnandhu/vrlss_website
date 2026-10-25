@@ -1,3 +1,4 @@
+import { computeSafe } from './safe.js'
 // Mutable store shared by the HTML and the 3D scene (read every frame, so no React state).
 export const store = {
   /** Scene position: integer i = scene i's top at the viewport top. */
@@ -15,9 +16,12 @@ export const store = {
   navigate: (to) => (window.location.href = to),
   tops: [],
   maxScroll: 1,
+  /** Free space beside the text per scene (lib/safe.js), used by the camera to keep 3D off the words */
+  safe: null,
 }
 
 export function measure() {
+  store.safe = computeSafe() || store.safe
   const y = window.scrollY
   store.tops = Array.from(document.querySelectorAll('[data-scene]'), (el) => el.getBoundingClientRect().top + y)
   store.maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight)

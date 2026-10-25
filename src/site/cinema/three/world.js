@@ -70,18 +70,20 @@ export const workLayout = (narrow) => {
  *   fit    – minimum visible width (world units) at the look point; the camera backs off on narrow screens
  *   shiftX – move the subject right by this fraction of the visible width (leaves room for text on the left)
  *   shiftY – move the subject up by this fraction of the visible height
+ *   frame  – 'hero' | 'glance': when the page has measured the free space beside the text for this
+ *            screen, the camera fits the object into it instead (fit/shift above are the fallback)
  */
 export function cameraKeys(narrow) {
   const v = (x, y, z) => new Vector3(x, y, z)
   const keys = []
   const k = (s, pos, look, opts = {}) => keys.push({ s, pos, look, ...opts })
 
-  // 0 — Hero
-  k(0, v(0, 0, 7.5), v(0, 0, 0), narrow ? { fit: 5.2, shiftY: 0.15 } : {})
+  // 0 — Hero. `frame` = fit the object into the free space next to / above the text (see lib/safe.js).
+  k(0, v(0, 0, 7.5), v(0, 0, 0), { ...(narrow ? { fit: 5.2, shiftY: 0.15 } : {}), frame: 'hero' })
   // 1 — Fly forward through the breaking object to the assembled browser + phone
   k(0.95, v(0.6, 0.35, -1.2), v(0, 0, Z.devices), narrow ? { fit: 6 } : {})
-  k(1.38, v(0, 0.25, -4.2), v(0, 0, Z.devices), narrow ? { fit: 6, shiftY: 0.2 } : { fit: 11.5, shiftX: 0.17 })
-  k(1.62, v(-1.2, 0.55, -4.8), v(0, 0, Z.devices), narrow ? { fit: 6, shiftY: 0.2 } : { fit: 11.5, shiftX: 0.17 })
+  k(1.38, v(0, 0.25, -4.2), v(0, 0, Z.devices), { ...(narrow ? { fit: 6, shiftY: 0.2 } : { fit: 11.5, shiftX: 0.17 }), frame: 'glance' })
+  k(1.62, v(-1.2, 0.55, -4.8), v(0, 0, Z.devices), { ...(narrow ? { fit: 6, shiftY: 0.2 } : { fit: 11.5, shiftX: 0.17 }), frame: 'glance' })
   // 2 — Services (rings behind the HTML card row)
   k(2.02, v(0, 0, -22.5), v(0, 0, Z.services))
   k(2.66, v(0, -0.2, -24.5), v(0, 0, Z.services))

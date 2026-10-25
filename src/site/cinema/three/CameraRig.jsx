@@ -1,18 +1,47 @@
-import { useMemo, useRef } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
 import { CatmullRomCurve3, MathUtils, Vector3 } from 'three'
 import { store } from '../lib/store.js'
 import { cameraKeys } from './world.js'
+import { subjectBounds } from './subjects.js'
 
 const UP = new Vector3(0, 1, 0)
 
+/**
+ * Places the camera so `subj` fills the free rectangle `r` (viewport fractions) with some breathing room,
+ * keeping the key's designed viewing angle.
+ */
+function frameSubject(key, aspect, tanHalf, subj, r) {
+  const dir = key.pos.clone().sub(key.look).normalize()
+  const M = 0.84 // room for perspective, the mouse parallax and the idle motion
+  const fw = Math.max(0.05, r.x1 - r.x0)
+  const fh = Math.max(0.05, r.y1 - r.y0)
+  const dist = Math.max(subj.minDist, subj.hx / (fw * M * tanHalf * aspect), subj.hy / (fh * M * tanHalf))
+  const look = subj.center.clone()
+  const pos = look.clone().addScaledVector(dir, dist)
+  const H = 2 * tanHalf * dist
+  const W = H * aspect
+  const fwd = dir.clone().negate()
+  const right = new Vector3().crossVectors(fwd, UP).normalize()
+  const camUp = new Vector3().crossVectors(right, fwd)
+  const off = right.multiplyScalar(-((r.x0 + r.x1) / 2 - 0.5) * W).addScaledVector(camUp, ((r.y0 + r.y1) / 2 - 0.5) * H)
+  return { pos: pos.add(off), look: look.add(off) }
+}
+
 /** Resolves the keyframes for the current viewport (fit + text-safe offsets) into two smooth splines. */
-function buildRig(narrow, aspect, fov) {
+function buildRig(narrow, aspect, fov, safe) {
   const keys = cameraKeys(narrow)
   const tanHalf = Math.tan(MathUtils.degToRad(fov / 2))
   const pos = []
   const look = []
   for (const key of keys) {
+    const rect = key.frame && safe && safe[key.frame]
+    if (rect) {
+      const f = frameSubject(key, aspect, tanHalf, subjectBounds(key.frame, narrow), rect)
+      pos.push(f.pos)
+      look.push(f.look)
+      continue
+    }
     const p = key.pos.clone()
     const l = key.look.clone()
     const dir = p.clone().sub(l)
@@ -69,7 +98,9 @@ export default function CameraRig({ still = false }) {
   const size = useThree((st) => st.size)
   const aspect = size.width / size.height
   const narrow = aspect < 0.85
-  const rig = useMemo(() => buildRig(narrow, aspect, camera.fov), [narrow, aspect, camera.fov])
+  // Free space beside the text, measured by the page (lib/safe.js); rebuild the path when it changes.
+  const [safe, setSafe] = useState(store.safe)
+  const rig = useMemo(() => buildRig(narrow, aspect, camera.fov, safe), [narrow, aspect, camera.fov, safe])
 
   const state = useRef({
     init: false,
@@ -82,6 +113,7 @@ export default function CameraRig({ still = false }) {
   })
 
   useFrame((_, dt) => {
+    if (store.safe !== safe) setSafe(store.safe)
     const st = state.current
     sample(rig, still ? 0 : store.s, st.tPos, st.tLook)
 
