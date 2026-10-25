@@ -18,9 +18,32 @@ import Ocean from './ocean/Ocean.jsx'
 // Post-processing is its own chunk and only ever loads on desktop.
 const Effects = lazy(() => import('./Effects.jsx'))
 
+// The scene is built in stages so the first frame comes quickly, even on slow phones:
+//   0 – what the hero shows: ocean, sky, orb, camera, lights
+//   1 – next frame: laptop/phone screens and the particles
+//   2 – while the visitor reads: service rings, process path, gallery, pricing light, desktop effects
+// Scrolling past the hero jumps straight to the last stage.
 function World({ tier }) {
   const still = tier === 'static'
   const full = tier === 'full'
+  const [stage, setStage] = useState(0)
+  useEffect(() => {
+    if (stage >= 2) return
+    const ric = window.requestIdleCallback || ((cb) => setTimeout(cb, 60))
+    const cic = window.cancelIdleCallback || clearTimeout
+    let id = 0
+    const raf = requestAnimationFrame(() => {
+      id = ric(() => setStage((n) => Math.min(2, n + 1)), { timeout: stage === 0 ? 300 : 900 })
+    })
+    const onScroll = () => { if (store.s > 0.5) setStage(2) }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      cancelAnimationFrame(raf)
+      if (id) cic(id)
+      window.removeEventListener('scroll', onScroll)
+    }
+  }, [stage])
+
   return (
     <>
       <color attach="background" args={[colors.midnight]} />
@@ -35,9 +58,13 @@ function World({ tier }) {
 
       <CameraRig still={still} />
       <PanelSystem still={still} />
-      <DeviceScreens still={still} />
-      <Particles count={full ? 1700 : still ? 400 : 300} still={still} />
-      {!still && (
+      {stage >= 1 && (
+        <>
+          <DeviceScreens still={still} />
+          <Particles count={full ? 1700 : still ? 400 : 300} still={still} />
+        </>
+      )}
+      {stage >= 2 && !still && (
         <>
           <ServicesRings lite={!full} />
           <ProcessPath />
@@ -48,7 +75,7 @@ function World({ tier }) {
         </>
       )}
 
-      {full && (
+      {stage >= 2 && full && (
         <Suspense fallback={null}>
           <Effects />
         </Suspense>

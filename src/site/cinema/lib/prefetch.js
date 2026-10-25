@@ -24,7 +24,7 @@ export function prefetch3D(extra = []) {
   }
   const ric = window.requestIdleCallback || ((cb) => setTimeout(cb, 1))
   const start = () => {
-    timer = setTimeout(() => (idle = ric(run, { timeout: 3000 })), 1200)
+    timer = setTimeout(() => (idle = ric(run, { timeout: 1500 })), 300)
   }
   if (document.readyState === 'complete') start()
   else window.addEventListener('load', start, { once: true })
