@@ -4,6 +4,7 @@
 import { readFileSync, writeFileSync, mkdirSync, rmSync, readdirSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { pathToFileURL, fileURLToPath } from 'node:url'
+import { criticalCss } from './critical-css.mjs'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const dist = resolve(root, 'dist')
@@ -15,9 +16,12 @@ const { render, routes } = await import(pathToFileURL(resolve(ssrDir, entry)).hr
 const template = readFileSync(resolve(dist, 'index.html'), 'utf8')
 const SITE = 'https://vrlss.in'
 
-// The site styles live in a lazily loaded chunk. Link them in the HTML so the
-// prerendered page is styled on first paint instead of flashing unstyled.
+// The site styles live in a lazily loaded chunk. Each prerendered page gets only the rules it uses
+// inlined (critical CSS, see critical-css.mjs), so it paints fast even on slow phones; the full
+// stylesheet then loads without blocking the first paint.
 let cssLinks = ''
+let cssFiles = []
+let cssText = ''
 try {
   let manifest = {}
   try { manifest = JSON.parse(readFileSync(resolve(dist, '.vite', 'manifest.json'), 'utf8')) } catch {}
@@ -36,8 +40,11 @@ try {
     const css = readFileSync(resolve(dist, 'assets', f), 'utf8')
     if (css.includes('.nx-header') && css.includes('.nx-hv')) files.add('assets/' + f)
   }
-  // Inline the CSS: one request fewer before first paint (big win on slow mobile networks).
-  cssLinks = [...files]
+  cssFiles = [...files]
+  cssText = cssFiles.map((f) => readFileSync(resolve(dist, f), 'utf8')).join('\n')
+  if (/<\/style/i.test(cssText)) cssText = '' // never inline anything that could close the <style> tag
+  // Fallback (used only if critical CSS fails): inline the whole stylesheet.
+  cssLinks = cssFiles
     .map((f) => {
       const css = readFileSync(resolve(dist, f), 'utf8')
       return css.length < 400000 && !/<\/style/i.test(css) ? `<style data-inline="${f}">${css}</style>` : `<link rel="stylesheet" href="/${f}">`
@@ -77,11 +84,27 @@ try {
 console.log('3D files prefetched on the home page:', cm3d.join(', ') || 'NONE')
 const cm3dScript = cm3d.length ? `<script>window.__cm3d=${JSON.stringify(cm3d)}</script>` : ''
 
-console.log('css linked in HTML:', [...cssLinks.matchAll(/data-inline="([^"]+)"|href="([^"]+\.css)"/g)].map((m) => m[1] || m[2]).join(', ') || 'NONE')
+console.log('css for pages:', cssFiles.join(', ') || 'NONE')
+// This page's critical CSS inline, then the full stylesheet loaded without blocking first paint.
+const fullCssLinks = cssFiles
+  .map((f) => `<link rel="preload" href="/${f}" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/${f}"></noscript>`)
+  .join('')
+let critTotal = 0
+function cssFor(html) {
+  if (!cssText) return cssLinks
+  try {
+    const crit = criticalCss(html, cssText)
+    critTotal += crit.length
+    return `<style data-critical>${crit}</style>${fullCssLinks}`
+  } catch (e) {
+    console.warn('critical CSS failed, inlining the full stylesheet:', e.message)
+    return cssLinks
+  }
+}
 for (const r of routes) {
   const { html, head } = render(r.path)
   const lang = r.lang || 'en'
-  const page = template.replace('<html lang="en">', `<html lang="${lang}">`).replace('<!--app-head-->', cssLinks + '\n    ' + head + (r.path === '/' ? cm3dScript : '')).replace('<!--app-html-->', html)
+  const page = template.replace('<html lang="en">', `<html lang="${lang}">`).replace('<!--app-head-->', cssFor(html) + '\n    ' + head + (r.path === '/' ? cm3dScript : '')).replace('<!--app-html-->', html)
   const out = r.path === '/' ? resolve(dist, 'index.html') : resolve(dist, r.path.slice(1), 'index.html')
   mkdirSync(dirname(out), { recursive: true })
   writeFileSync(out, page)
@@ -163,5 +186,6 @@ writeFileSync(
   `Contact: mailto:sai.v.7079@gmail.com\nExpires: ${nextYear}\nPreferred-Languages: en\nCanonical: ${SITE}/.well-known/security.txt\n`,
 )
 
+if (cssText) console.log(`critical CSS: ${Math.round(critTotal / routes.length / 1024)} KB per page on average (full stylesheet ${Math.round(cssText.length / 1024)} KB)`)
 rmSync(ssrDir, { recursive: true, force: true })
 console.log('sitemap.xml + robots.txt written; done.')
