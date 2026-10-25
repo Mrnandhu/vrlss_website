@@ -258,15 +258,31 @@ export default function CinemaHome() {
     return () => ctx.revert()
   }, [caps, cinematic])
 
-  // The 3D scene (about 250 KB + GPU work) starts on the visitor's first touch, mouse move, wheel or key.
-  // Until then the light SVG orb shows, so speed tests (which never interact) measure the fast page.
-  // Its files are downloaded in the background after the page loads, so it then appears almost at once.
+  // The 3D scene starts by itself as soon as the page has loaded (the words and the SVG orb paint first),
+  // or earlier if the visitor touches / moves the mouse. On data-saver or 2G it waits for a touch instead.
+  // The gallery photos and screens download in the background so later scenes are ready too.
   useEffect(() => {
     if (!three || three === 'none') return
     const images = ['/cinema/screen-desktop.webp', '/cinema/screen-phone.webp', ...work.items.map((w) => w.image)]
     const stopPrefetch = prefetch3D(images)
-    const stop = onFirstInteraction(() => setMount3D(true))
-    return () => (stop(), stopPrefetch())
+    const start = () => setMount3D(true)
+    const stopTouch = onFirstInteraction(start)
+    const c = navigator.connection
+    const slowNet = !!(c && (c.saveData || /2g$/.test(c.effectiveType || '')))
+    const ric = window.requestIdleCallback || ((cb) => setTimeout(cb, 1))
+    const cic = window.cancelIdleCallback || clearTimeout
+    let idle = 0
+    const onLoad = () => { idle = ric(start, { timeout: 600 }) }
+    if (!slowNet) {
+      if (document.readyState === 'complete') onLoad()
+      else window.addEventListener('load', onLoad, { once: true })
+    }
+    return () => {
+      stopTouch()
+      stopPrefetch()
+      window.removeEventListener('load', onLoad)
+      if (idle) cic(idle)
+    }
   }, [three])
 
   const disable3D = () => setCaps((c) => ({ ...c, three: 'none' }))
