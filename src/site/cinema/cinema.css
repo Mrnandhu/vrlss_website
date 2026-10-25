@@ -31,7 +31,7 @@ html:has(.cm) body, .nx-app:has(.cm) { background: transparent; }
 .cm > section, .cm > div:not(.cm-grain) { position: relative; z-index: 1; }
 
 /* ---------- 3D layer ---------- */
-.cm-webgl { position: fixed; inset: 0; z-index: -1; opacity: 0; transition: opacity 1.8s var(--cm-ease); pointer-events: none; }
+.cm-webgl { position: fixed; inset: 0; z-index: -1; opacity: 0; transition: opacity 0.7s ease-out; pointer-events: none; }
 .cm-webgl.is-ready { opacity: 1; }
 .cm-webgl canvas { display: block; }
 html[data-cm='static'] .cm-webgl {
@@ -101,7 +101,7 @@ html.intro[data-cm-motion='on'] .cm-in { animation-delay: calc(var(--d, 0) * 0.1
 @keyframes cm-rise { from { opacity: 0; transform: translateY(28px); } }
 
 /* The SVG orb shows until the 3D scene is ready (it loads on first interaction), and stays when there is no WebGL. */
-.cm-fallback-orb { transition: opacity 1.4s var(--cm-ease, ease); }
+.cm-fallback-orb { transition: opacity 0.7s ease-out; }
 html[data-cm3d='on'] .cm-fallback-orb { opacity: 0; }
 html .cm-fallback-orb { display: block; position: absolute; right: -6vw; top: 46%; width: min(60vw, 700px); aspect-ratio: 1; translate: 0 -50%; pointer-events: none; }
 .cm-fallback-orb svg { position: relative; width: 100%; height: 100%; }

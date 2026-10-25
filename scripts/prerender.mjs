@@ -47,11 +47,41 @@ try {
   console.warn('CSS lookup failed, CSS not linked in HTML:', e.message)
 }
 
+// The 3D scene's files (loaded on the visitor's first interaction). The home page lists them so it can
+// download them in the background after load and show the 3D instantly (src/site/cinema/lib/prefetch.js).
+let cm3d = []
+try {
+  const manifest = JSON.parse(readFileSync(resolve(dist, '.vite', 'manifest.json'), 'utf8'))
+  const appFiles = new Set()
+  const walkApp = (k) => {
+    const m = manifest[k]
+    if (!m || appFiles.has(m.file)) return
+    appFiles.add(m.file)
+    ;(m.imports || []).forEach(walkApp)
+  }
+  Object.keys(manifest).filter((k) => manifest[k].isEntry || k.endsWith('src/site/App.jsx')).forEach(walkApp)
+  const seen = new Set()
+  const walk = (k) => {
+    const m = manifest[k]
+    if (!m || seen.has(k)) return
+    seen.add(k)
+    if (!appFiles.has(m.file)) cm3d.push('/' + m.file)
+    ;(m.imports || []).forEach(walk)
+    ;(m.dynamicImports || []).forEach(walk)
+  }
+  const key = Object.keys(manifest).find((k) => k.endsWith('src/site/cinema/three/Experience.jsx'))
+  if (key) walk(key)
+} catch (e) {
+  console.warn('3D file list not found:', e.message)
+}
+console.log('3D files prefetched on the home page:', cm3d.join(', ') || 'NONE')
+const cm3dScript = cm3d.length ? `<script>window.__cm3d=${JSON.stringify(cm3d)}</script>` : ''
+
 console.log('css linked in HTML:', [...cssLinks.matchAll(/data-inline="([^"]+)"|href="([^"]+\.css)"/g)].map((m) => m[1] || m[2]).join(', ') || 'NONE')
 for (const r of routes) {
   const { html, head } = render(r.path)
   const lang = r.lang || 'en'
-  const page = template.replace('<html lang="en">', `<html lang="${lang}">`).replace('<!--app-head-->', cssLinks + '\n    ' + head).replace('<!--app-html-->', html)
+  const page = template.replace('<html lang="en">', `<html lang="${lang}">`).replace('<!--app-head-->', cssLinks + '\n    ' + head + (r.path === '/' ? cm3dScript : '')).replace('<!--app-html-->', html)
   const out = r.path === '/' ? resolve(dist, 'index.html') : resolve(dist, r.path.slice(1), 'index.html')
   mkdirSync(dirname(out), { recursive: true })
   writeFileSync(out, page)

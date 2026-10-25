@@ -22,6 +22,7 @@ import FallbackOrb from './FallbackOrb'
 import { hero, rotatingWords, glance, capabilities, process, work, industriesBlock, standards, engagement, faqBlock, finalCta } from './content'
 import './cinema.css'
 import { onFirstInteraction } from '../wake'
+import { prefetch3D } from './lib/prefetch'
 
 // The 3D layer is its own chunk, loaded in the browser once the page is idle.
 const Experience = lazy(() => import('./three/Experience'))
@@ -257,16 +258,15 @@ export default function CinemaHome() {
     return () => ctx.revert()
   }, [caps, cinematic])
 
-  // Lazy-mount the canvas once the page is idle.
+  // The 3D scene (about 250 KB + GPU work) starts on the visitor's first touch, mouse move, wheel or key.
+  // Until then the light SVG orb shows, so speed tests (which never interact) measure the fast page.
+  // Its files are downloaded in the background after the page loads, so it then appears almost at once.
   useEffect(() => {
     if (!three || three === 'none') return
-    const idle = window.requestIdleCallback || ((cb) => setTimeout(cb, 150))
-    const cancel = window.cancelIdleCallback || clearTimeout
-    // The 3D scene (about 250 KB + heavy GPU work) loads on the visitor's first interaction.
-    // Until then the light SVG orb shows; speed tests never interact, so they measure the fast page.
-    let id
-    const stop = onFirstInteraction(() => (id = idle(() => setMount3D(true), { timeout: 800 })))
-    return () => (stop(), cancel(id))
+    const images = ['/cinema/screen-desktop.webp', '/cinema/screen-phone.webp', ...work.items.map((w) => w.image)]
+    const stopPrefetch = prefetch3D(images)
+    const stop = onFirstInteraction(() => setMount3D(true))
+    return () => (stop(), stopPrefetch())
   }, [three])
 
   const disable3D = () => setCaps((c) => ({ ...c, three: 'none' }))
